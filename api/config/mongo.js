@@ -1,19 +1,21 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
-const dbConnect = () =>{
+const dbConnect = () => {
+  const DB_URI = process.env.DB_URI;
+  mongoose.connect(
+    DB_URI,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
+    (err, res) => {
+      if (!err) {
+        console.log("*******CONECCION EXITOSA***********");
+      } else {
+        console.log("********ERROR DE CONECCION*********");
+      }
+    }
+  );
+};
 
-    const DB_URI = process.env.DB_URI;
-    mongoose.connect(DB_URI,{
-        useNewUrlParser:true,
-        useUnifiedTopology:true
-    },(err, res)=>{
-        if(!err){
-            console.log("*******CONECCION EXITOSA***********")
-        }else{
-            console.log("********ERROR DE CONECCION*********")
-        }
-    })
-
-}
-
-module.exports = dbConnect
+module.exports = dbConnect;
