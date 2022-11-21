@@ -8,8 +8,13 @@ const UsersSchema = new Schema({
     validator: (v) => {
       /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/gim.test(v);
     },
-    rol: [{ type: Schema.types.ObjectId, ref: "Rol" }],
   },
+  password:{
+    type: String
+  },
+  rol: { 
+    type: String,
+    ref: ["user", "admin", "guest"] }
 });
 
 module.exports = model("Users", UsersSchema);
