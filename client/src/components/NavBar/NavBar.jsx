@@ -7,7 +7,7 @@ import './NavBar.css';
 import { IconContext } from 'react-icons';
 import logo from '../../utils/logo.svg'
 import SeachBar from '../searchBar/searchBar'
-  
+
 function Navbar() {
     const [sidebar, setSidebar] = useState(false);
   
