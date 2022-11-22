@@ -1,15 +1,18 @@
-require ("dotenv").config()
-const express = require("express") 
-const cors = require("cors")
-const dbConnect = require("./config/mongo")
-const app =express()
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const dbConnect = require("./config/mongo");
+const routes = require("./routes/index.routes");
 
-app.use(cors())
+const app = express();
 
-const port =process.env.PORT || 3000
+app.use(cors());
+app.use("/", routes);
+
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-    console.log("La app esta corriendo http://localhost:" + port)
-})
+  console.log(`La app esta corriendo http://localhost: ${port}`);
+});
 
-dbConnect()
+dbConnect();
