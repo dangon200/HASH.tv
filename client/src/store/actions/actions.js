@@ -1,4 +1,6 @@
-export const REGISTER_USER = "REGISTER USER";
+
+import axios from 'axios'
+const urlApi = 'http://localhost:3001'
 
 export function registerUser(data) {
   return function (dispatch) {
@@ -11,7 +13,19 @@ export function registerUser(data) {
     })
       .then((res) => res.json())
       .then((data) => {
-        dispatch({ type: REGISTER_USER, payload: data });
+        dispatch({ type: 'REGISTER_USER', payload: data });
       });
   };
+}
+
+// Search Publication by Name
+
+export const searchByName = (name) => {
+  return async function (dispatch) {
+    return fetch(`${urlApi}/publications?name=${name}`).then((respuesta) =>
+      respuesta.json().then((dataP) => {
+        dispatch({ type: 'GET_PUBLICATIONS', payload: dataP })
+      })
+    )
+  }
 }
