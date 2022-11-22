@@ -1,10 +1,9 @@
 const { Router } = require("express");
 
-const signin = require("./signin.routes");
-const signout = require("./signout.routes");
+const authRoutes = require("./auth.routes");
+
 const router = Router();
 
-router.use("/", signin);
-router.use("/", signout);
+router.use("/api/auth", authRoutes);
 
-module.exports = router;
+module.exports = router
