@@ -32,4 +32,18 @@ router.get("/user/:id", async(req,res)=>{
     }
 })
 
+router.delete("/user/:id", async(req,res)=>{
+    try {
+    const {id} = req.params
+    if(!id){
+        res.send("Ingrese un User correcto")
+    }else{
+        Users.remove({_id: (id)})
+        res.send("User elminado con exito")
+    }
+  } catch (error) {
+        res.status(404).send("Se rompio como mi corazon")
+    }
+})
+
 module.exports = router
