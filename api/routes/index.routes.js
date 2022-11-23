@@ -7,6 +7,4 @@ const users = require("./users.routes");
 router.use("/", users);
 router.use("/api/auth", authRoutes);
 
-router.use("/", users);
-
 module.exports = router;
