@@ -3,10 +3,11 @@ const bcrypt = require("bcrypt");
 
 const UsersSchema = new Schema(
   {
-    name: { 
+    name: {
       type: String,
       required: true,
-      unique: true },
+      unique: true,
+    },
     email: {
       type: String,
       required: [true, "The email is required"],
@@ -20,11 +21,12 @@ const UsersSchema = new Schema(
     },
     rol: {
       type: String,
-      enum: ["User", "Guest", "Admin"], default: "Guest"
+      enum: ["User", "Guest", "Admin"],
+      default: "Guest",
     },
     stream: {
-      type: String   ///////////CREAR RELACION USER-STREAM
-    }
+      type: String, ///////////CREAR RELACION USER-STREAM
+    },
   },
   {
     timestamps: true,
@@ -35,6 +37,10 @@ const UsersSchema = new Schema(
 UsersSchema.methods.encryptPassword = async (password) => {
   const salt = await bcrypt.genSalt(10);
   return bcrypt.hash(password, salt);
+};
+
+UsersSchema.methods.comparePassword = async (password, receivePassword) => {
+  return await bcrypt.compare(password, receivePassword);
 };
 
 const Users = model("Users", UsersSchema);
