@@ -1,5 +1,6 @@
 const { Users } = require("../models/Users");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const signUp = async (req, res) => {
   const { name, email, password } = req.body;
@@ -9,14 +10,29 @@ const signUp = async (req, res) => {
     name,
     email,
     password: hash,
+    rol: "User",
   });
-  console.log(newUser);
   const savedUser = await newUser.save();
+  console.log(savedUser);
+  // const token = jwt.sign({ id: savedUser._id }, process.env.JWT_SEC, {
+  //   expiresIn: 86400,
+  // });
   res.json(savedUser);
 };
 
-const signIn = (req, res) => {
-  res.json("signin");
+const signIn = async (req, res) => {
+  const { email, password } = req.body;
+  const userFound = await Users.findOne({ email: email });
+  console.log(userFound);
+  if (!userFound) {
+    res.status(400).json({ message: "User not found" });
+  }
+  const matchPassword = await bcrypt.compare(password, userFound.password);
+  if (!matchPassword) {
+    res.status(401).json({ token: null, message: "Password Incorrect" });
+  }
+  console.log(userFound);
+  res.json("done");
 };
 
 module.exports = { signUp, signIn };

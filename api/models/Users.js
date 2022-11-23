@@ -34,14 +34,14 @@ const UsersSchema = new Schema(
   }
 );
 
-UsersSchema.methods.encryptPassword = async (password) => {
-  const salt = await bcrypt.genSalt(10);
-  return bcrypt.hash(password, salt);
-};
+// UsersSchema.methods.encryptPassword = async (password) => {
+//   const salt = await bcrypt.genSalt(10);
+//   return bcrypt.hash(password, salt);
+// };
 
-UsersSchema.methods.comparePassword = async (password, receivePassword) => {
-  return await bcrypt.compare(password, receivePassword);
-};
+// UsersSchema.methods.comparePassword = async (password, receivePassword) => {
+//   return await bcrypt.compare(password, receivePassword);
+// };
 
 const Users = model("Users", UsersSchema);
 
