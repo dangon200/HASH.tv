@@ -7,6 +7,8 @@ import {
   GET_STREAM_ID,
   GET_STREAM_NAME,
   POST_CATEGORIES,
+  ALLVIDEOS,
+  POPVIDEO,
 } from "./actions/actions";
 
 const initialState = {
@@ -14,6 +16,8 @@ const initialState = {
   usersDetail: {},
   stream: [],
   streamDetail: {},
+  getVideoFromDatabase: [],
+  popVideo: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -61,6 +65,18 @@ const rootReducer = (state = initialState, action) => {
     case POST_CATEGORIES:
       return {
         ...state,
+      };
+
+    case ALLVIDEOS:
+      return {
+        ...state,
+        getVideoFromDatabase: action.payload
+      };
+      
+    case POPVIDEO:
+      return {
+        ...state,
+        popVideo: action.payload
       };
     default:
       return { ...state };
