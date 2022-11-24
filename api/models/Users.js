@@ -1,5 +1,4 @@
 const { Schema, model, Types } = require("mongoose");
-const bcrypt = require("bcrypt");
 
 const UsersSchema = new Schema(
   {
@@ -19,11 +18,12 @@ const UsersSchema = new Schema(
     password: {
       type: String,
     },
-    rol: {
-      type: String,
-      enum: ["User", "Guest", "Admin"],
-      default: "Guest",
-    },
+    roles: [
+      {
+        type: Types.ObjectId,
+        ref: "Roles",
+      },
+    ],
     stream: {
       type: String, ///////////CREAR RELACION USER-STREAM
     },
@@ -34,15 +34,4 @@ const UsersSchema = new Schema(
   }
 );
 
-// UsersSchema.methods.encryptPassword = async (password) => {
-//   const salt = await bcrypt.genSalt(10);
-//   return bcrypt.hash(password, salt);
-// };
-
-// UsersSchema.methods.comparePassword = async (password, receivePassword) => {
-//   return await bcrypt.compare(password, receivePassword);
-// };
-
-const Users = model("Users", UsersSchema);
-
-module.exports = { Users };
+module.exports = model("Users", UsersSchema);
