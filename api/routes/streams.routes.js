@@ -7,7 +7,7 @@ router.get("/streams", async(req,res)=>{
     const stream= await Streams.find({})
     res.send(stream)
     } catch (error) {
-    res.status(404).send("Exito al traer los streams")    
+    res.status(404).send("Error al traer los streams")    
     }
 })
 
@@ -26,15 +26,7 @@ router.get("/streams/:id", async(req,res)=>{
     }
 })
 
-router.post("/streams", async(req,res)=>{
-    try {
-    const data= req.body
-        const stream = await Streams.create(data)
-        res.send(stream)
-    } catch (error) {
-        res.send("Error en Stream")
-    }
-})
+
 
 router.delete("/streams/:id", async(req,res)=>{
     try {

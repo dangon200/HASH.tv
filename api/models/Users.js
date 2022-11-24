@@ -24,9 +24,13 @@ const UsersSchema = new Schema(
       enum: ["User", "Guest", "Admin"],
       default: "Guest",
     },
-    stream: {
-      type: String, ///////////CREAR RELACION USER-STREAM
-    },
+    stream: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Streams",
+        }
+      ],
+       ///////////CREAR RELACION USER-STREAM
   },
   {
     timestamps: true,
