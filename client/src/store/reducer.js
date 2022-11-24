@@ -1,4 +1,5 @@
 import {
+  GET_USERS,
   POST_USER,
   GET_USER_ID,
   GET_USER_NAME,
@@ -24,6 +25,11 @@ const rootReducer = (state = initialState, action) => {
         publications: action.payload,
         error: action.payload,
       };
+    case GET_USERS:
+      return {
+        ...state,
+        users:action.payload
+    };
     case POST_USER:
       return {
         ...state,

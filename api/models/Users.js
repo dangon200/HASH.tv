@@ -18,20 +18,7 @@ const UsersSchema = new Schema(
     password: {
       type: String,
     },
-<<<<<<< HEAD
-    rol: {
-      type: String,
-      enum: ["User", "Guest", "Admin"],
-      default: "Guest",
-    },
-    stream: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: "Streams",
-        }
-      ],
-       ///////////CREAR RELACION USER-STREAM
-=======
+
     roles: [
       {
         type: Types.ObjectId,
@@ -41,7 +28,6 @@ const UsersSchema = new Schema(
     stream: {
       type: String, ///////////CREAR RELACION USER-STREAM
     },
->>>>>>> ec31573e9808a890256d5b5b805d760001793d12
   },
   {
     timestamps: true,

@@ -6,6 +6,7 @@ export const POST_STREAM = "POST_STREAM";
 export const GET_STREAM_ID = "GET_STREAM_ID";
 export const GET_STREAM_NAME = "GET_STREAM_NAME";
 export const POST_CATEGORIES = "POST_CATEGORIES";
+export const GET_USERS = "GET_USERS"
 
 const urlApi = 'http://localhost:3001'
 
@@ -67,6 +68,19 @@ export const getUserName = (name) => {
         `http://localhost:3001/api/user?name=${name}`
       );
       dispatch({ type: GET_USER_NAME, payload: json.data });
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};
+
+export const getUsers = () => {
+  return async function (dispatch) {
+    try {
+      const json = await axios.get(
+        `http://localhost:3001/api/user`
+      );
+      dispatch({ type: GET_USERS, payload: json.data });
     } catch (error) {
       return { error: error.message };
     }

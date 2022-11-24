@@ -1,4 +1,4 @@
-const {Streams} = require("../models/Stream")
+const Streams = require("../models/Stream")
 const Express = require ("express")
 const router = Express.Router()
 

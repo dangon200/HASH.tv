@@ -1,5 +1,4 @@
-const {Categories} = require("../models//Categories")
-const { Schema, model } = require("mongoose");
+const { Schema, model , Types} = require("mongoose");
 
 const StreamSchema = new Schema(
   {
@@ -12,16 +11,19 @@ const StreamSchema = new Schema(
   user:{
     type:String
   },
-  category: 
-    { type: String
-    }
+  category:[
+    {
+      type: Types.ObjectId,
+      ref: "Categories",
+    },
+  ]
     , ////  CREAR relacion Categorias
   description:{
     type:String
   },
   subcriptores:[
     {
-      type: Schema.ObjectId,
+      type: Types.ObjectId,
       ref: "Suscribers",
     },
   ], ///  CRAR relacion con Subcriptores
@@ -41,6 +43,8 @@ const StreamSchema = new Schema(
 }
 );
 
-const Streams = model("Streams", StreamSchema);
+// const Streams = model("Streams", StreamSchema);
 
-module.exports = {Streams};
+// module.exports = {Streams};
+
+module.exports = model("Streams", StreamSchema);
