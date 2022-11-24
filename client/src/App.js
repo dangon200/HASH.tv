@@ -9,6 +9,7 @@ import Explorar from './Pages/Explorar'
 import UserProfile from './Pages/UserProfile'
 import Support from './Pages/Support'
 import AboutUs from './Pages/AboutUs'
+import Details from './Pages/Details'
 
 function App() {
  /*  const cookies = new Cookies()
@@ -20,6 +21,7 @@ function App() {
       <Route exact path={['/', '/explorar', '/user', '/support', '/aboutus' ]} component={Nav} />
       <Switch>
       <Route exact path='/' component={Home} />
+      <Route exact path='/details' component={Details} />
       <Route exact path='/explorar' component={Explorar} />
       <Route exact path='/user' component={UserProfile} />
       <Route exact path='/support' component={Support} />
