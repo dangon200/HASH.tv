@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const categoriesSchema = new Schema({
+const CategoriesSchema = new Schema({
   category: {
     type: String,
     enum: ["Gaming", "Creative", "Sports", "Music", "Just Chatting"],
@@ -8,4 +8,6 @@ const categoriesSchema = new Schema({
   },
 });
 
-module.exports = model("Categories", categoriesSchema);
+const Categories = model("Categories", CategoriesSchema);
+
+module.exports = Categories;

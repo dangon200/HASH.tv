@@ -1,11 +1,12 @@
 import React from 'react';
+import StreamVideo from '../components/StreamVideo/StreamVideo';
 
 function Home() {
   
 
   return (
     <div className='home'>
-      <h1>Home</h1>
+      <StreamVideo />
     </div>
   );
 }
