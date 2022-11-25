@@ -1,3 +1,12 @@
-const { verifyToken } = require("./authJwt.js");
+const { verifyToken, isAdmin, isUser } = require("./authJwt");
+const { checkExistingUser, checkExistingRole } = require("./verifySignup");
+const checkExistingCategory = require("./verifyCategories");
 
-module.exports = { verifyToken };
+module.exports = {
+  verifyToken,
+  isAdmin,
+  isUser,
+  checkExistingUser,
+  checkExistingRole,
+  checkExistingCategory,
+};

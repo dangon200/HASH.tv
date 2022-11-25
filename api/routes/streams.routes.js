@@ -1,22 +1,24 @@
 const Streams = require("../models/Stream")
 const Express = require ("express")
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 const router = Express.Router()
 
 router.get("/streams", async(req,res)=>{
     try {
-        const {name} = req.query
-        const streamDb = await Streams.find({})
-        if(name){
-            const filterStream = streamDb.filter((stream)=>stream.name == name)
-            filterStream.length?
-            res.send(filterStream)
-            :res.send("Error al obtener Stream")
-    }else{
-        res.send(streamDb)
-    } 
-    } catch (error) {
-        res.status(404).send("Se rompio como mi corazon")        
-    }
+    const {name} = req.query
+    const streamsDb = await Streams.find({})
+    if(name){
+    const filterStreams =  streamsDb.filter((stream)=>stream.name.toLowerCase().includes(name.toLowerCase()))
+    console.log(filterStreams)
+    res.send(filterStreams)
+    
+}else{
+    res.send(streamsDb)
+} 
+} catch (error) {
+    res.status(404).send("Se rompio como mi corazon")        
+}
 })
 
 router.get("/streams/:id", async(req,res)=>{

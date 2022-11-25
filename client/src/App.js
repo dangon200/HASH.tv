@@ -10,6 +10,7 @@ import UserProfile from './Pages/UserProfile'
 import Support from './Pages/Support'
 import AboutUs from './Pages/AboutUs'
 
+
 function App() {
  /*  const cookies = new Cookies()
   const token = cookies.get('TOKEN')
@@ -24,7 +25,7 @@ function App() {
       <Route exact path='/user' component={UserProfile} />
       <Route exact path='/support' component={Support} />
       <Route exact path='/aboutus' component={AboutUs} />
-
+   
       </Switch>
     </div>
   );

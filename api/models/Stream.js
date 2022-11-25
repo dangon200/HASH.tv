@@ -2,11 +2,13 @@ const { Schema, model , Types} = require("mongoose");
 
 const StreamSchema = new Schema(
   {
+    name: 
+    {type:String, 
+    required: true,
+    unique: true,
+    },
   image:{
     type: String
-  },
-  name: 
-  {type:String
   },
   user:{
     type:String

@@ -39,13 +39,36 @@ function Home() {
             <p className='description-Game'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At distinctio deserunt recusandae, alias a provident repellat qui libero. Recusandae accusantium dolores voluptatem incidunt placeat ipsa hic dolorum temporibus cum maiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam facilis sapiente dignissimos, quia maiores eaque dicta optio velit architecto dolore corporis voluptatibus eveniet, alias, soluta accusamus laudantium dolorum voluptas!</p>
         </div>
       </div>
-      <div className='home-allgame'>
+      {/* <div className='home-allgame'>
         {videos.map(singleGif => (
           <Link to={'/details'} key={singleGif.id}>
         
             <img className='gif' src={singleGif.url} alt='gifGame'/>
           </Link>))}
+      </div> */}
+      <div className='container'>
+        <div className='main-card'>
+          <div className='cards'>
+            <div className='card'>
+              <div className='content'>
+                <div className='img'>
+                  {streams?.map((e)=>{
+                    return(
+                      <img src={e.image}/>
+                    )
+                  })}
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+      
     </div>
   );
 }
