@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { allVideoGamesDataBase, popularVideo } from '../store/actions/actions';
+import { allVideoGamesDataBase, popularVideo,getStreams,getCategories, getUsers } from '../store/actions/actions';
 import './Home.css'
 
 function Home() {
@@ -10,11 +10,21 @@ function Home() {
   const dispatch = useDispatch()
   const videos = useSelector(state => state.getVideoFromDatabase)
   const popVideo = useSelector(state => state.popVideo)
+  const streams = useSelector(state => state.streams)
+  const categories = useSelector(state => state.categories)
+  const users = useSelector(state => state.users)
 
   useEffect(() => {
     dispatch(popularVideo())
     dispatch(allVideoGamesDataBase())
+    dispatch(getStreams())
+    dispatch(getCategories())
+    dispatch(getUsers())
   },[])
+  console.log(streams)
+  console.log(categories)
+  console.log(users)
+
 
   return (
     <div className='home'>
@@ -32,7 +42,7 @@ function Home() {
       <div className='home-allgame'>
         {videos.map(singleGif => (
           <Link to={'/details'} key={singleGif.id}>
-            <p>{singleGif.title}</p>
+        
             <img className='gif' src={singleGif.url} alt='gifGame'/>
           </Link>))}
       </div>

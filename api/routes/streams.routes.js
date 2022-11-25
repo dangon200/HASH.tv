@@ -3,11 +3,17 @@ const Express = require ("express")
 const router = Express.Router()
 
 router.get("/streams", async(req,res)=>{
-    try {       
-    const stream= await Streams.find({})
-    res.send(stream)
+    try {
+        const {name} = req.query
+        const streamDb = await Streams.find({})
+        if(name){
+        const filterStream = streamDb.filter((stream)=>stream.name == name)
+        res.send(filterStream)
+    }else{
+        res.send(streamDb)
+    } 
     } catch (error) {
-    res.status(404).send("Error al traer los streams")    
+        res.status(404).send("Se rompio como mi corazon")        
     }
 })
 
@@ -34,7 +40,7 @@ router.delete("/streams/:id", async(req,res)=>{
     if(!id){
         res.send("Ingrese un Stream correcto")
     }else{
-        Streams.remove({_id:(id)})
+        Streams.deleteOne({_id:(id)})
         res.send("Stream eliminado con exito")
     }
   } catch (error) {

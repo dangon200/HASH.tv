@@ -9,6 +9,7 @@ router.get("/user", async(req,res)=>{
     if(name){
     const filterUser = usersDb.filter((users)=>users.name.toLowerCase().includes(name.toLowerCase()))
     res.send(filterUser)
+    
 }else{
     res.send(usersDb)
 } 
