@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const ROLES = ["User", "Admin", "Guest", "Moderator"];
+const ROLES = ["User", "Guest", "Admin", "Moderator"];
 
 const RolesSchema = new Schema(
   {
