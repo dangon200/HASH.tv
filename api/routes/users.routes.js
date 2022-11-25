@@ -8,7 +8,9 @@ router.get("/user", async(req,res)=>{
     const usersDb = await Users.find({})
     if(name){
     const filterUser = usersDb.filter((users)=>users.name.toLowerCase().includes(name.toLowerCase()))
+    filterUser.length?
     res.send(filterUser)
+    :res.send("Error al obtener User")
     
 }else{
     res.send(usersDb)

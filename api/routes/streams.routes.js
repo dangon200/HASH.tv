@@ -7,8 +7,10 @@ router.get("/streams", async(req,res)=>{
         const {name} = req.query
         const streamDb = await Streams.find({})
         if(name){
-        const filterStream = streamDb.filter((stream)=>stream.name == name)
-        res.send(filterStream)
+            const filterStream = streamDb.filter((stream)=>stream.name == name)
+            filterStream.length?
+            res.send(filterStream)
+            :res.send("Error al obtener Stream")
     }else{
         res.send(streamDb)
     } 
