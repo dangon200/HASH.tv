@@ -3,11 +3,21 @@ const Express = require ("express")
 const router = Express.Router()
 
 router.get("/streams", async(req,res)=>{
+    const { name } = req.query;
+    const stream = await Streams.find({})
     try {       
-    const stream= await Streams.find({})
-    res.send(stream)
+        if(name) {
+            const streamFilter = stream.filter((str) => str.name.toLowerCase().includes(name.toLowerCase()));
+
+            streamFilter.length
+            ? res.send(streamFilter)
+            : res.status(404).send("No se encontraron streamers con ese nombre");
+
+        } else {
+            res.send(stream)
+        }
     } catch (error) {
-    res.status(404).send("Exito al traer los streams")    
+        res.status(404).send("Exito al traer los streams")    
     }
 })
 
