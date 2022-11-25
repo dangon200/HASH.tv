@@ -3,7 +3,7 @@ const Express = require ("express")
 const router = Express.Router()
 
 router.get("/streams", async(req,res)=>{
-    const { name } = req.query;
+    const { name } = req.query
     const stream = await Streams.find({})
     try {       
         if(name) {
