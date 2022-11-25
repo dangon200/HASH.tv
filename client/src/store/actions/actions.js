@@ -37,12 +37,12 @@ export const searchByName = (name) => {
   }
 }
 
-/////////////////////////////////////
+////////////////////////////////////
 
 export const postUser = (data) => {
   return async function () {
     try {
-      await axios.post("http://localhost:3001/api/user", data);
+      await axios.post("http://localhost:3001/api/auth/signup", data)
     } catch (error) {
       return { error: error.message };
     }
