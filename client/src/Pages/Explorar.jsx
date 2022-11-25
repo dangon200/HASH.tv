@@ -1,11 +1,17 @@
 import React from 'react';
-import VerStream from '../components/StreamVideo/verStream';
+import Filters from '../components/Filters/Filters.jsx'
+import App from '../components/StreamVideo/App.js'
+import generateMuiTheme from "../components/StreamVideo/mui/theme";
+import { ThemeProvider } from "@material-ui/styles";
 
 function Explorar() {
   return (
     <div className='Explorar'>
       <h1>Explorar</h1>
-      <VerStream/>
+      <Filters/>
+      <ThemeProvider theme={generateMuiTheme()}>
+      <App/>
+      </ThemeProvider>
     </div>
   );
 }

@@ -1,9 +1,11 @@
-require ("dotenv").config()
-const express = require("express") 
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const dbConnect = require("./config/mongo");
+const routes = require("./routes/index.routes");
+require("./libs/initialSetup.js");
 const app = express();
 const bodyParser = require('body-parser')
-const cors = require("cors")
-const dbConnect = require("./config/mongo")
 const httpServer = require("http").createServer(app);
 const options =  {
   cors: {
@@ -14,8 +16,6 @@ const options =  {
 //const io = require("socket.io")(httpServer, options);
 const { Server } = require("socket.io");
 const io = new Server(httpServer, options);
-const routes = require("./routes/index.routes")
-
 
 app.use(cors());
 app.use(express.json());
@@ -36,11 +36,9 @@ const port = process.env.PORT || 3001;
 app.use(express.static(__dirname + "/public"));
 
 io.on('connection',function(socket){
-  setInterval(() => {
   socket.on('stream',function(image){
     socket.broadcast.emit('stream',image);
   });
-}, 1000);
 });
 
 app.use((err, req, res, next) => {
@@ -50,7 +48,7 @@ app.use((err, req, res, next) => {
   console.error(err)
   res.status(status).send(message)
 })
-httpServer.listen(port, () => {
+app.listen(port, () => {
   console.log(`La app esta corriendo http://localhost: ${port}`);
 });
 

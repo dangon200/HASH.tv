@@ -1,10 +1,9 @@
-const { Schema, model, Types } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
-const StreamSchema = new Schema({
-
+const StreamSchema = new Schema(
+  {
   name: 
-  { type: Types.ObjectId,
-    ref: "Users" 
+  {type:String
   },
   category: 
     {type:String
@@ -25,4 +24,4 @@ const StreamSchema = new Schema({
 
 const Streams = model("Streams", StreamSchema);
 
-module.exports = Streams;
+module.exports = {Streams};

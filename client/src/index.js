@@ -3,18 +3,15 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { SocketContext, socket } from './context/socket'
+// import { SocketContext, socket } from './context/socket'
 import { Provider } from "react-redux";
 import store from "./store/index";
-
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
-      <SocketContext.Provider value={socket}>
         <App />
-        </SocketContext.Provider>
       </BrowserRouter>
     </Provider>
   ,
@@ -25,3 +22,5 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+// <SocketContext.Provider value={socket}></SocketContext.Provider>

@@ -1,6 +1,6 @@
 import style from './searchBar.module.css'
 import { BsSearch } from 'react-icons/bs'
-import { searchByName } from '../../store/actions/actions'
+import { getStreamName } from '../../store/actions/actions'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 
@@ -18,7 +18,7 @@ export default function SeachBar ({ setPage }) {
       }, 1000)
     } else {
       setAlert(false)
-      dispatch(searchByName(name))
+      dispatch(getStreamName(name))
       setName('')
       // setPage(1)
     }
