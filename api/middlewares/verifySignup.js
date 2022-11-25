@@ -1,17 +1,12 @@
-const { ROLES } = require("../models/Roles");
 const { Roles } = require("../models/Roles");
+const { ROLES } = require("../models/Roles");
 const Users = require("../models/Users");
 
 const checkExistingUser = async (req, res, next) => {
   try {
-    // const userFound = await Users.findOne({ username: req.body.username });
-    // if (userFound)
-    //   return res.status(400).json({ message: "The user already exists" });
-
     const email = await Users.findOne({ email: req.body.email });
     if (email)
       return res.status(400).json({ message: "The email already exists" });
-
     next();
   } catch (error) {
     res.status(500).json(error);
@@ -31,5 +26,4 @@ const checkExistingRole = async (req, res, next) => {
   }
   next();
 };
-
 module.exports = { checkExistingUser, checkExistingRole };

@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const { Users } = require("../models/Users");
+const { Roles } = require("../models/Roles");
 
 const verifyToken = async (req, res, next) => {
   try {
@@ -19,3 +20,27 @@ const verifyToken = async (req, res, next) => {
 };
 
 module.exports = { verifyToken };
+
+const isAdmin = async (req, res, next) => {
+  try {
+    const user = await Users.findById(req.userId);
+    const roles = await Roles.find({ _id: { $in: user.roles } });
+
+    for (let i = 0; i < roles.length; i++) {
+      if (roles[i].name === "Admin") {
+        next();
+        return;
+      }
+    }
+    return res.status(403).json({ message: "Require Admin Role!" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({ message: error });
+  }
+};
+
+const isUser = async (req, res, next) => {
+  next();
+};
+
+module.exports = { verifyToken, isAdmin, isUser };

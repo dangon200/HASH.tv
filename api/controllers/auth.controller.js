@@ -16,23 +16,18 @@ const signUp = async (req, res) => {
 
     if (roles) {
       const foundRoles = await Roles.find({ name: { $in: roles } });
-      console.log(
-        "🚀 ~ file: auth.controller.js ~ line 18 ~ signUp ~ foundRoles",
-        foundRoles
-      );
       newUser.roles = foundRoles.map((role) => role._id);
     } else {
       const role = await Roles.findOne({ name: "User" });
       newUser.roles = [role._id];
     }
-
     const savedUser = await newUser.save();
     const token = jwt.sign({ id: savedUser._id }, process.env.JWT_SEC, {
       expiresIn: 86400,
     });
     res.status(200).json({ token });
   } catch (err) {
-    res.status(400).send(err);
+    res.status(400).json({error: err.message});
   }
 };
 
@@ -55,6 +50,7 @@ const signIn = async (req, res) => {
     const token = await jwt.sign({ id: userFound._id }, process.env.JWT_SEC, {
       expiresIn: 86400,
     });
+    console.log(token, "asdasd")
     res.status(200).json({ token });
   } catch (err) {
     res.status(400).json({ error: err.message });
