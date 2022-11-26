@@ -41,22 +41,27 @@ const Detail = (props) => {
                     </Link>
 
                     <div className={s.detail_cnt_info}>
-                        <div className={s.detail_cnt_info__list}>
-                            <p>Category: {streamDetail[0].category}</p>
+                        <div className={s.detail_cnt_info__cnt}>
+                            <div className={s.detail_cnt_info__list}>
+                                <p>Category: {streamDetail[0].category}</p>
+                            </div>
+                            <div className={s.detail_cnt_info__list}>
+                                <p>{streamDetail[0].description}</p>
+                            </div>
+                            <div className={s.detail_cnt_info__list}>
+                                <p>Suscriptores: {streamDetail[0].subcriptores}</p>
+                            </div>
+                            <div className={s.detail_cnt_info__list}>
+                                <p>Rules: {streamDetail[0].rules}</p>
+                            </div>
+                            <div className={s.detail_cnt_info__list}>
+                                <p>Network: {streamDetail[0].networks}</p>
+                            </div>
                         </div>
-                        <div className={s.detail_cnt_info__list}>
-                            <p>{streamDetail[0].description}</p>
+                        <div className={s.detail_cnt_info__contents}>
+                            {/* <p>Contents: {streamDetail[0].contents}</p> */}
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/rUxyKA_-grg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                        <div className={s.detail_cnt_info__list}>
-                            <p>Suscriptores: {streamDetail[0].subcriptores}</p>
-                        </div>
-                        <div className={s.detail_cnt_info__list}>
-                            <p>Rules: {streamDetail[0].rules}</p>
-                        </div>
-                        <div className={s.detail_cnt_info__list}>
-                            <p>Network: {streamDetail[0].networks}</p>
-                        </div>
-                        <p>Contents: {streamDetail[0].contents}</p>
                     </div>
                 
                     <Link to="/">

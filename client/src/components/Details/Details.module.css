@@ -23,6 +23,12 @@
   display: flex;
   width: 100%;
   height: auto;
+  transition: .5s;
+}
+
+.detail_cnt_user:hover {
+  box-shadow: 2px 1px 4px 1px rgba(0, 0, 0, 0.595);
+  transition: .5s;
 }
 
 .detail_cnt_user__img {
@@ -53,6 +59,13 @@
 .detail_cnt_info {
   /* background-color: aquamarine;  */
   padding: 1em 0;
+  display: flex;
+}
+
+.detail_cnt_info__cnt {
+  /* background-color: #F80000; */
+  width: 50%;
+  margin: 0 auto;
 }
 
 .detail_cnt_info__list {
@@ -64,6 +77,12 @@
   padding: .5em 0;
   margin-top: 10px;
   border-radius: 20px;
+}
+
+.detail_cnt_info__contents {
+  /* background-color: beige; */
+  width: 40%;
+  margin: 0 auto;
 }
 
 .button_back {
