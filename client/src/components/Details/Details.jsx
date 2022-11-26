@@ -60,7 +60,7 @@ const Detail = (props) => {
                         </div>
                         <div className={s.detail_cnt_info__contents}>
                             {/* <p>Contents: {streamDetail[0].contents}</p> */}
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/rUxyKA_-grg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="100%" height="450px"  src="https://www.youtube.com/embed/rUxyKA_-grg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                 

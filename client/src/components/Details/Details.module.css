@@ -80,9 +80,10 @@
 }
 
 .detail_cnt_info__contents {
-  /* background-color: beige; */
+  /* background-color: rgb(89, 72, 210); */
   width: 40%;
   margin: 0 auto;
+  padding: 1em 0;
 }
 
 .button_back {
