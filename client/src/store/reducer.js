@@ -4,9 +4,11 @@ import {
   LOGIN_USER,
   GET_USER_ID,
   GET_USER_NAME,
+  GET_STREAM,
   POST_STREAM,
   GET_STREAM_ID,
   GET_STREAM_NAME,
+  GET_CATEGORIES,
   POST_CATEGORIES,
   ALLVIDEOS,
   POPVIDEO,
@@ -17,6 +19,7 @@ const initialState = {
   usersDetail: {},
   stream: [],
   streamDetail: {},
+  categories: [],
   getVideoFromDatabase: [],
   popVideo: [],
 };
@@ -53,6 +56,8 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         users: action.payload,
       };
+    case GET_STREAM:
+      return { ...state, stream: action.payload };
     case POST_STREAM:
       return {
         ...state,
@@ -71,7 +76,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
       };
-
+    case GET_CATEGORIES:
+      return {
+        ...state,
+        categories: action.payload,
+      };
     case ALLVIDEOS:
       return {
         ...state,
