@@ -11,6 +11,7 @@ export const ALLVIDEOS = "ALLVIDEOS";
 export const POPVIDEO = "POPVIDEO";
 export const GET_USERS = "GET_USERS";
 export const GET_STREAMS = "GET_STREAMS"
+export const FILTER_CATEGORIES="FILTER_CATEGORIES"
 
 const urlApi = 'http://localhost:3001'
 
@@ -42,12 +43,12 @@ export const searchByName = (name) => {
   }
 }
 
-/////////////////////////////////////
+////////////////////////////////////
 
 export const postUser = (data) => {
   return async function () {
     try {
-      await axios.post("http://localhost:3001/api/user", data);
+      await axios.post("http://localhost:3001/api/auth/signup", data)
     } catch (error) {
       return { error: error.message };
     }
@@ -143,7 +144,7 @@ export const getCategories = () => {
   return async function (dispatch) {
     try {
       const json = await axios.get(
-        `http://localhost:3001/categories`
+        `http://localhost:3001/api`
       );
       dispatch({ type: GET_CATEGORIES, payload: json.data });
     } catch (error) {
@@ -161,6 +162,15 @@ export const postCategories = (data) => {
     }
   };
 };
+
+
+export function filterCategories(payload){
+  return{ 
+      type:"FILTER_CATEGORIES",
+      payload:payload
+  }
+}
+
 
 // AllVideos
 

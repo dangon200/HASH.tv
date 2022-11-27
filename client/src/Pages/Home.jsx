@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { allVideoGamesDataBase, popularVideo,getStreams,getCategories, getUsers } from '../store/actions/actions';
 import './Home.css'
+import Card from '../components/Card/Card';
+import Footer from '../components/Footer/Footer';
+import CardCategori from '../components/CardCategori/CardCategori';
 
 function Home() {
 
@@ -21,9 +24,9 @@ function Home() {
     dispatch(getCategories())
     dispatch(getUsers())
   },[])
-  console.log(streams)
-  console.log(categories)
-  console.log(users)
+  // console.log(streams)
+  // console.log(categories)
+  // console.log(users)
 
 
   return (
@@ -46,28 +49,8 @@ function Home() {
             <img className='gif' src={singleGif.url} alt='gifGame'/>
           </Link>))}
       </div> */}
-      <div className='container'>
-        <div className='main-card'>
-          <div className='cards'>
-            <div className='card'>
-              <div className='content'>
-                <div className='img'>
-                  {streams?.map((e)=>{
-                    return(
-                      <img src={e.image}/>
-                    )
-                  })}
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
+      <Card/>
+      <CardCategori/>
       
     </div>
   );

@@ -36,9 +36,9 @@ const checkExistingRole = async (req, res, next) => {
   if (roleBody) {
     for (let i = 0; i < roles.length; i++) {
       if (!ROLES.includes(roleBody)) {
-        return res.status(400).json({
-          message: `Role ${roleBody} does not exist`,
-        });
+        return res
+          .status(400)
+          .json({ message: `Role ${roleBody} does not exist` });
       }
     }
   }

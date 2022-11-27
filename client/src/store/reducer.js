@@ -10,7 +10,8 @@ import {
   ALLVIDEOS,
   POPVIDEO,
   GET_STREAMS,
-  GET_CATEGORIES
+  GET_CATEGORIES,
+  FILTER_CATEGORIES
 } from "./actions/actions";
 
 const initialState = {
@@ -81,6 +82,18 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
       };
+    case FILTER_CATEGORIES:
+      let allCategories=state.categories
+      let filterCategories
+      if(action.payload){
+        filterCategories= allCategories.filter((e)=>e.name?.includes(action.payload))
+      }
+      console.log(filterCategories)
+    
+      return {
+        ...state,
+        
+      };  
 
     case ALLVIDEOS:
       return {

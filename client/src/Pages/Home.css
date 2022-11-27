@@ -47,19 +47,3 @@
     border: 3px solid black;
 }
 
-.cards .card .content .img {
-    height: 130px;
-    width: 130px;
-
-}
-.cards .card .content .img img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-
-}
-body{
-    display: flex;
-    justify-content: center;
-}

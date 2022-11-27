@@ -12,7 +12,7 @@ const UsersSchema = new Schema(
       required: [true, "The email is required"],
       unique: true,
       // validator: (e) => {
-      //   /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/gim.test(e);
+      //   /^([\w.-]+)?\w+@[\w-]+(.\w+){1,}$/gim.test(e);
       // },
     },
     password: {
