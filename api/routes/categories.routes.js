@@ -8,7 +8,6 @@ const {
 const {
   verifyToken,
   isAdmin,
-  isUser,
   checkExistingCategory,
 } = require("../middlewares/index");
 
