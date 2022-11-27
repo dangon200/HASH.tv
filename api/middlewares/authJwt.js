@@ -35,7 +35,39 @@ const isAdmin = async (req, res, next) => {
 };
 
 const isUser = async (req, res, next) => {
-  next();
+  try {
+    const user = await Users.findById(req.userId);
+    const roles = await Roles.find({ _id: { $in: user.roles } });
+
+    for (let i = 0; i < roles.length; i++) {
+      if (roles[i].name === "User") {
+        next();
+        return;
+      }
+    }
+    return res.status(403).json({ message: "Require User Role!" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({ message: error });
+  }
 };
 
-module.exports = { verifyToken, isAdmin, isUser };
+const isModerattor = async (req, res, next) => {
+  try {
+    const user = await Users.findById(req.userId);
+    const roles = await Roles.find({ _id: { $in: user.roles } });
+
+    for (let i = 0; i < roles.length; i++) {
+      if (roles[i].name === "Moderator") {
+        next();
+        return;
+      }
+    }
+    return res.status(403).json({ message: "Require Moderator Role!" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({ message: error });
+  }
+};
+
+module.exports = { verifyToken, isAdmin, isUser, isModerattor };
