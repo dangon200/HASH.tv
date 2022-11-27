@@ -1,20 +1,43 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model , Types} = require("mongoose");
 
 const StreamSchema = new Schema(
   {
-  name: 
-  {type:String
+    name: 
+    {type:String, 
+    required: true,
+    unique: true,
+    },
+  image:{
+    type: String
   },
-  category: 
-    {type:String
-    }, ////  CREAR relacion Categorias
+  user:{
+    type:String
+  },
+  category:[
+    {
+      type: Types.ObjectId,
+      ref: "Categories",
+    },
+  ]
+    , ////  CREAR relacion Categorias
   description:{
     type:String
   },
-  subcriptores:
-    {type: String
-
-    } ///  CRAR relacion con Subcriptores
+  subcriptores:[
+    {
+      type: Types.ObjectId,
+      ref: "Suscribers",
+    },
+  ], ///  CRAR relacion con Subcriptores
+  rules:{
+    type:String
+  },  
+  networks:{
+    type:String
+  },
+  contents:{
+    type:String
+  }
 },
 {
   timestamps: true,
@@ -22,6 +45,8 @@ const StreamSchema = new Schema(
 }
 );
 
-const Streams = model("Streams", StreamSchema);
+// const Streams = model("Streams", StreamSchema);
 
-module.exports = {Streams};
+// module.exports = {Streams};
+
+module.exports = model("Streams", StreamSchema);

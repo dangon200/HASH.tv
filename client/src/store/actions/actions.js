@@ -6,8 +6,12 @@ export const POST_STREAM = "POST_STREAM";
 export const GET_STREAM_ID = "GET_STREAM_ID";
 export const GET_STREAM_NAME = "GET_STREAM_NAME";
 export const POST_CATEGORIES = "POST_CATEGORIES";
+export const GET_CATEGORIES = "GET_CATEGORIES";
 export const ALLVIDEOS = "ALLVIDEOS";
 export const POPVIDEO = "POPVIDEO";
+export const GET_USERS = "GET_USERS";
+export const GET_STREAMS = "GET_STREAMS"
+export const FILTER_CATEGORIES="FILTER_CATEGORIES"
 
 const urlApi = 'http://localhost:3001'
 
@@ -75,6 +79,19 @@ export const getUserName = (name) => {
   };
 };
 
+export const getUsers = () => {
+  return async function (dispatch) {
+    try {
+      const json = await axios.get(
+        `http://localhost:3001/api/user`
+      );
+      dispatch({ type: GET_USERS, payload: json.data });
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};
+
 export const postStream = (data) => {
   return async function () {
     try {
@@ -100,9 +117,36 @@ export const getStreamName = (name) => {
   return async function (dispatch) {
     try {
       const json = await axios.get(
-        `http://localhost:3001/api/streams?NAME=${name}`
+        `http://localhost:3001/api/streams?name=${name}`
       );
       dispatch({ type: GET_STREAM_NAME, payload: json.data });
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};
+
+export const getStreams = () => {
+  return async function (dispatch) {
+    try {
+      const json = await axios.get(
+        `http://localhost:3001/api/streams`
+      );
+      dispatch({ type: GET_STREAMS, payload: json.data });
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};
+
+
+export const getCategories = () => {
+  return async function (dispatch) {
+    try {
+      const json = await axios.get(
+        `http://localhost:3001/api`
+      );
+      dispatch({ type: GET_CATEGORIES, payload: json.data });
     } catch (error) {
       return { error: error.message };
     }
@@ -118,6 +162,15 @@ export const postCategories = (data) => {
     }
   };
 };
+
+
+export function filterCategories(payload){
+  return{ 
+      type:"FILTER_CATEGORIES",
+      payload:payload
+  }
+}
+
 
 // AllVideos
 

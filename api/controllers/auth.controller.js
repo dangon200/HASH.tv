@@ -6,6 +6,15 @@ const jwt = require("jsonwebtoken");
 const signUp = async (req, res) => {
   try {
     const { name, email, password, roles } = req.body;
+
+    // console.log(
+    //   "🚀 ~ file: auth.controller.js ~ line 9 ~ signUp ~ req.body",
+    //   req.body
+    // );
+    if(!name || !email){
+    res.status(404).send("Ingrese los datos correspondientes")  
+    }else{
+
     const salt = 10;
     const hash = await bcrypt.hash(password, salt);
     const newUser = new Users({
@@ -26,6 +35,7 @@ const signUp = async (req, res) => {
       expiresIn: 86400,
     });
     res.status(200).json({ token });
+  }
   } catch (err) {
     console.error(err);
   }

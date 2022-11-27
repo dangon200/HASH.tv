@@ -2,19 +2,32 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { allVideoGamesDataBase, popularVideo } from '../store/actions/actions';
+import { allVideoGamesDataBase, popularVideo,getStreams,getCategories, getUsers } from '../store/actions/actions';
 import './Home.css'
+import Card from '../components/Card/Card';
+import Footer from '../components/Footer/Footer';
+import CardCategori from '../components/CardCategori/CardCategori';
 
 function Home() {
 
   const dispatch = useDispatch()
   const videos = useSelector(state => state.getVideoFromDatabase)
   const popVideo = useSelector(state => state.popVideo)
+  const streams = useSelector(state => state.streams)
+  const categories = useSelector(state => state.categories)
+  const users = useSelector(state => state.users)
 
   useEffect(() => {
     dispatch(popularVideo())
     dispatch(allVideoGamesDataBase())
+    dispatch(getStreams())
+    dispatch(getCategories())
+    dispatch(getUsers())
   },[])
+  // console.log(streams)
+  // console.log(categories)
+  // console.log(users)
+
 
   return (
     <div className='home'>
@@ -29,13 +42,16 @@ function Home() {
             <p className='description-Game'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At distinctio deserunt recusandae, alias a provident repellat qui libero. Recusandae accusantium dolores voluptatem incidunt placeat ipsa hic dolorum temporibus cum maiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam facilis sapiente dignissimos, quia maiores eaque dicta optio velit architecto dolore corporis voluptatibus eveniet, alias, soluta accusamus laudantium dolorum voluptas!</p>
         </div>
       </div>
-      <div className='home-allgame'>
+      {/* <div className='home-allgame'>
         {videos.map(singleGif => (
           <Link to={'/details'} key={singleGif.id}>
-            <p>{singleGif.title}</p>
+        
             <img className='gif' src={singleGif.url} alt='gifGame'/>
           </Link>))}
-      </div>
+      </div> */}
+      <Card/>
+      <CardCategori/>
+      
     </div>
   );
 }

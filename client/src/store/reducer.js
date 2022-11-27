@@ -1,4 +1,5 @@
 import {
+  GET_USERS,
   POST_USER,
   GET_USER_ID,
   GET_USER_NAME,
@@ -8,13 +9,18 @@ import {
   POST_CATEGORIES,
   ALLVIDEOS,
   POPVIDEO,
+  GET_STREAMS,
+  GET_CATEGORIES,
+  FILTER_CATEGORIES
 } from "./actions/actions";
 
 const initialState = {
   users: [],
   usersDetail: {},
-  stream: [],
-  streamDetail: {},
+  streams:[],
+  streamName: [],
+  streamDetail: [],
+  categories:[],
   getVideoFromDatabase: [],
   popVideo: []
 };
@@ -28,6 +34,11 @@ const rootReducer = (state = initialState, action) => {
         publications: action.payload,
         error: action.payload,
       };
+    case GET_USERS:
+      return {
+        ...state,
+        users:action.payload
+    };
     case POST_USER:
       return {
         ...state,
@@ -35,13 +46,19 @@ const rootReducer = (state = initialState, action) => {
     case GET_USER_ID:
       return {
         ...state,
-        usersDetail: action.payload,
+        
       };
     case GET_USER_NAME:
       return {
         ...state,
         users: action.payload,
       };
+    case GET_STREAMS:
+      return{
+        ...state,
+        streams:action.payload
+      }  
+    
     case POST_STREAM:
       return {
         ...state,
@@ -54,12 +71,29 @@ const rootReducer = (state = initialState, action) => {
     case GET_STREAM_NAME:
       return {
         ...state,
-        stream: action.payload,
+        streamName: action.payload,
       };
+    case GET_CATEGORIES:
+      return {
+        ...state,
+        categories:action.payload
+      };  
     case POST_CATEGORIES:
       return {
         ...state,
       };
+    case FILTER_CATEGORIES:
+      let allCategories=state.categories
+      let filterCategories
+      if(action.payload){
+        filterCategories= allCategories.filter((e)=>e.name?.includes(action.payload))
+      }
+      console.log(filterCategories)
+    
+      return {
+        ...state,
+        
+      };  
 
     case ALLVIDEOS:
       return {

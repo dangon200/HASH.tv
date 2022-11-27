@@ -1,3 +1,4 @@
+
 const Express = require("express");
 const router = Express.Router();
 
@@ -7,6 +8,7 @@ const {
   deleteUser,
 } = require("../controllers/users.controller");
 const { verifyToken, isAdmin } = require("../middlewares/index");
+
 
 router.get("/users", getUsers);
 
