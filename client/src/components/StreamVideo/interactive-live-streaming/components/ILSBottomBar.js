@@ -5,7 +5,8 @@ import {
   usePubSub,
 } from "@videosdk.live/react-sdk";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { ClipboardIcon, CheckIcon } from "@heroicons/react/outline";
+import { BsSearch } from 'react-icons/bs'
+// import { ClipboardIcon, CheckIcon } from "@heroicons/react/outline";
 import recordingBlink from "../../animations/recording-blink.json";
 import liveHLS from "../../animations/live-hls.json";
 import useIsRecording from "../../hooks/useIsRecording";
@@ -809,9 +810,9 @@ export function ILSBottomBar({
             }}
           >
             {isCopied ? (
-              <CheckIcon className="h-5 w-5 text-green-400" />
+              <BsSearch className="h-5 w-5 text-green-400" />
             ) : (
-              <ClipboardIcon className="h-5 w-5 text-white" />
+              <BsSearch className="h-5 w-5 text-white" />
             )}
           </button>
         </div>

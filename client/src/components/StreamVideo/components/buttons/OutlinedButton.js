@@ -1,5 +1,5 @@
 import useResponsiveSize from "../../hooks/useResponsiveSize";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import { Tooltip } from "@material-ui/core";
 import { useEffect, useRef, useState } from "react";
 
@@ -117,7 +117,7 @@ export const OutlinedButton = ({
                   <Lottie
                     style={{ height: iconSize }}
                     options={lottieOption}
-                    eventListeners={[{ eventName: "done" }]}
+                    eventJisteners={[{ eventName: "done" }]}
                     height={iconSize}
                     width={
                       (iconSize * lottieOption?.width) / lottieOption?.height

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Motion as TransitionMotion, spring } from "react-motion";
+import { Motion as TransitionMotion, spring } from "@korbav/react-motion";
 import useResponsiveSize from "../../../hooks/useResponsiveSize";
-
 import PlayerViewer from "./PlayerViewer";
 
 const MotionPlayer = ({
@@ -50,7 +49,7 @@ const MotionPlayer = ({
             transform: `scale(${scale})`,
           }}
         >
-          <div style={{ height: `100%`, width: `100%` }}>
+          <div style={{ height: `80%`, width: `80%` }}>
             <PlayerViewer
               downstreamUrl={downstreamUrl}
               afterMeetingJoinedHLSState={afterMeetingJoinedHLSState}

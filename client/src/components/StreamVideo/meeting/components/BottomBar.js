@@ -5,7 +5,8 @@ import {
   usePubSub,
 } from "@videosdk.live/react-sdk";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { ClipboardIcon, CheckIcon } from "@heroicons/react/outline";
+import { BsSearch } from 'react-icons/bs'
+// import { ClipboardIcon, CheckIcon } from "@heroicons/react/outline";
 import recordingBlink from "../../animations/recording-blink.json";
 import useIsRecording from "../../hooks/useIsRecording";
 import RecordingIcon from "../../icons/Bottombar/RecordingIcon";
@@ -593,9 +594,9 @@ export function BottomBar({
             }}
           >
             {isCopied ? (
-              <CheckIcon className="h-5 w-5 text-green-400" />
+              <BsSearch className="h-5 w-5 text-green-400" />
             ) : (
-              <ClipboardIcon className="h-5 w-5 text-white" />
+              <BsSearch className="h-5 w-5 text-white" />
             )}
           </button>
         </div>
@@ -656,11 +657,15 @@ export function BottomBar({
         onOpen={handleClickFAB}
         style={{ paddingBottom: "100px" }}
       >
-        <Grid container className="bg-gray-800 py-6">
+        <Grid container className=".bg-info py-6">
           {otherFeatures.map(({ icon }) => {
             return (
               <Grid
-                className="flex items-center justify-center"
+              container
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+                className="flex items-center justify-center  "
                 item
                 xs={icon === BottomBarButtonTypes.MEETING_ID_COPY ? 7 : 4}
                 sm={icon === BottomBarButtonTypes.MEETING_ID_COPY ? 5 : 3}

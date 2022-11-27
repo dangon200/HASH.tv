@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import animationData from "../../../animations/wait_for_HLS_animation.json";
 import stoppedHLSSnimationData from "../../../animations/stopped_HLS_animation.json";
 import Hls from "hls.js";
@@ -76,7 +76,7 @@ const PlayerViewer = ({ downstreamUrl, afterMeetingJoinedHLSState }) => {
       setCanPlay(false);
     }
   };
-
+  
   useEffect(async () => {
     if (downstreamUrl) {
       checkHLSPlayable(downstreamUrl);
@@ -113,7 +113,7 @@ const PlayerViewer = ({ downstreamUrl, afterMeetingJoinedHLSState }) => {
   return (
     <div
       className={`h-full w-full ${
-        downstreamUrl && canPlay ? "bg-gray-800" : "bg-gray-750"
+        downstreamUrl && canPlay ? ".bg-dark" : ".bg-secondary"
       } relative overflow-hidden rounded-lg`}
     >
       {downstreamUrl && canPlay ? (
@@ -122,7 +122,7 @@ const PlayerViewer = ({ downstreamUrl, afterMeetingJoinedHLSState }) => {
             // controls={hlsPlayerControlsVisible}
             id="hlsPlayer"
             autoPlay={true}
-            style={{ width: "100%", height: "100%" }}
+            style={{ width: "80%", height: "80%" }}
           />
         </div>
       ) : (
@@ -134,7 +134,7 @@ const PlayerViewer = ({ downstreamUrl, afterMeetingJoinedHLSState }) => {
                   ? defaultOptionsStoppedHls
                   : defaultOptions
               }
-              eventListeners={[{ eventName: "done" }]}
+              eventlisteners={[{ eventName: "done" }]}
               height={lottieSize}
               width={lottieSize}
             />

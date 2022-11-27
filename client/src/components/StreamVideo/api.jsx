@@ -1,4 +1,4 @@
-export const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlrZXkiOiI0YzdlMDE4Yi1hYWQzLTQyMjYtYmUzMi1iYjc2OWUyMzlhMmUiLCJwZXJtaXNzaW9ucyI6WyJhbGxvd19qb2luIl0sImlhdCI6MTY2OTM2ODQzMSwiZXhwIjoxNjY5OTczMjMxfQ.wMETr1t6HJOCm6XdsAfS4mBdoZkm3pGsuuNZ90U_EII";
+export const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlrZXkiOiI4NGFmYTdlZS05YWI3LTRiNDktOTRhMy05YjhiYTM2NGUwODIiLCJwZXJtaXNzaW9ucyI6WyJhbGxvd19qb2luIl0sImlhdCI6MTY2OTQ0NzY3MSwiZXhwIjoxNjcwMDUyNDcxfQ.nNr_tU5wii1mz2r-xSamK-kLAE1jQcQXl4WnEjbgxWU";
 
 // API call to create meeting
 export const createMeeting = async () => {
@@ -10,7 +10,6 @@ export const createMeeting = async () => {
     },
     body: JSON.stringify({ region: "us001" }),
   });
-
   const { meetingId } = await res.json();
   return meetingId;
 };

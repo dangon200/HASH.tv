@@ -1,6 +1,6 @@
 import { Badge, Tooltip } from "@material-ui/core";
 import React, { useState } from "react";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 
 export const MobileIconButton = ({
   badge,
@@ -73,7 +73,7 @@ export const MobileIconButton = ({
                   <Lottie
                     style={{ height: iconSize }}
                     options={lottieOption}
-                    eventListeners={[{ eventName: "done" }]}
+                    eventlisteners={[{ eventName: "done" }]}
                     height={iconSize}
                     width={
                       (iconSize * lottieOption?.width) / lottieOption?.height

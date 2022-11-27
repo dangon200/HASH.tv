@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import useResponsiveSize from "../../hooks/useResponsiveSize";
 import animationData from "../../animations/join_meeting.json";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import { useTheme } from "@material-ui/core";
 
 const WaitingToJoinScreen = () => {
@@ -59,7 +59,7 @@ const WaitingToJoinScreen = () => {
       <div className="flex flex-col">
         <Lottie
           options={animationDefaultOptions}
-          eventListeners={[{ eventName: "done" }]}
+          eventlisteners={[{ eventName: "done" }]}
           height={lottieSize}
           width={lottieSize}
         />

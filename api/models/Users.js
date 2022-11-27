@@ -1,3 +1,4 @@
+const { text } = require("express");
 const { Schema, model, Types } = require("mongoose");
 
 const UsersSchema = new Schema(
@@ -18,6 +19,14 @@ const UsersSchema = new Schema(
     password: {
       type: String,
     },
+    /* region: {
+      type: String,
+      required: true
+    },
+    image: {
+      type: String,
+      defaultValue: null
+    }, */
     roles: [
       {
         type: Types.ObjectId,
@@ -34,5 +43,4 @@ const UsersSchema = new Schema(
   }
 );
 
-const Users = model("Users", UsersSchema);
-module.exports = {Users};
+module.exports = model("Users", UsersSchema);

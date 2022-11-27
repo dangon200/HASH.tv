@@ -1,15 +1,15 @@
 const Express = require("express");
 const router = Express.Router();
-// const { verifyToken } = require("../middlewares/index");
 const {
+  verifyToken,
   checkExistingUser,
   checkExistingRole,
-} = require("../middlewares/verifySignup");
-
+} = require("../middlewares/index");
 const { signUp, signIn } = require("../controllers/auth.controller");
 
-router.post("/signup", checkExistingUser, checkExistingRole, signUp);
+// router.post("/signup", checkExistingUser, checkExistingRole, signUp);
 
+router.post("/signup", checkExistingUser, checkExistingRole, signUp);
 router.post("/signin", signIn);
 
 module.exports = router;

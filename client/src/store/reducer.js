@@ -9,28 +9,39 @@ import {
   ALLVIDEOS,
   POPVIDEO,
   FILTER_PUBLICATIONS,
-  CLEAR_FILTER
+  CLEAR_FILTER,
+  GET_ALL_STREAMS,
+  LOGIN_USER,
+  LOGOUT_USER,
+  GET_FAVORITES_ID
 } from "./actions/actions";
 
 const initialState = {
+  user: '',
+  login: true,
   users: [],
   usersDetail: {},
   stream: [],
   allStreams: [],
   streamDetail: {},
   getVideoFromDatabase: [],
-  popVideo: []
+  popVideo: [],
+  favorites: []
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "GET_PUBLICATIONS":
+    case GET_ALL_STREAMS:
       return {
         ...state,
-        allPublications: action.payload,
-        publications: action.payload,
+        allStreams: action.payload,
+        streams: action.payload,
         error: action.payload,
       };
+    case LOGIN_USER:
+      return { ...state, user: action.payload }
+    case LOGOUT_USER:
+      return { ...state, user: '' }
     case POST_USER:
       return {
         ...state,
@@ -45,6 +56,8 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         users: action.payload,
       };
+    case GET_FAVORITES_ID:
+      return { ...state, favorites: action.payload }
     case POST_STREAM:
       return {
         ...state,

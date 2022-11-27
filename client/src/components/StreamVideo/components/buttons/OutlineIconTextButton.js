@@ -1,6 +1,6 @@
 import { Tooltip } from "@material-ui/core";
 import React, { useState, useRef, useEffect } from "react";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import useResponsiveSize from "../../hooks/useResponsiveSize";
 
 const OutlineIconTextButton = ({
@@ -107,7 +107,7 @@ const OutlineIconTextButton = ({
                 <Lottie
                   style={{ height: iconSize }}
                   options={lottieOption}
-                  eventListeners={[{ eventName: "done" }]}
+                  eventlisteners={[{ eventName: "done" }]}
                   height={iconSize}
                   width={
                     (iconSize * lottieOption?.width) / lottieOption?.height

@@ -15,7 +15,8 @@ import useResponsiveSize from "../../hooks/useResponsiveSize";
 import { red } from "@material-ui/core/colors";
 import { MeetingDetailsScreen } from "../MeetingDetailsScreen";
 import { createMeeting, getToken, validateMeeting } from "../../api";
-import { CheckCircleIcon } from "@heroicons/react/outline";
+import { BsSearch } from 'react-icons/bs'
+// import { CheckCircleIcon } from "@heroicons/react/outline";
 import SettingDialogueBox from "../SettingDialogueBox";
 import ConfirmBox from "../ConfirmBox";
 import { meetingTypes } from "../../utils/common";
@@ -553,7 +554,7 @@ export function JoiningScreen({
                               padding: 0,
                             }}
                           >
-                            <CheckCircleIcon className="h-5 w-5" />
+                            <BsSearch className="h-5 w-5" />
                           </IconButton>
                           <Typography
                             variant="subtitle1"
