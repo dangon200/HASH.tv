@@ -1,5 +1,7 @@
 import {
   POST_USER,
+  GET_USERS,
+  LOGIN_USER,
   GET_USER_ID,
   GET_USER_NAME,
   POST_STREAM,
@@ -16,17 +18,26 @@ const initialState = {
   stream: [],
   streamDetail: {},
   getVideoFromDatabase: [],
-  popVideo: []
+  popVideo: [],
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_USERS:
+      return {
+        ...state,
+        users: action.payload,
+      };
     case "GET_PUBLICATIONS":
       return {
         ...state,
         allPublications: action.payload,
         publications: action.payload,
         error: action.payload,
+      };
+    case LOGIN_USER:
+      return {
+        ...state,
       };
     case POST_USER:
       return {
@@ -64,13 +75,13 @@ const rootReducer = (state = initialState, action) => {
     case ALLVIDEOS:
       return {
         ...state,
-        getVideoFromDatabase: action.payload
+        getVideoFromDatabase: action.payload,
       };
-      
+
     case POPVIDEO:
       return {
         ...state,
-        popVideo: action.payload
+        popVideo: action.payload,
       };
     default:
       return { ...state };

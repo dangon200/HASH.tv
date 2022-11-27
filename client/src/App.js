@@ -6,7 +6,7 @@ import Cookies from 'universal-cookie' */
 import Nav from "./components/NavBar/NavBar";
 import Home from "./Pages/Home";
 import Explorar from "./Pages/Explorar";
-import UserProfile from "./Pages/UserProfile";
+import UserProfile from "./Pages/UserProfile/UserProfile";
 import Support from "./Pages/Support";
 import AboutUs from "./Pages/AboutUs";
 import Detail from "./components/Details/Details";
@@ -27,7 +27,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/explorar" component={Explorar} />
-        <Route exact path="/user" component={UserProfile} />
+        <Route exact path="/user/:id" component={UserProfile} />
         <Route exact path="/support" component={Support} />
         <Route exact path="/aboutus" component={AboutUs} />
         <Route path="/stream/:id" component={Detail} />
