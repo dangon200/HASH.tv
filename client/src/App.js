@@ -11,6 +11,8 @@ import Support from "./Pages/Support";
 import AboutUs from "./Pages/AboutUs";
 import Detail from "./components/Details/Details";
 import Form from "./components/Form/Form";
+import { StreamForm } from "./components/StreamForm/StreamForm";
+
 
 
 function App() {
@@ -34,6 +36,7 @@ function App() {
         <Route exact path="/aboutus" component={AboutUs} />
         <Route path="/stream/:id" component={Detail} />
         <Route path="/createUser" component={Form} />
+        <Route path="/stream" component={StreamForm} />
       </Switch>
     </div>
   );

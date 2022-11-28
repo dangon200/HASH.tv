@@ -1,0 +1,103 @@
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, auto);
+    grid-template-areas: 'a a a a'
+    'b b b b'
+    'c c d e'
+    'f g g e'
+    'h h i i'
+    'h h j j';
+    max-width: 1400px; 
+    margin: 1rem auto 0 auto;
+    gap: 1.5rem;
+    padding: 0 1rem 2rem 1rem;
+    text-align: start;
+}
+
+.first_card{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo_hash {
+    width: 100px;
+    height: 100px;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 1rem;
+    color: hsl(219, 29%, 14%);
+}
+
+.card:nth-child(1) {
+    grid-area: a;
+}
+
+.card:nth-child(2) {
+    grid-area: b;
+}
+
+.card:nth-child(3) {
+    grid-area: c;
+}
+
+.card:nth-child(4) {
+    grid-area: d;
+}
+
+.card:nth-child(5) {
+    grid-area: e;
+}
+
+.card:nth-child(6) {
+    grid-area: f;
+}
+
+.card:nth-child(7) {
+    grid-area: g;
+}
+
+.card:nth-child(8) {
+    grid-area: h;
+}
+
+.card:nth-child(9) {
+    grid-area: i;
+}
+
+.card:nth-child(10) {
+    grid-area: j;
+}
+
+
+.card_title {
+    font-size: 1.4rem;
+}
+
+.card_content {
+    font-size: 1.1rem;
+    opacity: 0.7;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+.user_image {
+    width: 100px;
+    height: 100px;
+    border-radius: 30px 0px 0px 0px;
+    margin-right: 1rem;
+}
+
+.user_name {
+    font-weight: 600;
+}
