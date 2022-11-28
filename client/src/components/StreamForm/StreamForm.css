@@ -1,0 +1,37 @@
+.form_body {
+    background-color: rosybrown;
+    height: 100vh;
+    background-image: linear-gradient(white, red);
+    display: flex;
+}
+
+.form_container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card_input {
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 1rem;
+    color: hsl(219, 29%, 14%);
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.card_input_title {
+    font-size: 1.4rem;
+}
+
+.card_input_name {
+    height: 40px;
+}
+
+.card_input_description {
+    height: 90px;
+}

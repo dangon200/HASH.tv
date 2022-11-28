@@ -22,7 +22,7 @@ function Home() {
     dispatch(allVideoGamesDataBase())
     dispatch(getStreams())
     dispatch(getCategories())
-    dispatch(getUsers())
+    // dispatch(getUsers())
   }, [])
   // console.log(streams)
   // console.log(categories)

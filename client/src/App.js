@@ -12,7 +12,7 @@ import AboutUs from "./Pages/AboutUs";
 import Detail from "./components/Details/Details";
 import Form from "./components/Form/Form";
 import Categories from "./Pages/Categories/Categories";
-
+import { StreamForm } from "./components/StreamForm/StreamForm";
 
 function App() {
   /*  const cookies = new Cookies()
@@ -27,7 +27,6 @@ function App() {
         component={Nav}
       />
       <Switch>
-  
         <Route exact path="/" component={Home} />
         <Route exact path="/explorar" component={Explorar} />
         <Route exact path="/user/:id" component={UserProfile} />
@@ -36,6 +35,7 @@ function App() {
         <Route path="/stream/:id" component={Detail} />
         <Route path="/createUser" component={Form} />
         <Route path="/categories/:id" component={Categories} />
+        <Route path="/stream" component={StreamForm} />
       </Switch>
     </div>
   );

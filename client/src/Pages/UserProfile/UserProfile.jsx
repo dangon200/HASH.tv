@@ -26,9 +26,9 @@ const UserProfile = (props) => {
                                 <div>
                             <p>Name: {userDetail[0].name}</p>
                             <p>Email: {userDetail[0].email}</p>
-                            {/* <Link to="streamform"> COLOCAR LINK DE FORM CREAR STREAM */}
+                            <Link to="/stream"> 
                             <button>CREATE CHANNEL</button>
-                            {/* </Link> */}
+                            </Link>
                             </div>
                             </div>
                         </div>
