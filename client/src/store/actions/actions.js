@@ -122,7 +122,7 @@ export const getStreamName = (name) => {
       );
       dispatch({ type: GET_STREAM_NAME, payload: json.data });
     } catch (error) {
-      return { error: error.message };
+      alert("No se encontro ese streamer")
     }
   };
 };

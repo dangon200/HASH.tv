@@ -7,7 +7,7 @@ function CardCategori(){
     const dispatch=useDispatch()
     const categories = useSelector(state => state.categories)
     const categoriesSlice=categories.slice(0,5)
-    console.log(categoriesSlice)
+    // console.log(categoriesSlice)
     
     const handleCategories=(e)=>{
         e.preventDefault()
