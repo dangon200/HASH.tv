@@ -1,7 +1,6 @@
 const Streams = require("../models/Stream")
 const Express = require ("express")
-const Sequelize = require('sequelize');
-const Op = Sequelize.Op;
+
 const router = Express.Router()
 
 router.get("/streams", async(req,res)=>{
@@ -52,7 +51,14 @@ router.delete("/streams/:id", async(req,res)=>{
     }
 })
 
-
-
+router.post("/streams", async(req,res)=>{
+    try {
+    const data= req.body
+        const stream = await Streams.create(data)
+        res.send(stream)
+    } catch (error) {
+        res.send("Error en Stream")
+    }
+})
 
 module.exports = router
