@@ -12,11 +12,11 @@ import FormLogin from '../FormLogin/FormLogin'
 import Modale from '../Modale/Modale'
 // import Navegador from '../Navegador/Navegador.jsx'
 
-function Navbar() {
+export default function Navbar() {
   const user = useSelector(state => state.user)
   const [sidebar, setSidebar] = useState(false);
-  
   const showSidebar = () => setSidebar(!sidebar);
+  console.log(user)
 
   return (
     <>
@@ -30,9 +30,11 @@ function Navbar() {
 
           <div className='navbar-nav ms-auto me-2 mb-2 mb-lg-0'>
 
-            {/* {user &&
-              <Navegador link='/Notificaciones' span='Notificaciones' className='nav-link' />}
             {user &&
+               <Link to={'/stream'} className='botton_stream'>Stream</Link>}
+            {user &&
+               <Link to={`/user/${user._id}`} className='botton_stream'>User</Link>}
+            {/* {user &&
               <Navegador link='/HashCash' span='Comprar HashCash' className='nav-link' />}
             {user &&
               <Navegador link='/profile' span='Perfil' className='nav-link' />} */}
@@ -68,5 +70,4 @@ function Navbar() {
     </>
   );
 }
-  
-  export default Navbar;  
+

@@ -1,6 +1,6 @@
 import style from './searchBar.module.css'
 import { BsSearch } from 'react-icons/bs'
-import { getStreamName } from '../../store/actions/actions'
+import { getStreamName} from '../../store/actions/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 
@@ -8,8 +8,9 @@ export default function SeachBar ({ setPage }) {
   const dispatch = useDispatch()
   const [name, setName] = useState('')
   const [alert, setAlert] = useState(false)
-
-  const streams = useSelector((state)=>state.streams)
+  const stream = useSelector((state)=>state.streamName)
+  // console.log(stream)
+////////////////////////
 
   function handleSubmit (e) {
     e.preventDefault()
@@ -22,7 +23,7 @@ export default function SeachBar ({ setPage }) {
       setAlert(false)
       dispatch(getStreamName(name))
       setName('')
-      setPage(1)
+      // setPage(1)
     }
   }
 
@@ -36,7 +37,7 @@ export default function SeachBar ({ setPage }) {
         <input
           className={`${style.inputSearch} ${alert && style.alert}`}
           type='text'
-          value={name}
+         
           placeholder={alert ? 'Ingresa una busqueda' : 'Buscar'}
           id='input'
           onChange={handleChange}

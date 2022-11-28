@@ -95,4 +95,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-}
+  }
+  .botton_stream {
+    color: white;
+    background-color: black;
+    border-color: 1px solid red;
+    border-radius: 20px;
+    font-size: 2rem;
+    margin-right: 2rem;
+  }
+  

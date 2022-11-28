@@ -1,26 +1,26 @@
 import React from "react";
 import '../Card/Card.css'
-import {useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Card() {
     const streams = useSelector(state => state.streams)
-    const streams3 = streams.slice(0,3)
+    const streams3 = streams.slice(0, 3)
     // console.log(streams3)
     // console.log(streams)
-    return(
+    return (
         <>
-        <div className="title">
-        <h2>Canales en directo que podrían gustarte</h2>
-        </div>
+            <div className="title">
+                <h2>Canales en directo que podrían gustarte</h2>
+            </div>
             <div className="container">
         {streams3?.map((e, index) =>{
             return(
                 <div key={index} className="card-container">
                     <div className="header">
                             <Link to={"/stream/"+ e._id}>
-                            <img src={e.image}/>
+                            <img alt="" src={e.image}/>
                             </Link>
                         <h2>
                           {e.user}

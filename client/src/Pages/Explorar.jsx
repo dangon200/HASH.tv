@@ -23,6 +23,7 @@ function Explorar() {
   const lastStreamsPerPage = page * StreamsPerPage
   const firstStreamsPerPage = lastStreamsPerPage - StreamsPerPage
   const currentPageStreams = Streams.slice(firstStreamsPerPage, lastStreamsPerPage)
+  console.log(currentPageStreams)
 
   const pages = []
   for (let i = 1; i <= Math.ceil(Streams.length / StreamsPerPage); i++) {
@@ -70,6 +71,8 @@ function Explorar() {
                     id={p._id}
                     name={p.name}
                     image={p.image}
+                    description={p.description}
+                    language={p.language}
                     key={p._id}
                   />
                 </div>

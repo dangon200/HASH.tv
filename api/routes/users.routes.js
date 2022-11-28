@@ -82,4 +82,6 @@ router.get("/user/:id", getUserById);
 
 router.delete("/user/:id", verifyToken, isAdmin, deleteUser);
 
+
+
 module.exports = router;

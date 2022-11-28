@@ -16,7 +16,7 @@ const signUp = async (req, res) => {
     //   "🚀 ~ file: auth.controller.js ~ line 9 ~ signUp ~ req.body",
     //   req.body
     // );
-    if(!name || !email){
+    if(!username || !email){
     res.status(404).send("Ingrese los datos correspondientes")  
     }else{
     const salt = 10;
@@ -64,7 +64,7 @@ const signIn = async (req, res) => {
     }, process.env.JWT_SEC, {
       expiresIn: 86400,
     });
-    const userData = {email: userFound.email, name: userFound.name}
+    const userData = {email: userFound.email, name: userFound.name, _id: userFound._id}
     res.status(200).json({ user: userData, token });
   } catch (err) {
     res.status(400).json({ error: err.message });

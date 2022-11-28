@@ -8,8 +8,9 @@ router.get("/streams", async(req,res)=>{
     const streamsDb = await Streams.find({})
     if(name){
     const filterStreams =  streamsDb.filter((stream)=>stream.name.toLowerCase().includes(name.toLowerCase()))
-    console.log(filterStreams)
+    filterStreams.length?
     res.send(filterStreams)
+    :res.status(404).send("No se escontro ese Streamer")
     
 }else{
     res.send(streamsDb)
@@ -152,5 +153,14 @@ router.get('/filter', async (req, res) => {
     }
   })
 
+router.post("/streams", async(req,res)=>{
+    try {
+    const data= req.body
+        const stream = await Streams.create(data)
+        res.send(stream)
+    } catch (error) {
+        res.send("Error en Stream")
+    }
+})
 
 module.exports = router

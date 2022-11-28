@@ -3,6 +3,7 @@ import '../Card/Card.css'
 import { Link } from "react-router-dom";
 
 function Card( id ) {
+    console.log(id)
     return(
             <div key={id} className="container">
                 <div className="card-container">
@@ -13,10 +14,13 @@ function Card( id ) {
                         <h2>
                           {id.name}
                         </h2>
+                        <h2>
+                          {id.language}
+                        </h2>
                     </div>
                     <div className="description">
                         <p>
-                           am, nisi accusamus qui magni eveniet consequatur id quo quas ullam enim minus dolorem quae ad ipsum!
+                        {id.description}
                         </p>
                     <div className="social">
                     </div>
@@ -25,8 +29,5 @@ function Card( id ) {
             </div>
            
             )
-            
-
-
 }
 export default Card;
