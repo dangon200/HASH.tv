@@ -12,6 +12,13 @@ const signUp = async (req, res) => {
       "🚀 ~ file: auth.controller.js ~ line 9 ~ signUp ~ req.body",
       req.body
     );
+    // console.log(
+    //   "🚀 ~ file: auth.controller.js ~ line 9 ~ signUp ~ req.body",
+    //   req.body
+    // );
+    if(!name || !email){
+    res.status(404).send("Ingrese los datos correspondientes")  
+    }else{
     const salt = 10;
     const hash = await bcrypt.hash(password, salt);
     const newUser = new Users({
@@ -22,28 +29,17 @@ const signUp = async (req, res) => {
 
     if (roles) {
       const foundRoles = await Roles.find({ name: { $in: roles } });
-      console.log(
-        "🚀 ~ file: auth.controller.js ~ line 23 ~ signUp ~ foundRoles",
-        foundRoles
-      );
       newUser.roles = foundRoles.map((role) => role._id);
     } else {
       const role = await Roles.findOne({ name: "User" });
-      console.log(
-        "🚀 ~ file: auth.controller.js ~ line 27 ~ signUp ~ role",
-        role
-      );
       newUser.roles = [role._id];
     }
     const savedUser = await newUser.save();
-    console.log(
-      "🚀 ~ file: auth.controller.js ~ line 25 ~ signUp ~ savedUser",
-      savedUser
-    );
     const token = jwt.sign({ id: savedUser._id }, process.env.JWT_SEC, {
       expiresIn: 86400,
     });
     res.status(200).json({ token });
+  }
   } catch (err) {
     console.error(err);
   }
@@ -53,10 +49,6 @@ const signIn = async (req, res) => {
   try {
     const { email, password } = req.body;
     const userFound = await Users.findOne({ email: email }).populate("roles");
-    console.log(
-      "🚀 ~ file: auth.controller.js ~ line 43 ~ signIn ~ userFound",
-      userFound
-    );
     if (!userFound) return res.status(400).json({ message: "Email not Found" });
     const matchPassword = await bcrypt.compare(password, userFound.password);
     if (!matchPassword) {

@@ -26,7 +26,7 @@ function Filters ({ setPage }) {
 
   return (
     <div className={`dropdown ${s.general}`}>
-      <a className={`dropdown-toggle px-5 py-2 ${s.filtros}`} href='/#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+      <a className={`dropdown-toggle px-5 py-2 ${s.filtros}`} href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
         Filtros
       </a>
       <ul className='dropdown-menu fs-4'>
@@ -35,16 +35,16 @@ function Filters ({ setPage }) {
             <option value='' id='opt'> Ordernar </option>
             <option value='az'> A-Z </option>
             <option value='za'> Z-A </option>
-            <option value='more'> Mayor Precio </option>
-            <option value='less'> Menor Precio </option>
+            <option value='more'> Mas Visitas </option>
+            <option value='less'> Menos Visitas </option>
           </select>
         </li>
          <li>
           <select className={s.optSelect} name='categoria' onChange={e => handleSort(e)}>
             <option value='' id='categoria'> Categoria </option>
-            {categoria && categoria.map(e => {
+            {categoria && categoria.map((e, index) => {
               return (
-                <option key={e} value={e}> {e} </option>
+                <option key={index} value={e}> {e} </option>
               )
             })}
           </select>
@@ -52,9 +52,9 @@ function Filters ({ setPage }) {
         <li>
           <select className={s.optSelect} name='lenguaje' onChange={e => handleSort(e)}>
             <option value='' id='lenguaje'> Lenguaje </option>
-            {lenguaje && lenguaje.map(e => {
+            {lenguaje && lenguaje.map((e, index) => {
               return (
-                <option key={e} value={e}> {e} </option>
+                <option key={index} value={e}> {e} </option>
               )
             })}
           </select>
@@ -62,9 +62,9 @@ function Filters ({ setPage }) {
         <li>
           <select className={s.optSelect} name='continente' onChange={e => handleSort(e)}>
             <option value='' id='continente'> Origen </option>
-            {continente && continente.map(e => {
+            {continente && continente.map((e, index) => {
               return (
-                <option key={e} value={e}> {e} </option>
+                <option key={index} value={e}> {e} </option>
               )
             })}
           </select>
@@ -74,7 +74,7 @@ function Filters ({ setPage }) {
       <button
         className={s.limpiarFiltros} onClick={() => {
           setFilter({
-            order: '',
+            opt: '',
             categoria: '',
             lenguaje: '',
             origin: ''
@@ -82,7 +82,7 @@ function Filters ({ setPage }) {
           dispatch(clearFilter())
           document.getElementById('opt').selected = true
           document.getElementById('lenguaje').selected = true
-          document.getElementById('category').selected = true
+          document.getElementById('categoria').selected = true
           document.getElementById('continente').selected = true
         }}
       > Limpiar Filtros

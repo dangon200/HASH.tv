@@ -6,14 +6,18 @@ export const POST_STREAM = "POST_STREAM";
 export const GET_STREAM_ID = "GET_STREAM_ID";
 export const GET_STREAM_NAME = "GET_STREAM_NAME";
 export const POST_CATEGORIES = "POST_CATEGORIES";
+export const GET_CATEGORIES = "GET_CATEGORIES";
 export const ALLVIDEOS = "ALLVIDEOS";
 export const POPVIDEO = "POPVIDEO";
-export const FILTER_PUBLICATIONS = "FILTER_PUBLICATIONS";
-export const CLEAR_FILTER = "CLEAR_FILTER";
 export const LOGIN_USER = "LOGIN_USER"
 export const LOGOUT_USER = "LOGOUT_USER"
 export const GET_FAVORITES_ID = "GET_FAVORITES_ID"
 export const GET_ALL_STREAMS = "GET_ALL_STREAMS"
+export const GET_USERS = "GET_USERS";
+export const GET_STREAMS = "GET_STREAMS";
+export const FILTER_CATEGORIES="FILTER_CATEGORIES";
+export const CLEAR_FILTER = "CLEAR_FILTER";
+export const FILTER_PUBLICATIONS = "FILTER_PUBLICATIONS"
 
 
 const urlApi = 'http://localhost:3001'
@@ -48,6 +52,30 @@ export function registerUser(data) {
   };
 }
 
+// Search Publication by Name
+
+export const searchByName = (name) => {
+  return async function (dispatch) {
+    return fetch(`${urlApi}/publications?name=${name}`).then((respuesta) =>
+      respuesta.json().then((dataP) => {
+        dispatch({ type: 'GET_PUBLICATIONS', payload: dataP })
+      })
+    )
+  }
+}
+
+////////////////////////////////////
+
+export const postUser = (data) => {
+  return async function () {
+    try {
+      await axios.post("http://localhost:3001/api/auth/signup", data)
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};
+
 export const getUserId = (id) => {
   return async function (dispatch) {
     try {
@@ -72,6 +100,7 @@ export const getUserName = (name) => {
   };
 };
 
+
 ///////// FAVORITES
 
 /* export const getFavorites = (id) => {
@@ -89,6 +118,18 @@ export const getUserName = (name) => {
 } */
 
 ///////// STREAM ACTIONS
+export const getUsers = () => {
+  return async function (dispatch) {
+    try {
+      const json = await axios.get(
+        `http://localhost:3001/api/user`
+      );
+      dispatch({ type: GET_USERS, payload: json.data });
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};
 
 export const postStream = (data) => {
   return async function () {
@@ -115,7 +156,7 @@ export const getStreamName = (name) => {
   return async function (dispatch) {
     try {
       const json = await axios.get(
-        `http://localhost:3001/api/streams?NAME=${name}`
+        `http://localhost:3001/api/streams?name=${name}`
       );
       dispatch({ type: GET_STREAM_NAME, payload: json.data });
     } catch (error) {
@@ -139,6 +180,33 @@ export function getAllStreams () {
 
 ///////// CATEGORIES ACTIONS
 
+export const getStreams = () => {
+  return async function (dispatch) {
+    try {
+      const json = await axios.get(
+        `http://localhost:3001/api/streams`
+      );
+      dispatch({ type: GET_STREAMS, payload: json.data });
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};
+
+
+export const getCategories = () => {
+  return async function (dispatch) {
+    try {
+      const json = await axios.get(
+        `http://localhost:3001/api`
+      );
+      dispatch({ type: GET_CATEGORIES, payload: json.data });
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};
+
 export const postCategories = (data) => {
   return async function () {
     try {
@@ -148,6 +216,15 @@ export const postCategories = (data) => {
     }
   };
 };
+
+
+export function filterCategories(payload){
+  return{ 
+      type:"FILTER_CATEGORIES",
+      payload:payload
+  }
+}
+
 
 // AllVideos
 
@@ -176,10 +253,10 @@ export function allVideoGamesDataBase() {
     } 
   }
   // FILTERS EPLORAR
-  export const filterCanalesStream = ({ category, lenguaje, origin, opt }) => {
+  export const filterCanalesStream = ({ categoria, lenguaje, continente, opt }) => {
     return async function (dispatch) {
       try {
-        const { data } = await axios.get(`${urlApi}/api/streams/filter?category=${category}&lenguaje=${lenguaje}&origin=${origin}&opt=${opt}`)
+        const { data } = await axios.get(`${urlApi}/api/streams/filter?category=${categoria}&lenguaje=${lenguaje}&continente=${continente}&opt=${opt}`)
         return dispatch({
           type: 'FILTER_STREAMS',
           payload: data

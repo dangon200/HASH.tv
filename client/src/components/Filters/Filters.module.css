@@ -26,12 +26,13 @@
     color: #fefefe;
     gap: 10px;
     width: 150px;
-    background-color: #890F0D;
+    height: max-content;
+    background-color: #ff0400;
     border: none;
 }
 .filtros:hover{
     color: #fefefe;
-    background-color: #890f0dd2;
+    background-color: #ff0400;
 }
 .optSelect{
     display: flex;

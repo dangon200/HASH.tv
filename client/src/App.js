@@ -16,9 +16,11 @@ import AboutUs from './Pages/AboutUs'
 import Cookies from 'universal-cookie'
 import { loginUser } from '../src/store/actions/actions'
 import { useDispatch } from 'react-redux'
+import Detail from "./components/Details/Details";
+
 
 function App() {
- /*  const cookies = new Cookies()
+  /*  const cookies = new Cookies()
   const token = cookies.get('TOKEN')
   const dispatch = useDispatch() */
   const cookies = new Cookies()
@@ -35,14 +37,16 @@ function App() {
     <div className="App">
       <Route exact path={['/', '/explorar', '/user', '/support', '/aboutus', '/register']} component={Nav} />
       <Switch>
-      <Route exact path='/register' component={LogInit} />
       <Route exact path='/' component={Home} />
       <Route exact path='/explorar' component={Explorar} />
+      <Route exact path='/register' component={LogInit} />
       <Route exact path='/user' component={UserProfile} />
       <Route exact path='/support' component={Support} />
       <Route exact path='/aboutus' component={AboutUs} />
+      <Route path="/stream/:id" component={Detail} />
+
       </Switch>
-      
+
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import {
+  GET_USERS,
   POST_USER,
   GET_USER_ID,
   GET_USER_NAME,
@@ -13,7 +14,10 @@ import {
   GET_ALL_STREAMS,
   LOGIN_USER,
   LOGOUT_USER,
-  GET_FAVORITES_ID
+  GET_FAVORITES_ID,
+  GET_STREAMS,
+  GET_CATEGORIES,
+  FILTER_CATEGORIES
 } from "./actions/actions";
 
 const initialState = {
@@ -24,6 +28,10 @@ const initialState = {
   stream: [],
   allStreams: [],
   streamDetail: {},
+  streams:[],
+  streamName: [],
+  streamDetail: [],
+  categories:[],
   getVideoFromDatabase: [],
   popVideo: [],
   favorites: []
@@ -42,6 +50,11 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, user: action.payload }
     case LOGOUT_USER:
       return { ...state, user: '' }
+    case GET_USERS:
+      return {
+        ...state,
+        users:action.payload
+    };
     case POST_USER:
       return {
         ...state,
@@ -49,7 +62,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_USER_ID:
       return {
         ...state,
-        usersDetail: action.payload,
+        
       };
     case GET_USER_NAME:
       return {
@@ -58,6 +71,12 @@ const rootReducer = (state = initialState, action) => {
       };
     case GET_FAVORITES_ID:
       return { ...state, favorites: action.payload }
+    case GET_STREAMS:
+      return{
+        ...state,
+        streams:action.payload
+      }  
+    
     case POST_STREAM:
       return {
         ...state,
@@ -70,12 +89,29 @@ const rootReducer = (state = initialState, action) => {
     case GET_STREAM_NAME:
       return {
         ...state,
-        stream: action.payload,
+        streamName: action.payload,
       };
+    case GET_CATEGORIES:
+      return {
+        ...state,
+        categories:action.payload
+      };  
     case POST_CATEGORIES:
       return {
         ...state,
       };
+    case FILTER_CATEGORIES:
+      let allCategories=state.categories
+      let filterCategories
+      if(action.payload){
+        filterCategories= allCategories.filter((e)=>e.name?.includes(action.payload))
+      }
+      console.log(filterCategories)
+    
+      return {
+        ...state,
+        
+      };  
 
     case ALLVIDEOS:
       return {

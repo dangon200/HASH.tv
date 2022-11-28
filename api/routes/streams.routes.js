@@ -1,20 +1,22 @@
-const {Streams} = require("../models/Stream")
+const Streams = require("../models/Stream")
 const Express = require ("express")
 const router = Express.Router()
 
 router.get("/streams", async(req,res)=>{
-    const name = req.query.name
-    try {       
-    const stream= await Streams.find({})
+    try {
+    const {name} = req.query
+    const streamsDb = await Streams.find({})
     if(name){
-    const filterStream = streamDb.filter((stream)=>stream._id == id)
-    filterStream.length?
-    res.send(filterStream)
-    :res.send(stream)
-    }
-    } catch (error) {
-    res.status(404).send("Error al traer los streams")    
-    }
+    const filterStreams =  streamsDb.filter((stream)=>stream.name.toLowerCase().includes(name.toLowerCase()))
+    console.log(filterStreams)
+    res.send(filterStreams)
+    
+}else{
+    res.send(streamsDb)
+} 
+} catch (error) {
+    res.status(404).send("Se rompio como mi corazon")        
+}
 })
 
 router.get("/streams/:id", async(req,res)=>{
@@ -48,7 +50,7 @@ router.delete("/streams/:id", async(req,res)=>{
     if(!id){
         res.send("Ingrese un Stream correcto")
     }else{
-        Streams.remove({_id:(id)})
+        Streams.deleteOne({_id:(id)})
         res.send("Stream eliminado con exito")
     }
   } catch (error) {

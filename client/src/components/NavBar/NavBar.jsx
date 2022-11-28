@@ -4,13 +4,13 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './NavBarData';
-import style from './NavBar.css';
+import './NavBar.css';
 import { IconContext } from 'react-icons';
 import logo from '../../utils/logo.svg'
 import SeachBar from '../searchBar/searchBar'
 import FormLogin from '../FormLogin/FormLogin'
 import Modale from '../Modale/Modale'
-import Navegador from '../Navegador/Navegador.jsx'
+// import Navegador from '../Navegador/Navegador.jsx'
 
 function Navbar() {
   const user = useSelector(state => state.user)
