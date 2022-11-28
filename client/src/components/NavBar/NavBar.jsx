@@ -25,6 +25,7 @@ function Navbar() {
             </Link>
            <img src={logo} alt="logo"/>
            <div className='search'><SeachBar/></div>
+           <Link to={'/stream'} className='botton_stream'>Stream</Link>
           </div> 
           <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
             <ul className='nav-menu-items' onClick={showSidebar}>
