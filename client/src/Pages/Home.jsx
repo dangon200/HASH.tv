@@ -16,6 +16,8 @@ function Home() {
   const streams = useSelector(state => state.streams)
   const categories = useSelector(state => state.categories)
   const users = useSelector(state => state.users)
+  const streamsName = useSelector(state => state.streamName)
+  console.log(streamsName)
 
   useEffect(() => {
     dispatch(popularVideo())
@@ -30,11 +32,19 @@ function Home() {
 
 
   return (
+    
     <div className='home'>
       <div className='home-popGame'>
         <h2>The Best Game in Live</h2>
-        <Link to={'/details'} key={popVideo.id}>
-          <img className='gifPOP' src={popVideo.url} alt="gifRandom" />
+        <Link to={`/stream/${streamsName.id}`} key={popVideo.id}>
+          {streamsName.length?
+          streamsName.map((e)=>{
+            return(
+              <img className='gifPOP' src={e.image} alt="gifRandom"/>
+            )
+          }) 
+          : <img className='gifPOP' src={popVideo.url} alt="gifRandom"/> 
+        }
         </Link>
         <div className='description'>
           <p className='titleGame'>{popVideo.title}</p>

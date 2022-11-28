@@ -8,7 +8,9 @@ const getUsers = async (req, res) => {
       const filterUser = usersDb.filter((users) =>
         users.name.toLowerCase().includes(name.toLowerCase())
       );
-      res.send(filterUser);
+      filterUser.length?
+      res.send(filterUser)
+      :res.send("No se encontro ese usuario")
     } else {
       res.send(usersDb);
     }

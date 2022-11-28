@@ -67,14 +67,15 @@ export const getUserId = (id) => {
 };
 
 export const getUserName = (name) => {
+  console.log("llegue")
   return async function (dispatch) {
     try {
       const json = await axios.get(
-        `http://localhost:3001/api/user?name=${name}`
+        `http://localhost:3001/api/users?name=${name}`
       );
       dispatch({ type: GET_USER_NAME, payload: json.data });
     } catch (error) {
-      return { error: error.message };
+      alert("Ese usuario o stream no existe");
     }
   };
 };
@@ -119,7 +120,7 @@ export const getStreamName = (name) => {
       );
       dispatch({ type: GET_STREAM_NAME, payload: json.data });
     } catch (error) {
-      return { error: error.message };
+      alert("No se encontro ese streamer")
     }
   };
 };
