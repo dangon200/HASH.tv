@@ -18,6 +18,7 @@ const UsersSchema = new Schema(
     password: {
       type: String,
     },
+
     roles: [
       {
         type: Types.ObjectId,

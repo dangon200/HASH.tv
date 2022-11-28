@@ -1,24 +1,25 @@
 import {
-  POST_USER,
   GET_USERS,
-  LOGIN_USER,
+  POST_USER,
   GET_USER_ID,
   GET_USER_NAME,
-  GET_STREAM,
   POST_STREAM,
   GET_STREAM_ID,
   GET_STREAM_NAME,
-  GET_CATEGORIES,
   POST_CATEGORIES,
   ALLVIDEOS,
   POPVIDEO,
+  GET_STREAMS,
+  GET_CATEGORIES,
+  FILTER_CATEGORIES,
 } from "./actions/actions";
 
 const initialState = {
   users: [],
   usersDetail: {},
-  stream: [],
-  streamDetail: {},
+  streams: [],
+  streamName: [],
+  streamDetail: [],
   categories: [],
   getVideoFromDatabase: [],
   popVideo: [],
@@ -26,11 +27,6 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_USERS:
-      return {
-        ...state,
-        users: action.payload,
-      };
     case "GET_PUBLICATIONS":
       return {
         ...state,
@@ -38,9 +34,10 @@ const rootReducer = (state = initialState, action) => {
         publications: action.payload,
         error: action.payload,
       };
-    case LOGIN_USER:
+    case GET_USERS:
       return {
         ...state,
+        users: action.payload,
       };
     case POST_USER:
       return {
@@ -56,8 +53,12 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         users: action.payload,
       };
-    case GET_STREAM:
-      return { ...state, stream: action.payload };
+    case GET_STREAMS:
+      return {
+        ...state,
+        streams: action.payload,
+      };
+
     case POST_STREAM:
       return {
         ...state,
@@ -70,17 +71,31 @@ const rootReducer = (state = initialState, action) => {
     case GET_STREAM_NAME:
       return {
         ...state,
-        stream: action.payload,
-      };
-    case POST_CATEGORIES:
-      return {
-        ...state,
+        streamName: action.payload,
       };
     case GET_CATEGORIES:
       return {
         ...state,
         categories: action.payload,
       };
+    case POST_CATEGORIES:
+      return {
+        ...state,
+      };
+    case FILTER_CATEGORIES:
+      let allCategories = state.categories;
+      let filterCategories;
+      if (action.payload) {
+        filterCategories = allCategories.filter((e) =>
+          e.name?.includes(action.payload)
+        );
+      }
+      console.log(filterCategories);
+
+      return {
+        ...state,
+      };
+
     case ALLVIDEOS:
       return {
         ...state,

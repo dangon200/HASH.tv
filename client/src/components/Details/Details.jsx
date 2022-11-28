@@ -18,9 +18,6 @@ const Detail = (props) => {
     return (
         <div>
             <Navbar />
-            <Link to="/">
-                <button>Back</button>
-            </Link>
             <Link to="/user">
                 <button>User</button>
             </Link>

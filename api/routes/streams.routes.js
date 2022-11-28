@@ -1,14 +1,24 @@
-const {Streams} = require("../models/Stream")
+const Streams = require("../models/Stream")
 const Express = require ("express")
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 const router = Express.Router()
 
 router.get("/streams", async(req,res)=>{
-    try {       
-    const stream= await Streams.find({})
-    res.send(stream)
-    } catch (error) {
-    res.status(404).send("Exito al traer los streams")    
-    }
+    try {
+    const {name} = req.query
+    const streamsDb = await Streams.find({})
+    if(name){
+    const filterStreams =  streamsDb.filter((stream)=>stream.name.toLowerCase().includes(name.toLowerCase()))
+    console.log(filterStreams)
+    res.send(filterStreams)
+    
+}else{
+    res.send(streamsDb)
+} 
+} catch (error) {
+    res.status(404).send("Se rompio como mi corazon")        
+}
 })
 
 router.get("/streams/:id", async(req,res)=>{
@@ -26,15 +36,7 @@ router.get("/streams/:id", async(req,res)=>{
     }
 })
 
-router.post("/streams", async(req,res)=>{
-    try {
-    const data= req.body
-        const stream = await Streams.create(data)
-        res.send(stream)
-    } catch (error) {
-        res.send("Error en Stream")
-    }
-})
+
 
 router.delete("/streams/:id", async(req,res)=>{
     try {
@@ -42,7 +44,7 @@ router.delete("/streams/:id", async(req,res)=>{
     if(!id){
         res.send("Ingrese un Stream correcto")
     }else{
-        Streams.remove({_id:(id)})
+        Streams.deleteOne({_id:(id)})
         res.send("Stream eliminado con exito")
     }
   } catch (error) {

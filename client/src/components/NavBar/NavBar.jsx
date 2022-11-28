@@ -7,7 +7,7 @@ import './NavBar.css';
 import { IconContext } from 'react-icons';
 import logo from '../../utils/logo.svg'
 import SeachBar from '../searchBar/searchBar'
-import SingIn from '../FormSingIn/FormSingIn';
+
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -24,10 +24,6 @@ function Navbar() {
             <img src={logo} alt="logo" />
           </Link>
           <div className='search'><SeachBar /></div>
-          <Link to="/createUser" >
-            <button>SingUp</button>
-          </Link>
-          <SingIn />
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>

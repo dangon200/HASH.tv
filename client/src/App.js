@@ -13,6 +13,7 @@ import Detail from "./components/Details/Details";
 import Form from "./components/Form/Form";
 import Categories from "./Pages/Categories/Categories";
 
+
 function App() {
   /*  const cookies = new Cookies()
   const token = cookies.get('TOKEN')
@@ -26,6 +27,7 @@ function App() {
         component={Nav}
       />
       <Switch>
+  
         <Route exact path="/" component={Home} />
         <Route exact path="/explorar" component={Explorar} />
         <Route exact path="/user/:id" component={UserProfile} />

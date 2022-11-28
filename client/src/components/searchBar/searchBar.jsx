@@ -1,14 +1,18 @@
 import style from './searchBar.module.css'
 import { BsSearch } from 'react-icons/bs'
-import { searchByName } from '../../store/actions/actions'
-import { useDispatch } from 'react-redux'
+import { getStreamName } from '../../store/actions/actions'
+import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
+import { useEffect } from 'react'
 
 export default function SeachBar ({ setPage }) {
   const dispatch = useDispatch()
   const [name, setName] = useState('')
   const [alert, setAlert] = useState(false)
-
+/////////////////////////////////////
+  const stream = useSelector((state)=>state.stream)
+  console.log(stream)
+////////////////////////
   function handleSubmit (e) {
     e.preventDefault()
     if (!name) {
@@ -18,7 +22,7 @@ export default function SeachBar ({ setPage }) {
       }, 1000)
     } else {
       setAlert(false)
-      dispatch(searchByName(name))
+      dispatch(getStreamName(name))
       setName('')
       // setPage(1)
     }

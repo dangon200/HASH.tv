@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../store/actions/actions";
+import { Link } from "react-router-dom";
 import './FormSingIn.css'
 
 const SingIn = () => {
@@ -33,7 +34,9 @@ const SingIn = () => {
                 <form onSubmit={handlerSubmit}>
                     <input type="email" placeholder="E-mail" onChange={emailChangeHandler} value={email} />
                     <input type="password" placeholder="Password" onChange={passwordChangeHandler} value={password} />
+<Link to="/createUser">
                     <button submit="submit" disabled={!email || !password}>LOGIN</button>
+                    </Link>
                 </form>
             </nav>
         </>
