@@ -3,10 +3,10 @@
 } */
 
 .divPagination{
-    display: flex;
+    display:contents    ;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     gap: 8px;
     animation: show 3s;
 }
@@ -28,6 +28,7 @@
 }
 
 .containerProducts{
+    padding: 2px;
     align-items: center;
     margin-right: 10px;
     display: grid;

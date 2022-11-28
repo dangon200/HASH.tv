@@ -157,9 +157,9 @@ export default function FormLogin () {
   }
   if (user) {
     return (
-      <div className='container'>
-        <div className='row'>
-          <button className='btn btn-danger fs-5 mt-5 ' type='submit' onClick={() => removeCookies()}>Cerrar sesión</button>
+      <div className={style.container}>
+        <div className='modal-content'>
+          <button className='btn btn-danger btn-lg justify-content-center align-middle fs-5 mt-5 ' type='submit' onClick={() => removeCookies()}>Cerrar sesión</button>
         </div>
 
       </div>
@@ -200,7 +200,7 @@ export default function FormLogin () {
             />
             {touched.password && errors.password ? <div className='invalid-feedback fs-4'>{errors.password}</div> : null}
           </div>
-          {!userLogged && <button disabled={send && true} className='btn btn-success fs-4 mt-3 ' type='submit'>{!send ? 'Iniciar sesión' : '....'}</button>}
+          {!userLogged && <button disabled={send && true} className='btn btn-primary fs-4 mt-3 ' type='submit'>{!send ? 'Iniciar sesión' : '....'}</button>}
 
           {err &&
             <div className='alert alert-danger mt-3 text-center' role='alert'><p>{message}</p></div>}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { categoria, lenguaje, continente } from '../utilities/data.js'
 import { useDispatch } from 'react-redux'
-import { filterCanalesStream, clearFilter } from '../../store/actions/actions'
+import { filterCanalesStream, clearFilter, getStreams } from '../../store/actions/actions'
 import s from './Filters.module.css'
 
 function Filters ({ setPage }) {
@@ -26,17 +26,17 @@ function Filters ({ setPage }) {
 
   return (
     <div className={`dropdown ${s.general}`}>
-      <a className={`dropdown-toggle px-5 py-2 ${s.filtros}`} href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+    <div className={`dropdown-toggle px-5 py-2 ${s.filtros}`} href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
         Filtros
-      </a>
+      </div>
       <ul className='dropdown-menu fs-4'>
         <li>
           <select className={s.optSelect} name='opt' onChange={e => handleSort(e)}>
             <option value='' id='opt'> Ordernar </option>
             <option value='az'> A-Z </option>
             <option value='za'> Z-A </option>
-            <option value='more'> Mas Visitas </option>
-            <option value='less'> Menos Visitas </option>
+            <option value='more'> Mas suscriptores</option>
+            <option value='less'> Menos suscriptores </option>
           </select>
         </li>
          <li>
@@ -80,6 +80,7 @@ function Filters ({ setPage }) {
             origin: ''
           })
           dispatch(clearFilter())
+          dispatch(getStreams())
           document.getElementById('opt').selected = true
           document.getElementById('lenguaje').selected = true
           document.getElementById('categoria').selected = true
@@ -91,3 +92,7 @@ function Filters ({ setPage }) {
       )
     }
     export default Filters
+
+    {/* <div className={`dropdown-toggle px-5 py-2 ${s.filtros}`} href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+        Filtros
+      </div> */}

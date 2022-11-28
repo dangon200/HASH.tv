@@ -1,5 +1,4 @@
 import React from "react"
-import Navbar from "../NavBar/NavBar"
 import { Link } from "react-router-dom"
 import { getStreamId } from "../../store/actions/actions"
 import { useDispatch, useSelector } from "react-redux"
@@ -18,11 +17,10 @@ const Detail = (props) => {
 
     return (
         <div>
-            <Navbar />
             <LinkContainer>
                 <StyledLink to="/">Back</StyledLink>
                 <span style={{ fontWeight: '700', fontSize: '20px' }}>CONTENIDO EN VIVO</span>
-                <StyledLink to={`/user`}>Mi Perfil</StyledLink>
+                {/* <StyledLink to={`/user`}>Mi Perfil</StyledLink> */}
             </LinkContainer>
             <div style={{ display: 'flex', justifyContent: 'space-evenly', width: '100%', marginTop: '10px', height: '88vh' }}>
                 <div style={{

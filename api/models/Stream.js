@@ -25,7 +25,7 @@ const StreamSchema = new Schema(
   description:{
     type:String
   },
-  subcriptores:[
+  suscriptores:[
     {
      type:String
     },
@@ -43,7 +43,7 @@ const StreamSchema = new Schema(
     type: ['Inglés', 'Chino mandarín', 'Hindi', 'Español', 'Francés', 'Ruso', 'Portugués', 'Alemán', 'Japonés' ], default: "Español"
   },
   continent:{
-    type:["África", "Antártida", "Asia", "Europa", "América del Norte", "Oceanía", "América del Sur"], default: "América del Sur"
+    type:["África", "Antártida", "Asia", "Europa", "Norteamérica", "Oceanía", "Sudamérica"], default: "Sudamérica"
   },
 },
 {

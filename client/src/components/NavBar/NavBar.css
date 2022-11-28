@@ -1,13 +1,11 @@
 .navbar {
-    justify-content: start;
     background-color: #040404;
-    height: 50px;
+    height: 60px;
     display: flex;
     align-items: center;
     margin: 2px;
     border-radius: 16px;
     position: sticky;
-    top: 2px;
     z-index: 1000;
   }
   
@@ -17,6 +15,10 @@
     font-size: 2rem;
     background: none;
   }
+  .navbar-user{
+    margin: 0 auto;
+    align-items:center;
+  }
   
   .nav-menu {
     margin: 2px;
@@ -25,11 +27,13 @@
     height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: start;
     position: fixed;
     top: 0;
     left: -100%;
     transition: 1000ms;
     border-radius: 16px;
+    z-index: 1001;
   }
   
   .nav-menu.active {
@@ -41,7 +45,7 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    padding: 4px 4px 4px 6px;
+    padding: 4px 4px 4px 4px;
     list-style: none;
     height: 60px;
   }
@@ -49,7 +53,7 @@
   .nav-text a {
     text-decoration: none;
     color: #fafafa;
-    font-size: 18px;
+    font-size: 20px;
     width: 95%;
     height: 100%;
     display: flex;
@@ -89,7 +93,7 @@
     margin: 0 auto;
     justify-content: center; 
     display: flex;
-    align-items:initial;
+    align-items:center;
   }
   .links{
     display: flex;
@@ -97,11 +101,25 @@
     align-items: center;
   }
   .botton_stream {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: var(--btn-background-color);
+    background-color: #ff0400;
+    font-family: var(--font-family-2);
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+    margin: 0 1rem;
+    padding: 12px;
+    width: 120px; 
+    height: 20px;
+    border: none; 
+    border-radius: 10px;
     color: white;
-    background-color: black;
-    border-color: 1px solid red;
-    border-radius: 20px;
-    font-size: 2rem;
-    margin-right: 2rem;
   }
+  .submitSearch:hover{
+    background-color: #03EFFE;
+    color: var(--btn-background-color);
+}
   

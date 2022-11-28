@@ -1,6 +1,7 @@
 const Streams = require("../models/Stream")
 const Express = require ("express")
 const router = Express.Router()
+const { getStreamsDb } = require('../controllers/Streams')
 
 router.get("/streams", async(req,res)=>{
     try {
@@ -20,18 +21,18 @@ router.get("/streams", async(req,res)=>{
 }
 })
 
-router.get("/streams/:id", async(req,res)=>{
+router.get("/streams/id/:id", async(req,res)=>{
     try {
         const {id} = req.params
-        const streamDb = await Streams.find({})
+        const streamDb = await getStreamsDb()
         if(id){
-        const filterStream = streamDb.filter((stream)=>stream._id == id)
+        const filterStream = streamDb.filter((stream)=>stream._id.toString() === id)
         filterStream.length?
         res.send(filterStream)
         :res.send("Error al obtener Id de Stream")
     }
     } catch (error) {
-        res.status(404).send("Se rompio como mi corazon")        
+        res.status(400).send(error)        
     }
 })
 
@@ -41,11 +42,11 @@ router.post("/streams", async(req,res)=>{
         const stream = await Streams.create(data)
         res.send(stream)
     } catch (error) {
-        res.send("Error en Stream")
+        res.send()
     }
 })
 
-router.delete("/streams/:id", async(req,res)=>{
+/* router.delete("/streams/id/:id", async(req,res)=>{
     try {
     const {id} = req.params
     if(!id){
@@ -57,97 +58,50 @@ router.delete("/streams/:id", async(req,res)=>{
   } catch (error) {
         res.status(404).send("Se rompio como mi corazon")
     }
-})
+}) */
 
-router.get('/filter', async (req, res) => {
-    const { category, lenguaje, origin, opt } = req.query
-  
-    console.log(opt)
-  
+router.get('/streams/filter', async (req, res) => {
+    const { categoria, lenguaje, continente, opt } = req.query
     try {
       let streams = await getStreamsDb()
-  
-      if (category) {
-        stream = streams.filter(streams => streams.type === type)
+      if (categoria) {
+        streams = streams.filter(stream => stream.category[0] === categoria)
       }
-  
       if (lenguaje) {
-        streams = streams.filter(streams => streams.varietal === varietal)
+        streams = streams.filter(stream => stream.language[0] === lenguaje)
       }
   
-      if (origin) {
-        streams = streams.filter(streams => streams.origin === origin)
+      if (continente) {
+        streams = streams.filter(stream => stream.continent[0] === continente)
       }
-  
-      if (!streams.length) return res.status(200).json('No hay publicaciones con los filtros seleccionados!')
+      if (!streams.length) return res.status(200).json('No hay streams con los filtros seleccionados!')
   
       if (opt === 'az') {
         streams = streams.sort((a, b) => {
-          if (a.title.toLowerCase() > b.title.toLowerCase()) return 1
-          if (a.title.toLowerCase() < b.title.toLowerCase()) return -1
+          if (a.name.toLowerCase() > b.name.toLowerCase()) return 1
+          if (a.name.toLowerCase() < b.name.toLowerCase()) return -1
           return 0
         })
       } else if (opt === 'za') {
         streams = streams.sort((a, b) => {
-          if (a.title.toLowerCase() < b.title.toLowerCase()) return 1
-          if (a.title.toLowerCase() > b.title.toLowerCase()) return -1
+          if (a.name.toLowerCase() < b.name.toLowerCase()) return 1
+          if (a.name.toLowerCase() > b.name.toLowerCase()) return -1
           return 0
         })
       } else if (opt === 'more') {
         streams = streams.sort((a, b) => {
-          if (a.price < b.price) return 1
-          if (a.price > b.price) return -1
+          if (a.suscriptores[0] < b.suscriptores[0]) return 1
+          if (a.suscriptores[0] > b.suscriptores[0]) return -1
           return 0
         })
       } else if (opt === 'less') {
         streams = streams.sort((a, b) => {
-          if (a.price > b.price) return 1
-          if (a.price < b.price) return -1
+          if (a.subcriptores[0] > b.subcriptores[0]) return 1
+          if (a.subcriptores[0] < b.subcriptores[0]) return -1
           return 0
         })
       }
-  
       res.status(200).json(streams)
-    } catch (error) {
-      res.status(400).json(error.message)
-    }
-  })
-  router.get('/:id', async (req, res) => {
-    const { id } = req.params
-    try {
-      const pb = await getOnePublication(id)
-  
-      if (!pb) {
-        return res
-          .status(404)
-          .json(`Publicacion con el ID: ${id} no encontrada!`)
-      }
-  
-      res.status(200).json(pb)
-    } catch (error) {
-      res.status(404).json(error.message)
-    }
-  })
-  
-  router.get('/order/:opt', async (req, res) => {
-    try {
-      const { opt } = req.params
-  
-      let results = []
-  
-      if (opt === 'more') {
-        results = await orderPublicationsMorePrice()
-      } else if (opt === 'less') {
-        results = await orderPublicationsLessPrice()
-      } else if (opt === 'az') {
-        results = await orderPublicationsAtoZ()
-      } else if (opt === 'za') {
-        results = await orderPublicationsZtoA()
-      } else {
-        return res.status(404).json('No existe ningun filtro con esas opciones!')
-      }
-  
-      res.status(200).json(results)
     } catch (error) {
       res.status(400).json(error.message)
     }

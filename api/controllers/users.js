@@ -25,7 +25,7 @@ const getAllUsers = async () => {
   const results = []
 
   try {
-    const dbResults = await Users.findAll()
+    const dbResults = await Users.findAll({})
 
     dbResults.forEach((r) => {
       results.push({

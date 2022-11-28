@@ -8,7 +8,6 @@ const dbConnect = require("./config/mongo");
 const routes = require("./routes/index.routes");
 require("./libs/initialSetup.js");
 
-
 const app = express();
 
 app.use(bodyParser.json({ limit: '50mb' }))

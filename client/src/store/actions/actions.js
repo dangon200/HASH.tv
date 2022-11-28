@@ -16,7 +16,7 @@ export const GET_ALL_STREAMS = "GET_ALL_STREAMS"
 export const GET_USERS = "GET_USERS";
 export const GET_STREAMS = "GET_STREAMS";
 export const CLEAR_FILTER = "CLEAR_FILTER";
-export const FILTER_PUBLICATIONS = "FILTER_PUBLICATIONS"
+export const FILTER_STREAMS = "FILTER_STREAMS"
 export const FILTER_CATEGORIES = "FILTER_CATEGORIES";
 
 const urlApi = "http://localhost:3001";
@@ -142,7 +142,8 @@ export const postStream = (data) => {
 export const getStreamId = (id) => {
   return async function (dispatch) {
     try {
-      const json = await axios.get(`http://localhost:3001/api/streams/${id}`);
+      const json = await axios.get(`http://localhost:3001/api/streams/id/${id}`);
+      console.log(json)
       dispatch({ type: GET_STREAM_ID, payload: json.data });
     } catch (error) {
       return { error: error.message };
@@ -162,19 +163,6 @@ export const getStreamName = (name) => {
     }
   };
 };
-export function getAllStreams () {
-  return async function (dispatch) {
-    try {
-      const api = await axios.get(`${urlApi}/publications`)
-      return dispatch({
-        type: 'GET_PUBLICATIONS',
-        payload: api.data
-      })
-    } catch (error) {
-      console.log(error)
-    }
-  }
-}
 
 ///////// CATEGORIES ACTIONS
 
@@ -251,7 +239,7 @@ export function allVideoGamesDataBase() {
   export const filterCanalesStream = ({ categoria, lenguaje, continente, opt }) => {
     return async function (dispatch) {
       try {
-        const { data } = await axios.get(`${urlApi}/api/streams/filter?category=${categoria}&lenguaje=${lenguaje}&continente=${continente}&opt=${opt}`)
+        const { data } = await axios.get(`${urlApi}/api/streams/filter?categoria=${categoria}&lenguaje=${lenguaje}&continente=${continente}&opt=${opt}`)
         return dispatch({
           type: 'FILTER_STREAMS',
           payload: data

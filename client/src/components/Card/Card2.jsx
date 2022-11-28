@@ -3,10 +3,9 @@ import '../Card/Card.css'
 import { Link } from "react-router-dom";
 
 function Card( id ) {
-    console.log(id)
     return(
             <div key={id} className="container">
-                <div className="card-container">
+                <div className={'card-container'} >
                     <div className="header">
                             <Link to={"/stream/"+id.id}>
                             <img alt="" src={id.image}/>

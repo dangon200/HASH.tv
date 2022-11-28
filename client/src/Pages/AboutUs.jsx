@@ -15,7 +15,7 @@ function AboutUs() {
           <header>
             <h2 className='card_title'>HASH.tv</h2>  
             <p className='card_content'>
-              HASH.tv es una plataforma interactiva de transmisión en vivo, puede ver los juegos más populares en vivo, compartir sus propias experiencias de juego y unirse a una increíble comunidad creada especialmente para jugadores, creadores y hacedores.
+            HASH.tv es una plataforma interactiva de transmisión en vivo, puede ver los juegos más populares en vivo, compartir sus propias experiencias de juego y unirse a una increíble comunidad creada por y para jugadores.
             </p>
           </header>
         </article>

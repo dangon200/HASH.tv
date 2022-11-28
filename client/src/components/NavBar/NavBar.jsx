@@ -28,12 +28,17 @@ export default function Navbar() {
           <img src={logo} alt="logo"/>
           <div className='search'><SeachBar/></div>
 
-          <div className='navbar-nav ms-auto me-2 mb-2 mb-lg-0'>
+          <div className={`d-flex justify-content-end h-75 d-inline-block`}>
 
             {user &&
-               <Link to={'/stream'} className='botton_stream'>Stream</Link>}
+            <Link className='botton_stream' to="/stream">
+            <button className='botton_stream' >Stream</button>
+            </Link>
+               }
             {user &&
-               <Link to={`/user/${user._id}`} className='botton_stream'>User</Link>}
+              <Link className='botton_stream' to={`/user/${user._id}`}>
+              <button className='botton_stream' >User</button>
+            </Link>}
             {/* {user &&
               <Navegador link='/HashCash' span='Comprar HashCash' className='nav-link' />}
             {user &&

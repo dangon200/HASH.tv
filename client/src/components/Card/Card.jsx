@@ -26,7 +26,7 @@ function Card() {
                           {e.user}
                         </h2>
                         <h4>
-                            asfasgfagasdg
+                            Lenguaje
                         </h4>
                     </div>
                     <div className="description">

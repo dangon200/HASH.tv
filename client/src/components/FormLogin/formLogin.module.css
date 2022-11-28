@@ -10,6 +10,10 @@
   background-color: #f1f0f0;
   border: none;
 }
+.container{
+  justify-content: center;
+  display: flex;
+}
 
 .navlink:hover{
   color:var(--btn-background-color)

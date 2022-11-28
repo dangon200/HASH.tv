@@ -9,7 +9,7 @@ import {
   POST_CATEGORIES,
   ALLVIDEOS,
   POPVIDEO,
-  FILTER_PUBLICATIONS,
+  FILTER_STREAMS,
   CLEAR_FILTER,
   GET_ALL_STREAMS,
   LOGIN_USER,
@@ -41,8 +41,6 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         allStreams: action.payload,
-        streams: action.payload,
-        error: action.payload,
       };
     case LOGIN_USER:
       return { ...state, user: action.payload }
@@ -73,6 +71,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         streams: action.payload,
+        allStreams: action.payload,
       };
 
     case POST_STREAM:
@@ -123,10 +122,10 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         popVideo: action.payload,
       };
-    case FILTER_PUBLICATIONS:
-      return { ...state, stream: action.payload }
-    case CLEAR_FILTER:
-      return { ...state, stream: state.allStreams }
+    case FILTER_STREAMS:
+      return { ...state, streams: action.payload }
+      case CLEAR_FILTER:
+        return { ...state, streams: state.allStreams }
     default:
       return { ...state };
   }

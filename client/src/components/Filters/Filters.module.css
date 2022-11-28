@@ -8,6 +8,7 @@
     font-weight: 500;
     margin-inline: 10px;
     align-content: space-around;
+    justify-content: center;
 
 }
 .selects{
@@ -16,17 +17,18 @@
     border-bottom: 1px solid rgba(173, 167, 167, 0.744);
 }
 .filtros{
-    display: flex;
     justify-content: center;
+    border-radius: 16px;
+    display: flex;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     letter-spacing: .5px;
     font-family: var(--font-family-2);
     text-decoration: none;
     color: #fefefe;
     gap: 10px;
     width: 150px;
-    height: max-content;
+    height: 60px;
     background-color: #ff0400;
     border: none;
 }
@@ -39,10 +41,10 @@
     margin-inline: 10px;
     font-weight: 500;
     border-radius: 5px;
-    width: 130px;
+    width: 200px;
     padding: 10px;
     outline: none;
-    color: #aba7a4;
+    color: #7a7978;
     border: none;
     align-content: space-around;
     cursor: pointer;
@@ -80,24 +82,24 @@
     transition: .3s;
 } */
 .limpiarFiltros{
+    border-radius: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
     letter-spacing: .5px;
     font-family: var(--font-family-2);
     text-decoration: none;
-    color: #91091E;
+    color: #f9f9f9;
     gap: 10px;
     font-weight: 600;
     font-size: 1.4rem;
     width: 150px;
-    background-color: #fefefe;
-    border: 1px solid #890F0D;
-    padding: 10px;
+    background-color: #ff0400;
+    padding: 8px;
 }
 .limpiarFiltros:hover{
     color: #fefefe;
-    background-color: #890F0D;
+    background-color: #03EFFE;
     transition: .3s;
 }
 
