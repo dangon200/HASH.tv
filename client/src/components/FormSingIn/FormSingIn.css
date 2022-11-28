@@ -1,0 +1,19 @@
+.singin-menu {
+  background-color: #000000;
+  width: 230px;
+  height: auto;
+  position: fixed;
+  top: -100%;
+  transition: 1000ms;
+  border-radius: 16px;
+  display: flex;
+  right:0;
+}
+
+.singin-menu.active {
+  top: -0;
+  transition: 600ms;
+  right:0;
+  margin-top: 50px
+}
+

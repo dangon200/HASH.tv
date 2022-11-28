@@ -11,18 +11,18 @@ import {
   POPVIDEO,
   GET_STREAMS,
   GET_CATEGORIES,
-  FILTER_CATEGORIES
+  FILTER_CATEGORIES,
 } from "./actions/actions";
 
 const initialState = {
   users: [],
   usersDetail: {},
-  streams:[],
+  streams: [],
   streamName: [],
   streamDetail: [],
-  categories:[],
+  categories: [],
   getVideoFromDatabase: [],
-  popVideo: []
+  popVideo: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -37,8 +37,8 @@ const rootReducer = (state = initialState, action) => {
     case GET_USERS:
       return {
         ...state,
-        users:action.payload
-    };
+        users: action.payload,
+      };
     case POST_USER:
       return {
         ...state,
@@ -46,7 +46,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_USER_ID:
       return {
         ...state,
-        
+        usersDetail: action.payload,
       };
     case GET_USER_NAME:
       return {
@@ -54,11 +54,11 @@ const rootReducer = (state = initialState, action) => {
         users: action.payload,
       };
     case GET_STREAMS:
-      return{
+      return {
         ...state,
-        streams:action.payload
-      }  
-    
+        streams: action.payload,
+      };
+
     case POST_STREAM:
       return {
         ...state,
@@ -76,35 +76,36 @@ const rootReducer = (state = initialState, action) => {
     case GET_CATEGORIES:
       return {
         ...state,
-        categories:action.payload
-      };  
+        categories: action.payload,
+      };
     case POST_CATEGORIES:
       return {
         ...state,
       };
     case FILTER_CATEGORIES:
-      let allCategories=state.categories
-      let filterCategories
-      if(action.payload){
-        filterCategories= allCategories.filter((e)=>e.name?.includes(action.payload))
+      let allCategories = state.categories;
+      let filterCategories;
+      if (action.payload) {
+        filterCategories = allCategories.filter((e) =>
+          e.name?.includes(action.payload)
+        );
       }
-      console.log(filterCategories)
-    
+      console.log(filterCategories);
+
       return {
         ...state,
-        
-      };  
+      };
 
     case ALLVIDEOS:
       return {
         ...state,
-        getVideoFromDatabase: action.payload
+        getVideoFromDatabase: action.payload,
       };
-      
+
     case POPVIDEO:
       return {
         ...state,
-        popVideo: action.payload
+        popVideo: action.payload,
       };
     default:
       return { ...state };
