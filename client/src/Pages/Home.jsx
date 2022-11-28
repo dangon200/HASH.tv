@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { allVideoGamesDataBase, popularVideo,getStreams,getCategories, getUsers } from '../store/actions/actions';
+import { allVideoGamesDataBase, popularVideo, getStreams, getCategories, getUsers } from '../store/actions/actions';
 import './Home.css'
 import Card from '../components/Card/Card';
 import Footer from '../components/Footer/Footer';
@@ -24,8 +24,8 @@ function Home() {
     dispatch(allVideoGamesDataBase())
     dispatch(getStreams())
     dispatch(getCategories())
-    dispatch(getUsers())
-  },[])
+    // dispatch(getUsers())
+  }, [])
   // console.log(streams)
   // console.log(categories)
   // console.log(users)
@@ -47,9 +47,9 @@ function Home() {
         }
         </Link>
         <div className='description'>
-            <p className='titleGame'>{popVideo.title}</p>
-            <p className='description-Game'>Description for Game</p>
-            <p className='description-Game'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At distinctio deserunt recusandae, alias a provident repellat qui libero. Recusandae accusantium dolores voluptatem incidunt placeat ipsa hic dolorum temporibus cum maiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam facilis sapiente dignissimos, quia maiores eaque dicta optio velit architecto dolore corporis voluptatibus eveniet, alias, soluta accusamus laudantium dolorum voluptas!</p>
+          <p className='titleGame'>{popVideo.title}</p>
+          <p className='description-Game'>Description for Game</p>
+          <p className='description-Game'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At distinctio deserunt recusandae, alias a provident repellat qui libero. Recusandae accusantium dolores voluptatem incidunt placeat ipsa hic dolorum temporibus cum maiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam facilis sapiente dignissimos, quia maiores eaque dicta optio velit architecto dolore corporis voluptatibus eveniet, alias, soluta accusamus laudantium dolorum voluptas!</p>
         </div>
       </div>
       {/* <div className='home-allgame'>
@@ -59,9 +59,8 @@ function Home() {
             <img className='gif' src={singleGif.url} alt='gifGame'/>
           </Link>))}
       </div> */}
-      <Card/>
-      <CardCategori/>
-      
+      <Card />
+      <CardCategori />
     </div>
   );
 }
