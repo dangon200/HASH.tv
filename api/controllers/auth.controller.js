@@ -2,23 +2,27 @@ const Users = require("../models/Users");
 const { Roles } = require("../models/Roles");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const userController = require('./users')
 
 const signUp = async (req, res) => {
+  console.log(req.body)
   try {
-    const { name, email, password, roles } = req.body;
-
+    const { username, email, password, roles } = req.body;
+    console.log(
+      "🚀 ~ file: auth.controller.js ~ line 9 ~ signUp ~ req.body",
+      req.body
+    );
     // console.log(
     //   "🚀 ~ file: auth.controller.js ~ line 9 ~ signUp ~ req.body",
     //   req.body
     // );
-    if(!name || !email){
+    if(!username || !email){
     res.status(404).send("Ingrese los datos correspondientes")  
     }else{
-
     const salt = 10;
     const hash = await bcrypt.hash(password, salt);
     const newUser = new Users({
-      name,
+      name: username,
       email,
       password: hash,
     });
@@ -53,10 +57,15 @@ const signIn = async (req, res) => {
         message: "Invalid Password",
       });
     }
-    const token = await jwt.sign({ id: userFound._id }, process.env.JWT_SEC, {
+    const token = await jwt.sign({ 
+      id: userFound._id,
+      email: userFound.email,
+      username: userFound.name 
+    }, process.env.JWT_SEC, {
       expiresIn: 86400,
     });
-    res.status(200).json({ token });
+    const userData = {email: userFound.email, name: userFound.name, _id: userFound._id}
+    res.status(200).json({ user: userData, token });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }

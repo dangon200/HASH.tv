@@ -9,31 +9,43 @@ import {
   POST_CATEGORIES,
   ALLVIDEOS,
   POPVIDEO,
+  FILTER_STREAMS,
+  CLEAR_FILTER,
+  GET_ALL_STREAMS,
+  LOGIN_USER,
+  LOGOUT_USER,
+  GET_FAVORITES_ID,
   GET_STREAMS,
   GET_CATEGORIES,
   FILTER_CATEGORIES,
 } from "./actions/actions";
 
 const initialState = {
+  user: '',
+  login: true,
   users: [],
   usersDetail: {},
   streams: [],
+  allStreams: [],
   streamName: [],
   streamDetail: [],
   categories: [],
   getVideoFromDatabase: [],
   popVideo: [],
+  favorites: []
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "GET_PUBLICATIONS":
+    case GET_ALL_STREAMS:
       return {
         ...state,
-        allPublications: action.payload,
-        publications: action.payload,
-        error: action.payload,
+        allStreams: action.payload,
       };
+    case LOGIN_USER:
+      return { ...state, user: action.payload }
+    case LOGOUT_USER:
+      return { ...state, user: '' }
     case GET_USERS:
       return {
         ...state,
@@ -53,10 +65,13 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         users: action.payload,
       };
+    case GET_FAVORITES_ID:
+      return { ...state, favorites: action.payload }
     case GET_STREAMS:
       return {
         ...state,
         streams: action.payload,
+        allStreams: action.payload,
       };
 
     case POST_STREAM:
@@ -107,6 +122,10 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         popVideo: action.payload,
       };
+    case FILTER_STREAMS:
+      return { ...state, streams: action.payload }
+      case CLEAR_FILTER:
+        return { ...state, streams: state.allStreams }
     default:
       return { ...state };
   }

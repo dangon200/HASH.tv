@@ -5,16 +5,20 @@
 .container{
   display: flex;
   align-items:center;
-  justify-content: center;
-  height: 40vh;
+  height: 30vh;
 }
 .card-container{
+  background: rgb(255,0,0);
+  background: linear-gradient(0deg, rgba(255,0,0,1) 14%, rgba(96,234,242,1) 100%);
+  opacity: 0.8;
   display: flex;
   width: 600px;
-  height: auto;
-  background-color: rgb(158, 182, 202);
-  border-radius: 2px;
+  height: 300px;
+  border-radius: 16px;
 
+}
+.card-container:hover {
+  opacity: 1.0;
 }
 .header{
   border-radius: 1px solid #ddd;
@@ -43,7 +47,7 @@
   box-shadow: 0 0 0 12px rgba(0, 0, 0,-1);
 }
 .header h2{
-  color: red;
+  color: rgb(12, 11, 11);
 }
 .header h4{
   margin-bottom: 20px;

@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserId } from "../../store/actions/actions"
-import Navbar from "../../components/NavBar/NavBar"
 import { Link } from "react-router-dom";
 import "./UserProfile.css"
 
@@ -16,7 +15,6 @@ const UserProfile = (props) => {
 
     return (
         <>
-            <Navbar />
             {userDetail[0] &&
                 <div>
                     <h2 className="title3">USER PROFILE</h2>
