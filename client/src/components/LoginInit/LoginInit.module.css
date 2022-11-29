@@ -1,6 +1,5 @@
 .init{
   justify-content: center;
-  margin-right: 230px
 }
 
 .btn-color{
@@ -10,12 +9,10 @@
 }
 
 .profileImagePic{
-  height: 100px;
-  width: 100px;
+  height: 60px;
+  width: 60px;
   object-fit: cover;
 }
-
-
 
 .cardbody-color{
   background-color: #ebf2fa;

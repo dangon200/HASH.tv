@@ -14,14 +14,11 @@ const urlApi = 'http://localhost:3001'
 export const schemaValidateUser = Yup.object().shape({
   username: Yup.string().required('Es Requerido')
     .matches(startWichLetter, 'Debe comenzar con una letra')
-    .min(3, 'Min 3 caracteres').max(50, 'Max 50 caracteres')
+    .min(3, 'Min 4 caracteres').max(50, 'Max 50 caracteres')
     .test('testEmail', 'Este usuario ya existe',
       value => {
         return new Promise((resolve, reject) => {
-          axios.get(`${urlApi}/api/user/username/${value}`, {
-            method: 'GET',
-            headers: new Headers({ 'Content-type': 'application/json'}),
-          })
+          axios.get(`${urlApi}/api/user/username/${value}`)
             .then(res => {
               resolve(true)
             })
@@ -36,14 +33,12 @@ export const schemaValidateUser = Yup.object().shape({
     .test('testEmail', 'Este correo ya existe',
       value => {
         return new Promise((resolve, reject) => {
-          axios.get(`${urlApi}/api/user/email/${value}`, {
-            method: 'GET',
-            headers: new Headers({ 'Content-type': 'application/json'}),
-          })
+          axios.get(`${urlApi}/api/user/email/${value}`)
             .then(res => {
               resolve(true)
             })
             .catch(error => {
+              console.log(error)
               if (error.response.data === true) {
                 resolve(false) // eslint-disable-line
               }
@@ -54,8 +49,7 @@ export const schemaValidateUser = Yup.object().shape({
     .min(8, 'Min 8 caracteres')
     .matches(passwordValidate, 'Debe contener al menos 1 mayúscula, 1 minúscula y 1 número')
     .oneOf([Yup.ref('copyPassword'), null], 'Las contraseñas no coinciden').max(20, 'Max 20 caracteres'),
-  copyPassword: Yup.string().required('Es Requerido').oneOf([Yup.ref('password'), null], 'Las contraseñas no coinciden'),
-  region: Yup.string().required('Por favor seleccione una Provincia').oneOf(provinces)
+  copyPassword: Yup.string().required('Es Requerido').oneOf([Yup.ref('password'), null], 'Las contraseñas no coinciden')
 })
 
 export const schemaValidateEmail = Yup.object().shape({

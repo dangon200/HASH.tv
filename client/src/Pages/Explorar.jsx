@@ -25,24 +25,20 @@ function Explorar() {
   useEffect(() => {
     dispatch(getStreams())
   }, [])
-
   const pages = []
   for (let i = 1; i <= Math.ceil(Streams.length / StreamsPerPage); i++) {
     pages.push(i)
   }
-
   function pagination (num) {
     setPage(num)
   }
-
   function paginationBef () {
     setPage(page - 1)
   }
-
   function paginationAft () {
     setPage(page + 1)
   }
-
+  
   return (
 
      <div className={style.globalContainer}>

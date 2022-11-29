@@ -11,7 +11,6 @@ import { loginUser, logoutUser } from '../../store/actions/actions'
 export default function FormLogin () {
   const cookies = new Cookies()
   const user = cookies.get('TOKEN')
-
   const dispatch = useDispatch()
   const userLogged = useSelector(state => state.user)
   const urlApi = 'http://localhost:3001'

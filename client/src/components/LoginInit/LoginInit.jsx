@@ -9,11 +9,11 @@ export default function LoginInit() {
   return (
     <div className='init'>
       <div className='row'>
-        <div className='col-md-6 offset-md-4'>
+        <div className='col-md-6 offset-md-3'>
           <h2 className='text-center text-dark fs-1 mt-5'>{!form ? 'Iniciar sesión' : 'Registrarse'}</h2>
-          <div className='text-center mb-5 text-dark' />
+          <div className='text-center mb-6 text-dark' />
           <div className='card my-5'>
-            {form ? (<div className={`card-body cardbody-color p-lg-3 ${form ? 'd-block' : 'd-none'}`}>
+            {form ? (<div className={`card-body cardbody-color p-lg-5 ${form ? 'd-block' : 'd-none'}`}>
 
               <div className='text-center'>
                 <img
@@ -34,7 +34,7 @@ export default function LoginInit() {
               <FormLogin />
             </div>) : <></>}
 
-            <div id='emailHelp' className={`form-text text-center mb-5 text-dark fs-4 ${style.link}`}>
+            <div id='emailHelp' className={`form-text text-center mb-4 text-dark fs-4 ${style.link}`}>
               <p onClick={() => setForm(!form)} href='#' className='text-dark fw-bold'>{!form ? 'No esta Registrado Cree su cuenta!' : 'Iniciar sesión'}</p>
             </div>
           </div>

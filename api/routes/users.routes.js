@@ -9,6 +9,7 @@ router.get("/user/:id", async(req,res)=>{
     try {
         const {id} = req.params
         const usersDb = await Users.find({})
+        console.log(usersDb)
         if(id){
         const filterUser = usersDb.filter((users)=>users._id == id)
         filterUser.length?
@@ -41,30 +42,32 @@ router.get("/user", async (req, res) => {
 router.get('/user/email/:email', async (req, res) => {
   const { email } = req.params
   try {
-    const findEmail = await Users.findOne({ email: email })
+    const usersDb = await Users.find({})
+    const findEmail = await Users.findOne({email: email})
 
     if (findEmail) {
-      console.log(findEmail)
       return res.status(404).json(true)
     }
 
     res.status(200).json(false)
   } catch (error) {
-    res.status(400).json(error.message)
+    res.status(400).json(error)
   }
 })
 
 router.get('/user/username/:username', async (req, res) => {
   const { username } = req.params
+  const name = username
+  
   try {
-    const findUsername =  await Users.findOne({ name: username })
+    const findUsername =  await Users.findOne({ name: name })
     if (findUsername) {
-      return res.status(404).json('El username ya existe. Pruebe con otro!')
+      return res.status(404).json(true)
     }
 
-    res.status(200).json('El username esta disponible!')
+    res.status(200).json(false)
   } catch (error) {
-    res.status(400).json(error.message)
+    res.status(400).json(error)
   }
 })
 
