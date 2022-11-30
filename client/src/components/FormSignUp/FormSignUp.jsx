@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux'
 import { schemaValidateUser } from '../utilities/schemas'
 import { useState } from 'react'
 import axios from 'axios'
+import style from './formSignUp.module.css'
+
 
 const urlApi = 'http://localhost:3001'
 
@@ -54,7 +56,7 @@ export default function FormLogin() {
   const [send, setSend] = useState(false)
   const [err, setErr] = useState(false)
   return (
-    <div className='container user-select-none'>
+    <div className={style.card_sign}>
       <form onSubmit={handleSubmit} className='card w-75 d-flex justify-content-center mx-auto my-3 p-5' autoComplete='off'>
         <div className='row justify-content-center'>
           <div className='col-12'>
@@ -109,7 +111,7 @@ export default function FormLogin() {
             />
             {touched.copyPassword && errors.copyPassword ? <div className='invalid-feedback'>{errors.copyPassword}</div> : null}
           </div>
-          {send && <div className='alert alert-success' role='alert'>Felicitaciones creo su cuenta</div>}
+          {send && <div className='alert alert-success' role='alert'><p>!Felicitaciones cuenta creada!</p><p>Por favor revise su correo le enviamos un mensaje de validación.</p></div>}
           {err && <div className='alert alert-danger' role='alert'>Algo salio mal vuelva a intentarlo</div>}
 
           <button

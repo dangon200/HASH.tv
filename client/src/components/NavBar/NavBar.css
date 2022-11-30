@@ -116,7 +116,7 @@
     height: 20px;
     border: none; 
     border-radius: 10px;
-    color: white;
+    color: rgb(255, 255, 255);
   }
   .submitSearch:hover{
     background-color: #03EFFE;

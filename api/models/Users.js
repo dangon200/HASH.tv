@@ -19,6 +19,10 @@ const UsersSchema = new Schema(
     password: {
       type: String,
     },
+    isValid: {type: Boolean,
+    },
+    uniqueKey: {type: String,
+    },
     /* region: {
       type: String,
       required: true

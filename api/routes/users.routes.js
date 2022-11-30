@@ -1,9 +1,30 @@
-  const Users = require("../models/Users");
+const Users = require("../models/Users");
 const Express = require("express");
 const router = Express.Router();
 const userController = require('../controllers/users')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
+
+router.put("/user/email/verify/:uniqueKey", async(req, res)=>{
+  const {uniqueKey} = req.params
+  console.log(uniqueKey)
+
+  const user = await Users.findOne({uniqueKey: uniqueKey})
+  if(!user){
+    res.status(406).json("El codigo de validacion es incorrecto, presiona continuar e intenta registrarte nuevamente.")
+  }
+  else{
+  if(user.isValid === true){
+    res.status(400).json("El usuario ya se encuentra validado, presiona continuar e intenta iniciar sesión.")
+  }
+  else if(user.isValid === false){
+    user.isValid = true
+    const userV = await user.save()
+    console.log(userV)
+    res.status(200).json("Validado")
+  }
+}
+})
 
 router.get("/user/:id", async(req,res)=>{
     try {

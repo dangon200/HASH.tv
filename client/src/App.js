@@ -20,7 +20,7 @@ import { useDispatch } from 'react-redux'
 import Detail from "./components/Details/Details";
 import Categories from "./Pages/Categories/Categories";
 import { StreamForm } from "./components/StreamForm/StreamForm";
-
+import VerifyEmail from "./Pages/VerifyEmail";
 
 function App() {
   /*  const cookies = new Cookies()
@@ -46,6 +46,7 @@ function App() {
       <Route exact path='/support' component={Support} />
       <Route exact path='/aboutus' component={AboutUs} />
       <Route path="/stream/:id" component={Detail} />
+      <Route path="/verify/:uniqueKey" component={VerifyEmail} />
       <Route path="/categories/:id" component={Categories} />
       <Route path="/stream" component={StreamForm} />
       <Route exact path="/user/:id" component={UserProfile} />
