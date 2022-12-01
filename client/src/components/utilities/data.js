@@ -1,0 +1,4 @@
+export const categoria = ['Gaming','Just Chating', 'Sports', 'Music', 'Creative' ]
+export const lenguaje = ['Inglés', 'Chino mandarín', 'Hindi', 'Español', 'Francés', 'Ruso', 'Portugués', 'Alemán', 'Japonés' ]
+export const provinces = ['Buenos Aires', 'Catamarca', 'Chaco', 'Chubut', 'Córdoba', 'Corrientes', 'Entre Ríos', 'Formosa', 'Jujuy', 'La Pampa', 'La Rioja', 'Mendoza', 'Misiones', 'Neuquén', 'Río Negro', 'Salta', 'San Juan', 'San Luis', 'Santa Cruz', 'Santa Fe', 'Santiago del Estero', 'Tierra del Fuego', 'Tucumán']
+export const continente = ["África", "Antártida", "Asia", "Europa", "Norteamérica", "Oceanía", "Sudamérica"]

@@ -1,0 +1,12 @@
+.content{
+    width: 500px;
+    height: 500px;
+}
+
+.gif{
+    max-width: 400px;
+    display: flex;
+    position: relative;
+    margin-bottom: 16px;
+    justify-content: center;
+}

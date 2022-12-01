@@ -1,0 +1,110 @@
+.general{
+    font-family: var(--font-family-2) !important;
+    line-height: 1.2;
+    display: flex;
+    gap: 15px;
+    color: #170000; 
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-inline: 10px;
+    align-content: space-around;
+    justify-content: center;
+
+}
+.selects{
+    display: flex;
+    text-align: left;
+    border-bottom: 1px solid rgba(173, 167, 167, 0.744);
+}
+.filtros{
+    justify-content: center;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    letter-spacing: .5px;
+    font-family: var(--font-family-2);
+    text-decoration: none;
+    color: #fefefe;
+    gap: 10px;
+    width: 150px;
+    height: 60px;
+    background-color: #ff0400;
+    border: none;
+}
+.filtros:hover{
+    color: #fefefe;
+    background-color: #ff0400;
+}
+.optSelect{
+    display: flex;
+    margin-inline: 10px;
+    font-weight: 500;
+    border-radius: 5px;
+    width: 200px;
+    padding: 10px;
+    outline: none;
+    color: #7a7978;
+    border: none;
+    align-content: space-around;
+    cursor: pointer;
+    background-color: #fefefe;
+    border-bottom-color: 1px solid #b9b3af;
+}
+.optSelect:hover{
+    background-color: #eceaea;
+    /* background-color: var(--btn-background-color); */
+    /* color: var(--background-color); */
+    font-weight: 500;
+    transition: .3s;
+}
+
+/* .limpiarFiltros{
+    align-content: space-around;
+    margin-inline: 10px;
+    display: inline;
+    padding: 10px;
+    width: 120px;
+    border-width: 1px;
+    border-radius: 5px;
+    font-family: var(--font-family-2);
+    font-weight: 600;
+    color: var(--btn-sel-background-color);
+    cursor: pointer;
+
+    border-color: #b9b3af;
+    background-color: #fefefe;
+
+}
+.limpiarFiltros:hover{
+    background-color: var(--btn-background-color);
+    color: var(--background-color);
+    transition: .3s;
+} */
+.limpiarFiltros{
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: .5px;
+    font-family: var(--font-family-2);
+    text-decoration: none;
+    color: #f9f9f9;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    width: 150px;
+    background-color: #ff0400;
+    padding: 8px;
+}
+.limpiarFiltros:hover{
+    color: #fefefe;
+    background-color: #03EFFE;
+    transition: .3s;
+}
+
+@media (max-width: 992px) {
+    .general{
+        flex-direction: row;
+    }
+} 

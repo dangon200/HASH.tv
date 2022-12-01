@@ -1,0 +1,135 @@
+/* .globalContainer{
+    margin-top: 8px;
+} */
+
+.divPagination{
+    display:contents    ;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 8px;
+    animation: show 3s;
+}
+
+.header{
+    padding: 5px;
+    color: white;
+    font-size: 18px;
+    background-color: #91091E;
+    /* background-color: var(--background-color); */
+}
+
+@keyframes show{
+    from{
+        opacity: 0
+    }to{
+        opacity: 100
+    }
+}
+
+.containerProducts{
+    padding: 2px;
+    align-items: center;
+    margin-right: 10px;
+    display: grid;
+    gap: 4rem;
+    grid-auto-rows: 20rem;
+    margin: 10px 10px 10px 10px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 31rem), 1fr));
+}
+
+.image{
+    max-height: 350px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.image2{
+    max-height: 300px;
+    width: 85%;
+    object-fit: cover;
+    margin-bottom: 25px;
+}
+
+.sectionCards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px
+}
+
+.buttonLeft, .buttonRight{
+    font-weight: bolder;
+    width: 30px;
+    cursor: pointer;
+    height: 30px;
+}
+
+.buttonLeft:hover, .buttonRight:hover{
+    transition: .3s;
+    transform: scale(1.3);
+}
+.sectionImage{
+    object-fit: cover;
+    width: 100%;
+    height: 350px;
+}
+
+.filtersContainer{
+    animation: show 2s;
+    width: 100%;
+    display: flex;
+    margin: 15px 0 15px 0;
+    justify-content: flex-end;
+    align-items: center;
+    grid-gap: 16px;
+    gap: 30px;
+
+}
+.searchFilter{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    animation: show 2s;
+}
+
+.footer{
+    animation: footerAnimation 2s;
+}
+
+@keyframes footerAnimation{
+    0%{
+        opacity: 0
+    }
+    25%{
+        opacity: 0
+    }
+    100%{
+        opacity: 100
+    }
+}
+
+@media (max-width: 992px){
+    .image2{
+        max-height: 275px;
+        width: 90%;
+    }
+    .filtersContainer{
+        display: flex;
+        flex-direction: column;
+    }
+    .sectionImage{
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px){
+    .image2{
+        max-height: 200px;
+        width: 100%;
+    }
+    .sectionImage{
+        height: 220px;
+    }
+}

@@ -1,0 +1,10 @@
+.send{
+  color: #ff0400;
+  font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+card_sign  {
+  display: flex;
+  align-items: center;
+}
