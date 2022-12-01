@@ -132,7 +132,7 @@ transporter.sendMail(mailOptions, function(error, response){
 const getUsers = async (req, res) => {
   try {
     const { name } = req.query;
-    const usersDb = await Users.find({}).populate("roles");
+    const usersDb = await Users.find({}).populate("roles").populate("donations").populate("myStreams");
     if (name) {
       const filterUser = usersDb.filter((users) =>
         users.name.toLowerCase().includes(name.toLowerCase())
