@@ -38,9 +38,19 @@ const UsersSchema = new Schema(
         ref: "Roles",
       },
     ],
-    stream: {
-      type: String, ///////////CREAR RELACION USER-STREAM
-    },
+  
+    donations: [
+      {
+        type: Types.ObjectId,
+        ref: "Donations",
+      },
+    ],
+    myStreams: [
+      {
+        type: Types.ObjectId,
+        ref: "Streams",
+      },
+    ],
   },
   {
     timestamps: true,

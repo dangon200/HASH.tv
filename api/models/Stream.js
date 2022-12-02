@@ -25,11 +25,7 @@ const StreamSchema = new Schema(
   description:{
     type:String
   },
-  suscriptores:[
-    {
-     type:String
-    },
-  ], ///  CRAR relacion con Subcriptores
+ 
   rules:{
     type:String
   },  
