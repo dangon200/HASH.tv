@@ -153,6 +153,7 @@ const getUsers = async (req, res) => {
 const getUserById = async (req, res) => {
   try {
     const { id } = req.params;
+    console.log(id)
     const usersDb = await Users.find({}).populate("roles").populate("donations").populate("myStreams");
     if (id) {
       const filterUser = usersDb.filter((users) => users._id == id);

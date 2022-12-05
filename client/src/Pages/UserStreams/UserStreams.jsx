@@ -6,12 +6,14 @@ import Card from "../../components/Card/Card2";
 import NavBar from "../../components/NavBar/NavBar.jsx"
 import style from "./UserStreams.module.css"
 
-const UserStreams = (props) => {
+const UserStreams = () => {
     const dispatch = useDispatch();
-    const userId = props.match.params.id
     const userDetail = useSelector((state) => state.usersDetail)
+    const user = useSelector((state) => state.user)
     const allStreams = useSelector(state => state.streams)
-    const filterStream = allStreams.filter(s => s._id?.includes(userDetail[0].myStreams))
+    // const filterStream = allStreams.filter(s => s._id?.includes(userDetail[0].myStreams))
+    // console.log(filterStream,'---UserStreams')
+    const userId = user._id
 
     useEffect(() => {
         dispatch(getUserId(userId))
@@ -21,8 +23,8 @@ const UserStreams = (props) => {
 
     return (
         <>
-        <NavBar />
-        <div className={`${style.containerProducts}`}>
+        {/* <NavBar /> */}
+        {/* <div className={`${style.containerProducts}`}>
             {filterStream.map((c, index) => {
                 return (
                     <section className={style.sectionCards} key={index}>
@@ -39,7 +41,7 @@ const UserStreams = (props) => {
                     </section>
                 )
             })}
-            </div>
+            </div> */}
         </>
     )
 }
