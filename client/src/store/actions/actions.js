@@ -80,6 +80,7 @@ export const postUser = (data) => {
 };
 
 export const getUserId = (id) => {
+  console.log(id,'-----actionid')
   return async function (dispatch) {
     try {
       const json = await axios.get(`${urlApi}/api/user/${id}`);
@@ -150,6 +151,27 @@ export const postStream = (data) => {
     }
   };
 };
+
+export const postStreamId = (id, data) => {
+  console.log(id,data,'----------poststreamid')
+  return async function () {
+    try {
+      await axios.post(`http://localhost:3001/api/streams/${id}`, data);
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};
+
+export const updateStream = (id, stream) => {
+  return async () => {
+    try {
+      await axios.put(`http://localhost:3001/api/streams/${id}`,stream)
+    } catch (error) {
+      return {error: error.mesage }
+    }
+  }
+}
 
 export const getStreamId = (id) => {
   return async function (dispatch) {

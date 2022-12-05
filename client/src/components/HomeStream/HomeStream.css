@@ -1,0 +1,35 @@
+.HomeStream {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    background-color: #ECEDF1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 1rem;
+}
+
+.mystreams,
+.new_stream {
+    font-size: 3rem;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    box-shadow: inset 3px 3px 8px #b1b1b1, inset -3px -3px 8px #ffffff;
+    border: none;
+    border-radius: 10px;
+    justify-content: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.message {
+    color: #02c8db;
+    font-size: 3rem;
+}
+
+
+.HomeStream-Card {
+    background-color: #ECEDF1;
+    display: flex;
+    align-items: center;
+    border-radius: .5rem;
+}
