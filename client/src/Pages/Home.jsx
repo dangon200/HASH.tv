@@ -20,7 +20,6 @@ function Home() {
     dispatch(allVideoGamesDataBase())
     dispatch(getStreams())
     dispatch(getCategories())
-    // dispatch(getUsers())
   }, [])
 
   return (
