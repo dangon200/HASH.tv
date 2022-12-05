@@ -23,30 +23,27 @@ const UserProfile = () => {
                     <div>
                         <h2 className="title3">User profile</h2>
                         <hr />
-                        <form>
-                            <h6 className="divform">Name</h6>
-                            <textarea readOnly="" className="textarea">{userDetail.username || userDetail.name}</textarea>
-                            <h6 className="divform">Email</h6>
-                            <textarea readOnly="" className="textarea">{userDetail.email}</textarea>
+                        <form id="formx" className="topBefore">
+                            <input id="name" autocomplete="off" value={userDetail.username || userDetail.name} />
+                            <input id="email" autocomplete="off" value={userDetail.email} />
                             <Link to='user/edit'>
-                                <button submit="submit">Edit profile</button>
+                                <button id="submitx" submit="submit">Edit profile</button>
                             </Link>
                         </form>
                     </div>
-                    {/* añadir modif password
-                    2 botones: editar info, opcional: cambiar contraseña */}
-
                     <div>
                         <div className="divPicture">
                             <img className="img" src="https://imagen.nextn.es/wp-content/uploads/2014/07/1407-11-Pikachu.jpg?strip=all&lossy=1&ssl=1" />
-                            <p>HashCash: $100000000</p>
+                            <div className="hashcash">
+                                <h4 className="hashcashtitle">HashCash</h4>
+                                <hr />
+                                <h5 className="hashcashmoney">H$C</h5>
+                                <h5 className="hashcashdinero">100</h5> 
+                            </div>
                         </div>
                     </div>
-
                 </div>
             }
-
-
             {/* <div className="button">
                 <Link to="/stream">
                     <button>Create channel</button>
