@@ -18,6 +18,8 @@ export const GET_STREAMS = "GET_STREAMS";
 export const CLEAR_FILTER = "CLEAR_FILTER";
 export const FILTER_STREAMS = "FILTER_STREAMS"
 export const FILTER_CATEGORIES = "FILTER_CATEGORIES";
+export const UPDATE_USER = "UPDATE_USER"
+export const BANNED_USER = "BANNED_USER"
 
 const urlApi = "http://localhost:3001";
 
@@ -121,7 +123,7 @@ export const getUserName = (name) => {
 export const getUsers = () => {
   return async function (dispatch) {
     try {
-      const json = await axios.get(`http://localhost:3001/api/user`);
+      const json = await axios.get(`http://localhost:3001/api/users`);
       dispatch({ type: GET_USERS, payload: json.data });
     } catch (error) {
       return { error: error.message };
@@ -280,3 +282,30 @@ export function popularVideo() {
     });
   };
 }
+
+export const updateUserAdmin = (id, data) => {
+  return async function (dispatch) {
+    try {
+      const json = await axios.put(`${urlApi}/api/userAdminUser/${id}`,data);
+      const updateUsers= await axios.get(`${urlApi}/api/users`)
+      console.log(updateUsers)
+      dispatch({ type: UPDATE_USER, payload: updateUsers.data });
+
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};
+
+export const updateBanned = (id, data) => {
+  return async function (dispatch) {
+    try {
+      const json = await axios.put(`${urlApi}/api/user/${id}`,data);
+      const userBanned = await axios.get(`${urlApi}/api/users`)
+      dispatch({ type: BANNED_USER, payload: userBanned.data });
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};
+

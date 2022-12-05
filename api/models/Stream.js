@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 
 const StreamSchema = new Schema(
   {
@@ -18,24 +18,25 @@ const StreamSchema = new Schema(
   category:[
     {
       type: String,
-      
+
     },
   ]
     , ////  CREAR relacion Categorias
   description:{
     type:String
   },
-  suscriptores:[
-    {
-     type:String
-    },
-  ], ///  CRAR relacion con Subcriptores
+ 
+ ///  CRAR relacion con Subcriptores
   rules:{
     type:String
-  },  
+  },
   networks:{
     type:String
   },
+  suscripciones: {
+    type:String
+  },
+
   contents:{
     type:String
   },
@@ -45,6 +46,12 @@ const StreamSchema = new Schema(
   continent:{
     type:["África", "Antártida", "Asia", "Europa", "Norteamérica", "Oceanía", "Sudamérica"], default: "Sudamérica"
   },
+  Subscriptions: [
+    {
+      type: Types.ObjectId,
+      ref: "Subscriptions",
+    },
+  ],
 },
 {
   timestamps: true,

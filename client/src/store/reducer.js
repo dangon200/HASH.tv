@@ -18,13 +18,15 @@ import {
   GET_STREAMS,
   GET_CATEGORIES,
   FILTER_CATEGORIES,
+  UPDATE_USER,
+  BANNED_USER
 } from "./actions/actions";
 
 const initialState = {
   user: '',
   login: true,
   users: [],
-  usersDetail: {},
+  usersDetail: [],
   streams: [],
   allStreams: [],
   streamName: [],
@@ -126,6 +128,18 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, streams: action.payload }
       case CLEAR_FILTER:
         return { ...state, streams: state.allStreams }
+
+       case UPDATE_USER:{
+        return{...state,
+        users:action.payload
+        }
+       }
+       case BANNED_USER:{
+        return{ ...state,
+          users:action.payload
+        }
+       }
+
     default:
       return { ...state };
   }
