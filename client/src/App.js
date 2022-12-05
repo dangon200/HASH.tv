@@ -21,6 +21,8 @@ import Detail from "./components/Details/Details";
 import Categories from "./Pages/Categories/Categories";
 import { StreamForm } from "./components/StreamForm/StreamForm";
 import VerifyEmail from "./Pages/VerifyEmail";
+import Logout from "./components/logout/logout";
+import UserSubs from "./components/UserSubs/userSubs";
 
 function App() {
   /*  const cookies = new Cookies()
@@ -47,9 +49,11 @@ function App() {
       <Route exact path='/aboutus' component={AboutUs} />
       <Route path="/stream/:id" component={Detail} />
       <Route path="/verify/:uniqueKey" component={VerifyEmail} />
-      <Route path="/categories/:id" component={Categories} />
+      <Route path="/categories" component={Categories} />
       <Route path="/stream" component={StreamForm} />
-      <Route exact path="/user/:id" component={UserProfile} />
+      <Route exact path="/user" component={UserProfile} />
+      <Route exact path="/user/subscriptions" component={UserSubs} />
+      <Route exact path="/logout" component={Logout} />
       </Switch>
 
     </div>

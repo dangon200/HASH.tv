@@ -18,6 +18,7 @@ import {
   GET_STREAMS,
   GET_CATEGORIES,
   FILTER_CATEGORIES,
+  GET_USER_SUBSCRIPTIONS
 } from "./actions/actions";
 
 const initialState = {
@@ -32,7 +33,8 @@ const initialState = {
   categories: [],
   getVideoFromDatabase: [],
   popVideo: [],
-  favorites: []
+  favorites: [],
+  subscriptions: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -88,6 +90,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         streamName: action.payload,
       };
+      case GET_USER_SUBSCRIPTIONS:
+        return {
+          ...state,
+          subscriptions: action.payload,
+        };
     case GET_CATEGORIES:
       return {
         ...state,
