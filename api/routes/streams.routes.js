@@ -28,6 +28,7 @@ router.get("/streams/id/:id", async(req,res)=>{
         const streamDb = await getStreamsDb()
         if(id){
         const filterStream = streamDb.filter((stream)=>stream._id.toString() === id)
+        console.log(filterStream)
         filterStream.length?
         res.send(filterStream)
         :res.send("Error al obtener Id de Stream")
@@ -51,6 +52,7 @@ router.post("/streams/:id", async (req,res)=>{
       res.status(404).send("Problemas creando un Stream")
   }
 })
+
 
 
 /* router.delete("/streams/id/:id", async(req,res)=>{

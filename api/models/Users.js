@@ -51,6 +51,19 @@ const UsersSchema = new Schema(
         ref: "Streams",
       },
     ],
+    subscriptions: [
+      {
+        type: Types.ObjectId,
+        ref: "Subscriptions",
+      },
+    ],
+    banned: { 
+      type: Boolean,
+      default: false
+     },
+     country: { 
+      type: ['Argentina', 'España', 'Peru', 'Chile', 'Francés', 'Rusia', 'Portugal' ], default: "Argentina"
+     },
   },
   {
     timestamps: true,
