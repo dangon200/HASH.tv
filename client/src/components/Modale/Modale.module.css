@@ -16,3 +16,10 @@
   background-color: #03EFFE;
   color: var(--btn-background-color);
 }
+
+.forgotPass {
+  font-size: .8em;
+  color: #000;
+  text-decoration: none;
+  /* background-color: #E1E1E1; */
+}

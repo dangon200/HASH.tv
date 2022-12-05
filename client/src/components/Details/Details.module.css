@@ -30,7 +30,7 @@
   width: 100%;
   height: 2.5em;
   color: #f1f1f1;
-  background-color: red;
+  background-color: #F80000;
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -40,7 +40,12 @@
   box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.328);
   font-weight: 700;
   border: none;
+  transition: .3s;
+}
 
+.linkContainer_button:hover {
+  background-color: #b80303;
+  transition: .3s;
 }
 
 .linkContainer_container { 
@@ -241,11 +246,15 @@
 
 .streamer_bgc_blue {
   background-color: #03EFFE;
+  color: #000;
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.124);
 }
 
 .streamer_bgc_red {
   color: #f1f1f1;
   background-color: #F80000;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.124);
   width: 70%;
   margin: 0 auto;
 }
@@ -278,7 +287,7 @@
 
 .chat_input {
   background-color: #FFFF;
-  width: 90%; 
+  width: 80%; 
   height: 2.2em;
   border: none;
   outline: none;

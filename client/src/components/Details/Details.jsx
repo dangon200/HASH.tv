@@ -105,13 +105,13 @@ const Detail = (props) => {
                                        <p className={s.streamer_bgc_red}>Acerca de {streamDetail[0].description}</p>
                                     </div>
                                     <div className={s.streamer_desc_rules}>
-                                        <p><span className={s.streamer_bgc_blue}>Reglas:</span> {streamDetail[0].rules}</p>
+                                        <p><span className={s.streamer_bgc_blue}>Reglas</span> {streamDetail[0].rules}</p>
                                     </div>
                                     <div className={s.streamer_desc_net}>
-                                        <p><span className={s.streamer_bgc_blue}>Network:</span> {streamDetail[0].networks}</p>
+                                        <p><span className={s.streamer_bgc_blue}>Network</span> {streamDetail[0].networks}</p>
                                     </div>
                                     <div className={s.streamer_desc_content}>
-                                        <p><span className={s.streamer_bgc_blue}>Contents:</span> {streamDetail[0].contents}</p>
+                                        <p><span className={s.streamer_bgc_blue}>Contents</span> {streamDetail[0].contents}</p>
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +121,8 @@ const Detail = (props) => {
 
                 <div className={s.chat} >
                     <p>Chat en vivo</p>
-                    <div className={s.chat_cnt}></div>
+                    <div className={s.chat_cnt}>
+                    </div>
                     <input type="text" className={s.chat_input} placeholder='Escribe el mensaje'/>
                 </div>
             </div>

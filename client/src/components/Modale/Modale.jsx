@@ -31,12 +31,12 @@ export default function Modale (props) {
         {!user &&
           <Modal.Footer className='d-flex justify-content-between align-items-center'>
             <div className='fs-4'>
-              <Link className='text-primary' to='/forgotPassword'>Olvidaste tu contraseña?</Link>
+              <Link className={style.forgotPass} to='/forgotPassword'>Olvidaste tu contraseña?</Link>
             </div>
             <div className='fs-4'>
               {/* <Link className='text-decoration-none' to='/forgotPassword'>Olvidaste tu contraseña?</Link> */}
               {props.close && <Button variant='secondary' onClick={handleChange}>Cerrar</Button>}
-              {props.createAcc && <p className='fs-4 pt-3' data-bs-dismiss='modal' onClick={handleChange}><Link className='text-primary' to='/register'> Crea tu cuenta!</Link></p>}
+              {props.createAcc && <p className='fs-4 pt-3' data-bs-dismiss='modal' onClick={handleChange}><Link className={style.forgotPass} to='/register'> Crea tu cuenta!</Link></p>}
             </div>
             {/* {props.close && <Button variant='secondary' onClick={handleChange}>Cerrar</Button>}
           {props.createAcc && <p className='fs-4' data-bs-dismiss='modal' onClick={handleChange}>Si no tienes cuenta <Link className='text-decoration-none' to='/register'>Crea tu Cuenta!</Link></p>} */}
