@@ -161,7 +161,7 @@ export default function FormLogin () {
     )
   }
   return (
-    <div>
+    <div className='user-select-none'>
       <form 
         onSubmit={(e) => {
         console.log(e)
