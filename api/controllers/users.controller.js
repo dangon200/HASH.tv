@@ -1,6 +1,7 @@
 const Users = require("../models/Users");
+const nodemailer = require ("nodemailer");
+const bcrypt = require('bcryptjs')
 
-const nodemailer = require ("nodemailer")
 require('dotenv').config()
 
 const randomString = () => {
@@ -133,7 +134,7 @@ transporter.sendMail(mailOptions, function(error, response){
 const getUsers = async (req, res) => {
   try {
     const { name } = req.query;
-    const usersDb = await Users.find({}).populate("roles");
+    const usersDb = await Users.find({}).populate("roles").populate("donations").populate("myStreams");
     if (name) {
       const filterUser = usersDb.filter((users) =>
         users.name.toLowerCase().includes(name.toLowerCase())
@@ -152,7 +153,7 @@ const getUsers = async (req, res) => {
 const getUserById = async (req, res) => {
   try {
     const { id } = req.params;
-    const usersDb = await Users.find({}).populate("roles");
+    const usersDb = await Users.find({}).populate("roles").populate("donations").populate("myStreams");
     if (id) {
       const filterUser = usersDb.filter((users) => users._id == id);
       filterUser.length
@@ -178,4 +179,33 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { getUsers, getUserById, deleteUser, randomString, sendMail };
+const setBanned = async (req, res) => {
+  const { id } = req.params;
+  const userId =await Users.findOne({_id:id})
+  if( userId.banned === true){
+    const user = await Users.findOneAndUpdate(
+      { _id: id },
+      {
+        banned: false,
+      }
+    );
+    const userBanned= await user.save()
+    res.status(200).send(userBanned)
+  }else{
+    const user = await Users.findOneAndUpdate(
+      { _id: id },
+      {
+        banned: true,
+      }
+    );
+    const userNoBanned= await user.save()
+    res.status(200).send(userNoBanned)
+  }
+}
+
+
+
+
+
+
+module.exports = { getUsers, getUserById, deleteUser, randomString, sendMail,setBanned};

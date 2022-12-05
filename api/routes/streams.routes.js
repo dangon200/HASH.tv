@@ -1,4 +1,5 @@
 const Streams = require("../models/Stream")
+const Users = require("../models/Users");
 const Express = require ("express")
 const router = Express.Router()
 const { getStreamsDb } = require('../controllers/Streams')
@@ -27,6 +28,7 @@ router.get("/streams/id/:id", async(req,res)=>{
         const streamDb = await getStreamsDb()
         if(id){
         const filterStream = streamDb.filter((stream)=>stream._id.toString() === id)
+        console.log(filterStream)
         filterStream.length?
         res.send(filterStream)
         :res.send("Error al obtener Id de Stream")
@@ -36,15 +38,22 @@ router.get("/streams/id/:id", async(req,res)=>{
     }
 })
 
-router.post("/streams", async(req,res)=>{
-    const data= req.body
-    try {
-        const stream = await Streams.create(data)
-        res.send(stream)
-    } catch (error) {
-        res.send()
-    }
+
+router.post("/streams/:id", async (req,res)=>{
+  try {
+      const {id} = req.params
+      const data= req.body
+      const stream = await Streams.create(data)
+      const userStream = await Users.findOne({_id:id})
+      userStream.myStreams.push(stream._id)
+      const savedStream = await userStream.save();
+      res.send(savedStream)
+  } catch (error) {
+      res.status(404).send("Problemas creando un Stream")
+  }
 })
+
+
 
 /* router.delete("/streams/id/:id", async(req,res)=>{
     try {
@@ -129,4 +138,5 @@ router.post("/streams/:id", async (req,res)=>{
       res.status(404).send("Problemas creando un Stream")
   }
 })
+
 module.exports = router

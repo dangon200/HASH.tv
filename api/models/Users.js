@@ -48,9 +48,32 @@ const UsersSchema = new Schema(
         ref: "Roles",
       },
     ],
-    stream: {
-      type: String, ///////////CREAR RELACION USER-STREAM
-    },
+  
+    donations: [
+      {
+        type: Types.ObjectId,
+        ref: "Donations",
+      },
+    ],
+    myStreams: [
+      {
+        type: Types.ObjectId,
+        ref: "Streams",
+      },
+    ],
+    subscriptions: [
+      {
+        type: Types.ObjectId,
+        ref: "Subscriptions",
+      },
+    ],
+    banned: { 
+      type: Boolean,
+      default: false
+     },
+     country: { 
+      type: ['Argentina', 'España', 'Peru', 'Chile', 'Francés', 'Rusia', 'Portugal' ], default: "Argentina"
+     },
   },
   {
     timestamps: true,
