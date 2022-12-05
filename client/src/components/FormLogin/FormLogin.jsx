@@ -161,16 +161,19 @@ export default function FormLogin () {
     )
   }
   return (
-    <div className='user-select-none'>
-      <form onSubmit={(e) => {
+    <div>
+      <form 
+        onSubmit={(e) => {
         console.log(e)
         console.log(handleSubmit)
         handleSubmit(e)
-      }} className='card d-flex justify-content-center mx-auto my-3 p-5' autoComplete='off'>
+        }} 
+        className='card d-flex justify-content-center mx-auto my-3 p-5' autoComplete='off'>
         <div className='row justify-content-center'>
           <div className='col-12'>
-            <label htmlFor='email' className='fs-3'>Email</label>
+            <label htmlFor='email' className={style.input_label}>Email</label>
             <input
+              placeholder='Escriba su correo'
               type='email'
               name='email'
               id='email'
@@ -179,11 +182,17 @@ export default function FormLogin () {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {touched.email && errors.email ? <div className='invalid-feedback fs-4'>{errors.email}</div> : null}
+            {touched.email && errors.email 
+              ? 
+              <div className='invalid-feedback fs-4'>{errors.email}</div> 
+              : 
+              null
+            }
           </div>
           <div className='col-12'>
-            <label htmlFor='password' className='fs-3'>Password</label>
+            <label htmlFor='password' className={style.input_label}>Password</label>
             <input
+              placeholder='Escriba su contraseña'
               type='password'
               name='password'
               id='password'
@@ -195,7 +204,9 @@ export default function FormLogin () {
             />
             {touched.password && errors.password ? <div className='invalid-feedback fs-4'>{errors.password}</div> : null}
           </div>
-          {!userLogged && <button disabled={send && true} className='btn btn-primary fs-4 mt-3 ' type='submit'>{!send ? 'Iniciar sesión' : '....'}</button>}
+          {
+            !userLogged && <button disabled={send && true} className={style.button_login} type='submit'>{!send ? 'Iniciar sesión' : '....'}</button>
+          }
 
           {err &&
             <div className='alert alert-danger mt-3 text-center' role='alert'><p>{message}</p></div>}

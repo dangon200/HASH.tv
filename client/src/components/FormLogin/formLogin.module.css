@@ -32,3 +32,18 @@
   margin-top: 16px;
   width: 100%;
 }
+
+.button_login {
+  background-color: #03EFFE;
+  color: #000;
+  width: 60%;
+  border: 1px solid rgba(0, 0, 0, 0.053);
+  border-radius: 10px;
+  margin-top: 10px;
+  transition: .4s;
+}
+
+.button_login:hover{
+  background-color: #03d0de;
+  transition: .4s;
+}
