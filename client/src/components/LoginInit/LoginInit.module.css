@@ -1,5 +1,6 @@
 .init{
   justify-content: center;
+  height: 60vh
 }
 
 .btn-color{
@@ -9,8 +10,8 @@
 }
 
 .profileImagePic{
-  height: 60px;
-  width: 60px;
+  height: 150px;
+  width: 150px;
   object-fit: cover;
 }
 

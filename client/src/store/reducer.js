@@ -18,7 +18,9 @@ import {
   GET_STREAMS,
   GET_CATEGORIES,
   FILTER_CATEGORIES,
-  PUT_USER
+  PUT_USER,
+  UPDATE_USER,
+  BANNED_USER,
 } from "./actions/actions";
 
 const initialState = {
@@ -110,8 +112,6 @@ const rootReducer = (state = initialState, action) => {
           e.name?.includes(action.payload)
         );
       }
-      console.log(filterCategories);
-
       return {
         ...state,
       };
@@ -131,6 +131,13 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, streams: action.payload };
     case CLEAR_FILTER:
       return { ...state, streams: state.allStreams };
+    // return { ...state, streams: action.payload }
+    case UPDATE_USER: {
+      return { ...state, users: action.payload };
+    }
+    case BANNED_USER: {
+      return { ...state, users: action.payload };
+    }
     default:
       return { ...state };
   }

@@ -4,7 +4,7 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './NavBarData';
-import './NavBar.css';
+import Style  from './NavBar.css';
 import { IconContext } from 'react-icons';
 import logo from '../../utils/logo.svg'
 import SeachBar from '../searchBar/searchBar'

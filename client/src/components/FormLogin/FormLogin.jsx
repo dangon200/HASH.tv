@@ -120,23 +120,19 @@ export default function FormLogin () {
               setSend(false)
               resetForm()
               setSuccess(true)
-              setTimeout(() => {
-                setSuccess(false)
-                /* dispatch(modalRender()) */
-              }, 3000)
+              setTimeout(() => { setSuccess(false) }, 5000)
             } else {
-              setMesagge('Correo o contraseña incorrectos')
+              setMesagge(data)
               setError(true)
               setSend(false)
               setTimeout(() => {
                 setError(false)
-              }, 3000)
+              }, 5000)
             }
           })
           .catch(err => {
-            console.log(err)
             setSend(false)
-            setMesagge('Algo salio mal')
+            setMesagge(err.data)
             setError(true)
             setTimeout(() => {
               setError(false)
@@ -203,13 +199,12 @@ export default function FormLogin () {
 
           {err &&
             <div className='alert alert-danger mt-3 text-center' role='alert'><p>{message}</p></div>}
+          {success &&
+            <div className='alert alert-success mt-3 text-center' role='alert'><p>{message}</p> </div>}
           <div
             className={user ? style.googleBtnHide : style.googleBtn}
             id='signInDiv'
           />
-
-          {success &&
-            <div className='alert alert-success mt-3  text-center' role='alert'><p>{message}</p> </div>}
         </div>
       </form>
     </div>
