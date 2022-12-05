@@ -36,7 +36,7 @@ export default function Navbar() {
             </Link>
                }
             {user &&
-              <Link className='botton_stream' to={`/user/${user._id}`}>
+              <Link className='botton_stream' to={`/user`}>
               <button className='botton_stream' >User</button>
             </Link>}
             {/* {user &&

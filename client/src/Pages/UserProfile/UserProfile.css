@@ -2,23 +2,48 @@
   display: flex;
   padding: 10px;
   justify-content: center;
+  margin-right: 800px;
 }
-.container3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  margin: auto;
+
+.img {
+  border: 2px solid black;
+  border-radius: 200px;
+  height: 250px;
+  width: 250px;
 }
-.card-container3 {
-  width: 300px;
-  height: 130px;
-  background-color: rgb(158, 182, 202);
-  border-radius: 20px;
-  margin: auto
+
+.divPicture {
+  z-index: 1;
+  position: absolute;
+  left: 800px;
+  top: 170px;
 }
-.description2 {
-    background-color: #fbfbfb;
-    margin: auto;
-    margin-bottom: 30px; 
+
+.divform {
+  margin-right: 900px;
+}
+
+.divcentral {
+  display: inline-flex;
+}
+
+.textarea {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 500px;
+  height: 30px;
+  margin-right: 450px;
+}
+
+.textareabio {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 500px;
+  height: 100px;
+  margin-right: 450px;
+}
+
+.button {
+  margin: 10px;
+  margin-right: 850px;
 }

@@ -71,6 +71,19 @@ router.get('/user/username/:username', async (req, res) => {
   }
 })
 
+router.put("/userUpDate/:id", async (req,res)=>{
+  try {
+  const {id} = req.params
+  const {username,email,password} = req.body
+  const salt = 10;
+  const hash = await bcrypt.hash(password, salt);
+  const user = await Users.findByIdAndUpdate({_id:id},{ email:email, name:username, password:hash})
+    res.send(user)
+} catch (error) {
+    console.log("no")
+}
+})
+
 const {
   getUsers,
   getUserById,

@@ -13,6 +13,7 @@ import Explorar from './Pages/Explorar'
 import UserProfile from './Pages/UserProfile/UserProfile'
 import Support from './Pages/Support'
 import AboutUs from './Pages/AboutUs'
+import UserStreams from './Pages/UserStreams/UserStreams'
 // import Footer from './components/Footer/Footer'
 import Cookies from 'universal-cookie'
 import { loginUser } from '../src/store/actions/actions'
@@ -20,7 +21,8 @@ import { useDispatch } from 'react-redux'
 import Detail from "./components/Details/Details";
 import Categories from "./Pages/Categories/Categories";
 import { StreamForm } from "./components/StreamForm/StreamForm";
-
+import userStreams from "./Pages/UserStreams/UserStreams";
+import EditProfile from "./Pages/UserProfile/EditProfile";
 
 function App() {
   /*  const cookies = new Cookies()
@@ -48,7 +50,9 @@ function App() {
       <Route path="/stream/:id" component={Detail} />
       <Route path="/categories/:id" component={Categories} />
       <Route path="/stream" component={StreamForm} />
-      <Route exact path="/user/:id" component={UserProfile} />
+      <Route exact path="/user" component={UserProfile} />
+      <Route exact path="/user/edit" component={EditProfile} />
+      <Route path ="/user/mystreams/:id" component={UserStreams} />
       </Switch>
 
     </div>
