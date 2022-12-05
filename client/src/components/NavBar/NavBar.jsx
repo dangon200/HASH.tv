@@ -25,7 +25,7 @@ export default function Navbar() {
       <IconContext.Provider value={{ color: '#fff' }}>
       
         <div className='navbar'>
-        <div className={`align-items-center justify-content-start h-120`}>
+        <div className="align-items-center justify-content-start h-120">
           <Link to='#' className='menu-bars'>
             <FaIcons.FaListUl onClick={showSidebar} />
           </Link>

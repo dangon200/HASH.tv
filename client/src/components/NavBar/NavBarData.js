@@ -43,7 +43,7 @@ export const SidebarData2 = [
   },
   {
     title: 'My Channels',
-    path: '/user/myChannels',
+    path: '/user/stream',
     icon: <MdIcons.MdOutlineVideoSettings />,
     cName: 'nav-text2'
   },

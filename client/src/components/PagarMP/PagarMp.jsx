@@ -53,7 +53,7 @@ export default function PagarMP () {
         </Modal.Header>
 
         <Modal.Body>
-        <div className="modal-body p-0 row">
+        <div className="$zindex-sticky:1000 modal-body p-0 row">
                         <div className={` col-12 col-lg-9`}>
                             
                                 <div className={s.logo}></div>
