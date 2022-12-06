@@ -18,6 +18,10 @@ export const GET_STREAMS = "GET_STREAMS";
 export const CLEAR_FILTER = "CLEAR_FILTER";
 export const FILTER_STREAMS = "FILTER_STREAMS";
 export const FILTER_CATEGORIES = "FILTER_CATEGORIES";
+export const PUT_USER = "PUT_USER";
+export const CLEAN_STATE = "CLEAN_STATE";
+export const UPDATE_USER = "UPDATE_USER";
+export const BANNED_USER = "BANNED_USER";
 
 const urlApi = "http://localhost:3001";
 
@@ -76,6 +80,7 @@ export const postUser = (data) => {
 };
 
 export const getUserId = (id) => {
+  console.log(id, "-----actionid");
   return async function (dispatch) {
     try {
       const json = await axios.get(`${urlApi}/api/user/${id}`);
@@ -94,6 +99,17 @@ export const getUserName = (name) => {
       dispatch({ type: GET_USER_NAME, payload: json.data });
     } catch (error) {
       alert("Ese usuario o stream no existe");
+    }
+  };
+};
+
+export const putUser = (id, data) => {
+  return async function (dispatch) {
+    try {
+      const json = await axios.put(`${urlApi}/api/userUpDate/${id}`, data);
+      dispatch({ type: PUT_USER, payload: json.data });
+    } catch (error) {
+      return { error: error.message };
     }
   };
 };
@@ -132,6 +148,27 @@ export const postStream = (data) => {
       await axios.post("http://localhost:3001/api/streams", data);
     } catch (error) {
       return { error: error.message };
+    }
+  };
+};
+
+export const postStreamId = (id, data) => {
+  console.log(id, data, "----------poststreamid");
+  return async function () {
+    try {
+      await axios.post(`http://localhost:3001/api/streams/${id}`, data);
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};
+
+export const updateStream = (id, stream) => {
+  return async () => {
+    try {
+      await axios.put(`http://localhost:3001/api/streams/${id}`, stream);
+    } catch (error) {
+      return { error: error.mesage };
     }
   };
 };
@@ -286,3 +323,28 @@ export function popularVideo() {
     });
   };
 }
+
+export const updateUserAdmin = (id, data) => {
+  return async function (dispatch) {
+    try {
+      const json = await axios.put(`${urlApi}/api/userAdminUser/${id}`, data);
+      const updateUsers = await axios.get(`${urlApi}/api/users`);
+      console.log(updateUsers);
+      dispatch({ type: UPDATE_USER, payload: updateUsers.data });
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};
+
+export const updateBanned = (id, data) => {
+  return async function (dispatch) {
+    try {
+      const json = await axios.put(`${urlApi}/api/user/${id}`, data);
+      const userBanned = await axios.get(`${urlApi}/api/users`);
+      dispatch({ type: BANNED_USER, payload: userBanned.data });
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};

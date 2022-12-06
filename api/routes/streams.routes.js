@@ -28,6 +28,7 @@ router.get("/streams/id/:id", async(req,res)=>{
         const streamDb = await getStreamsDb()
         if(id){
         const filterStream = streamDb.filter((stream)=>stream._id.toString() === id)
+        console.log(filterStream)
         filterStream.length?
         res.send(filterStream)
         :res.send("Error al obtener Id de Stream")
@@ -51,6 +52,25 @@ router.post("/streams/:id", async (req,res)=>{
       res.status(404).send("Problemas creando un Stream")
   }
 })
+
+router.put('/streams/:id', async (req ,res) => {
+  try {
+
+    const { id } = req.params
+    const {name, title, description, image} = req.body
+    const streamDb = await Streams.find({});
+    const filterStream = streamDb.filter((stream) => stream._id == id);
+    filterStream[0].name = name
+    filterStream[0].title = title
+    filterStream[0].description = description
+    filterStream[0].image = image
+    await filterStream[0].save()
+    res.json(filterStream)
+  } catch (error) {
+    res.status(500).send('No se pudo editar el Stream')
+  }
+})
+
 
 
 /* router.delete("/streams/id/:id", async(req,res)=>{

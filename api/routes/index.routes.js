@@ -12,6 +12,4 @@ router.use("/api/auth", authRoutes);
 router.use("/api", streams);
 router.use("/api", CategoriesDb);
 router.use("/api", donationsUser);
-router.use("/api", adminDashboard);
-
 module.exports = router;
