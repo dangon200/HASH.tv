@@ -2,8 +2,12 @@ const mongoose = require("mongoose");
 
 const dbConnect = () => {
   const DB_URI = process.env.DB_URI;
+  const MONGOUSER = process.env.MONGOUSER;
+  const MONGOPASSWORD = process.env.MONGOPASSWORD;
+  const MONGOHOST = process.env.MONGOHOST;
+  const MONGONAME = process.env.MONGONAME;
   mongoose.connect(
-    DB_URI,
+    `mongodb+srv://${MONGOUSER}:${MONGOPASSWORD}@${MONGOHOST}/${MONGONAME}?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,

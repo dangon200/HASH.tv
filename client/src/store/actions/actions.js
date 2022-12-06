@@ -9,14 +9,14 @@ export const POST_CATEGORIES = "POST_CATEGORIES";
 export const GET_CATEGORIES = "GET_CATEGORIES";
 export const ALLVIDEOS = "ALLVIDEOS";
 export const POPVIDEO = "POPVIDEO";
-export const LOGIN_USER = "LOGIN_USER"
-export const LOGOUT_USER = "LOGOUT_USER"
-export const GET_FAVORITES_ID = "GET_FAVORITES_ID"
-export const GET_ALL_STREAMS = "GET_ALL_STREAMS"
+export const LOGIN_USER = "LOGIN_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
+export const GET_FAVORITES_ID = "GET_FAVORITES_ID";
+export const GET_ALL_STREAMS = "GET_ALL_STREAMS";
 export const GET_USERS = "GET_USERS";
 export const GET_STREAMS = "GET_STREAMS";
 export const CLEAR_FILTER = "CLEAR_FILTER";
-export const FILTER_STREAMS = "FILTER_STREAMS"
+export const FILTER_STREAMS = "FILTER_STREAMS";
 export const FILTER_CATEGORIES = "FILTER_CATEGORIES";
 
 const urlApi = "http://localhost:3001";
@@ -24,16 +24,16 @@ const urlApi = "http://localhost:3001";
 ///////// USER ACTIONS
 export const loginUser = (user) => {
   return {
-    type: 'LOGIN_USER',
-    payload: user
-  }
-}
+    type: "LOGIN_USER",
+    payload: user,
+  };
+};
 
 export const logoutUser = () => {
   return {
-    type: 'LOGOUT_USER'
-  }
-}
+    type: "LOGOUT_USER",
+  };
+};
 
 export function registerUser(data) {
   return function (dispatch) {
@@ -87,19 +87,16 @@ export const getUserId = (id) => {
 };
 
 export const getUserName = (name) => {
-  console.log("llegue")
+  console.log("llegue");
   return async function (dispatch) {
     try {
-      const json = await axios.get(
-        `${urlApi}/api/users?name=${name}`
-      );
+      const json = await axios.get(`${urlApi}/api/users?name=${name}`);
       dispatch({ type: GET_USER_NAME, payload: json.data });
     } catch (error) {
       alert("Ese usuario o stream no existe");
     }
   };
 };
-
 
 ///////// FAVORITES
 
@@ -121,7 +118,7 @@ export const getUserName = (name) => {
 export const getUsers = () => {
   return async function (dispatch) {
     try {
-      const json = await axios.get(`http://localhost:3001/api/user`);
+      const json = await axios.get(`http://localhost:3001/api/users`);
       dispatch({ type: GET_USERS, payload: json.data });
     } catch (error) {
       return { error: error.message };
@@ -142,8 +139,10 @@ export const postStream = (data) => {
 export const getStreamId = (id) => {
   return async function (dispatch) {
     try {
-      const json = await axios.get(`http://localhost:3001/api/streams/id/${id}`);
-      console.log(json)
+      const json = await axios.get(
+        `http://localhost:3001/api/streams/id/${id}`
+      );
+      console.log(json);
       dispatch({ type: GET_STREAM_ID, payload: json.data });
     } catch (error) {
       return { error: error.message };
@@ -159,7 +158,7 @@ export const getStreamName = (name) => {
       );
       dispatch({ type: GET_STREAM_NAME, payload: json.data });
     } catch (error) {
-      alert("No se encontro ese streamer")
+      alert("No se encontro ese streamer");
     }
   };
 };
@@ -230,28 +229,35 @@ export function allVideoGamesDataBase() {
   return async function (dispatch) {
     const videos = await gifs();
     dispatch({
-      type: 'ALLVIDEOS',
-      payload: videos
-    })
-    } 
-  }
-  // FILTERS EPLORAR
-  export const filterCanalesStream = ({ categoria, lenguaje, continente, opt }) => {
-    return async function (dispatch) {
-      try {
-        const { data } = await axios.get(`${urlApi}/api/streams/filter?categoria=${categoria}&lenguaje=${lenguaje}&continente=${continente}&opt=${opt}`)
-        return dispatch({
-          type: 'FILTER_STREAMS',
-          payload: data
-        })
-      } catch (error) {
-        console.log(error)
-      }
+      type: "ALLVIDEOS",
+      payload: videos,
+    });
+  };
+}
+// FILTERS EPLORAR
+export const filterCanalesStream = ({
+  categoria,
+  lenguaje,
+  continente,
+  opt,
+}) => {
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.get(
+        `${urlApi}/api/streams/filter?categoria=${categoria}&lenguaje=${lenguaje}&continente=${continente}&opt=${opt}`
+      );
+      return dispatch({
+        type: "FILTER_STREAMS",
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
     }
-  }
-  export const clearFilter = () => {
-    return { type: 'CLEAR_FILTER', payload: null }
-  }
+  };
+};
+export const clearFilter = () => {
+  return { type: "CLEAR_FILTER", payload: null };
+};
 
 // BestGame
 
