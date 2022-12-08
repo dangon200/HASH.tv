@@ -13,14 +13,16 @@ import Explorar from './Pages/Explorar'
 import UserProfile from './Pages/UserProfile/UserProfile'
 import Support from './Pages/Support'
 import AboutUs from './Pages/AboutUs'
+import UserStreams from './Pages/UserStreams/UserStreams'
 // import Footer from './components/Footer/Footer'
 import Cookies from 'universal-cookie'
 import { loginUser } from '../src/store/actions/actions'
 import { useDispatch } from 'react-redux'
 import Detail from "./components/Details/Details";
 import Categories from "./Pages/Categories/Categories";
-import { StreamForm } from "./components/StreamForm/StreamForm";
-import VerifyEmail from "./Pages/VerifyEmail";
+import EditProfile from "./Pages/UserProfile/EditProfile";import VerifyEmail from "./Pages/VerifyEmail";
+import  Admin  from "./components/Admin/Admin";
+import HomeStream from "./components/HomeStream/HomeStream";
 
 function App() {
   /*  const cookies = new Cookies()
@@ -48,10 +50,12 @@ function App() {
       <Route path="/stream/:id" component={Detail} />
       <Route path="/verify/:uniqueKey" component={VerifyEmail} />
       <Route path="/categories/:id" component={Categories} />
-      <Route path="/stream" component={StreamForm} />
-      <Route exact path="/user/:id" component={UserProfile} />
+      <Route path="/stream" component={HomeStream} />
+      <Route exact path="/user" component={UserProfile} />
+      <Route exact path="/user/edit" component={EditProfile} />
+      <Route path ="/user/mystreams/:id" component={UserStreams} />
+      <Route exact path="/admin" component={Admin}/>
       </Switch>
-
     </div>
   );
 }
