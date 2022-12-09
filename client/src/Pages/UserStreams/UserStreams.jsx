@@ -2,9 +2,6 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserId, getStreams, getUsers } from "../../store/actions/actions"
-import Card from "../../components/Card/Card2";
-import NavBar from "../../components/NavBar/NavBar.jsx"
-import style from "./UserStreams.module.css"
 
 const UserStreams = () => {
     const dispatch = useDispatch();

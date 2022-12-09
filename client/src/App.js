@@ -24,7 +24,7 @@ import Logout from "./components/logout/logout";
 import UserSubs from "./components/UserSubs/userSubs";
 import EditProfile from "./Pages/UserProfile/EditProfile";
 import  Admin  from "./components/Admin/Admin";
-import HomeStream from "./components/HomeStream/HomeStream";
+// import HomeStream from "./components/HomeStream/HomeStream";
 
 function App() {
   /*  const cookies = new Cookies()
@@ -52,7 +52,7 @@ function App() {
       <Route path="/stream/:id" component={Detail} />
       <Route path="/verify/:uniqueKey" component={VerifyEmail} />
       <Route path="/categories" component={Categories} />
-      <Route path="/user/stream" component={HomeStream} />
+     {/*  <Route path="/user/stream" component={HomeStream} /> */}
       <Route path="/categories/:id" component={Categories} />
       <Route exact path="/user" component={UserProfile} />
       <Route exact path="/user/subscriptions" component={UserSubs} />

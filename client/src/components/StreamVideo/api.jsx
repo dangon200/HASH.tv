@@ -1,4 +1,4 @@
-export const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlrZXkiOiI4NGFmYTdlZS05YWI3LTRiNDktOTRhMy05YjhiYTM2NGUwODIiLCJwZXJtaXNzaW9ucyI6WyJhbGxvd19qb2luIl0sImlhdCI6MTY2OTQ0NzY3MSwiZXhwIjoxNjcwMDUyNDcxfQ.nNr_tU5wii1mz2r-xSamK-kLAE1jQcQXl4WnEjbgxWU";
+export const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlrZXkiOiI4NGFmYTdlZS05YWI3LTRiNDktOTRhMy05YjhiYTM2NGUwODIiLCJwZXJtaXNzaW9ucyI6WyJhbGxvd19qb2luIl0sImlhdCI6MTY3MDQ2MjM0NywiZXhwIjoxNjczMDU0MzQ3fQ.C9HtYT_eJi2CY7hOD_WlkoAHd5Dp3QyHRmbJg24fr_Y";
 
 // API call to create meeting
 export const createMeeting = async () => {
