@@ -149,17 +149,6 @@ router.post("/streams/rating/:id", async (req, res) => {
   res.status(200).json(stream);
 });
 
-router.post("/create-stream", async (req, res) => {
-  const { title, description } = req.body;
-  const newStream = new Streams({ title, description });
-  console.log(
-    "🚀 ~ file: streams.routes.js:154 ~ router.post ~ newStream",
-    newStream
-  );
-  const savedStream = await newStream.save();
-  res.json(savedStream);
-});
-
 router.post("/review/:id", makeReview);
 
 module.exports = router;
