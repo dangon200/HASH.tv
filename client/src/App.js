@@ -22,6 +22,7 @@ import Categories from "./Pages/Categories/Categories";
 import { StreamForm } from "./components/StreamForm/StreamForm";
 import VerifyEmail from "./Pages/VerifyEmail";
 import  Admin  from "./components/Admin/Admin";
+import AdminInfoUser from "./components/AdminInfoUser/AdminInfoUser"
 
 function App() {
   /*  const cookies = new Cookies()
@@ -52,6 +53,7 @@ function App() {
       <Route path="/stream" component={StreamForm} />
       <Route exact path="/user/:id" component={UserProfile} />
       <Route exact path="/admin" component={Admin}/>
+      <Route exact path="/info/:id" component={AdminInfoUser}/>
       </Switch>
 
     </div>

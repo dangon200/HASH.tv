@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { getStreams, getUserId, getUsers, updateUserAdmin,updateBanned } from "../../store/actions/actions";
 import "../Admin/Admin.css"
 
@@ -16,10 +17,10 @@ function Admin(){
     useEffect(()=>{
         dispatch(getUsers())
         dispatch(getStreams())
-        dispatch(getUserId("638a7616c701444ba7c53faa"))
+        dispatch(getUserId("63911ccdac0e93d87575b4c8"))
         
     },[])
- 
+    console.log(users)
 
     const banned = users.filter((user) => user.banned === true)
     const prueba =users.map((user)=>user.myStreams)
@@ -30,16 +31,16 @@ function Admin(){
     }
     const handleUpdateBanned = (e) =>{
         dispatch(updateBanned(e))
-  
     }
    
     return(
         <>
+
          <div class="d-flex" id="wrapper">
   
         <div class="bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
-                    class="fas fa-user-secret me-2"></i>Codersbite</div>
+                    class="fas fa-user-secret me-2"></i>HASH</div>
             <div class="list-group list-group-flush my-3">
            
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
@@ -51,7 +52,7 @@ function Admin(){
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Dashboard</h2>
+                    <h2 class="fs-2 m-0">Dashboard Admin</h2>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -109,49 +110,37 @@ function Admin(){
                         </div>
                     </div>
 
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <h3 class="fs-2">%25</h3>
-                                <p class="fs-5">Donaciones echas en la Plataforma</p>
-                            </div>
-                            <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <h3 class="fs-2">%25</h3>
-                                <p class="fs-5">Administradores en la Plataforma</p>
-                            </div>
-                            <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Informacion de Usuarios</h3>
                     <div class="col">
-                        <table class="table bg-white rounded shadow-sm  table-hover">
+                        <table class="table bg-white rounded shadow-sm  table-hover ">
                             <thead>
                                 <tr>
                                     <th scope="col" width="50">#</th>
                                     <th scope="col">Usuario</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Pais</th>
+                                    <th scope="col">Rol</th>
                                 </tr>
                             </thead>
                             <tbody>
                               {users?.map((user,index)=>{
                                 return(
                                     <tr>
-                                    <th scope="row">{index + 1}</th>
+                                    <th scope="row ">{index + 1}</th>
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
                                     <td>{user.country}</td>
                                     <td>{user.roles[0].name}</td>
-                                    <button type="button" class="btn btn-danger" onClick={() => handleUpdateUserAdmin(user._id)}>User/Admin</button>
-                                    <button type="button" class="btn btn-danger" onClick={() => handleUpdateBanned(user._id)}>Banned/No Banned</button>
+                                    <button type="button" class="btn m-2 btn-primary btn-lg active" onClick={() => handleUpdateUserAdmin(user._id)}>User/Admin</button>
+                                    {user.banned === false?
+                                    (<><button type="button" class="btn btn-danger btn-lg active" onClick={() => handleUpdateBanned(user._id)}>Banned</button></>)
+                                    :(<></>)}
+                                    <Link to={"/info/"+ user._id}>
+                                    <button type="button" class="btn m-2 btn-warning btn-lg active" onClick={() => handleUpdateUserAdmin(user._id)}>Info</button>
+                                    </Link>
                                     </tr>
                                 )
                               })}
@@ -180,6 +169,9 @@ function Admin(){
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
                                     <td>{user.country}</td>
+                                    {user.banned === true?
+                                    (<><button type="button " class="btn btn-success btn-lg active  m-2" onClick={() => handleUpdateBanned(user._id)}>Unbanned</button></>)
+                                    :(<></>)}
                                     </tr>
                                 )
                               })}

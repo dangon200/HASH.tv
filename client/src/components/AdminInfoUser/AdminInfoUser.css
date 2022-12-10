@@ -1,0 +1,13 @@
+.imge{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: brown;
+}
+.col-sm-10{
+    background-color: black;
+}
+.grafic{
+    display: flex;
+    justify-content: center;
+}
