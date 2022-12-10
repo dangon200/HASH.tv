@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
       failure: 'http://localhost:3000/',
       pending: 'http://localhost:3000/'
     },
-    notification_url: 'https://8710-2803-9800-9447-8622-2463-f4d1-b71-4719.sa.ngrok.io/api/notifications'
+    notification_url: 'https://476e-2803-9800-9447-8622-4842-5b6e-a962-58f.sa.ngrok.io/api/subscriptions'
   }
   mercadopago.preferences.create(preference)
     .then(function (response) {
@@ -41,5 +41,29 @@ router.post('/', (req, res) => {
       console.log(error)
     })
 })
-
+router.post('/hashcash', (req, res) => {
+  // Crea un objeto de preferencia
+    const preference = {
+      items: [{
+          title: req.body.title,
+          description: req.body.description,
+          unit_price: req.body.unit_price,
+          quantity: 1,
+          category_id: req.body.category_id,
+          id: req.body.id
+      }],
+      back_urls: {
+        success: 'http://localhost:3000/user/',
+        failure: 'http://localhost:3000/',
+        pending: 'http://localhost:3000/'
+      },
+      notification_url: 'https://476e-2803-9800-9447-8622-4842-5b6e-a962-58f.sa.ngrok.io/api/hashcash'
+    }
+    mercadopago.preferences.create(preference)
+      .then(function (response) {
+        res.status(200).json({ data: response.body.init_point })
+      }).catch(function (error) {
+        console.log(error)
+      })
+  })
 module.exports = router
