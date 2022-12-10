@@ -4,14 +4,19 @@ const router = Router();
 const users = require("./users.routes")
 const streams = require("./streams.routes")
 const CategoriesDb = require("./categories.routes")
+const MercadoPago = require("./mercadopago.routes")
+const Subscriptions = require("./subscriptions.routes")
+const { PagarProducto } = require("../controllers/webhooksMP")
 const donationsUser = require("./donations.routes")
-
 
 router.use("/api", users);
 router.use("/api/auth", authRoutes);
 router.use("/api", streams);
 router.use("/api", CategoriesDb);
+router.use("/api/checkout", MercadoPago)
+router.post("/api/notifications", PagarProducto)
+router.use("/api", Subscriptions)
 router.use("/api", donationsUser);
 
-
+//
 module.exports = router;

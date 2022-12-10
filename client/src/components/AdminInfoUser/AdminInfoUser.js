@@ -15,10 +15,36 @@ function AdminInfoUser() {
     },[])
     console.log(user)
   const options = {
-    labels: ["Apple", "Mango", "Orange"],
+    labels: ["3 Meses", "6 Meses", "12 Meses"],
   };
+//   const meses3=user[0].filter((sub) => sub.subcriptions[0].totalAmount === 1500)
+//   const meses6=user[0].filter((sub) => sub.subcriptions[0].totalAmount === 2500)
+//   const meses12=user[0].filter((sub) => sub.subcriptions[0].totalAmount === 3500)
   const series = [45, 17, 89];
- 
+
+
+  const series2= [{
+    name: 'series1',
+    data: [31, 40,45, 51, 60]
+  }]
+  const options2= {
+
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'smooth'
+    },
+    xaxis: {
+      type: 'datetime',
+      categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+    },
+    tooltip: {
+      x: {
+        format: 'dd/MM/yy HH:mm'
+      },
+    },
+  }
         
   return (
     <body className="bg-ligth">
@@ -36,7 +62,7 @@ function AdminInfoUser() {
                         <i className="far fa-edit fa-2x mb-4"></i>
                     </div>
                 </div>
-                <div className="col-sm-10 bg-white rounded-right">
+                <div className="col-sm-10  rounded-right">
                         <h3 className="mt-1 text-center">Datos del Usuario</h3>
                         <hr className="badge-primary "></hr>
                         <div className="row">
@@ -75,9 +101,10 @@ function AdminInfoUser() {
             </div>
 
         </div>
-
+       
     </div>
-     <div className="grafic">                              
+    <h1>Datos de su canal </h1>  
+     <div className="grafic">                            
     <Chart
         type="donut"
         options={options}
@@ -86,9 +113,9 @@ function AdminInfoUser() {
         width={600}
         />
     <Chart
-        type="bar"
-        options={options}
-        series={series}
+        type="area"
+        options={options2}
+        series={series2}
         height={440}
         width={600}
     />

@@ -1,193 +1,194 @@
-import { e } from "mathjs";
 import React from "react";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { getStreams, getUserId, getUsers, updateUserAdmin,updateBanned } from "../../store/actions/actions";
 import "../Admin/Admin.css"
 
-function Admin(){
+
+function Admin() {
     const dispatch = useDispatch()
-    const user = useSelector(state=> state.usersDetail)
-    const users = useSelector(state=> state.users)
+    const user = useSelector(state => state.usersDetail)
+    const users = useSelector(state => state.users)
     const streams = useSelector(state => state.streams)
     // console.log(users)
-   
-    useEffect(()=>{
+
+    useEffect(() => {
         dispatch(getUsers())
         dispatch(getStreams())
         dispatch(getUserId("63911ccdac0e93d87575b4c8"))
         
     },[])
-    console.log(users)
 
     const banned = users.filter((user) => user.banned === true)
-    const prueba =users.map((user)=>user.myStreams)
-    const prueba2 =prueba.flat().length
+    const prueba = users.map((user) => user.myStreams)
+    const prueba2 = prueba.flat().length
 
     const handleUpdateUserAdmin = (e) => {
-       dispatch(updateUserAdmin(e))
+        dispatch(updateUserAdmin(e))
     }
-    const handleUpdateBanned = (e) =>{
+    const handleUpdateBanned = (e) => {
         dispatch(updateBanned(e))
     }
-   
-    return(
-        <>
 
-         <div class="d-flex" id="wrapper">
-  
-        <div class="bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
-                    class="fas fa-user-secret me-2"></i>HASH</div>
-            <div class="list-group list-group-flush my-3">
-           
-                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
-                        class="fas fa-power-off me-2"></i>Volver</a>
-            </div>
-        </div>
+    return (
+<>
+<div class="d-flex" id="wrapper">
+  <div class="bg-white" id="sidebar-wrapper">
+      <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
+              class="fas fa-user-secret me-2"></i>HASH
+      </div>
+      <div class="list-group list-group-flush my-3">
+     
+          <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                  class="fas fa-power-off me-2"></i>Volver</a>
+      </div>
+  </div>
+  <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4"/>
+          <div class="d-flex align-items-center">
+              <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+              <h2 class="fs-2 m-0">Dashboard Admin</h2>
+          </div>
 
-        <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
-                <div class="d-flex align-items-center">
-                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Dashboard Admin</h2>
-                </div>
+          <div id="page-content-wrapper">
+              <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                  <div class="d-flex align-items-center">
+                      <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                      <h2 class="fs-2 m-0">Dashboard</h2>
+                  </div>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                      aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>{user.map((e)=>e.name)}
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
+                                  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="fas fa-user me-2"></i>{user.map((e) => e.name)}
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <li><a class="dropdown-item" href="#">Profile</a></li>
 
-            <div class="container-fluid px-4">
-                <div class="row g-3 my-2">
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <h3 class="fs-2">{users.length}</h3>
-                                <p class="fs-5">Usuarios en la Plataforma</p>
-                            </div>
-                            <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                        </div>
-                    </div>
+                              </ul>
+                          </li>
+                      </ul>
+                  </div>
+              </nav>
 
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <h3 class="fs-2">{prueba2}</h3>
-                                <p class="fs-5">Usuarios con Canales de Stream</p>
-                            </div>
-                            <i
-                                class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                        </div>
-                    </div>
+              <div class="container-fluid px-4">
+                  <div class="row g-3 my-2">
+                      <div class="col-md-3">
+                          <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                              <div>
+                                  <h3 class="fs-2">{users.length}</h3>
+                                  <p class="fs-5">Usuarios en la Plataforma</p>
+                              </div>
+                              <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                          </div>
+                      </div>
 
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <h3 class="fs-2">{streams.length}</h3>
-                                <p class="fs-5">Usuarios sin Canales de Stream</p>
-                            </div>
-                            <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                        </div>
-                    </div>
+                      <div class="col-md-3">
+                          <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                              <div>
+                                  <h3 class="fs-2">{prueba2}</h3>
+                                  <p class="fs-5">Usuarios con Canales de Stream</p>
+                              </div>
+                              <i
+                                  class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                          </div>
+                      </div>
 
-                </div>
+                      <div class="col-md-3">
+                          <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                              <div>
+                                  <h3 class="fs-2">{streams.length}</h3>
+                                  <p class="fs-5">Usuarios sin Canales de Stream</p>
+                              </div>
+                              <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                          </div>
+                      </div>
 
-                <div class="row my-5">
-                    <h3 class="fs-4 mb-3">Informacion de Usuarios</h3>
-                    <div class="col">
-                        <table class="table bg-white rounded shadow-sm  table-hover ">
-                            <thead>
-                                <tr>
-                                    <th scope="col" width="50">#</th>
-                                    <th scope="col">Usuario</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Pais</th>
-                                    <th scope="col">Rol</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                              {users?.map((user,index)=>{
-                                return(
-                                    <tr>
-                                    <th scope="row ">{index + 1}</th>
-                                    <td>{user.name}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.country}</td>
-                                    <td>{user.roles[0].name}</td>
-                                    <button type="button" class="btn m-2 btn-primary btn-lg active" onClick={() => handleUpdateUserAdmin(user._id)}>User/Admin</button>
-                                    {user.banned === false?
-                                    (<><button type="button" class="btn btn-danger btn-lg active" onClick={() => handleUpdateBanned(user._id)}>Banned</button></>)
-                                    :(<></>)}
-                                    <Link to={"/info/"+ user._id}>
-                                    <button type="button" class="btn m-2 btn-warning btn-lg active" onClick={() => handleUpdateUserAdmin(user._id)}>Info</button>
-                                    </Link>
-                                    </tr>
-                                )
-                              })}
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="row my-5">
-                    <h3 class="fs-4 mb-3">Usuarios baneados</h3>
-                    <div class="col">
-                        <table class="table bg-white rounded shadow-sm  table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col" width="50">#</th>
-                                    <th scope="col">Usuario</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Pais</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            {banned?.map((user,index)=>{
-                                return(
-                                    <tr>
-                                    <th scope="row">{index + 1}</th>
-                                    <td>{user.name}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.country}</td>
-                                    {user.banned === true?
-                                    (<><button type="button " class="btn btn-success btn-lg active  m-2" onClick={() => handleUpdateBanned(user._id)}>Unbanned</button></>)
-                                    :(<></>)}
-                                    </tr>
-                                )
-                              })}
-                              
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+          </div>
 
-            </div>
-        </div>
-    </div>
-    
-    
-        
-        </>
+          <div class="row my-5">
+              <h3 class="fs-4 mb-3">Informacion de Usuarios</h3>
+              <div class="col">
+                  <table class="table bg-white rounded shadow-sm   ">
+                      <thead>
+                          <tr>
+                              <th scope="col" width="50">#</th>
+                              <th scope="col">Usuario</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Pais</th>
+                              <th scope="col">Rol</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        {users?.map((user,index)=>{
+                          return(
+                              <tr>
+                              <th scope="row ">{index + 1}</th>
+                              <td>{user.name}</td>
+                              <td>{user.email}</td>
+                              <td>{user.country}</td>
+                              <td>{user.roles[0].name}</td>
+                              <button type="button" class="btn m-2 btn-primary btn-lg active" onClick={() => handleUpdateUserAdmin(user._id)}>User/Admin</button>
+                              {user.banned === false?
+                              (<><button type="button" class="btn btn-danger btn-lg active" onClick={() => handleUpdateBanned(user._id)}>Banned</button></>)
+                              :(<></>)}
+                              <Link to={"/info/"+ user._id}>
+                              <button type="button" class="btn m-2 btn-warning btn-lg active" onClick={() => handleUpdateUserAdmin(user._id)}>Info</button>
+                              </Link>
+                              </tr>
+                          )
+                        })}
+                          
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          <div class="row my-5">
+              <h3 class="fs-4 mb-3">Usuarios baneados</h3>
+              <div class="col">
+                  <table class="table bg-white rounded shadow-sm  ">
+                      <thead>
+                          <tr>
+                              <th scope="col" width="50">#</th>
+                              <th scope="col">Usuario</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Pais</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      {banned?.map((user,index)=>{
+                          return(
+                              <tr>
+                              <th scope="row">{index + 1}</th>
+                              <td>{user.name}</td>
+                              <td>{user.email}</td>
+                              <td>{user.country}</td>
+                              {user.banned === true?
+                              (<><button type="button " class="btn btn-success btn-lg active  m-2" onClick={() => handleUpdateBanned(user._id)}>Unbanned</button></>)
+                              :(<></>)}
+                              </tr>
+                          )
+                        })}
+                        
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          </div>
+      </div>
+</div>
+</div>
+
+</>
     )
 }
 export default Admin

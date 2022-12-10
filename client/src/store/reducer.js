@@ -18,12 +18,14 @@ import {
   GET_STREAMS,
   GET_CATEGORIES,
   FILTER_CATEGORIES,
+  GET_USER_SUBSCRIPTIONS,
+  PUT_USER,
   UPDATE_USER,
-  BANNED_USER
+  BANNED_USER,
 } from "./actions/actions";
 
 const initialState = {
-  user: '',
+  user: "",
   login: true,
   users: [],
   usersDetail: [],
@@ -34,7 +36,8 @@ const initialState = {
   categories: [],
   getVideoFromDatabase: [],
   popVideo: [],
-  favorites: []
+  favorites: [],
+  subscriptions: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -45,15 +48,19 @@ const rootReducer = (state = initialState, action) => {
         allStreams: action.payload,
       };
     case LOGIN_USER:
-      return { ...state, user: action.payload }
+      return { ...state, user: action.payload };
     case LOGOUT_USER:
-      return { ...state, user: '' }
+      return { ...state, user: "" };
     case GET_USERS:
       return {
         ...state,
         users: action.payload,
       };
     case POST_USER:
+      return {
+        ...state,
+      };
+    case PUT_USER:
       return {
         ...state,
       };
@@ -68,7 +75,7 @@ const rootReducer = (state = initialState, action) => {
         users: action.payload,
       };
     case GET_FAVORITES_ID:
-      return { ...state, favorites: action.payload }
+      return { ...state, favorites: action.payload };
     case GET_STREAMS:
       return {
         ...state,
@@ -90,6 +97,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         streamName: action.payload,
       };
+      case GET_USER_SUBSCRIPTIONS:
+        return {
+          ...state,
+          subscriptions: action.payload,
+        };
     case GET_CATEGORIES:
       return {
         ...state,
@@ -107,8 +119,6 @@ const rootReducer = (state = initialState, action) => {
           e.name?.includes(action.payload)
         );
       }
-      console.log(filterCategories);
-
       return {
         ...state,
       };
@@ -125,21 +135,16 @@ const rootReducer = (state = initialState, action) => {
         popVideo: action.payload,
       };
     case FILTER_STREAMS:
-      return { ...state, streams: action.payload }
-      case CLEAR_FILTER:
-        return { ...state, streams: state.allStreams }
-
-       case UPDATE_USER:{
-        return{...state,
-        users:action.payload
-        }
-       }
-       case BANNED_USER:{
-        return{ ...state,
-          users:action.payload
-        }
-       }
-
+      return { ...state, streams: action.payload };
+    case CLEAR_FILTER:
+      return { ...state, streams: state.allStreams };
+    // return { ...state, streams: action.payload }
+    case UPDATE_USER: {
+      return { ...state, users: action.payload };
+    }
+    case BANNED_USER: {
+      return { ...state, users: action.payload };
+    }
     default:
       return { ...state };
   }
