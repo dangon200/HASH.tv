@@ -97,7 +97,6 @@ router.get("/streams/filter", async (req, res) => {
     if (lenguaje) {
       streams = streams.filter((stream) => stream.language[0] === lenguaje);
     }
-
     if (continente) {
       streams = streams.filter((stream) => stream.continent[0] === continente);
     }
@@ -136,6 +135,29 @@ router.get("/streams/filter", async (req, res) => {
     res.status(400).json(error.message);
   }
 });
+
+router.post("/streams", async(req,res)=>{
+  try {
+  const data= req.body
+      const stream = await Streams.create(data)
+      res.send(stream)
+  } catch (error) {
+      res.send("Error en Stream")
+  }
+})
+router.post("/streams/:id", async (req,res)=>{
+try {
+    const {id} = req.params
+    const data= req.body
+    const stream = await Streams.create(data)
+    const userStream = await Users.findOne({_id:id})
+    userStream.myStreams.push(stream._id)
+    const savedStream = await userStream.save();
+    res.send(savedStream)
+} catch (error) {
+    res.status(404).send("Problemas creando un Stream")
+}
+})
 
 router.post("/streams/rating/:id", async (req, res) => {
   const { id } = req.params;

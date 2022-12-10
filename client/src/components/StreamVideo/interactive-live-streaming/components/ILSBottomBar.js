@@ -199,8 +199,8 @@ export function ILSBottomBar({
               style={{
                 display: "flex",
                 alignItems: "center",
-                paddingLeft: 12,
-                paddingRight: 12,
+                paddingLeft: 2,
+                paddingRight: 2,
                 backgroundColor: deviceId === selectMicDeviceId && "#3F4046",
               }}
               classes={{
@@ -266,6 +266,7 @@ export function ILSBottomBar({
           }}
         >
           <SingleMicMenu
+            key="4"
             micArr={mics}
             label={"MICROPHONE"}
             changeMic={changeMic}

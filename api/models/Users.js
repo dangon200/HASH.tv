@@ -31,7 +31,17 @@ const UsersSchema = new Schema(
       type: String,
       defaultValue: null
     }, */
-    
+    Subscriptions: [
+      {
+        type: String,
+      },
+    ],
+    myStreams: [
+      {
+        type: Types.ObjectId,
+        ref: "Streams",
+      },
+    ],
     roles: [
       {
         type: Types.ObjectId,
