@@ -25,6 +25,9 @@ const createSub = async (id) => {
   const userFound = await Users.findOne({_id: idU})
   userFound.Subscriptions.push(newBuy._id)
   const saved = await userFound.save();
+  const Stream = await Streams.findOne({_id: result.additional_info.items[0].category_id})
+  Stream.Subscriptions.push(newBuy._id)
+  const save = await Stream.save();
   return { newBuy }
 }
 const PagarProducto = async (req, res, next) => {

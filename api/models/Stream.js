@@ -33,6 +33,11 @@ const StreamSchema = new Schema(
     contents: {
       type: String,
     },
+    Subscriptions: [
+      {
+        type: String,
+      },
+    ],
     language: {
       type: [
         "Inglés",
