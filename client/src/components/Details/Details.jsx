@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import s from "./Details.module.css";
 import styled from 'styled-components';
+import PagarMP from "../PagarMP/PagarMp"
 
 const Detail = (props) => {
     const streamId = props.match.params.id
@@ -96,6 +97,7 @@ const Detail = (props) => {
                                         <span style={{ margin: '0' }}><span style={{ color: '#2ce02c', margin: '0' }}>● </span>9999</span>
                                     </div>
                                 </div>
+                                <PagarMP />
                                 <p>{streamDetail[0].description}</p>
                                 <p><b>Reglas:</b> {streamDetail[0].rules}</p>
                                 <p>Network: {streamDetail[0].networks}</p>

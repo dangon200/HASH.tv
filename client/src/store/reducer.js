@@ -18,6 +18,7 @@ import {
   GET_STREAMS,
   GET_CATEGORIES,
   FILTER_CATEGORIES,
+  GET_USER_SUBSCRIPTIONS,
   PUT_USER,
   UPDATE_USER,
   BANNED_USER,
@@ -36,6 +37,7 @@ const initialState = {
   getVideoFromDatabase: [],
   popVideo: [],
   favorites: [],
+  subscriptions: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -95,6 +97,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         streamName: action.payload,
       };
+      case GET_USER_SUBSCRIPTIONS:
+        return {
+          ...state,
+          subscriptions: action.payload,
+        };
     case GET_CATEGORIES:
       return {
         ...state,

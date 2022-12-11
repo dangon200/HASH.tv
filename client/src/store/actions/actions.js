@@ -18,6 +18,7 @@ export const GET_STREAMS = "GET_STREAMS";
 export const CLEAR_FILTER = "CLEAR_FILTER";
 export const FILTER_STREAMS = "FILTER_STREAMS";
 export const FILTER_CATEGORIES = "FILTER_CATEGORIES";
+export const GET_USER_SUBSCRIPTIONS = "GET_USER_SUBSCRIPTIONS";
 export const PUT_USER = "PUT_USER";
 export const CLEAN_STATE = "CLEAN_STATE";
 export const UPDATE_USER = "UPDATE_USER";
@@ -295,6 +296,22 @@ export const filterCanalesStream = ({
 export const clearFilter = () => {
   return { type: "CLEAR_FILTER", payload: null };
 };
+
+  export const getSubscriptions= (id) => {
+    console.log(id)
+    return async function (dispatch) {
+      try {
+        const { data } = await axios.get(`${urlApi}/api/subscriptions/${id}`)
+        return dispatch({
+          type: 'GET_USER_SUBSCRIPTIONS',
+          payload: data
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
+
 
 // BestGame
 

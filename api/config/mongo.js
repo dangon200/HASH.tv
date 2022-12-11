@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const dbConnect = () => {
-  const DB_URI = process.env.DB_URI;
   const MONGOUSER = process.env.MONGOUSER;
   const MONGOPASSWORD = process.env.MONGOPASSWORD;
   const MONGOHOST = process.env.MONGOHOST;
