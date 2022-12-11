@@ -2,7 +2,7 @@ const { Schema, model, Types } = require("mongoose");
 
 const RatingSchema = new Schema(
   {
-    comments: {
+    score: {
       type: Number,
     },
     name: [
