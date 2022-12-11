@@ -36,12 +36,10 @@ const UsersSchema = new Schema(
         type: String,
       },
     ],
-    myStreams: [
-      {
-        type: Types.ObjectId,
-        ref: "Streams",
-      },
-    ],
+    HashCash: {
+      type: Number, default: 0
+    },
+  
     roles: [
       {
         type: Types.ObjectId,
@@ -51,22 +49,15 @@ const UsersSchema = new Schema(
   
     donations: [
       {
-        type: Types.ObjectId,
-        ref: "Donations",
+        type: String,
       },
     ],
     myStreams: [
       {
-        type: Types.ObjectId,
-        ref: "Streams",
+        type: String,
       },
     ],
-    subscriptions: [
-      {
-        type: Types.ObjectId,
-        ref: "Subscriptions",
-      },
-    ],
+   
     banned: { 
       type: Boolean,
       default: false

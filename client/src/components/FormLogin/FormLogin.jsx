@@ -169,21 +169,16 @@ export default function FormLogin() {
     );
   }
   return (
-    <div className="user-select-none">
-      <form
-        onSubmit={(e) => {
-          console.log(e);
-          console.log(handleSubmit);
-          handleSubmit(e);
-        }}
-        className="card d-flex justify-content-center mx-auto my-3 p-5"
-        autoComplete="off"
-      >
-        <div className="row justify-content-center">
-          <div className="col-12">
-            <label htmlFor="email" className="fs-3">
-              Email
-            </label>
+
+    <div className='user-select-none'>
+      <form onSubmit={(e) => {
+        console.log(e)
+        console.log(handleSubmit)
+        handleSubmit(e)
+        }} className='card d-flex justify-content-center mx-auto my-3 p-5' autoComplete='off'>
+        <div className='row justify-content-center'>
+          <div className='col-12'>
+            <label htmlFor='email' className='fs-3'>Email</label>
             <input
               type="email"
               name="email"

@@ -7,6 +7,7 @@ const dbConnect = () => {
   const MONGONAME = process.env.MONGONAME;
   mongoose.connect(
     `mongodb+srv://${MONGOUSER}:${MONGOPASSWORD}@${MONGOHOST}/${MONGONAME}?retryWrites=true&w=majority`,
+
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
