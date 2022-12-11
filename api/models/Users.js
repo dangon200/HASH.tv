@@ -12,41 +12,29 @@ const UsersSchema = new Schema(
       type: String,
       required: [true, "The email is required"],
       unique: true,
-      // validator: (e) => {
-      //   /^([\w.-]+)?\w+@[\w-]+(.\w+){1,}$/gim.test(e);
-      // },
     },
     password: {
       type: String,
     },
-    isValid: {type: Boolean,
-    },
-    uniqueKey: {type: String,
-    },
-    /* region: {
-      type: String,
-      required: true
-    },
-    image: {
-      type: String,
-      defaultValue: null
-    }, */
+    isValid: { type: Boolean },
+    uniqueKey: { type: String },
     Subscriptions: [
       {
         type: String,
       },
     ],
     HashCash: {
-      type: Number, default: 0
+      type: Number,
+      default: 0,
     },
-  
+
     roles: [
       {
         type: Types.ObjectId,
         ref: "Roles",
       },
     ],
-  
+
     donations: [
       {
         type: String,
@@ -57,14 +45,29 @@ const UsersSchema = new Schema(
         type: String,
       },
     ],
-   
-    banned: { 
+
+    banned: {
       type: Boolean,
-      default: false
-     },
-     country: { 
-      type: ['Argentina', 'España', 'Peru', 'Chile', 'Francés', 'Rusia', 'Portugal' ], default: "Argentina"
-     },
+      default: false,
+    },
+    country: {
+      type: [
+        "Argentina",
+        "España",
+        "Peru",
+        "Chile",
+        "Francés",
+        "Rusia",
+        "Portugal",
+      ],
+      default: "Argentina",
+    },
+    rating: [
+      {
+        type: Types.ObjectId,
+        ref: "Rating",
+      },
+    ],
   },
   {
     timestamps: true,
