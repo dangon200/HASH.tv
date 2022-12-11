@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
 const dbConnect = () => {
-  const MONGOUSER = process.env.MONGOUSER;
-  const MONGOPASSWORD = process.env.MONGOPASSWORD;
-  const MONGOHOST = process.env.MONGOHOST;
-  const MONGONAME = process.env.MONGONAME;
+  const MONGO_USER = process.env.MONGO_USER;
+  const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
+  const MONGO_HOST = process.env.MONGO_HOST;
+  const MONGO_NAME = process.env.MONGO_NAME;
   mongoose.connect(
-    `mongodb+srv://${MONGOUSER}:${MONGOPASSWORD}@${MONGOHOST}/${MONGONAME}?retryWrites=true&w=majority`,
+    `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST}/${MONGO_NAME}?retryWrites=true&w=majority`,
 
     {
       useNewUrlParser: true,
@@ -16,6 +16,7 @@ const dbConnect = () => {
       if (!err) {
         console.log("*******CONECCION EXITOSA***********");
       } else {
+        console.error(err);
         console.log("********ERROR DE CONECCION*********");
       }
     }
