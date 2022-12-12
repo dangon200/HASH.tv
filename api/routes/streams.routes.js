@@ -3,7 +3,7 @@ const Users = require("../models/Users");
 const Express = require("express");
 const router = Express.Router();
 const { getStreamsDb } = require("../controllers/Streams");
-const { makeReview } = require("../controllers/review.controller");
+const { votedRating } = require("../controllers/rating.controller");
 
 router.get("/streams", async (req, res) => {
   try {
@@ -171,8 +171,6 @@ router.post("/streams/rating/:id", async (req, res) => {
   res.status(200).json(stream);
 });
 
-router.post("/rating", async (req, res) => {
-  res.send("Esttoy dentro");
-});
+router.post("/rating/:idStream", votedRating);
 
 module.exports = router;

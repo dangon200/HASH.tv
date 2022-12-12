@@ -68,6 +68,10 @@ const UsersSchema = new Schema(
         ref: "Rating",
       },
     ],
+    voted: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
