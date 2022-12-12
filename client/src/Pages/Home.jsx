@@ -31,7 +31,7 @@ function Home() {
       <NavBarTop />
 
       <div className='home'>
-        <Navbar />
+        
 
         <div className='home-cnt'>
         <div className='home-popGame'>

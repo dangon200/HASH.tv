@@ -20,17 +20,17 @@ export default function Navbar() {
             <li><p>Inicio</p></li>
           </Link>
 
-          <Link to='/' className='ul-link'>
+          <Link to='/explorar' className='ul-link'>
             <div></div>
             <li><p>Explorar</p></li>
             <div></div>
           </Link>
 
-          <Link to='/' className='ul-link'>
+          <Link to='/aboutus' className='ul-link'>
             <li><p>Equipo</p></li>
           </Link>
 
-          <Link to='/' className='ul-link'>
+          <Link to='/support' className='ul-link'>
             <li><p>Soporte</p></li>
           </Link>
         </ul>

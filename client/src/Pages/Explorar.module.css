@@ -2,6 +2,14 @@
     margin-top: 8px;
 } */
 
+.explorar {
+    background-color: #91091E;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 3em 0;
+}
+
 .divPagination{
     display:contents    ;
     flex-direction: row;
@@ -32,7 +40,7 @@
     align-items: center;
     margin-right: 10px;
     display: grid;
-    gap: 4rem;
+    gap: 3rem;
     grid-auto-rows: 20rem;
     margin: 10px 10px 10px 10px;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 31rem), 1fr));

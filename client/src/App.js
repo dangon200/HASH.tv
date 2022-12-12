@@ -21,6 +21,7 @@ import Detail from "./components/Details/Details";
 import Categories from "./Pages/Categories/Categories";
 import { StreamForm } from "./components/StreamForm/StreamForm";
 import VerifyEmail from "./Pages/VerifyEmail";
+import Navbar from "./components/NavBar/NavBar";
 
 function App() {
   /*  const cookies = new Cookies()
@@ -38,6 +39,7 @@ function App() {
   }, [])
   return (
     <div className="App">
+      <Navbar />
       {/* <Route exact path={['/', '/explorar', '/user/:id', '/support', '/aboutus', '/register','/stream/:id','/categories/:id', '/stream' ]} component={Nav} /> */}
       <Switch>
       <Route exact path='/' component={Home} />

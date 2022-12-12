@@ -40,43 +40,44 @@ function Explorar() {
   }
   
   return (
-
-     <div className={style.globalContainer}>
-      <div className={style.searchFilter}>
-        <div className={style.filtersContainer}>
-        {typeof Streams !== 'string' &&
-        <div className={style.divPagination}>
-          {page !== 1 ? <div onClick={() => paginationBef()}><MdOutlineKeyboardArrowLeft className={style.buttonLeft} /></div> : null}
-          <Pagination
-            Streams={Streams.length}
-            StreamsPerPage={StreamsPerPage}
-            pagination={pagination}
-            page={page}
-          />
-          {page !== pages.length && Streams.length ? <div onClick={() => paginationAft()}><MdOutlineKeyboardArrowRight className={style.buttonRight} /></div> : null}
-        </div>}
-          <Filters setPage={setPage} />
+    <div className={style.explorar}>
+      <div className={style.globalContainer}>
+        <div className={style.searchFilter}>
+          <div className={style.filtersContainer}>
+          {typeof Streams !== 'string' &&
+          <div className={style.divPagination}>
+            {page !== 1 ? <div onClick={() => paginationBef()}><MdOutlineKeyboardArrowLeft className={style.buttonLeft} /></div> : null}
+            <Pagination
+              Streams={Streams.length}
+              StreamsPerPage={StreamsPerPage}
+              pagination={pagination}
+              page={page}
+            />
+            {page !== pages.length && Streams.length ? <div onClick={() => paginationAft()}><MdOutlineKeyboardArrowRight className={style.buttonRight} /></div> : null}
+          </div>}
+            <Filters setPage={setPage} />
+          </div>
         </div>
-      </div>
-      <div className={`${style.containerProducts}`}>
-        {typeof Streams !== 'string'
-          ? currentPageStreams.map((p, index) => {
-            return (
-              <section className={style.sectionCards} key={index}>
-                <div>
-                  <Card
-                    id={p._id}
-                    name={p.name}
-                    image={p.image}
-                    description={p.description}
-                    language={p.language}
-                    key={index}
-                  />
-                </div>
-              </section>
-            )
-          })
-          : <Message message={Streams} />}
+        <div className={`${style.containerProducts}`}>
+          {typeof Streams !== 'string'
+            ? currentPageStreams.map((p, index) => {
+              return (
+                <section className={style.sectionCards} key={index}>
+                  <div>
+                    <Card
+                      id={p._id}
+                      name={p.name}
+                      image={p.image}
+                      description={p.description}
+                      language={p.language}
+                      key={index}
+                    />
+                  </div>
+                </section>
+              )
+            })
+            : <Message message={Streams} />}
+        </div>
       </div>
     </div>
   );
