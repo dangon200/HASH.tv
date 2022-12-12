@@ -41,26 +41,47 @@ function Explorar() {
   
   return (
     <div className={style.explorar}>
-      <div className={style.globalContainer}>
-        <div className={style.searchFilter}>
-          <div className={style.filtersContainer}>
-          {typeof Streams !== 'string' &&
-          <div className={style.divPagination}>
-            {page !== 1 ? <div onClick={() => paginationBef()}><MdOutlineKeyboardArrowLeft className={style.buttonLeft} /></div> : null}
-            <Pagination
-              Streams={Streams.length}
-              StreamsPerPage={StreamsPerPage}
-              pagination={pagination}
-              page={page}
-            />
-            {page !== pages.length && Streams.length ? <div onClick={() => paginationAft()}><MdOutlineKeyboardArrowRight className={style.buttonRight} /></div> : null}
-          </div>}
-            <Filters setPage={setPage} />
-          </div>
-        </div>
-        <div className={`${style.containerProducts}`}>
-          {typeof Streams !== 'string'
-            ? currentPageStreams.map((p, index) => {
+
+      {/* navbar top */}
+      <div className={style.searchFilter}>
+        <div className={style.filtersContainer}>
+          {
+            typeof Streams !== 'string' &&
+            <div 
+              className={style.divPagination}>
+              {
+                page !== 1 ? 
+                <div onClick={() => paginationBef()}>
+                  <MdOutlineKeyboardArrowLeft 
+                    className={style.buttonLeft} 
+                  />
+                </div> : null
+              }
+              <Pagination
+                Streams={Streams.length}
+                StreamsPerPage={StreamsPerPage}
+                pagination={pagination}
+                page={page}
+              />
+              {
+                page !== pages.length && Streams.length ? 
+                <div onClick={() => paginationAft()}>
+                  <MdOutlineKeyboardArrowRight 
+                    className={style.buttonRight} 
+                  />
+                </div> : null
+              }
+            </div>
+          }
+          <Filters setPage={setPage} />
+        </div>  
+      </div>
+
+      {/* render de cards */}
+      <div className={`${style.containerProducts}`}>
+        {
+          typeof Streams !== 'string' ? 
+            currentPageStreams.map((p, index) => {
               return (
                 <section className={style.sectionCards} key={index}>
                   <div>
@@ -76,9 +97,10 @@ function Explorar() {
                 </section>
               )
             })
-            : <Message message={Streams} />}
-        </div>
+          : <Message message={Streams} />
+        }
       </div>
+
     </div>
   );
 }

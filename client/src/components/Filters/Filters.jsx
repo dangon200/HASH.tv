@@ -26,8 +26,8 @@ function Filters ({ setPage }) {
 
   return (
     <div className={`dropdown ${s.general}`}>
-    <div className={`dropdown-toggle px-5 py-2 ${s.filtros}`} href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-        Filtros
+      <div className={`dropdown-toggle px-5 py-2 ${s.filtros}`} href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+          Filtros
       </div>
       <ul className='dropdown-menu fs-4'>
         <li>
@@ -39,8 +39,12 @@ function Filters ({ setPage }) {
             <option value='less'> Menos suscriptores </option>
           </select>
         </li>
-         <li>
-          <select className={s.optSelect} name='categoria' onChange={e => handleSort(e)}>
+        <li>
+          <select 
+            className={s.optSelect} 
+            name='categoria' 
+            onChange={e => handleSort(e)}
+          >
             <option value='' id='categoria'> Categoria </option>
             {categoria && categoria.map((e, index) => {
               return (
@@ -86,12 +90,13 @@ function Filters ({ setPage }) {
           document.getElementById('categoria').selected = true
           document.getElementById('continente').selected = true
         }}
-      > Limpiar Filtros
+      > 
+        Limpiar Filtros
       </button>
     </div>
-      )
-    }
-    export default Filters
+  )}
+    
+  export default Filters
 
     {/* <div className={`dropdown-toggle px-5 py-2 ${s.filtros}`} href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
         Filtros
