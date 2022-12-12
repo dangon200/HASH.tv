@@ -1,5 +1,5 @@
 .general{
-    font-family: var(--font-family-2) !important;
+
     line-height: 1.2;
     display: flex;
     gap: 15px;
@@ -21,9 +21,7 @@
     border-radius: 16px;
     display: flex;
     align-items: center;
-    font-size: 1.6rem;
-    letter-spacing: .5px;
-    font-family: var(--font-family-2);
+    font-size: 1.5rem;
     text-decoration: none;
     gap: 10px;
     width: 2em;
@@ -55,41 +53,15 @@
 }
 .optSelect:hover{
     background-color: #eceaea;
-    /* background-color: var(--btn-background-color); */
-    /* color: var(--background-color); */
     font-weight: 500;
     transition: .3s;
 }
 
-/* .limpiarFiltros{
-    align-content: space-around;
-    margin-inline: 10px;
-    display: inline;
-    padding: 10px;
-    width: 120px;
-    border-width: 1px;
-    border-radius: 5px;
-    font-family: var(--font-family-2);
-    font-weight: 600;
-    color: var(--btn-sel-background-color);
-    cursor: pointer;
-
-    border-color: #b9b3af;
-    background-color: #fefefe;
-
-}
-.limpiarFiltros:hover{
-    background-color: var(--btn-background-color);
-    color: var(--background-color);
-    transition: .3s;
-} */
 .limpiarFiltros{
     border-radius: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* letter-spacing: .5px; */
-    font-family: var(--font-family-2);
     font-size: 1.4rem;
     text-decoration: none;
     color: #000000;
@@ -101,8 +73,6 @@
     border: none;
     margin: 1em 0;
     padding: .5em;
-
-    /* padding: 8px; */
 }
 
 

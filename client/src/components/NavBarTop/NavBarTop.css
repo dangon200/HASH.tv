@@ -5,4 +5,5 @@
     height: 4.5em;
     position: fixed;
     background-color: #313131;
+    justify-content: end;
 }

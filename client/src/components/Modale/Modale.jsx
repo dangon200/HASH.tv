@@ -18,28 +18,32 @@ export default function Modale (props) {
         {props.buttonText}
       </div>
       
-      <Modal show={show} onHide={handleChange}>
+      <Modal show={show} onHide={handleChange} className={style.modal}>
         
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className={style.modal_tittle}>
           <Modal.Title>{props.title}</Modal.Title>
         </Modal.Header>
 
-        <Modal.Body>
+        <Modal.Body className={style.modal_body}>
           {/* Esperamos un componente a renderizar en el body del modal sino un texto y caso que no esten tiramos un texto */}
-          {props.render ? <props.render /> : props.body ? props.body : 'Debes pasar la data por body o pasar el componente a renderizar'}
+          {
+            props.render ? <props.render  /> : props.body ? props.body : 'Debes pasar la data por body o pasar el componente a renderizar'
+          }
         </Modal.Body>
+
         {!user &&
-          <Modal.Footer className='d-flex justify-content-between align-items-center'>
-            <div className='fs-4'>
-              <Link className='text-primary' to='/forgotPassword'>Olvidaste tu contraseña?</Link>
+          <Modal.Footer className={style.modal_footer}>
+            
+            <div className={style.link_cnt}>
+              <Link className={style.footer_link} to='/forgotPassword'>
+                ¿Problemas para iniciar sesion?
+              </Link>
             </div>
-            <div className='fs-4'>
-              {/* <Link className='text-decoration-none' to='/forgotPassword'>Olvidaste tu contraseña?</Link> */}
+            
+            {/* <div className='fs-4'>
               {props.close && <Button variant='secondary' onClick={handleChange}>Cerrar</Button>}
               {props.createAcc && <p className='fs-4 pt-3' data-bs-dismiss='modal' onClick={handleChange}><Link className='text-primary' to='/register'> Crea tu cuenta!</Link></p>}
-            </div>
-            {/* {props.close && <Button variant='secondary' onClick={handleChange}>Cerrar</Button>}
-          {props.createAcc && <p className='fs-4' data-bs-dismiss='modal' onClick={handleChange}>Si no tienes cuenta <Link className='text-decoration-none' to='/register'>Crea tu Cuenta!</Link></p>} */}
+            </div> */}
           </Modal.Footer>}
       </Modal>
     </>

@@ -12,7 +12,7 @@ function Card() {
     return (
         <>
             <div className="title">
-                <h2>Canales en directo que podrían gustarte</h2>
+                <h2>Streams en vivo</h2>
             </div>
             <div className="container">
         {streams3?.map((e, index) =>{
