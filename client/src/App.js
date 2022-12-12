@@ -43,44 +43,42 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Switch>
-        <Route
-          exact
-          path={[
-            "/",
-            "/explorar",
-            "/user/:id",
-            "/support",
-            "/aboutus",
-            "/register",
-            "/stream/:id",
-            "/categories/:id",
-            "/stream",
-          ]}
-          component={Nav}
-        />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/explorar" component={Explorar} />
-        <Route exact path="/register" component={LogInit} />
-        <Route exact path="/support" component={Support} />
-        <Route exact path="/aboutus" component={AboutUs} />
-        <Route path="/stream/:id" component={Detail} />
-        <Route path="/verify/:uniqueKey" component={VerifyEmail} />
-        <Route path="/categories" component={Categories} />
-        {/*  <Route path="/user/stream" component={HomeStream} /> */}
-        <Route path="/categories/:id" component={Categories} />
-        {/* <Route path="/stream" component={StreamForm} /> */}
-        <Route exact path="/user/:id" component={UserProfile} />
-        {/* <Route exact path="/admin" component={AdminDashboard} /> */}
-        {/* <Route path="/admin/users" component={UserTable} /> */}
-        {/* <Route path="/admin/streams" component={StreamsTable} /> */}
-        {/* <Route path="/stream" component={HomeStream} /> */}
-        <Route exact path="/user" component={UserProfile} />
-        <Route exact path="/user/subscriptions" component={UserSubs} />
-        <Route exact path="/logout" component={Logout} />
-        <Route exact path="/user/edit" component={EditProfile} />
-        <Route exact path="/admin" component={Admin} />
-      </Switch>
+      <Route
+        exact
+        path={[
+          "/",
+          "/explorar",
+          "/user/:id",
+          "/support",
+          "/aboutus",
+          "/register",
+          "/stream/:id",
+          "/categories/:id",
+          "/stream",
+        ]}
+        component={Nav}
+      />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/explorar" component={Explorar} />
+      <Route exact path="/register" component={LogInit} />
+      <Route exact path="/support" component={Support} />
+      <Route exact path="/aboutus" component={AboutUs} />
+      <Route path="/stream/:id" component={Detail} />
+      <Route path="/verify/:uniqueKey" component={VerifyEmail} />
+      <Route path="/categories" component={Categories} />
+      {/*  <Route path="/user/stream" component={HomeStream} /> */}
+      <Route path="/categories/:id" component={Categories} />
+      {/* <Route path="/stream" component={StreamForm} /> */}
+      <Route exact path="/user/:id" component={UserProfile} />
+      {/* <Route exact path="/admin" component={AdminDashboard} /> */}
+      {/* <Route path="/admin/users" component={UserTable} /> */}
+      {/* <Route path="/admin/streams" component={StreamsTable} /> */}
+      {/* <Route path="/stream" component={HomeStream} /> */}
+      <Route exact path="/user" component={UserProfile} />
+      <Route exact path="/user/subscriptions" component={UserSubs} />
+      <Route exact path="/logout" component={Logout} />
+      <Route exact path="/user/edit" component={EditProfile} />
+      <Route exact path="/admin" component={Admin} />
     </div>
   );
 }

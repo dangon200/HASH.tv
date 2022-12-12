@@ -76,8 +76,8 @@ const PlayerViewer = ({ downstreamUrl, afterMeetingJoinedHLSState }) => {
       setCanPlay(false);
     }
   };
-  
-  useEffect(async () => {
+
+  useEffect(() => {
     if (downstreamUrl) {
       checkHLSPlayable(downstreamUrl);
     } else {

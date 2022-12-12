@@ -180,7 +180,7 @@ export const getStreamId = (id) => {
       const json = await axios.get(
         `http://localhost:3001/api/streams/id/${id}`
       );
-      console.log(json);
+      console.log("🚀 ~ file: actions.js:183 ~ json", json);
       dispatch({ type: GET_STREAM_ID, payload: json.data });
     } catch (error) {
       return { error: error.message };
@@ -297,21 +297,20 @@ export const clearFilter = () => {
   return { type: "CLEAR_FILTER", payload: null };
 };
 
-  export const getSubscriptions= (id) => {
-    console.log(id)
-    return async function (dispatch) {
-      try {
-        const { data } = await axios.get(`${urlApi}/api/subscriptions/${id}`)
-        return dispatch({
-          type: 'GET_USER_SUBSCRIPTIONS',
-          payload: data
-        })
-      } catch (error) {
-        console.log(error)
-      }
+export const getSubscriptions = (id) => {
+  console.log(id);
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.get(`${urlApi}/api/subscriptions/${id}`);
+      return dispatch({
+        type: "GET_USER_SUBSCRIPTIONS",
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
     }
-  }
-
+  };
+};
 
 // BestGame
 
