@@ -7,3 +7,26 @@
     background-color: #313131;
     justify-content: end;
 }
+
+.navbarTop_register {
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #03EFFE;
+    color: #000000;
+    width: 7.5em;
+    height: 2.8em;
+    padding: .4em;
+    margin: .4em .6em;
+    border: none;
+    text-decoration: none;
+}
+
+.navbarTop_register:hover {   
+    color: #fefefe;
+    background-color: #05cedd;
+    transition: .3s;    
+}

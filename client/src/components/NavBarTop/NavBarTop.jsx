@@ -3,6 +3,7 @@ import './NavBarTop.css'
 import Modale from '../Modale/Modale'
 import FormLogin from '../FormLogin/FormLogin'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 
 
@@ -20,6 +21,9 @@ export default function NavBarTop() {
         link='/register'
         createAcc
       />
+      <Link to='/register' className='navbarTop_register'>
+          Registrarse
+      </Link>
     </div>
   )
 }
