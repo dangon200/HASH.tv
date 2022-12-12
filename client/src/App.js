@@ -38,7 +38,7 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Route exact path={['/', '/explorar', '/user/:id', '/support', '/aboutus', '/register','/stream/:id','/categories/:id', '/stream' ]} component={Nav} />
+      {/* <Route exact path={['/', '/explorar', '/user/:id', '/support', '/aboutus', '/register','/stream/:id','/categories/:id', '/stream' ]} component={Nav} /> */}
       <Switch>
       <Route exact path='/' component={Home} />
       <Route exact path='/explorar' component={Explorar} />
