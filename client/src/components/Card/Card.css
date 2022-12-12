@@ -1,7 +1,13 @@
 .title{
   display: flex;
   padding: 10px;
+  /* background-color: beige; */
 }
+.title h2 {
+  color: #f1f1f1;
+  font-weight: bold;
+}
+
 .container{
   display: flex;
   align-items:center;

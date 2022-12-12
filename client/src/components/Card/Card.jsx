@@ -1,8 +1,8 @@
 import React from "react";
-import '../Card/Card.css'
 import { useSelector } from 'react-redux';
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import '../Card/Card.css'
 
 function Card() {
     const streams = useSelector(state => state.streams)
