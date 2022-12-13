@@ -1,7 +1,18 @@
 .init{
   justify-content: center;
-  height: 60vh
+  background-color: #313131;
+  min-height: 60vh
 }
+
+.init_tittle {
+  color: #f1f1f1;
+  width: 90%;
+  text-align: left;
+  margin-left: 10%;
+  margin-top: 2em;
+  padding: 0 1em;
+}
+
 
 .btn-color{
   background-color: #0e1c36;
@@ -9,10 +20,23 @@
   
 }
 
+.form_cnt {
+  background-color: #313131;
+
+
+}
+
+
+.img_cnt {
+  /* background-color: #2377d7; */
+
+}
+
 .profileImagePic{
   height: 150px;
   width: 150px;
   object-fit: cover;
+
 }
 
 .cardbody-color{

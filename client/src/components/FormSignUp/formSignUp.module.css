@@ -3,8 +3,20 @@
   font-size: 1.5rem;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
+  
 }
-card_sign  {
+.card_sign  {
   display: flex;
   align-items: center;
+  
+}
+
+.form_cnt {
+  
+  background-color: #313131;
+}
+
+  
+.form_label {
+  color: #f1f1f1;
 }

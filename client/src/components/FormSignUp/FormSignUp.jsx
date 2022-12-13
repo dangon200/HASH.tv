@@ -57,8 +57,8 @@ export default function FormLogin() {
   const [err, setErr] = useState(false)
   return (
     <div className={style.card_sign}>
-      <form onSubmit={handleSubmit} className='card w-75 d-flex justify-content-center mx-auto my-3 p-5' autoComplete='off'>
-        <div className='row justify-content-center'>
+      <form onSubmit={handleSubmit} className={` w-75 d-flex justify-content-center mx-auto my-3 p-5 `} autoComplete='off'>
+        <div className={`row justify-content-center ${style.form_label}`}>
           <div className='col-12'>
             <label htmlFor='username' className='form-label'>Nombre de usuario</label>
             <input

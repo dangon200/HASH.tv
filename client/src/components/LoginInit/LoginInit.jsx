@@ -8,14 +8,20 @@ export default function LoginInit () {
   const [form, setForm] = useState(true)
   return (
     <div className={style.init}>
-      <div className='row'>
-        <div className='col-md-6 offset-md-3'>
-          <h2 className='text-center text-dark fs-1 mt-5'>{!form ? 'Iniciar sesión' : 'Cree su Cuenta'}</h2>
-          <div className='text-center mb-6 text-dark' />
-          <div className='card my-5'>
+      <div className={`row ${style.form_cnt}`}>
+          <h2 
+            className={style.init_tittle}
+          >
+            {
+              !form ? 'Iniciar sesión' :  'Registrarse'
+            }
+          </h2>
+        <div className={`col-md-6 offset-md-3 ${style.form_cnt}`}>
+          <div className={` ${style.form_cnt}`} />
+          <div className={` my-5 ${style.form_cnt}`}>
 
-            <div className={`card-body cardbody-color p-lg-5 ${form ? 'd-block' : 'd-none'}`}>
-            <div className='text-center'>
+            <div className={`card-body cardbody-color p-lg-5 ${form ? 'd-block' : 'd-none'} ${style.form_cnt}`}>
+            <div className={`text-center ${style.img_cnt}`}>
                 <img
                   src={logo} className={`img-fluid ${style.profileImagePic} mb-2`}
                   alt='profile'
