@@ -14,7 +14,10 @@ import {
   GET_ALL_STREAMS,
   LOGIN_USER,
   LOGOUT_USER,
-  GET_FAVORITES_ID,
+  ADD_FAVORITES,
+  ALL_FAVORITES,
+  ALL_FAVORITES2,
+  DELETE_FAVORITES,
   GET_STREAMS,
   GET_CATEGORIES,
   FILTER_CATEGORIES,
@@ -36,6 +39,7 @@ const initialState = {
   getVideoFromDatabase: [],
   popVideo: [],
   favorites: [],
+  favoritesId: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -72,8 +76,21 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         users: action.payload,
       };
-    case GET_FAVORITES_ID:
-      return { ...state, favorites: action.payload };
+
+    case ADD_FAVORITES:
+      return {
+        ...state,
+      };
+
+    case ALL_FAVORITES:
+      return {
+        ...state,
+        favorites: action.payload,
+      };
+    case DELETE_FAVORITES:
+      return {
+        ...state,
+      };
     case GET_STREAMS:
       return {
         ...state,

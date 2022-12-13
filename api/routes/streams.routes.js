@@ -2,7 +2,9 @@ const Streams = require("../models/Stream")
 const Users = require("../models/Users");
 const Express = require ("express")
 const router = Express.Router()
-const { getStreamsDb } = require('../controllers/Streams')
+const { getStreamsDb, addFavorites, getFavorites, deleteFavorites } = require('../controllers/Streams');
+const { isUser, verifyToken } = require("../middlewares");
+/* const { check } = require('express-validator'); */
 
 router.get("/streams", async(req,res)=>{
     try {
@@ -134,6 +136,18 @@ router.get('/streams/filter', async (req, res) => {
     }
   })
 
+router.post("/streams/favorites/:id",[
+  verifyToken, /* isUser */
+  /* check("id", "Thios id doesnt exist").isMongoId() */
+], addFavorites)
 
+router.get("/streams/favorites",[
+  verifyToken, /* isUser */
+], getFavorites)
+
+router.delete("/streams/favorites/:id", [
+  verifyToken, /* isUser */
+  /* check("id", "Thios id doesnt exist").isMongoId() */
+], deleteFavorites)
 
 module.exports = router

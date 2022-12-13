@@ -1,5 +1,6 @@
+const Stream = require("../models/Stream")
 const Streams = require("../models/Stream")
-
+const Users = require("../models/Users")
 const getStreamsDb = async () => {
   const results = []
 
@@ -108,6 +109,75 @@ const getStreamsUser = async (id) => {
   }
 }
 
+const addFavorites = async (req, res = response)=>{
+  const {id} = req.params
+  const userId = req.userId
+  const userDB = await Users.findById(id)
+  if(!userDB){
+    return res.json({msg:"No se encontro el usuario"})
+  }
+  const user = await Users.findById(userId)
+  user.favorites.push(id)
+  user.save()
+  res.json({msg: "Listo"})
+  
+  /* const {id} = req.params
+  const userId = req.userId
+  const stream = await Streams.findById(id)
+  if(!stream){
+    return res.json({msg:"No se encontro un stream"})
+  }
+  const user = await Users.findById(userId)
+  user.favorites.push(id)
+  user.save()
+  res.json({msg: "Listo"}) */
+}
+
+const getFavorites = async (req, res = response)=>{
+  const user = await Users.findById(req.userId);
+    let number = user.favorites.length;
+    let favorites = [];
+
+    do {
+        const userId = user.favorites[number-1]
+        const userFav = await Users.findById(userId);
+        const streams = userFav.myStreams
+        const lastStreamId = userFav.myStreams[streams.length - 1].toString().split('"')[0]
+        const lastStream = await Stream.findById(lastStreamId)
+        const newStreamFav = {
+            id: lastStream.id,
+            name: userFav.name,
+            title: lastStream.title,
+            description: lastStream.description,
+            language: lastStream.language
+        }
+        favorites.push(newStreamFav)
+        number--
+        console.log(favorites)
+    }while(number > 0)
+
+    res.json(favorites)
+}
+
+const deleteFavorites = async (req, res = response)=>{
+  /* const {id, userid} = req.params */
+  const {id} = req.params
+  const user = await Users.findById(req.userId)
+  const favorites = user.favorites
+  favorites.forEach((f)=>{
+    if(f === id){
+    const index = favorites.indexOf(id)
+    favorites.splice(index, 1)
+    user.save()
+      }
+  })
+  
+res.json({msg:"This user is not longer in your favorites",user})
+}
+
 module.exports = {
   getStreamsDb,
+  addFavorites,
+  getFavorites,
+  deleteFavorites,
 }

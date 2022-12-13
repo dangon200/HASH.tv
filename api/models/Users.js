@@ -64,6 +64,10 @@ const UsersSchema = new Schema(
      country: { 
       type: ['Argentina', 'España', 'Peru', 'Chile', 'Francés', 'Rusia', 'Portugal' ], default: "Argentina"
      },
+     favorites: {
+      type: Array,
+      default:[]
+     },
   },
   {
     timestamps: true,

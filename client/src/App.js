@@ -23,6 +23,7 @@ import Categories from "./Pages/Categories/Categories";
 import EditProfile from "./Pages/UserProfile/EditProfile";import VerifyEmail from "./Pages/VerifyEmail";
 import  Admin  from "./components/Admin/Admin";
 import HomeStream from "./components/HomeStream/HomeStream";
+import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   /*  const cookies = new Cookies()
@@ -55,6 +56,7 @@ function App() {
       <Route exact path="/user/edit" component={EditProfile} />
       <Route path ="/user/mystreams/:id" component={UserStreams} />
       <Route exact path="/admin" component={Admin}/>
+      <Route exact path="/user/favoritos" component={Favorites}/>
       </Switch>
     </div>
   );

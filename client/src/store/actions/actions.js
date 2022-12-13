@@ -11,7 +11,7 @@ export const ALLVIDEOS = "ALLVIDEOS";
 export const POPVIDEO = "POPVIDEO";
 export const LOGIN_USER = "LOGIN_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
-export const GET_FAVORITES_ID = "GET_FAVORITES_ID";
+/* export const GET_FAVORITES_ID = "GET_FAVORITES_ID"*/
 export const GET_ALL_STREAMS = "GET_ALL_STREAMS";
 export const GET_USERS = "GET_USERS";
 export const GET_STREAMS = "GET_STREAMS";
@@ -22,6 +22,10 @@ export const PUT_USER = "PUT_USER";
 export const CLEAN_STATE = "CLEAN_STATE";
 export const UPDATE_USER = "UPDATE_USER"
 export const BANNED_USER = "BANNED_USER"
+export const ADD_FAVORITES = "ADD_FAVORITES"
+export const DELETE_FAVORITES = "DELETE_FAVORITES"
+export const ALL_FAVORITES = 'ALL_FAVORITES';
+export const ALL_FAVORITES2 = 'ALL_FAVORITES2';
 
 const urlApi = "http://localhost:3001";
 
@@ -116,7 +120,7 @@ export const putUser = (id, data) => {
 
 ///////// FAVORITES
 
-/* export const getFavorites = (id) => {
+ /* export const getFavorites = (id) => {
   return async function (dispatch) {
     try {
       const api = await axios.get(`${urlApi}/api/favorites/${id}`)
@@ -128,7 +132,56 @@ export const putUser = (id, data) => {
       console.log(error)
     }
   }
+}  */
+
+//TODOS LOS FAVORITOS
+export const getFavorites = ()=>{
+  return async function (dispatch) {
+    try {
+      const json = await axios.get(`${urlApi}/api/streams/favorites`);
+      console.log(json)
+      dispatch({ type: ALL_FAVORITES, payload: json.data });
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+}
+
+/* export const allFavorites2 = (id)=>{
+  return async function(dispatch){
+    return axios.get(`${urlApi}/api/user/${id}`)
+    .then(response => {
+      dispatch({ type: ALL_FAVORITES2, payload: response.data.favorites });
+    })
+    .catch(err => console.error(err))
+  }
 } */
+//AÑADIR FAVORITOS
+export const addFavorites = (payload)=>{
+  return async function(dispatch){
+    return axios.post(`${urlApi}/api/streams/${payload.id}`, payload)
+    .then(response=>{
+      return dispatch({
+      type: ADD_FAVORITES,
+      payload: response.data
+    })
+    })
+    .catch(err=>console.log(err)) 
+  }
+}
+//BORRAR FAVORITOS
+export const deleteFavorites =(id)=>{
+  return async function(dispatch){
+    return axios.delete(`${urlApi}/api/streams/${id}`)
+    .then(response=>{
+      dispatch({
+        type:DELETE_FAVORITES, payload: response.data
+      })
+    })
+    .catch(err=>console.log(err)) 
+  }
+}
+
 
 ///////// STREAM ACTIONS
 export const getUsers = () => {
