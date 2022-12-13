@@ -8,6 +8,7 @@ import styled from "styled-components";
 import PagarMP from "../PagarMP/Subscriptions";
 import Donations from "../PagarMP/Donations";
 import ComprarHC from "../PagarMP/ComprarHC";
+import Rating from "../Rating/Rating";
 
 const Detail = (props) => {
   const streamId = props.match.params.id;
@@ -20,10 +21,12 @@ const Detail = (props) => {
 
   useEffect(() => {
     dispatch(getStreamId(streamId));
+    // eslint-disable-next-line
   }, []);
 
   return (
     <div>
+      <Rating />
       <LinkContainer>
         <StyledLink to="/">Back</StyledLink>
         <span style={{ fontWeight: "700", fontSize: "20px" }}>
@@ -160,7 +163,11 @@ const Detail = (props) => {
                     display: "flex",
                   }}
                 >
-                  <img src={streamDetail[0].image} className={s.img} />
+                  <img
+                    src={streamDetail[0].image}
+                    className={s.img}
+                    alt={streamDetail.name}
+                  />
                   <div
                     style={{
                       display: "flex",

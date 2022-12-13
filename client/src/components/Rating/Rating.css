@@ -1,0 +1,8 @@
+.voted {
+  display: none;
+}
+
+.not-voted {
+  width: 40px;
+  height: 20px;
+}

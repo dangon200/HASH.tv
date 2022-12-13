@@ -171,6 +171,6 @@ router.post("/streams/rating/:id", async (req, res) => {
   res.status(200).json(stream);
 });
 
-router.post("/rating/:idStream", votedRating);
+router.post("/rating", votedRating);
 
 module.exports = router;

@@ -364,3 +364,15 @@ export const updateBanned = (id, data) => {
     }
   };
 };
+
+export const makeRating = (data) => {
+  console.log("🚀 ~ file: actions.js:369 ~ makeRating ~ data", data);
+  return async function () {
+    try {
+      console.log("🚀 ~ file: actions.js:372 ~ makeRating ~ data", data);
+      await axios.post(`${urlApi}/api/rating`, data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};

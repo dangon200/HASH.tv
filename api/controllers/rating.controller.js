@@ -3,9 +3,7 @@ const Streams = require("../models/Stream");
 const Ratings = require("../models/Ratings");
 
 const votedRating = async (req, res) => {
-  const { idStream } = req.params;
-  const { id, score } = req.body;
-
+  const { id, score, idStream } = req.body;
   if (id) {
     const foundUser = await Users.findById(id);
     if (foundUser.voted === false) {
@@ -21,10 +19,6 @@ const votedRating = async (req, res) => {
         if (foundStream) {
           foundStream.rating = [...foundStream.rating, newRating._id];
           const savedRatingStream = await foundStream.save();
-          console.log(
-            "🚀 ~ file: rating.controller.js:28 ~ votedRating ~ savedRatingStream",
-            savedRatingStream
-          );
         }
       }
       res.json(savedRating);

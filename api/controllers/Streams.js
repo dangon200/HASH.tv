@@ -6,7 +6,7 @@ const getStreamsDb = async () => {
   try {
     const dbResults = await Streams.find({}).populate({
       path: "rating",
-      populate: { path: "name", select: "name" },
+      populate: "name",
     });
     dbResults.forEach((r) => {
       results.push({
