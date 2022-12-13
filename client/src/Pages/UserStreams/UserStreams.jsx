@@ -6,11 +6,12 @@ import Card from "../../components/Card/Card2";
 import NavBar from "../../components/NavBar/NavBar.jsx"
 import style from "./UserStreams.module.css"
 
-const UserStreams = (props) => {
+const UserStreams = () => {
     const dispatch = useDispatch();
-    const userId = props.match.params.id
+    const myUser=useSelector(state=>state.user)
     const userDetail = useSelector((state) => state.usersDetail)
     const allStreams = useSelector(state => state.streams)
+    const userId = myUser._id
     const filterStream = allStreams.filter(s => s._id?.includes(userDetail[0].myStreams))
 
     useEffect(() => {
@@ -21,7 +22,6 @@ const UserStreams = (props) => {
 
     return (
         <>
-        <NavBar />
         <div className={`${style.containerProducts}`}>
             {filterStream.map((c, index) => {
                 return (

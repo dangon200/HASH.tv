@@ -10,7 +10,6 @@ function CardCategori() {
     const categoriesSlice = categories.slice(0, 5)
     // console.log(categoriesSlice)
 
-
     const handleCategories = (e) => {
         e.preventDefault()
         dispatch(filterCategories(e.target.value))
@@ -27,16 +26,15 @@ function CardCategori() {
                         <div key={index}>
                             <div className={e.name[0]}>
                                 <div className="content">
-                                    <Link to={`/categories/${categories._id}`}>
-                                    <button onClick={handleCategories} value={e.name}>{e.name}</button>
-                                </Link>
+                                    <button onClick={handleCategories} value={e.name}>
+                                        <Link to={`/categories/${e._id}`}>{e.name} </Link>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        </div>
-            )
+                    )
                 })}
-
-        </div>
+            </div>
         </>
     )
 }

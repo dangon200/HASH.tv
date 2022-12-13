@@ -7,6 +7,7 @@ import './Home.css'
 import Card from '../components/Card/Card';
 import Card2 from '../components/Card/Card2'
 import CardCategori from '../components/CardCategori/CardCategori';
+import Slidershow from '../components/Slidershow/Slideshow';
 
 function Home() {
 
@@ -25,7 +26,8 @@ function Home() {
   return (
 
     <div className='home'>
-      <div className='home-popGame'>
+      <Slidershow />
+      {/* <div className='home-popGame'>
         <h2>The Best Game in Live</h2>
         <Link to={`/stream/${streamsName.id}`} key={popVideo.id}>
         <img className='gifPOP' src={popVideo.url} alt="gifRandom"/> 
@@ -35,7 +37,7 @@ function Home() {
           <p className='description-Game'>Description for Game</p>
           <p className='description-Game'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At distinctio deserunt recusandae, alias a provident repellat qui libero. Recusandae accusantium dolores voluptatem incidunt placeat ipsa hic dolorum temporibus cum maiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam facilis sapiente dignissimos, quia maiores eaque dicta optio velit architecto dolore corporis voluptatibus eveniet, alias, soluta accusamus laudantium dolorum voluptas!</p>
         </div>
-      </div>
+      </div> */}
       {/* <div className='home-allgame'>
         {videos.map(singleGif => (
           <Link to={'/details'} key={singleGif.id}>
