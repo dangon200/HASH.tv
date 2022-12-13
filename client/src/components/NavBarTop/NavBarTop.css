@@ -6,6 +6,8 @@
     position: fixed;
     background-color: #313131;
     justify-content: end;
+    z-index: 1;
+    top: 0;
 }
 
 .navbarTop_register {

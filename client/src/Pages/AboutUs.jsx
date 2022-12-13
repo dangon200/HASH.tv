@@ -12,143 +12,147 @@ import Victor from '../utils/developers/VictorFalconi.jpg';
 import github from '../utils/icons/github.png'
 import linkedin from '../utils/icons/linkedin.png'
 import styled from 'styled-components';
+import NavBarTop from '../components/NavBarTop/NavBarTop';
 
 function AboutUs() {
   return (
-    <Container>
-      <Title>Team HASH.tv</Title>
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img variant="top" src={Agustin} style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>Agustin Fraile</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a href="https://github.com/agustinfraile">
-              <Icons src={github} />
-            </a>
-            <a href="https://www.linkedin.com/in/agustinfraile">
+    <>
+      <NavBarTop />
+      <Container>
+        <Title>Team HASH.tv</Title>
+        <Separator>
+          <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
+            <Card.Img variant="top" src={Agustin} style={{ width: '100%', height: '100%' }} />
+            <Card.Body>
+              <Card.Title style={{ color: 'white' }}>Agustin Fraile</Card.Title>
+              <Card.Text style={{ color: 'white' }}>
+                Full Stack Web Developer
+              </Card.Text>
+              <a href="https://github.com/agustinfraile">
+                <Icons src={github} />
+              </a>
+              <a href="https://www.linkedin.com/in/agustinfraile">
+                <Icons src={linkedin} />
+              </a>
+            </Card.Body>
+          </Card>
+        </Separator>
+
+        <Separator>
+          <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
+            <Card.Img variant="top" src={Daniel} style={{ width: '100%', height: '100%' }} />
+            <Card.Body>
+              <Card.Title style={{ color: 'white' }}>Daniel Gonzalez</Card.Title>
+              <Card.Text style={{ color: 'white' }}>
+                Full Stack Web Developer
+              </Card.Text>
+              <a href="https://github.com/dangon200">
+                <Icons src={github} />
+              </a>
               <Icons src={linkedin} />
-            </a>
-          </Card.Body>
-        </Card>
-      </Separator>
+            </Card.Body>
+          </Card>
+        </Separator>
 
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img variant="top" src={Daniel} style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>Daniel Gonzalez</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a href="https://github.com/dangon200">
-              <Icons src={github} />
-            </a>
-            <Icons src={linkedin} />
-          </Card.Body>
-        </Card>
-      </Separator>
-
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img variant="top" src={Franco} style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>Franco Hermosilla</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a href="https://github.com/FrancoNicolas1">
-              <Icons src={github} />
-            </a>
-            <Icons src={linkedin} />
-          </Card.Body>
-        </Card>
-      </Separator>
-
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img variant="top" src={Frank} style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>Frank Santos</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a href="https://github.com/Harurin5671">
-              <Icons src={github} />
-            </a>
-            <Icons src={linkedin} />
-          </Card.Body>
-        </Card>
-      </Separator>
-
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img variant="top" src='' style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>Lenyn Bejar</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a>
-              <Icons src={github} />
-            </a>
-            <Icons src={linkedin} />
-          </Card.Body>
-        </Card>
-      </Separator>
-
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img variant="top" src='' style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>Luis Cardenas</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a>
-              <Icons src={github} />
-            </a>
-            <Icons src={linkedin} />
-          </Card.Body>
-        </Card>
-      </Separator>
-
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img variant="top" src={Rene} style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>René Valderrey</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a href="https://github.com/renevalderrey">
-              <Icons src={github} />
-            </a>
-            <a href="https://www.linkedin.com/in/renevalderrey/">
+        <Separator>
+          <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
+            <Card.Img variant="top" src={Franco} style={{ width: '100%', height: '100%' }} />
+            <Card.Body>
+              <Card.Title style={{ color: 'white' }}>Franco Hermosilla</Card.Title>
+              <Card.Text style={{ color: 'white' }}>
+                Full Stack Web Developer
+              </Card.Text>
+              <a href="https://github.com/FrancoNicolas1">
+                <Icons src={github} />
+              </a>
               <Icons src={linkedin} />
-            </a>
-          </Card.Body>
-        </Card>
-      </Separator>
+            </Card.Body>
+          </Card>
+        </Separator>
 
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img src={Victor} style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>Victor Falconí</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a>
-              <Icons src={github} />
-            </a>
-            <Icons src={linkedin} />
-          </Card.Body>
-        </Card>
-      </Separator>
-    </Container>
+        <Separator>
+          <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
+            <Card.Img variant="top" src={Frank} style={{ width: '100%', height: '100%' }} />
+            <Card.Body>
+              <Card.Title style={{ color: 'white' }}>Frank Santos</Card.Title>
+              <Card.Text style={{ color: 'white' }}>
+                Full Stack Web Developer
+              </Card.Text>
+              <a href="https://github.com/Harurin5671">
+                <Icons src={github} />
+              </a>
+              <Icons src={linkedin} />
+            </Card.Body>
+          </Card>
+        </Separator>
+
+        <Separator>
+          <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
+            <Card.Img variant="top" src='' style={{ width: '100%', height: '100%' }} />
+            <Card.Body>
+              <Card.Title style={{ color: 'white' }}>Lenyn Bejar</Card.Title>
+              <Card.Text style={{ color: 'white' }}>
+                Full Stack Web Developer
+              </Card.Text>
+              <a>
+                <Icons src={github} />
+              </a>
+              <Icons src={linkedin} />
+            </Card.Body>
+          </Card>
+        </Separator>
+
+        <Separator>
+          <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
+            <Card.Img variant="top" src='' style={{ width: '100%', height: '100%' }} />
+            <Card.Body>
+              <Card.Title style={{ color: 'white' }}>Luis Cardenas</Card.Title>
+              <Card.Text style={{ color: 'white' }}>
+                Full Stack Web Developer
+              </Card.Text>
+              <a>
+                <Icons src={github} />
+              </a>
+              <Icons src={linkedin} />
+            </Card.Body>
+          </Card>
+        </Separator>
+
+        <Separator>
+          <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
+            <Card.Img variant="top" src={Rene} style={{ width: '100%', height: '100%' }} />
+            <Card.Body>
+              <Card.Title style={{ color: 'white' }}>René Valderrey</Card.Title>
+              <Card.Text style={{ color: 'white' }}>
+                Full Stack Web Developer
+              </Card.Text>
+              <a href="https://github.com/renevalderrey">
+                <Icons src={github} />
+              </a>
+              <a href="https://www.linkedin.com/in/renevalderrey/">
+                <Icons src={linkedin} />
+              </a>
+            </Card.Body>
+          </Card>
+        </Separator>
+
+        <Separator>
+          <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
+            <Card.Img src={Victor} style={{ width: '100%', height: '100%' }} />
+            <Card.Body>
+              <Card.Title style={{ color: 'white' }}>Victor Falconí</Card.Title>
+              <Card.Text style={{ color: 'white' }}>
+                Full Stack Web Developer
+              </Card.Text>
+              <a>
+                <Icons src={github} />
+              </a>
+              <Icons src={linkedin} />
+            </Card.Body>
+          </Card>
+        </Separator>
+      </Container>
+    </>
   );
 }
 
@@ -161,6 +165,7 @@ const Container = styled.div`
   position: absolute;
   width: 90%;
   margin-left: 10%;
+  top: 0;
 `
 const Title = styled.h1`
   color: white;
