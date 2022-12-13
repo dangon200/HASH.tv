@@ -11,6 +11,7 @@ import Slidershow from '../components/Slidershow/Slideshow';
 import Navbar from '../components/NavBar/NavBar';
 import NavBarTop from '../components/NavBarTop/NavBarTop';
 import styled from 'styled-components'
+import CardChannel from '../components/CardChannel/CardChannel';
 function Home() {
 
   const dispatch = useDispatch()
@@ -62,6 +63,7 @@ function Home() {
           }
           <Card />
           <CardCategori />
+          <CardChannel />
           </div>
       </div>
     </div>
