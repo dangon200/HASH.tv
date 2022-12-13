@@ -11,17 +11,20 @@ function Card( id ) {
                             <img alt="" src={id.image}/>
                             </Link>
                         <h2>
-                          {id.name}
+                       USUARIO
                         </h2>
-                        <h2>
-                          {id.language}
-                        </h2>
+                        <h4>
+                        NOMBRE DEL CANAL
+                        </h4>
                     </div>
                     <div className="description">
                         <p>
-                        {id.description}
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia illo porro, natus illum temporibus qui, cumque perspiciatis voluptates aliquam, quisquam minima commodi explicabo sit expedita dignissimos? Adipisci, enim! Eaque, nobis.
                         </p>
                     <div className="social">
+                        <button className="button">
+                            Ir
+                        </button>
                     </div>
                     </div>
                 </div>

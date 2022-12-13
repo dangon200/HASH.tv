@@ -1,6 +1,6 @@
-/* .globalContainer{
-    margin-top: 8px;
-} */
+.globalContainer{
+    margin-top: 250px;
+}
 
 .divPagination{
     display:contents    ;
@@ -28,6 +28,7 @@
 }
 
 .containerProducts{
+   
     padding: 2px;
     align-items: center;
     margin-right: 10px;
@@ -55,7 +56,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2px
+    margin: 2px;
+    margin-top: 600px;
+    
 }
 
 .buttonLeft, .buttonRight{
@@ -86,13 +89,7 @@
     gap: 30px;
 
 }
-.searchFilter{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    animation: show 2s;
-}
+
 
 .footer{
     animation: footerAnimation 2s;
@@ -132,4 +129,9 @@
     .sectionImage{
         height: 220px;
     }
+}
+.filter{
+    margin-top: 20px;
+    display: flex;
+    justify-content: end;
 }

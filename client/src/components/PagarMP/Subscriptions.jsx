@@ -49,20 +49,20 @@ export default function PagarMP () {
     <Modal show={show} onHide={handleChange}>
       
         <Modal.Header closeButton>
-        <Modal.Title>Suscribirse al canal {streamDetail[0].name}</Modal.Title>
+        <Modal.Title className='text-dark font-weight-bold' >Suscribirse al canal {streamDetail[0].user}</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
         <div className="modal-body p-0 row">
-                        <div className={` col-12 col-lg-9`}>
+                        <div className={` col-12 col-lg-11`}>
                             
                                 <div className={s.logo}></div>
                             
-                            <h2>Ahorra suscribiendote mas tiempo</h2>
+                            <h2 className='text-dark font-weight-bold fs-3 p-2'>Ahorra suscribiendote más tiempo</h2>
                             <p><small className="text-muted">Apoya cada mes y suscríbete para que {streamDetail.title} siga haciendo eso que se le da tan bien.</small></p>
 
                             <p className="text-muted"><small>Con esta suscripción tendras los siguientes beneficios</small></p>
-                            <div className="text-muted hurry"><small>- Notificacion por correo cuando {streamDetail[0].name} empiece a transmitir</small></div>
+                            <div className="text-muted hurry"><small>- Notificacion por correo cuando {streamDetail[0].user} empiece a transmitir</small></div>
                             <div className="text-muted hurry"><small>- 1 SuperChat semanal</small></div>
                             <div className="text-muted hurry"><small>- Y mucho más</small></div>
                             <p><small className="text-muted">Planes para suscribirse</small></p>
@@ -78,7 +78,7 @@ export default function PagarMP () {
                     </div>
         </Modal.Body>
         <Modal.Footer className='d-flex justify-content-between align-items-center'>
-
+          <p className="text-muted hurry" >Hash, players only</p>
         </Modal.Footer>
     </Modal>
   </>

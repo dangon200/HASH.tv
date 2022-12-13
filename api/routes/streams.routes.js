@@ -32,7 +32,7 @@ router.get("/streams/id/:id", async (req, res) => {
       const filterStream = streamDb.filter(
         (stream) => stream._id.toString() === id
       );
-      console.log(filterStream);
+      // console.log(filterStream);
       filterStream.length
         ? res.send(filterStream)
         : res.send("Error al obtener Id de Stream");

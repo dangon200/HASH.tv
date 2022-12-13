@@ -15,7 +15,7 @@ function Explorar() {
   const Streams = useSelector(state => state.streams)
   const [page, setPage] = useState(1)
   const [hasMore,setHasMore]=useState(true)
-  const StreamsPerPage = 4
+  const StreamsPerPage = 6
   const lastStreamsPerPage = page * StreamsPerPage
   const firstStreamsPerPage = lastStreamsPerPage - StreamsPerPage
   const currentPageStreams = Streams.slice(firstStreamsPerPage, lastStreamsPerPage)
@@ -41,14 +41,10 @@ function Explorar() {
   // }
 
   return (
-    <InfiniteScroll
-      dataLength={stream.length}
-      next={() => setPage(prevPage => prevPage + 1)}
-      hasMore={hasMore}
-      loader={<h3>Loading</h3>}>
-      <div className={style.globalContainer}>
-        <div className={style.searchFilter}>
-          <div className={style.filtersContainer}>
+    <>
+      <div className={style.filter}>
+      <Filters setPage={setPage} />
+      </div>
             {/* {typeof Streams !== 'string' &&
         <div className={style.divPagination}>
           {page !== 1 ? <div onClick={() => paginationBef()}><MdOutlineKeyboardArrowLeft className={style.buttonLeft} /></div> : null}
@@ -60,9 +56,8 @@ function Explorar() {
           />
           {page !== pages.length && Streams.length ? <div onClick={() => paginationAft()}><MdOutlineKeyboardArrowRight className={style.buttonRight} /></div> : null}
         </div>} */}
-            <Filters setPage={setPage} />
-          </div>
-        </div>
+            
+       
         <div className={`${style.containerProducts}`}>
           {stream.map((p, index) => {
             return (
@@ -81,8 +76,14 @@ function Explorar() {
             )
           })}
         </div>
-      </div>
-    </InfiniteScroll>
+           <InfiniteScroll
+      dataLength={stream.length}
+      next={() => setPage(prevPage => prevPage + 1)}
+      hasMore={hasMore}
+      loader={<h3>Loading</h3>}>
+        </InfiniteScroll>
+
+    </>
   );
 }
 

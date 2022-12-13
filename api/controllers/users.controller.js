@@ -26,7 +26,7 @@ const sendMail = ( username, email, uniqueKey) => {
     })
 
   var mailOptions;
-  let sender = '"HASH Only Players" <soportehash@gmail.com>'
+  let sender = '"HASH Players Only" <soportehash@gmail.com>'
   mailOptions = {
     from: sender,
     to: email,
