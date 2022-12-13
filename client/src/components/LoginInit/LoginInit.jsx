@@ -40,12 +40,12 @@ export default function LoginInit () {
           </div>
 
           <div className={`card-body cardbody-color p-lg-5 ${!form ? 'd-block' : 'd-none'} `}>
-            <div className='text-center'>
+            {/* <div className='text-center'>
                 <img
                   src={logo} className={`img-fluid ${style.profileImagePic} mb-2`}
                   alt='profile'
                 />
-            </div>
+            </div> */}
               <FormLogin />
             </div>
             <div id='emailHelp' className={`form-text text-center mb-5 text-dark fs-4 ${style.link}`}>
