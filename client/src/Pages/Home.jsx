@@ -7,10 +7,9 @@ import './Home.css'
 import Card from '../components/Card/Card';
 import Card2 from '../components/Card/Card2'
 import CardCategori from '../components/CardCategori/CardCategori';
-import Slidershow from '../components/Slidershow/Slideshow';
 import Navbar from '../components/NavBar/NavBar';
 import NavBarTop from '../components/NavBarTop/NavBarTop';
-import styled from 'styled-components'
+
 function Home() {
 
   const dispatch = useDispatch()
@@ -23,30 +22,30 @@ function Home() {
     dispatch(allVideoGamesDataBase())
     dispatch(getStreams())
     dispatch(getCategories())
+    // dispatch(getUsers())
   }, [])
 
   return (
 
     <div>
       <NavBarTop />
+
       <div className='home'>
-        <Slider>
-      <Slidershow />
-      </Slider>
+        
 
         <div className='home-cnt'>
-          {/* <div className='home-popGame'>
-            <h2>The Best Game in Live</h2>
-            <Link to={`/stream/${streamsName.id}`} key={popVideo.id}>
-              <img className='gifPOP' src={popVideo.url} alt="gifRandom" />
-            </Link>
-            <div className='description'>
-              <p className='titleGame'>{popVideo.title}</p>
-              <p className='description-Game'>Description for Game</p>
-              <p className='description-Game'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At distinctio deserunt recusandae, alias a provident repellat qui libero. Recusandae accusantium dolores voluptatem incidunt placeat ipsa hic dolorum temporibus cum maiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam facilis sapiente dignissimos, quia maiores eaque dicta optio velit architecto dolore corporis voluptatibus eveniet, alias, soluta accusamus laudantium dolorum voluptas!</p>
-            </div>
-          </div> */}
-          {/* <div className='home-allgame'>
+        <div className='home-popGame'>
+          <h2>The Best Game in Live</h2>
+          <Link to={`/stream/${streamsName.id}`} key={popVideo.id}>
+          <img className='gifPOP' src={popVideo.url} alt="gifRandom"/> 
+          </Link>
+          <div className='description'>
+            <p className='titleGame'>{popVideo.title}</p>
+            <p className='description-Game'>Description for Game</p>
+            <p className='description-Game'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At distinctio deserunt recusandae, alias a provident repellat qui libero. Recusandae accusantium dolores voluptatem incidunt placeat ipsa hic dolorum temporibus cum maiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam facilis sapiente dignissimos, quia maiores eaque dicta optio velit architecto dolore corporis voluptatibus eveniet, alias, soluta accusamus laudantium dolorum voluptas!</p>
+          </div>
+        </div>
+        {/* <div className='home-allgame'>
           {videos.map(singleGif => (
             <Link to={'/details'} key={singleGif.id}>
 
@@ -54,26 +53,26 @@ function Home() {
             </Link>))}
         </div> */}
           {streamsName.length ? (<>
-            <div className="title">
-              <h2>Tu Busqueda</h2>
-            </div>
-            <div className="container">
-              {streamsName.map((e, index) => {
-                return (
+          <div className="title">
+                <h2>Tu Busqueda</h2>
+                </div>
+                <div className="container">
+              {streamsName.map((e, index)=>{
+                return(
                   <div>
-                    <Card2
-                      id={e._id}
-                      name={e.name}
-                      image={e.image}
-                      description={e.description}
-                      language={e.language}
-                      key={index}
-                    />
-                  </div>
+                      <Card2
+                        id={e._id}
+                        name={e.name}
+                        image={e.image}
+                        description={e.description}
+                        language={e.language}
+                        key={index}
+                      />
+                    </div>
                 )
               })}
-            </div> </>)
-            : <></>}
+              </div> </>)
+          : <></>}
           <Card />
           <CardCategori />
         </div>
@@ -81,10 +80,5 @@ function Home() {
     </div>
   );
 }
-
-const Slider = styled.div`
-  position:absolute;
-  margin-top: 30px;
- `
 
 export default Home;

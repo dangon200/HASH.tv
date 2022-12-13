@@ -1,176 +1,151 @@
 import React from 'react';
 import './AboutUs.css'
-// import logo from '../utils/logo.svg'
-// import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Agustin from '../utils/developers/AgustinFraile.jpg';
-import Daniel from '../utils/developers/DanielGonzalez.jpg';
-import Franco from '../utils/developers/FrancoHermosilla.jpg';
-import Frank from '../utils/developers/FrankSantos.jpg';
-import Rene from '../utils/developers/ReneValderrey.jpg';
-import Victor from '../utils/developers/VictorFalconi.jpg';
-import github from '../utils/icons/github.png'
-import linkedin from '../utils/icons/linkedin.png'
-import styled from 'styled-components';
+import developer from '../utils/developers/developer.jpg'
+import logo from '../utils/logo.svg'
 
 function AboutUs() {
   return (
-    <Container>
-      <Title>Team HASH.tv</Title>
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img variant="top" src={Agustin} style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>Agustin Fraile</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a href="https://github.com/agustinfraile">
-              <Icons src={github} />
-            </a>
-            <a href="https://www.linkedin.com/in/agustinfraile">
-              <Icons src={linkedin} />
-            </a>
-          </Card.Body>
-        </Card>
-      </Separator>
+    <div className='AboutUs'>
 
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img variant="top" src={Daniel} style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>Daniel Gonzalez</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a href="https://github.com/dangon200">
-              <Icons src={github} />
-            </a>
-            <Icons src={linkedin} />
-          </Card.Body>
-        </Card>
-      </Separator>
 
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img variant="top" src={Franco} style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>Franco Hermosilla</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a href="https://github.com/FrancoNicolas1">
-              <Icons src={github} />
-            </a>
-            <Icons src={linkedin} />
-          </Card.Body>
-        </Card>
-      </Separator>
+      <div className='cards'>
 
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img variant="top" src={Frank} style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>Frank Santos</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a href="https://github.com/Harurin5671">
-              <Icons src={github} />
-            </a>
-            <Icons src={linkedin} />
-          </Card.Body>
-        </Card>
-      </Separator>
+        <article className='card first_card'>
+          <img className='logo_hash' src={logo} alt="logo" />
+          <header>
+            <h2 className='card_title'>HASH.tv</h2>  
+            <p className='card_content'>
+            HASH.tv es una plataforma interactiva de transmisión en vivo, puede ver los juegos más populares en vivo, compartir sus propias experiencias de juego y unirse a una increíble comunidad creada por y para jugadores.
+            </p>
+          </header>
+        </article>
+        
+        <article className='card'>
+          <h2 className='card_title'>Sobre los Desarroladores</h2>
+        </article>
 
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img variant="top" src='' style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>Lenyn Bejar</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a>
-              <Icons src={github} />
-            </a>
-            <Icons src={linkedin} />
-          </Card.Body>
-        </Card>
-      </Separator>
+        <article className='card'>
+          <header>
+            <div className='user'>
+              <img className='user_image' src={developer} alt="developer" />
+              <p className='user_name'>Bill Gates</p>
+            </div>
+          </header>
+          <h2 className='card_title'>
+            Junior Software Developer Engineer FullStack  
+          </h2>
+          <p className='card_content'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam laborum, exercitationem quibusdam nostrum dolorum consequatur aut animi perspiciatis vitae odit saepe minima, explicabo et excepturi fugiat repudiandae, voluptate suscipit repellendus.
+          </p>
+        </article>
+        <article className='card'>
+          <header>
+            <div className='user'>
+              <img className='user_image' src={developer} alt="developer" />
+              <p className='user_name'>Bill Gates</p>
+            </div>
+          </header>
+          <h2 className='card_title'>
+            Junior Software Developer Engineer FullStack  
+          </h2>
+          <p className='card_content'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam laborum, exercitationem quibusdam nostrum dolorum consequatur aut animi perspiciatis vitae odit saepe minima, explicabo et excepturi fugiat repudiandae, voluptate suscipit repellendus.
+          </p>
+        </article>
+        <article className='card'>
+          <header>
+            <div className='user'>
+              <img className='user_image' src={developer} alt="developer" />
+              <p className='user_name'>Bill Gates</p>
+            </div>
+          </header>
+          <h2 className='card_title'>
+            Junior Software Developer Engineer FullStack  
+          </h2>
+          <p className='card_content'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam laborum, exercitationem quibusdam nostrum dolorum consequatur aut animi perspiciatis vitae odit saepe minima, explicabo et excepturi fugiat repudiandae, voluptate suscipit repellendus.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto numquam, perspiciatis enim libero necessitatibus, saepe eius, sed quo id consectetur aut consequatur assumenda? Sapiente odio exercitationem commodi consectetur earum cupiditate.
+          </p>
+        </article>
+        <article className='card'>
+          <header>
+            <div className='user'>
+              <img className='user_image' src={developer} alt="developer" />
+              <p className='user_name'>Bill Gates</p>
+            </div>
+          </header>
+          <h2 className='card_title'>
+            Junior Software Developer Engineer FullStack  
+          </h2>
+          <p className='card_content'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam laborum, exercitationem quibusdam nostrum dolorum consequatur aut animi perspiciatis vitae odit saepe minima, explicabo et excepturi fugiat repudiandae, voluptate suscipit repellendus.
+          </p>
+        </article>
+        <article className='card'>
+          <header>
+            <div className='user'>
+              <img className='user_image' src={developer} alt="developer" />
+              <p className='user_name'>Bill Gates</p>
+            </div>
+          </header>
+          <h2 className='card_title'>
+            Junior Software Developer Engineer FullStack  
+          </h2>
+          <p className='card_content'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam laborum, exercitationem quibusdam nostrum dolorum consequatur aut animi perspiciatis vitae odit saepe minima, explicabo et excepturi fugiat repudiandae, voluptate suscipit repellendus.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto numquam, perspiciatis enim libero necessitatibus, saepe eius, sed quo id consectetur aut consequatur assumenda? Sapiente odio exercitationem commodi consectetur earum cupiditate.
+          </p>
+        </article>
+        <article className='card'>
+          <header>
+            <div className='user'>
+              <img className='user_image' src={developer} alt="developer" />
+              <p className='user_name'>Bill Gates</p>
+            </div>
+          </header>
+          <h2 className='card_title'>
+            Junior Software Developer Engineer FullStack  
+          </h2>
+          <p className='card_content'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam laborum, exercitationem quibusdam nostrum dolorum consequatur aut animi perspiciatis vitae odit saepe minima, explicabo et excepturi fugiat repudiandae, voluptate suscipit repellendus.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto numquam, perspiciatis enim libero necessitatibus, saepe eius, sed quo id consectetur aut consequatur assumenda? Sapiente odio exercitationem commodi consectetur earum cupiditate.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi est minima in atque maiores? Veritatis neque a, vel sed earum, nemo similique autem nulla vitae, ratione distinctio aut? Qui, nesciunt.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia atque magni obcaecati. Nam animi vero unde facere nobis? Quae molestias labore modi vero commodi earum totam maxime natus quisquam numquam!
+          </p>
+        </article>
+        <article className='card'>
+          <header>
+            <div className='user'>
+              <img className='user_image' src={developer} alt="developer" />
+              <p className='user_name'>Bill Gates</p>
+            </div>
+          </header>
+          <h2 className='card_title'>
+            Junior Software Developer Engineer FullStack  
+          </h2>
+          <p className='card_content'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam laborum, exercitationem quibusdam nostrum dolorum consequatur aut animi perspiciatis vitae odit saepe minima, explicabo et excepturi fugiat repudiandae, voluptate suscipit repellendus.
+          </p>
+        </article>
+        <article className='card'>
+          <header>
+            <div className='user'>
+              <img className='user_image' src={developer} alt="developer" />
+              <p className='user_name'>Bill Gates</p>
+            </div>
+          </header>
+          <h2 className='card_title'>
+            Junior Software Developer Engineer FullStack  
+          </h2>
+          <p className='card_content'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam laborum, exercitationem quibusdam nostrum dolorum consequatur aut animi perspiciatis vitae odit saepe minima, explicabo et excepturi fugiat repudiandae, voluptate suscipit repellendus.
+          </p>
+        </article>
+      </div>
 
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img variant="top" src='' style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>Luis Cardenas</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a>
-              <Icons src={github} />
-            </a>
-            <Icons src={linkedin} />
-          </Card.Body>
-        </Card>
-      </Separator>
 
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img variant="top" src={Rene} style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>René Valderrey</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a href="https://github.com/renevalderrey">
-              <Icons src={github} />
-            </a>
-            <a href="https://www.linkedin.com/in/renevalderrey/">
-              <Icons src={linkedin} />
-            </a>
-          </Card.Body>
-        </Card>
-      </Separator>
-
-      <Separator>
-        <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-          <Card.Img src={Victor} style={{ width: '100%', height: '100%' }} />
-          <Card.Body>
-            <Card.Title style={{ color: 'white' }}>Victor Falconí</Card.Title>
-            <Card.Text style={{ color: 'white' }}>
-              Full Stack Web Developer
-            </Card.Text>
-            <a>
-              <Icons src={github} />
-            </a>
-            <Icons src={linkedin} />
-          </Card.Body>
-        </Card>
-      </Separator>
-    </Container>
+    </div>
   );
 }
-
-const Separator = styled.div`
-  display: inline-block;
-  margin: 20px;
-`
-const Container = styled.div`
-  background: #404040;
-  position: absolute;
-  width: 90%;
-  margin-left: 10%;
-`
-const Title = styled.h1`
-  color: white;
-  margin: 30px;
-  margin-right: 970px;
-`
-const Icons = styled.img`
-  width: 40px;
-  height: 40px;
-  margin: 6px;
-`
 
 export default AboutUs;

@@ -6,7 +6,7 @@
     margin: 0 auto;
     display: flex;
     padding: 3em 0;
-    justify-content: center;
+    
     /* margin-left: 12em; */
 
 }
@@ -17,7 +17,6 @@
     width:87%;
     margin: 0 auto;
     margin-left: 13em;
-    margin-top: 400px
 }
 
 .home-popGame{

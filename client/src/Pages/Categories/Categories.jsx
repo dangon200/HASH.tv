@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories, getStreams } from "../../store/actions/actions";
+import Navbar from "../../components/NavBar/NavBar";
 import "./Categories.css"
 
 const Categories = (props) => {
@@ -19,6 +20,7 @@ const Categories = (props) => {
 
     return (
         <>
+            <Navbar />
             <div className="title2">
                 <h2>Category {filterCategories[0].name}</h2>
             </div>

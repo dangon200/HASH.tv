@@ -45,7 +45,3 @@
 *, ::after, ::before {
   box-sizing: content-box;
 }
-
-* {
-  font-family: 'Poppins', sans-serif;
-}
