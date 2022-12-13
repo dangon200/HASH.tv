@@ -31,36 +31,21 @@ export default function FormLogin() {
       }
     }
   })
-    /* onSubmit: async (values, { resetForm }) => {
-      try {
-         fetch(`${urlApi}/api/auth/signup/`, {
-          method: 'POST',
-          body: JSON.stringify(values),
-          headers: {
-            'Content-type': 'application/json'
-          }
-        })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data)
-          setSend(true)
-          resetForm()
-        })
-      } catch (error) {
-        console.error(error)
-        setErr(true)
-        setTimeout(() => { setErr(false) }, 3000)
-      }
-    }
-  }) */
+
   const [send, setSend] = useState(false)
   const [err, setErr] = useState(false)
   return (
+    // formulario
     <div className={style.card_sign}>
-      <form onSubmit={handleSubmit} className={` w-75 d-flex justify-content-center mx-auto my-3 p-5 `} autoComplete='off'>
+
+      <form 
+        onSubmit={handleSubmit} 
+        className={` w-75 justify-content-center mx-auto  p-5 `} autoComplete='off'
+      >
         <div className={`row justify-content-center ${style.form_label}`}>
-          <div className='col-12'>
-            <label htmlFor='username' className='form-label'>Nombre de usuario</label>
+          
+          <div className={`${style.input_cnt}`}>
+            <label htmlFor='username'>Nombre de usuario</label>
             <input
               type='text'
               className={`form-control ${touched.username ? errors.username ? 'is-invalid' : 'is-valid' : ''}`}
@@ -72,7 +57,8 @@ export default function FormLogin() {
             />
             {errors.username && touched.username && <p className='text-danger'>{errors.username}</p>}
           </div>
-          <div className='col-12'>
+
+          <div className={`${style.input_cnt}`}>
             <label htmlFor='email'>Email</label>
             <input
               type='email'
@@ -83,9 +69,15 @@ export default function FormLogin() {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {touched.email && errors.email ? <div className='invalid-feedback'>{errors.email}</div> : null}
+            {
+              touched.email && errors.email ? 
+              <div className='invalid-feedback'>
+                {errors.email}
+              </div> : null
+            }
           </div>
-          <div className='col-12'>
+
+          <div className={`${style.input_cnt}`}>
             <label htmlFor='password'>Password</label>
             <input
               type='password'
@@ -96,9 +88,15 @@ export default function FormLogin() {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {touched.password && errors.password ? <div className='invalid-feedback'>{errors.password}</div> : null}
+            {
+              touched.password && errors.password ? 
+              <div className='invalid-feedback'>
+                {errors.password}
+              </div> : null
+            }
           </div>
-          <div className='col-12'>
+
+          <div className={`${style.input_cnt}`}>
             <label htmlFor='copyPassword'>Confirmar Password</label>
             <input
               type='password'
@@ -109,16 +107,22 @@ export default function FormLogin() {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {touched.copyPassword && errors.copyPassword ? <div className='invalid-feedback'>{errors.copyPassword}</div> : null}
+            {
+              touched.copyPassword && errors.copyPassword ? 
+              <div className='invalid-feedback'>
+                {errors.copyPassword}
+              </div> : null
+            }
           </div>
+          
           {send && <div className='alert alert-success' role='alert'><p>!Felicitaciones cuenta creada!</p><p>Por favor revise su correo le enviamos un mensaje de validación.</p></div>}
           {err && <div className='alert alert-danger' role='alert'>Algo salio mal vuelva a intentarlo</div>}
 
           <button
             type='submit'
-            className={`col-6 btn btn-success mt-3 ${isSubmitting && 'disabled'}`}
+            className={`${style.button_sub} ${isSubmitting && 'disabled'}`}
             disabled={isSubmitting && true}
-          >Enviar
+          >Registrarse
           </button>
         </div>
 

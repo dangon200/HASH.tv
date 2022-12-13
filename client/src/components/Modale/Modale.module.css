@@ -20,7 +20,8 @@
 /* modal */
 
 .navlink:hover{
-  background-color: #d1d0ca;
+  background-color: #aeaea9;
+  color: #1c1c1c;
 }
 
 .modal {
