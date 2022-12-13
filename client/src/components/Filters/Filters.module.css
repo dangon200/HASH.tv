@@ -1,5 +1,5 @@
 .general{
-    font-family: var(--font-family-2) !important;
+
     line-height: 1.2;
     display: flex;
     gap: 15px;
@@ -21,20 +21,20 @@
     border-radius: 16px;
     display: flex;
     align-items: center;
-    font-size: 1.6rem;
-    letter-spacing: .5px;
-    font-family: var(--font-family-2);
+    font-size: 1.5rem;
     text-decoration: none;
-    color: #fefefe;
     gap: 10px;
-    width: 150px;
-    height: 60px;
-    background-color: #ff0400;
+    width: 2em;
+    height: 1.5em;
+    background-color: #03EFFE;
+    color: #000;
     border: none;
+    margin: 1em 0;
 }
 .filtros:hover{
     color: #fefefe;
-    background-color: #ff0400;
+    background-color: #05cedd;
+    transition: .3s;    
 }
 .optSelect{
     display: flex;
@@ -53,53 +53,32 @@
 }
 .optSelect:hover{
     background-color: #eceaea;
-    /* background-color: var(--btn-background-color); */
-    /* color: var(--background-color); */
     font-weight: 500;
     transition: .3s;
 }
 
-/* .limpiarFiltros{
-    align-content: space-around;
-    margin-inline: 10px;
-    display: inline;
-    padding: 10px;
-    width: 120px;
-    border-width: 1px;
-    border-radius: 5px;
-    font-family: var(--font-family-2);
-    font-weight: 600;
-    color: var(--btn-sel-background-color);
-    cursor: pointer;
-
-    border-color: #b9b3af;
-    background-color: #fefefe;
-
-}
-.limpiarFiltros:hover{
-    background-color: var(--btn-background-color);
-    color: var(--background-color);
-    transition: .3s;
-} */
 .limpiarFiltros{
     border-radius: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
-    letter-spacing: .5px;
-    font-family: var(--font-family-2);
+    font-size: 1.4rem;
     text-decoration: none;
-    color: #f9f9f9;
+    color: #000000;
     gap: 10px;
     font-weight: 600;
-    font-size: 1.4rem;
-    width: 150px;
-    background-color: #ff0400;
-    padding: 8px;
+    width: 5em;
+    height: 1.5em;
+    background-color: #e7e6de;
+    border: none;
+    margin: 1em 0;
+    padding: .5em;
 }
+
+
 .limpiarFiltros:hover{
-    color: #fefefe;
-    background-color: #03EFFE;
+    color: #000000;
+    background-color: #d1d0ca;
     transition: .3s;
 }
 

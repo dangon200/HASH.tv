@@ -160,16 +160,21 @@ export default function FormLogin () {
       </div>
     )
   }
+
   return (
     <div className='user-select-none'>
-      <form onSubmit={(e) => {
+      <form 
+        onSubmit={(e) => {
         console.log(e)
         console.log(handleSubmit)
         handleSubmit(e)
-      }} className='card d-flex justify-content-center mx-auto my-3 p-5' autoComplete='off'>
+        }} 
+        className=' d-flex justify-content-center mx-auto my-3 p-5' autoComplete='off'
+      >
         <div className='row justify-content-center'>
+
           <div className='col-12'>
-            <label htmlFor='email' className='fs-3'>Email</label>
+            <label htmlFor='email' className={style.label}>Correo electronico</label>
             <input
               type='email'
               name='email'
@@ -178,24 +183,56 @@ export default function FormLogin () {
               value={values.email}
               onChange={handleChange}
               onBlur={handleBlur}
+              placeholder='Ingrese su correo'
             />
-            {touched.email && errors.email ? <div className='invalid-feedback fs-4'>{errors.email}</div> : null}
+            {
+              touched.email && errors.email ? 
+              <div 
+                className='invalid-feedback fs-4'
+              >
+                {errors.email}
+              </div> : null
+            }
           </div>
+
           <div className='col-12'>
-            <label htmlFor='password' className='fs-3'>Password</label>
+            <label htmlFor='password' className={style.label}>
+              Contraseña
+            </label>
             <input
               type='password'
               name='password'
               id='password'
-              className={`form-control p-2
-                      ${!err ? touched.password ? errors.password ? 'is-invalid' : 'is-valid' : null : 'is-invalid'}`}
+              className={
+                `form-control p-2
+                ${!err ? touched.password ? errors.password ? 'is-invalid' : 'is-valid' : null : 'is-invalid'}`
+              }
               value={values.password}
               onChange={handleChange}
               onBlur={handleBlur}
+              placeholder='Ingrese su contraseña'
+
             />
-            {touched.password && errors.password ? <div className='invalid-feedback fs-4'>{errors.password}</div> : null}
+            {
+              touched.password && errors.password ? 
+              <div 
+                className='invalid-feedback fs-4'
+              >
+                {errors.password}
+              </div> : null
+            }
           </div>
-          {!userLogged && <button disabled={send && true} className='btn btn-primary fs-4 mt-3 ' type='submit'>{!send ? 'Iniciar sesión' : '....'}</button>}
+
+          {
+            !userLogged && 
+            <button 
+              disabled={send && true} 
+              className={style.btn_logged} 
+              type='submit'
+            >
+              {!send ? 'Iniciar sesión' : '....'}
+            </button>
+            }
 
           {err &&
             <div className='alert alert-danger mt-3 text-center' role='alert'><p>{message}</p></div>}

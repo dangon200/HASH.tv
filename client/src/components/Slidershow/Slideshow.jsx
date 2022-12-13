@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Card from "../Card/Card"
 // import { ReactComponent as LeftArrow } from "../../icons/iconmonstr-caret-left-lined.svg"
 // import { ReactComponent as RightArrow } from "../../icons/iconmonstr-caret-right-lined.svg"
-// import styled from "styled-components";
+import styled from "styled-components";
 import Carousel from 'react-bootstrap/Carousel';
 import { useDispatch, useSelector } from "react-redux";
 import { getStreams } from "../../store/actions/actions";
@@ -80,56 +80,56 @@ const Slidershow = () => {
         //         </Button>
         //     </Controls>
         // </div>
-        <Carousel>
-            <Carousel.Item>
-                {streams[0] && <Card 
-                    image={streams[0].image}
-                    title={streams[0].name}
-                    description={streams[0].description}
-                    language={streams[0].language}
-                />}
-                <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-            {streams[0] && <Card 
-                    image={streams[0].image}
-                    title={streams[0].name}
-                    description={streams[0].description}
-                    language={streams[0].language}
-                />}
-                <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-            {streams[0] && <Card 
-                    image={streams[0].image}
-                    title={streams[0].name}
-                    description={streams[0].description}
-                    language={streams[0].language}
-                />}
-                <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                    </p>
-                </Carousel.Caption>
-            </Carousel.Item>
-        </Carousel>
+        <Container>
+            <Carousel style={{ width: '450px' }}>
+                <Carousel.Item>
+                    {streams[0] && <Card
+                        image={streams[0].image}
+                        title={streams[0].name}
+                        description={streams[0].description}
+                        language={streams[0].language}
+                    />}
+                    {/* <Carousel.Caption>
+                        <h3>First slide label</h3>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </Carousel.Caption> */}
+                </Carousel.Item>
+                <Carousel.Item>
+                    {streams[0] && <Card
+                        image={streams[0].image}
+                        title={streams[0].name}
+                        description={streams[0].description}
+                        language={streams[0].language}
+                    />}
+                    {/* <Carousel.Caption>
+                        <h3>Second slide label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </Carousel.Caption> */}
+                </Carousel.Item>
+                <Carousel.Item>
+                    {streams[0] && <Card
+                        image={streams[0].image}
+                        title={streams[0].name}
+                        description={streams[0].description}
+                        language={streams[0].language}
+                    />}
+                    {/* <Carousel.Caption>
+                        <h3>Third slide label</h3>
+                        <p>
+                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                        </p>
+                    </Carousel.Caption> */}
+                </Carousel.Item>
+            </Carousel>
+        </Container>
 
     )
 }
 
-// const Container = styled.div`
-//     max-width: 400px;
-//     margin: 50px auto;
-//     overflow: hidden;
-//     position: relative;
-// `;
+const Container = styled.div`
+    width: 90%;
+    margin-left: 40%;
+`
 // const ContainerSlideshow = styled.div`
 //     display: flex;
 //     flex-wrap: nowrap;

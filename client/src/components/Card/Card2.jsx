@@ -11,7 +11,7 @@ function Card( id ) {
                             <img alt="" src={id.image}/>
                             </Link>
                         <h2>
-                          {id.name}
+                          {id.name}!!!
                         </h2>
                         <h2>
                           {id.language}

@@ -1,9 +1,32 @@
+.home {
+    /* background-color: rgb(184, 48, 48); */
+    background-color: #404040;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    padding: 3em 0;
+    justify-content: center;
+    /* margin-left: 12em; */
+
+}
+
+
+.home-cnt {
+    /* padding: 0 16em; */
+    width:87%;
+    margin: 0 auto;
+    margin-left: 13em;
+    margin-top: 400px
+}
+
 .home-popGame{
+    /* margin: 0  auto; */
     display: flex;
     justify-content: center;
     margin-top: 40px;
     padding-bottom: 40px;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
 }
 
 .home-popGame h2 {
@@ -49,17 +72,17 @@
 .title{
     display: flex;
     padding: 10px;
-  }
-  .container{
+}
+.container{
     display: flex;
     align-items:center;
-    height: 40vh;
-  }
-  .card-container{
+    min-height: 40vh;
+}
+.card-container{
     display: flex;
     width: 600px;
     height: 300px;
     background-color: rgb(4, 4, 4);
     border-radius: 16px;
-  
   }
+  

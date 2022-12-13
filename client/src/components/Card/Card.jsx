@@ -1,8 +1,8 @@
 import React from "react";
-import '../Card/Card.css'
 import { useSelector } from 'react-redux';
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import '../Card/Card.css'
 
 function Card() {
     const streams = useSelector(state => state.streams)
@@ -12,7 +12,7 @@ function Card() {
     return (
         <>
             <div className="title">
-                <h2>Canales en directo que podrían gustarte</h2>
+                <h2>Streams en vivo</h2>
             </div>
             <div className="container">
         {streams3?.map((e, index) =>{
