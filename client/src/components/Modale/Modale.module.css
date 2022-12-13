@@ -52,5 +52,12 @@
   color: #03EFFE;
   font-size: 1em;
   text-decoration: none;
-  /* background-color: #5d5840; */
+  transition: .3s;    
+
+}
+
+.footer_link:hover {
+  color: #fefefe;
+  transition: .3s;    
+
 }
