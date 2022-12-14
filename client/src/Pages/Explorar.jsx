@@ -4,12 +4,12 @@ import Card2 from '../components/Card/Card2'
 import Pagination from '../components/pagination/Pagination'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import style from './Explorar.module.css'
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import { getStreams } from '../store/actions/actions.js';
 // import App from '../components/StreamVideo/App.js'
 // import generateMuiTheme from "../components/StreamVideo/mui/theme";
 // import { ThemeProvider } from "@material-ui/styles";
+import style from './Explorar.module.css'
 
 function Explorar() {
   const dispatch = useDispatch()
