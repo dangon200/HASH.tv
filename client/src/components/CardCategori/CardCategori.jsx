@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function CardCategori() {
     const dispatch = useDispatch()
     const categories = useSelector(state => state.categories)
-    const categoriesSlice = categories.slice(0, 5)
+    const categoriesSlice = categories.slice(0, 4)
     // console.log(categoriesSlice)
 
     const handleCategories = (e) => {

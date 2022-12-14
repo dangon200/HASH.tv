@@ -9,6 +9,7 @@ import Franco from '../utils/developers/FrancoHermosilla.jpg';
 import Frank from '../utils/developers/FrankSantos.jpg';
 import Rene from '../utils/developers/ReneValderrey.jpg';
 import Victor from '../utils/developers/VictorFalconi.jpg';
+import Jonathan from '../utils/developers/JonathanCardenas.jpeg';
 import github from '../utils/icons/github.png'
 import linkedin from '../utils/icons/linkedin.png'
 import styled from 'styled-components';
@@ -104,16 +105,18 @@ function AboutUs() {
 
         <Separator>
           <Card style={{ width: '15rem', background: 'rgba(0, 0, 0, 0.35)' }}>
-            <Card.Img variant="top" src='' style={{ width: '100%', height: '100%' }} />
+            <Card.Img variant="top" src={Jonathan} style={{ width: '100%', height: '100%' }} />
             <Card.Body>
               <Card.Title style={{ color: 'white' }}>Luis Cardenas</Card.Title>
               <Card.Text style={{ color: 'white' }}>
                 Full Stack Web Developer
               </Card.Text>
-              <a>
+              <a href="https://github.com/luisjonath">
                 <Icons src={github} />
               </a>
-              <Icons src={linkedin} />
+              <a href="https://www.linkedin.com/in/jonathan-cardenas-ba5159192/">
+                <Icons src={linkedin} />
+              </a>
             </Card.Body>
           </Card>
         </Separator>

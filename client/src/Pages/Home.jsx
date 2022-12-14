@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { allVideoGamesDataBase, popularVideo, getStreams, getCategories } from '../store/actions/actions';
 import './Home.css'
-import Card from '../components/Card/Card';
+import CardStream from '../components/Card/CardStream';
 import Card2 from '../components/Card/Card2'
 import CardCategori from '../components/CardCategori/CardCategori';
 import Slidershow from '../components/Slidershow/Slideshow';
@@ -27,7 +27,6 @@ function Home() {
   }, [])
 
   return (
-
     <div>
       <NavBarTop />
       <div className='home'>
@@ -61,9 +60,8 @@ function Home() {
             </>)
             : <></>
           }
-          <Card />
+          <CardStream />
           <CardCategori />
-          <CardChannel />
           </div>
       </div>
     </div>
@@ -71,7 +69,7 @@ function Home() {
 }
 
 const Slider = styled.div`
-  position:absolute;
+  position: absolute;
   margin-top: 30px;
  `
 
