@@ -21,9 +21,20 @@ export default function NavBarTop() {
         link='/register'
         createAcc
       />
-      <Link to='/register' className='navbarTop_register'>
-          Registrarse
-      </Link>
+
+      {/* Logica para cuando el usuario no inicio sesion*/}
+      
+        
+        <Link 
+          to='/register' 
+          className={!user? 'navbarTop_register' : 'navbarTop_register--none'}
+        >
+            Registrarse
+        </Link>
+        
+
+      
+
     </div>
   )
 }

@@ -27,6 +27,10 @@
     text-decoration: none;
 }
 
+.navbarTop_register--none {
+    display: none;
+}
+
 .navbarTop_register:hover {   
     color: #fefefe;
     background-color: #05cedd;
