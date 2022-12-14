@@ -1,6 +1,7 @@
 .container1 {
     /* background-color: azure; */
     margin-top: 20px;
+    padding: 0;
 }
 
 .title{
@@ -12,7 +13,7 @@
 .container2{
     display: flex;
     justify-content: flex-start;
-    width: 100%;
+    width: 90%;
     margin-left: 0;
     /* background-color: aqua; */
 }

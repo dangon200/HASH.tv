@@ -72,6 +72,7 @@ function Home() {
 const Slider = styled.div`
   position: absolute;
   margin-top: 30px;
+  z-index: 0;
  `
 
 export default Home;
