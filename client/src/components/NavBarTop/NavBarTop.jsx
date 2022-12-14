@@ -1,16 +1,15 @@
 import React from 'react'
-import './NavBarTop.css'
 import Modale from '../Modale/Modale'
 import FormLogin from '../FormLogin/FormLogin'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import './NavBarTop.css'
 
 
 
 export default function NavBarTop() {
 
-  const user = useSelector(state => state.user)
-
+  const user = useSelector(state => state.user);
 
   return (
     <div className='navbarTop'>
@@ -22,43 +21,43 @@ export default function NavBarTop() {
         createAcc
       />
 
-      {/* Logica para cuando el usuario no inicio sesion*/}
-      
+      {/* Logica inicio de sesion*/}
         
-        <Link 
-          to='/register' 
-          className={!user? 'navbarTop_register' : 'navbarTop_register--none'}
-        >
-            Registrarse
+      <Link 
+        to='/register' 
+        className={!user? 'navbarTop_register' : 'navbarTop_register--none'}
+      >
+        Registrarse
+      </Link>
+
+      {/* <div 
+        className={user? 'navbarTop_name' : 'navbarTop_register--none'}
+      >
+        <Link to='/user'>
+          <p>{user.name}</p>
         </Link>
+      </div> */}
 
-        {/* <div>
-          {
-            user && 
-            <Link 
-              to='/stream'
-              className= 'navbarTop_register'
-            >
-              Stream
-            </Link>
-          }
+      <div className='dropdown'>
+        <div 
+          className={`dropdown-toggle px-5 py-2 navbarTop_name`}
+          href='#' 
+          role='button' 
+          data-bs-toggle='dropdown' 
+          aria-expanded='false'  
+        >
+          {user.name}
         </div>
-
-        <div>
-          {
-            user && 
-            <Link 
-              to={`/user/${user._id}`}
-              className= 'navbarTop_register'
-            >
-              Usuario
-            </Link>
-          }
-        </div> */}
+        <ul className='dropdown-menu link-menu-container'>
+          <Link 
+            className='link-menu'
+            to='/user'
+          >
+            <li className='link-menu'>Configuracion</li>
+          </Link>
+        </ul>
+      </div>
         
-
-      
-
     </div>
   )
 }

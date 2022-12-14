@@ -62,7 +62,7 @@
     width: 90%;
     padding: 10em;
     display: grid;
-    gap: 3rem;
+    gap: 15rem 0;
     grid-auto-rows: 20rem;
     margin-left: 10%;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 31rem), 1fr));

@@ -1,8 +1,8 @@
 import React from "react";
 import './Card.css'
 import Card from 'react-bootstrap/Card';
-import s from 'styled-components'
 import { Link } from "react-router-dom";
+import s from 'styled-components'
 
 function Card2(id) {
     console.log(id)
