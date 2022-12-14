@@ -21,7 +21,7 @@
     border-radius: 16px;
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-decoration: none;
     gap: 10px;
     width: 2em;
@@ -29,7 +29,7 @@
     background-color: #03EFFE;
     color: #000;
     border: none;
-    margin: 1em 0;
+    margin: 1.5em 0;
 }
 .filtros:hover{
     color: #fefefe;
@@ -62,16 +62,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     text-decoration: none;
     color: #000000;
     gap: 10px;
-    font-weight: 600;
+    font-weight: 500;
     width: 5em;
     height: 1.5em;
     background-color: #e7e6de;
     border: none;
-    margin: 1em 0;
+    margin: 1.5em 0;
     padding: .5em;
 }
 
