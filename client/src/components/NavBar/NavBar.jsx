@@ -33,6 +33,23 @@ export default function Navbar() {
           <Link to='/support' className='ul-link'>
             <li><p>Soporte</p></li>
           </Link>
+
+          {
+            user &&
+            <Link to='/stream' className='ul-link'>
+              <li><p>Stream</p></li>
+            </Link>
+
+          }
+
+          {
+            user &&
+            <Link to={`/user/${user._id}`} className='ul-link'>
+              <li><p>Usuario</p></li>
+            </Link>
+          }
+
+
         </ul>
       </div>
     </div>

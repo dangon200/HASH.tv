@@ -31,6 +31,30 @@ export default function NavBarTop() {
         >
             Registrarse
         </Link>
+
+        {/* <div>
+          {
+            user && 
+            <Link 
+              to='/stream'
+              className= 'navbarTop_register'
+            >
+              Stream
+            </Link>
+          }
+        </div>
+
+        <div>
+          {
+            user && 
+            <Link 
+              to={`/user/${user._id}`}
+              className= 'navbarTop_register'
+            >
+              Usuario
+            </Link>
+          }
+        </div> */}
         
 
       
