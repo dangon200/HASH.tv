@@ -44,7 +44,7 @@ const Profile = s.img`
 const Title = s.h2`
     display: flex;
     padding: 10px;
-    margin-top: 40px;
+    margin-top: 70px;
 `
 const TitleCard = s.h4`
     margin-left: 30px;
