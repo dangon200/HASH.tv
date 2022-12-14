@@ -40,7 +40,7 @@ export default function NavBarTop() {
 
       <div className='dropdown'>
         <div 
-          className={`dropdown-toggle px-5 py-2 navbarTop_name`}
+          className={user? `dropdown-toggle px-5 py-2 navbarTop_name`: 'navbarTop_register--none'}
           href='#' 
           role='button' 
           data-bs-toggle='dropdown' 
