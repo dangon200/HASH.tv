@@ -13,13 +13,15 @@ export default function NavBarTop() {
 
   return (
     <div className='navbarTop'>
-      <Modale
-        buttonText={!user ? 'Iniciar sesión' : 'Cerrar sesión'}
-        title={!user ? 'Iniciar sesión' : 'Cerrar sesión'}
-        render={FormLogin}
-        link='/register'
-        createAcc
-      />
+
+      <div className={user ? 'navbarTop_register--none' : 'link-menu' }>
+        <Modale
+          buttonText={!user ? 'Iniciar sesión' : 'Cerrar sesión'}
+          render={FormLogin}
+          link='/register'
+          createAcc
+        />
+      </div>
 
       {/* Logica inicio de sesion*/}
         
@@ -55,6 +57,17 @@ export default function NavBarTop() {
           >
             <li className='link-menu'>Configuracion</li>
           </Link>
+
+            <li 
+              className='link-menu'
+            >
+              <Modale
+                buttonText={!user ? 'Iniciar sesión' : 'Cerrar sesión'}
+                render={FormLogin}
+                link='/register'
+                createAcc
+              />
+            </li>
         </ul>
       </div>
         
