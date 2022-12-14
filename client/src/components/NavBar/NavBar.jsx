@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
-
+import logo from "../../utils/logo.svg"
 import './NavBar.css';
-
+import s from 'styled-components'
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
 
@@ -15,6 +15,9 @@ export default function Navbar() {
   return (
     <div className='navbar'>
       <div className='navbar-ul'>
+      <Link to="/">
+        <Logo src={logo} />
+      </Link>
         <ul>
           <Link to='/' className='ul-link'>
             <li><p>Inicio</p></li>
@@ -44,7 +47,7 @@ export default function Navbar() {
 
           {
             user &&
-            <Link to={`/user/${user._id}`} className='ul-link'>
+            <Link to={`/user`} className='ul-link'>
               <li><p>Usuario</p></li>
             </Link>
           }
@@ -55,4 +58,10 @@ export default function Navbar() {
     </div>
   );
 }
+
+const Logo = s.img`
+  width: 80px;
+  height: 80px;
+  align-text: top;
+  `
 
