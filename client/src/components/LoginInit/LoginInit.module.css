@@ -2,6 +2,7 @@
   justify-content: center;
   background-color: #313131;
   /* min-height: 100vh; */
+  /* background-color: #971d1d; */
 }
 
 .init_tittle {
@@ -9,8 +10,7 @@
   width: 90%;
   text-align: left;
   margin-left: 10%;
-  /* margin-top: 2em; */
-
+  margin-top: -0.79em;
   padding: 1em;
   box-sizing: border-box;
   /* background-color: #971d1d; */
