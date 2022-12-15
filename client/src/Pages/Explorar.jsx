@@ -15,7 +15,7 @@ function Explorar() {
   const dispatch = useDispatch()
   const Streams = useSelector(state => state.streams)
   const [page, setPage] = useState(1)
-  const StreamsPerPage = 4
+  const StreamsPerPage = 6
   const lastStreamsPerPage = page * StreamsPerPage
   const firstStreamsPerPage = lastStreamsPerPage - StreamsPerPage
   const currentPageStreams = Streams.slice(firstStreamsPerPage, lastStreamsPerPage)

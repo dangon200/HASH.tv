@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserId } from "../../store/actions/actions"
 import { Link } from "react-router-dom";
 import Navbar from "../../components/NavBar/NavBar";
+import Card from 'react-bootstrap/Card';
 import "./UserProfile.css"
 
 const UserProfile = () => {
@@ -44,16 +45,6 @@ const UserProfile = () => {
                     </div>
                 </div>
             }
-            {/* <div className="button">
-                <Link to="/stream">
-                    <button>Create channel</button>
-                </Link>
-            </div>
-            <div className="button">
-                <Link to={`{/userstreams/${userId}}`}>
-                    <button>My channels</button>
-                </Link>
-            </div> */}
         </>
     )
 }
