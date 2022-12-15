@@ -1,5 +1,5 @@
 import style from './searchBar.module.css'
-import { BsSearch } from 'react-icons/bs'
+import { GrSearch } from 'react-icons/gr'
 import { getStreamName} from '../../store/actions/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
@@ -42,7 +42,7 @@ export default function SeachBar ({ setPage }) {
           id='input'
           onChange={handleChange}
         />
-        <button type='submit' className={style.submitSearch}><BsSearch className={style.icon} /></button>
+        <button type='submit' className={style.submitSearch}><GrSearch className={style.icon} /></button>
       </form>
     </div>
   )

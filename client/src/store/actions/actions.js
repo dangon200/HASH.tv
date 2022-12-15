@@ -1,4 +1,5 @@
 import axios from "axios";
+import { MdContactSupport } from "react-icons/md";
 export const POST_USER = "POST_USER";
 export const GET_USER_ID = "GET_USER_ID";
 export const GET_USER_NAME = "GET_USER_NAME";
@@ -82,7 +83,6 @@ export const postUser = (data) => {
 };
 
 export const getUserId = (id) => {
-  console.log(id, "-----actionid");
   return async function (dispatch) {
     try {
       const data = {
@@ -198,7 +198,7 @@ export const getStreamId = (id) => {
   return async function (dispatch) {
     try {
       const json = await axios.get(
-        `http://localhost:3001/api/streams/${id}`
+        `http://localhost:3001/api/streams/id/${id}`
       );
       console.log("🚀 ~ file: actions.js:183 ~ json", json);
       dispatch({ type: GET_STREAM_ID, payload: json.data });
@@ -225,8 +225,9 @@ export const getStreamName = (name) => {
 
 export const getStreams = () => {
   return async function (dispatch) {
+  
     try {
-      const json = await axios.get("http://localhost:3001/api/streams");
+      const json = await axios.get("http://localhost:3001/api/stream1/a");
       dispatch({ type: 'GET_STREAMS', payload: json.data });
     } catch (error) {
       return { error: error.message };
@@ -292,7 +293,7 @@ export function allVideoGamesDataBase() {
     });
   };
 }
-// FILTERS EPLORAR
+// FILTERS EXPLORAR
 export const filterCanalesStream = ({
   categoria,
   lenguaje,
@@ -301,12 +302,13 @@ export const filterCanalesStream = ({
 }) => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.get(
+      const data = await axios.get(
         `${urlApi}/api/streams/filter?categoria=${categoria}&lenguaje=${lenguaje}&continente=${continente}&opt=${opt}`
       );
+      console.log(data)
       return dispatch({
         type: "FILTER_STREAMS",
-        payload: data,
+        payload: data.data,
       });
     } catch (error) {
       console.log(error);
@@ -314,7 +316,7 @@ export const filterCanalesStream = ({
   };
 };
 export const clearFilter = () => {
-  return { type: "CLEAR_FILTER", payload: null };
+  return { type: "CLEAR_FILTER" };
 };
 
 export const getSubscriptions = (id) => {

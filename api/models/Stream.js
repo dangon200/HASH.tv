@@ -15,11 +15,11 @@ const StreamSchema = new Schema(
     name: {
       type: String,
     },
-    category: [
+    category: 
       {
         type: String,
       },
-    ], ////  CREAR relacion Categorias
+     ////  CREAR relacion Categorias
     description: {
       type: String,
     },

@@ -2,24 +2,19 @@ const Streams = require("../models/Stream");
 
 const getStreamsDb = async () => {
   const results = [];
-
   try {
-    const dbResults = await Streams.find({}).populate({
-      path: "rating",
-      populate: "name",
-    });
+    const dbResults = await Streams.find({})
+
     dbResults.forEach((r) => {
       results.push({
         _id: r._id,
-        user: r.user,
         title: r.title,
         image: r.image,
         banner: r.banner,
         language: r.language,
-        suscriptores: r.suscriptores,
+        susbscriptions: r.susbscriptions,
         description: r.description,
         name: r.name,
-        rating: r.rating,
         category: r.category,
         continent: r.continent,
         Facebook: r.Facebook,

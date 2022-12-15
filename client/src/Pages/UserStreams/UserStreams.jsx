@@ -5,12 +5,12 @@ import { getUserId, getStreams, getUsers } from "../../store/actions/actions"
 
 const UserStreams = () => {
     const dispatch = useDispatch();
+    const myUser=useSelector(state=>state.user)
     const userDetail = useSelector((state) => state.usersDetail)
     const user = useSelector((state) => state.user)
     const allStreams = useSelector(state => state.streams)
-    // const filterStream = allStreams.filter(s => s._id?.includes(userDetail[0].myStreams))
-    // console.log(filterStream,'---UserStreams')
-    const userId = user._id
+    const userId = myUser._id
+    const filterStream = allStreams.filter(s => s._id?.includes(userDetail[0].myStreams))
 
     useEffect(() => {
         dispatch(getUserId(userId))

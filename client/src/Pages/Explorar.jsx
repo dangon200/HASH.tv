@@ -1,74 +1,92 @@
 import React from 'react';
 import Filters from '../components/Filters/Filters.jsx'
-import Card from '../components/Card/Card2'
-// import Pagination from '../components/pagination/Pagination'
+import Card2 from '../components/Card/Card2'
+import Pagination from '../components/pagination/Pagination'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import style from './Explorar.module.css'
-// import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md'
-// import InfiniteScroll from 'react-infinite-scroll-component';
+import { useDispatch, useSelector } from 'react-redux'
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md'
+import { getStreams } from '../store/actions/actions.js';
 // import App from '../components/StreamVideo/App.js'
 // import generateMuiTheme from "../components/StreamVideo/mui/theme";
 // import { ThemeProvider } from "@material-ui/styles";
-var InfiniteScroll = require('react-infinite-scroll-component');
+import style from './Explorar.module.css'
+
 function Explorar() {
-  const Streams = useSelector(state => state.streams)
+  const dispatch = useDispatch()
+  const Streams = useSelector((state) => state.streams)
+  console.log(Streams)
   const [page, setPage] = useState(1)
-  const [hasMore,setHasMore]=useState(true)
-  const StreamsPerPage = 4
+  const StreamsPerPage = 3
   const lastStreamsPerPage = page * StreamsPerPage
   const firstStreamsPerPage = lastStreamsPerPage - StreamsPerPage
   const currentPageStreams = Streams.slice(firstStreamsPerPage, lastStreamsPerPage)
-  const [stream, setStream] = useState([])
 
   useEffect(() => {
-    setStream(stream.concat(currentPageStreams))
-    setHasMore(page < currentPageStreams.length)
-  }, [page])
+    dispatch(getStreams())
+  }, []) 
 
-  // const pages = []
-  // for (let i = 1; i <= Math.ceil(Streams.length / StreamsPerPage); i++) {
-  //   pages.push(i)
-  // }
-  // function pagination (num) {
-  //   setPage(num)
-  // }
-  // function paginationBef () {
-  //   setPage(page - 1)
-  // }
-  // function paginationAft () {
-  //   setPage(page + 1)
-  // }
+  const pages = []
+  for (let i = 1; i <= Math.ceil(Streams.length / StreamsPerPage); i++) {
+    pages.push(i)
+  }
+  function pagination(num) {
+    setPage(num)
+  }
+  function paginationBef() {
+    setPage(page - 1)
+  }
+  function paginationAft() {
+    setPage(page + 1)
+  }
 
   return (
-    <InfiniteScroll
-      dataLength={stream.length}
-      next={() => setPage(prevPage => prevPage + 1)}
-      hasMore={hasMore}
-      loader={<h3>Loading</h3>}>
-      <div className={style.globalContainer}>
-        <div className={style.searchFilter}>
-          <div className={style.filtersContainer}>
-            {/* {typeof Streams !== 'string' &&
-        <div className={style.divPagination}>
-          {page !== 1 ? <div onClick={() => paginationBef()}><MdOutlineKeyboardArrowLeft className={style.buttonLeft} /></div> : null}
-          <Pagination
-            Streams={Streams.length}
-            StreamsPerPage={StreamsPerPage}
-            pagination={pagination}
-            page={page}
-          />
-          {page !== pages.length && Streams.length ? <div onClick={() => paginationAft()}><MdOutlineKeyboardArrowRight className={style.buttonRight} /></div> : null}
-        </div>} */}
-            <Filters setPage={setPage} />
-          </div>
+    <div className={style.explorar}>
+
+      {/* navbar top */}
+      <div className={style.searchFilter}>
+        <div className={style.filtersContainer}>
+          {
+            typeof Streams !== 'string' &&
+            <div
+              className={style.divPagination}>
+              {
+                page !== 1 ?
+                  <div onClick={() => paginationBef()}>
+                    <MdOutlineKeyboardArrowLeft
+                      className={style.buttonLeft}
+                    />
+                  </div> : null
+              }
+              <Pagination
+                Streams={Streams.length}
+                StreamsPerPage={StreamsPerPage}
+                pagination={pagination}
+                page={page}
+              />
+              {
+                page !== pages.length && Streams.length ?
+                  <div onClick={() => paginationAft()}>
+                    <MdOutlineKeyboardArrowRight
+                      className={style.buttonRight}
+                    />
+                  </div> : null
+              }
+            </div>
+          }
+        <Filters setPage={setPage} />
         </div>
-        <div className={`${style.containerProducts}`}>
-          {stream.map((p, index) => {
+      </div>
+
+      {/* render de cards */}
+      <div className={`${style.containerProducts}`}>
+        {
+          typeof Streams !== 'string' &&
+          currentPageStreams.map((p, index) => {
             return (
               <section className={style.sectionCards} key={index}>
                 <div>
-                  <Card
+                  <Card2
+                    banner={p.banner}
                     id={p._id}
                     name={p.name}
                     image={p.image}
@@ -79,14 +97,12 @@ function Explorar() {
                 </div>
               </section>
             )
-          })}
-        </div>
+          })
+        }
       </div>
-    </InfiniteScroll>
+
+    </div>
   );
 }
 
-{/* <ThemeProvider theme={generateMuiTheme()}>
-      <App/>
-      </ThemeProvider> */}
 export default Explorar;

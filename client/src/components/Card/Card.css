@@ -1,7 +1,13 @@
-.title{
+/* .title{
   display: flex;
   padding: 10px;
 }
+
+.title h2 {
+  color: #f1f1f1;
+  font-weight: bold;
+}
+
 .container{
   display: flex;
   align-items:center;
@@ -51,5 +57,5 @@
 }
 .header h4{
   margin-bottom: 20px;
-}
+} */
 

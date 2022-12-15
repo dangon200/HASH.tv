@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
+import logo from "../../utils/logo.svg"
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
+import './NavBar.css';
+import s from 'styled-components'
 import { Link } from 'react-router-dom';
 import { SidebarData, SidebarData2 } from './NavBarData';
-import './NavBar.css';
 import { IconContext } from 'react-icons';
-import logo from '../../utils/logo.svg'
 import SeachBar from '../searchBar/searchBar'
 import FormLogin from '../FormLogin/FormLogin'
 import Modale from '../Modale/Modale'

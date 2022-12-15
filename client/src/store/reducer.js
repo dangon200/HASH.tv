@@ -139,8 +139,10 @@ export default function rootReducer (state = initialState, action){
       };
     case FILTER_STREAMS:
       return { ...state, streams: action.payload };
+      
     case CLEAR_FILTER:
       return { ...state, streams: state.allStreams };
+
     case UPDATE_USER: {
       return { ...state, users: action.payload };
     };

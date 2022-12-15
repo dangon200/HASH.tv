@@ -15,7 +15,6 @@ const HomeStream = () => {
     const [show, setShow] = useState()
     const [fullscreen, setFullscreen] = useState(true);
     const handleChange = () => setShow(!show)
-    console.log(user)
 
     const [id, setId] = useState()
 
@@ -67,7 +66,7 @@ const HomeStream = () => {
                                     ))}
                                 </div>
                                 :
-                                <div>No Tiene Streams jajaja</div>
+                                <div></div>
                             }
                         </div>
                     ))

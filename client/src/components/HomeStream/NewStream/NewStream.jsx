@@ -17,7 +17,7 @@ const NewStream = ({id}) => {
         description: '',
         image:'',
         banner: '',
-        category: [],
+        category: '',
         Rules: '',
         Facebook: '',
         Instagram: '',
@@ -113,7 +113,7 @@ const NewStream = ({id}) => {
             description: '',
             image:'',
             banner: '',
-            category: [],
+            category: '',
             Facebook: '',
             Instagram: '',
             Twitter: ''
@@ -178,7 +178,7 @@ const NewStream = ({id}) => {
                   onChange={(e) => {
                     setData({
                       ...Data,
-                      category: [...Data.category, e.target.value],
+                      category: e.target.value
                     });
                   }}
                 />

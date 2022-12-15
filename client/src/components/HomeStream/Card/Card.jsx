@@ -14,13 +14,13 @@ const Card = ({stream}) => {
    
 
     return (
-      <section className="h-100 justify-content-center">
+      <section className="h-100 justify-content-center" >
   <div className="h-100">
   <div className="align-items-center h-100 col col-xl-12">
    <App/> 
   </div>
     <div className="d-flex justify-content-center align-items-center h-100 mt-4" style={{width: '95'}}>
-      <div className="justify-content-center col col-xl-12">
+      <div className="justify-content-center col col-xl-12" style={{backgroundColor: "rgba(0,0,0,0.35)"}}>
         <div className="card">
           <div className="rounded-top text-white d-flex flex-row" style={{ backgroundImage: `url(${stream.banner})`, height:'200px'}} >
             <div className="ms-4 mt-5 d-flex flex-column" style={{width: '150px'}}>
@@ -54,21 +54,11 @@ const Card = ({stream}) => {
             </div>
             <div className="ms-3" style={{marginTop: "5rem"}}>
               <h2 >{stream.title}</h2>
-              <p>{stream.continent}</p>
-              <p>{stream.language}</p>
+              <h5>{stream.continent}</h5>
+              <h5>{stream.language}</h5>
             </div>
           </div>
           <div className="p-4 text-black" >
-            <div className="d-flex justify-content-end text-center py-1">
-              <div className="px-3">
-                <p className="mb-1 h5">{stream.rating}</p>
-                <p className="small text-muted mb-0">Ranting</p>
-              </div>
-              <div>
-                <p className="mb-1 h5">{stream.Subscriptions}</p>
-                <p className="small text-muted mb-0">Subscriptions</p>
-              </div>
-            </div>
           </div>
           <div className="card-body p-4 text-black">
             <div className="mb-5">

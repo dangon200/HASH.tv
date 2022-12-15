@@ -21,9 +21,9 @@ body{
 } */
 
 .container{
-  padding-top: 50px;
+  padding-top: 7em;
   width: 100%;
-  background-color: #EEEEEE;
+  background-color: rgba(0,0,0,0.35);
 }
 
 .table{
@@ -63,10 +63,10 @@ body{
 }
 
 .btn1{
-  background-color: #ff0400;
+  background-color: #03EFFE;
   color: white;
   padding: 4px 8px;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 1.4rem;
 }
 .title{
@@ -78,9 +78,9 @@ body{
   display: flex;
   justify-content: start;
 }
-.btn:hover{
-  background-color: white;
-  color:  #56070C;
+.btn1:hover{
+  background-color: #05CEDD;
+  color:  #000000;
 }
 .datos{
   display: flex;

@@ -1,4 +1,4 @@
-.navlink{
+.navlink {
   font-family: var(--font-family-1);
   font-size: 1.6rem;
   color:#1F1F1F;
@@ -10,23 +10,56 @@
   background-color: #f1f0f0;
   border: none;
 }
-.container{
+
+.label {
+  color: #f1f0f0;
+  font-size: 1.5rem;
+  margin-bottom: .5em;
+  margin-top: .5em;
+}
+
+.container {
   justify-content: center;
   display: flex;
 }
 
-.navlink:hover{
+.navlink:hover {
   color:var(--btn-background-color)
 }
 
-.googleBtn{
+.btn_logged {
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: #000000;
+  gap: 10px;
+  font-weight: 600;
+  width: 10em;
+  height: 1.5em;
+  background-color: #03EFFE;
+  border: none;
+  margin: 1.8em 0;
+  padding: .5em;
+  transition: .3s;    
+}
+
+.btn_logged:hover{ 
+  color: #fefefe;
+  background-color: #05cedd;
+  transition: .3s;    
+}
+
+.googleBtn {
   display: flex;
   justify-content: center;
   margin-top: 16px;
   width: 100%;
 }
 
-.googleBtnHide{
+.googleBtnHide {
   display: none;
   justify-content: center;
   margin-top: 16px;

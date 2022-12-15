@@ -18,7 +18,7 @@ const StreamProf2 = (props) => {
 
     return (
       
-          <section className="h-100">
+          <section className="h-100" style={{paddingTop: "7em"}}>
   { stream.length > 0 &&<div className="h-100">
   <div className="justify-content-center align-items-center h-100">
   <App/>
@@ -66,10 +66,10 @@ const StreamProf2 = (props) => {
               </div>
             </div>
             </div>
-            <div className="ms-3" style={{marginTop: "8rem"}}>
+            <div className="ms-3" style={{marginTop: "4rem"}}>
               <h1>{stream[0].name}</h1>
-              <p>{stream[0].continent}</p>
-              <p>{stream[0].language}</p>
+              <h5>{stream[0].continent}</h5>
+              <h5>{stream[0].language}</h5>
             </div>
           </div>
           <div className="p-4 text-black" >

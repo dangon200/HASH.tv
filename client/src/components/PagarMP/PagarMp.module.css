@@ -11,12 +11,14 @@
     transition: all 0.3s ease;
     padding: 0.5rem 0;
     cursor: pointer;
-    background-color: #ff0400;
+    background-color: #03EFFE;
     border: none;
   }
   
   .navlink:hover{
-    background-color: #03EFFE;
+    color: #fefefe;
+    background-color: #05cedd;
+    transition: .3s;
     color: var(--btn-background-color);
   }
 .h2 {

@@ -1,8 +1,9 @@
 import { useState } from "react"
-import './StreamForm.css'
 import { useDispatch } from 'react-redux'
 import { postStream } from "../../store/actions/actions"
 import { useHistory } from "react-router-dom"
+import './StreamForm.css'
+import NavBarTop from "../NavBarTop/NavBarTop"
 
 export function StreamForm () {
 
@@ -52,88 +53,104 @@ export function StreamForm () {
 
     return(
         <div className="form_body">
-            <form className="form_container" onSubmit={handleSubmit}>
-                <div className="card_input card_input_title">StreamForm</div>
-                <div className="card_input">
-                    <label className="card_input_title">Name: </label>
-                    <input 
-                        className="card_input_name"
-                        type="text"
-                        name="name"
-                        value={form.name} 
-                        onChange={ e => {
-                            const expReg = /^[\s\S]{0,25}$/
-                            if (expReg.test(e.target.value)) {
-                                setForm({
-                                    ...form,
-                                    name: e.target.value
-                                })
-                            }
-                        }}
-                    />
+            <NavBarTop />
+            <div className="form-cnt">
+                <div className="form-cnt_title">
+                    <h2>Crear un stream</h2>
                 </div>
-                <div className="card_input">
-                    <label className="card_input_title">Description: </label>
-                    <textarea
-                        className="card_input_description"
-                        type="text"
-                        name="description"
-                        value={form.description} 
-                        onChange={ e => {
-                            const expReg = /^[\s\S]{0,400}$/
-                            if (expReg.test(e.target.value)) {
-                                setForm({
-                                    ...form,
-                                    description: e.target.value
-                                })
-                            }
-                        }}
-                    />
+                
+                <div className="form-cnt_form">
+                    <form 
+                        className="form_container" 
+                        onSubmit={handleSubmit}
+                    >
+
+                        <div className="card_input">
+                            <label className="card_input_title">Nombre del stream</label>
+                            <input 
+                                className="card_input_name"
+                                type="text"
+                                name="name"
+                                value={form.name} 
+                                onChange={ e => {
+                                    const expReg = /^[\s\S]{0,25}$/
+                                    if (expReg.test(e.target.value)) {
+                                        setForm({
+                                            ...form,
+                                            name: e.target.value
+                                        })
+                                    }
+                                }}
+                            />
+                        </div>
+
+                        <div className="card_input">
+                            <label className="card_input_title">Descripcion del stream </label>
+                            <textarea
+                                className="card_input_description"
+                                type="text"
+                                name="description"
+                                value={form.description} 
+                                onChange={ e => {
+                                    const expReg = /^[\s\S]{0,400}$/
+                                    if (expReg.test(e.target.value)) {
+                                        setForm({
+                                            ...form,
+                                            description: e.target.value
+                                        })
+                                    }
+                                }}
+                            />
+                        </div>
+                        <div className="card_input">
+                            <label className="card_input_title">Suscriptores</label>
+                            <input 
+                                className="card_input_suscriptores"
+                                type="number"
+                                name="suscriptores"
+                                value={form.suscriptores} 
+                                onChange={ e => {
+                                        setForm({
+                                            ...form,
+                                            suscriptores: e.target.value
+                                        })
+                                    
+                                }}
+                            />
+                        </div>
+                        <div className="card_input">
+                            <label className="card_input_title">Categorias</label>
+                            <div className="card_input--categories">
+                                {
+                                    categories.map((category) => (
+                                        <div 
+                                            className="card_categories" 
+                                            key={category}
+                                        >
+                                            <input
+                                                type='checkbox'
+                                                name="category"
+                                                value={category}
+                                                onChange={(e) => {
+                                                    setForm({
+                                                        ...form,
+                                                        category: [...form.category, e.target.value]
+                                                    })
+                                                }}
+                                            />
+                                            <label className="card_input_title">{category}</label>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                        <div className="btn-send">
+                            <button>Crear stream</button>
+                        </div>
+                    </form>
                 </div>
-                <div className="card_input">
-                    <label className="card_input_title">Suscriptores: </label>
-                    <input 
-                        className="card_input_suscriptores"
-                        type="number"
-                        name="suscriptores"
-                        value={form.suscriptores} 
-                        onChange={ e => {
-                                setForm({
-                                    ...form,
-                                    suscriptores: e.target.value
-                                })
-                            
-                        }}
-                    />
-                </div>
-                <div className="card_input">
-                    <label className="card_input_title">Categories</label>
-                    <div>
-                        {
-                            categories.map((category) => (
-                                <div className="card_categories" key={category}>
-                                    <input
-                                        className="card_input_categories"
-                                        type='checkbox'
-                                        name="category"
-                                        value={category}
-                                        onChange={(e) => {
-                                            setForm({
-                                                ...form,
-                                                category: [...form.category, e.target.value]
-                                            })
-                                        }}
-                                    />
-                                    <label className="card_input_title">{category}</label>
-                                </div>
-                            ))
-                        }
-                    </div>
-                </div>
-                <div>
-                    <button>Button</button>
-                </div>
-            </form>
+            </div>
+            
         </div>
     )
 }
