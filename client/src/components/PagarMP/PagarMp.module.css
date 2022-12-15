@@ -1,5 +1,5 @@
 .navlink{
-    width: 150px;
+    width: 180px;
     justify-content: center;
     border-radius: 10px;
     font-family: var(--font-family-1);
@@ -18,7 +18,9 @@
     background-color: #03EFFE;
     color: var(--btn-background-color);
   }
-  
+.h2 {
+    color: black;
+}
 .container {
     display: flex;
     justify-content: center;
@@ -34,7 +36,7 @@
 .modal,
 .fade,
 .show {
-    background-color: lightgray;
+    background-color: rgb(10, 10, 10);
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -69,9 +71,11 @@
 
 
 .logo {
+    display: flex;
     justify-content: center;
-    width: 100px;
-    height: 100px;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
     background: url(https://i.ibb.co/rxQxPbb/hashlogoblack.png);
     background-size: contain;
 }
@@ -102,7 +106,7 @@
 }
 
 .booking {
-    background-color: white;
+    background-color: rgb(243, 243, 243);
     border: 2px solid lightgray;
     width: 150px;
     border-radius: 0px;

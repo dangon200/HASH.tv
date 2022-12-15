@@ -3,7 +3,7 @@ const Users = require("../models/Users");
 const Express = require("express");
 const router = Express.Router();
 const { getStreamsDb } = require("../controllers/Streams");
-const { makeReview } = require("../controllers/review.controller");
+const { votedRating } = require("../controllers/rating.controller");
 
 router.get("/streams", async (req, res) => {
   try {
@@ -32,13 +32,13 @@ router.get("/streams/id/:id", async (req, res) => {
       const filterStream = streamDb.filter(
         (stream) => stream._id.toString() === id
       );
-      console.log(filterStream);
       filterStream.length
-        ? res.send(filterStream)
+        ? res.json(filterStream)
         : res.send("Error al obtener Id de Stream");
     }
   } catch (error) {
-    res.status(400).send(error);
+    console.error(error);
+    res.status(400).json(error);
   }
 });
 
@@ -136,28 +136,28 @@ router.get("/streams/filter", async (req, res) => {
   }
 });
 
-router.post("/streams", async(req,res)=>{
+router.post("/streams", async (req, res) => {
   try {
-  const data= req.body
-      const stream = await Streams.create(data)
-      res.send(stream)
+    const data = req.body;
+    const stream = await Streams.create(data);
+    res.send(stream);
   } catch (error) {
-      res.send("Error en Stream")
+    res.send("Error en Stream");
   }
-})
-router.post("/streams/:id", async (req,res)=>{
-try {
-    const {id} = req.params
-    const data= req.body
-    const stream = await Streams.create(data)
-    const userStream = await Users.findOne({_id:id})
-    userStream.myStreams.push(stream._id)
+});
+router.post("/streams/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = req.body;
+    const stream = await Streams.create(data);
+    const userStream = await Users.findOne({ _id: id });
+    userStream.myStreams.push(stream._id);
     const savedStream = await userStream.save();
-    res.send(savedStream)
-} catch (error) {
-    res.status(404).send("Problemas creando un Stream")
-}
-})
+    res.send(savedStream);
+  } catch (error) {
+    res.status(404).send("Problemas creando un Stream");
+  }
+});
 
 router.post("/streams/rating/:id", async (req, res) => {
   const { id } = req.params;
@@ -171,6 +171,6 @@ router.post("/streams/rating/:id", async (req, res) => {
   res.status(200).json(stream);
 });
 
-router.post("/review/:id", makeReview);
+router.post("/rating", votedRating);
 
 module.exports = router;

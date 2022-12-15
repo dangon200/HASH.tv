@@ -81,7 +81,7 @@ export const postUser = (data) => {
 };
 
 export const getUserId = (id) => {
-  console.log(id,'-----actionid')
+  console.log(id, "-----actionid");
   return async function (dispatch) {
     try {
       const json = await axios.get(`${urlApi}/api/user/${id}`);
@@ -154,7 +154,7 @@ export const postStream = (data) => {
 };
 
 export const postStreamId = (id, data) => {
-  console.log(id,data,'----------poststreamid')
+  console.log(id, data, "----------poststreamid");
   return async function () {
     try {
       await axios.post(`http://localhost:3001/api/streams/${id}`, data);
@@ -167,12 +167,12 @@ export const postStreamId = (id, data) => {
 export const updateStream = (id, stream) => {
   return async () => {
     try {
-      await axios.put(`http://localhost:3001/api/streams/${id}`,stream)
+      await axios.put(`http://localhost:3001/api/streams/${id}`, stream);
     } catch (error) {
-      return {error: error.mesage }
+      return { error: error.mesage };
     }
-  }
-}
+  };
+};
 
 export const getStreamId = (id) => {
   return async function (dispatch) {
@@ -180,7 +180,7 @@ export const getStreamId = (id) => {
       const json = await axios.get(
         `http://localhost:3001/api/streams/id/${id}`
       );
-      console.log(json);
+      console.log("🚀 ~ file: actions.js:183 ~ json", json);
       dispatch({ type: GET_STREAM_ID, payload: json.data });
     } catch (error) {
       return { error: error.message };
@@ -297,21 +297,20 @@ export const clearFilter = () => {
   return { type: "CLEAR_FILTER", payload: null };
 };
 
-  export const getSubscriptions= (id) => {
-    console.log(id)
-    return async function (dispatch) {
-      try {
-        const { data } = await axios.get(`${urlApi}/api/subscriptions/${id}`)
-        return dispatch({
-          type: 'GET_USER_SUBSCRIPTIONS',
-          payload: data
-        })
-      } catch (error) {
-        console.log(error)
-      }
+export const getSubscriptions = (id) => {
+  console.log(id);
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.get(`${urlApi}/api/subscriptions/${id}`);
+      return dispatch({
+        type: "GET_USER_SUBSCRIPTIONS",
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
     }
-  }
-
+  };
+};
 
 // BestGame
 
@@ -344,11 +343,10 @@ export function popularVideo() {
 export const updateUserAdmin = (id, data) => {
   return async function (dispatch) {
     try {
-      const json = await axios.put(`${urlApi}/api/userAdminUser/${id}`,data);
-      const updateUsers= await axios.get(`${urlApi}/api/users`)
-      console.log(updateUsers)
+      const json = await axios.put(`${urlApi}/api/userAdminUser/${id}`, data);
+      const updateUsers = await axios.get(`${urlApi}/api/users`);
+      console.log(updateUsers);
       dispatch({ type: UPDATE_USER, payload: updateUsers.data });
-
     } catch (error) {
       return { error: error.message };
     }
@@ -358,8 +356,8 @@ export const updateUserAdmin = (id, data) => {
 export const updateBanned = (id, data) => {
   return async function (dispatch) {
     try {
-      const json = await axios.put(`${urlApi}/api/user/${id}`,data);
-      const userBanned = await axios.get(`${urlApi}/api/users`)
+      const json = await axios.put(`${urlApi}/api/user/${id}`, data);
+      const userBanned = await axios.get(`${urlApi}/api/users`);
       dispatch({ type: BANNED_USER, payload: userBanned.data });
     } catch (error) {
       return { error: error.message };
@@ -367,3 +365,14 @@ export const updateBanned = (id, data) => {
   };
 };
 
+export const makeRating = (data) => {
+  console.log("🚀 ~ file: actions.js:369 ~ makeRating ~ data", data);
+  return async function () {
+    try {
+      console.log("🚀 ~ file: actions.js:372 ~ makeRating ~ data", data);
+      await axios.post(`${urlApi}/api/rating`, data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};

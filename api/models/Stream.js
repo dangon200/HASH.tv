@@ -64,10 +64,10 @@ const StreamSchema = new Schema(
       ],
       default: "Sudamérica",
     },
-    reviews: [
+    rating: [
       {
         type: Types.ObjectId,
-        ref: "Reviews",
+        ref: "Rating",
       },
     ],
   },
