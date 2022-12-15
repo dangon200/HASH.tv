@@ -1,39 +1,50 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { allVideoGamesDataBase, popularVideo, getStreams, getCategories } from '../store/actions/actions';
-import './Home.css'
-import Card from '../components/Card/Card';
-import Card2 from '../components/Card/Card2'
-import CardCategori from '../components/CardCategori/CardCategori';
+import React from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import {
+  allVideoGamesDataBase,
+  popularVideo,
+  getStreams,
+  getCategories,
+} from "../store/actions/actions";
+import "./Home.css";
+import Card from "../components/Card/Card";
+import Card2 from "../components/Card/Card2";
+import CardCategori from "../components/CardCategori/CardCategori";
 
 function Home() {
-
-  const dispatch = useDispatch()
-  const popVideo = useSelector(state => state.popVideo)
-  const streamsName = useSelector(state => state.streamName)
-  console.log(streamsName)
+  const dispatch = useDispatch();
+  const popVideo = useSelector((state) => state.popVideo);
+  const streamsName = useSelector((state) => state.streamName);
 
   useEffect(() => {
-    dispatch(popularVideo())
-    dispatch(allVideoGamesDataBase())
-    dispatch(getStreams())
-    dispatch(getCategories())
-  }, [])
+    dispatch(popularVideo());
+    dispatch(allVideoGamesDataBase());
+    dispatch(getStreams());
+    dispatch(getCategories());
+  }, []);
 
   return (
-
-    <div className='home'>
-      <div className='home-popGame'>
+    <div className="home">
+      <div className="home-popGame">
         <h2>The Best Game in Live</h2>
         <Link to={`/stream/${streamsName.id}`} key={popVideo.id}>
-        <img className='gifPOP' src={popVideo.url} alt="gifRandom"/> 
+          <img className="gifPOP" src={popVideo.url} alt="gifRandom" />
         </Link>
-        <div className='description'>
-          <p className='titleGame'>{popVideo.title}</p>
-          <p className='description-Game'>Description for Game</p>
-          <p className='description-Game'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At distinctio deserunt recusandae, alias a provident repellat qui libero. Recusandae accusantium dolores voluptatem incidunt placeat ipsa hic dolorum temporibus cum maiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam facilis sapiente dignissimos, quia maiores eaque dicta optio velit architecto dolore corporis voluptatibus eveniet, alias, soluta accusamus laudantium dolorum voluptas!</p>
+        <div className="description">
+          <p className="titleGame">{popVideo.title}</p>
+          <p className="description-Game">Description for Game</p>
+          <p className="description-Game">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. At
+            distinctio deserunt recusandae, alias a provident repellat qui
+            libero. Recusandae accusantium dolores voluptatem incidunt placeat
+            ipsa hic dolorum temporibus cum maiores! Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. Officia totam facilis sapiente
+            dignissimos, quia maiores eaque dicta optio velit architecto dolore
+            corporis voluptatibus eveniet, alias, soluta accusamus laudantium
+            dolorum voluptas!
+          </p>
         </div>
       </div>
       {/* <div className='home-allgame'>
@@ -43,14 +54,15 @@ function Home() {
             <img className='gif' src={singleGif.url} alt='gifGame'/>
           </Link>))}
       </div> */}
-      {streamsName.length ? (<>
-      <div className="title">
+      {streamsName.length ? (
+        <>
+          <div className="title">
             <h2>Tu Busqueda</h2>
-            </div>
-            <div className="container">
-          {streamsName.map((e, index)=>{
-            return(
-              <div>
+          </div>
+          <div className="container">
+            {streamsName.map((e, index) => {
+              return (
+                <div>
                   <Card2
                     id={e._id}
                     name={e.name}
@@ -60,10 +72,13 @@ function Home() {
                     key={index}
                   />
                 </div>
-            )
-           })}
-          </div> </>)
-       : <></>}
+              );
+            })}
+          </div>{" "}
+        </>
+      ) : (
+        <></>
+      )}
       <Card />
       <CardCategori />
     </div>

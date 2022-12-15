@@ -38,7 +38,7 @@ const initialState = {
   getVideoFromDatabase: [],
   popVideo: [],
   favorites: [],
-  subscriptions: []
+  subscriptions: [],
 };
 
 export default function rootReducer (state = initialState, action){
@@ -89,7 +89,6 @@ export default function rootReducer (state = initialState, action){
         ...state,
       };
     case GET_STREAM_ID:
-      debugger
       return {
         ...state,
         streamDetail: action.payload

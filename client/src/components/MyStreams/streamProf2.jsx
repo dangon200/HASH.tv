@@ -11,14 +11,15 @@ const StreamProf2 = (props) => {
   const { id } = useParams()
     const dispatch = useDispatch()
     const stream = useSelector((state) => state.streamDetail)
-       console.log(stream)
-
+    console.log(stream)
    useEffect(() => {
         dispatch(getStreamId(id))
     }, [])
+
     return (
-        <section className="h-100">
-  <div className="h-100">
+      
+          <section className="h-100">
+  { stream.length > 0 &&<div className="h-100">
   <div className="justify-content-center align-items-center h-100">
   <App/>
   </div>
@@ -75,14 +76,14 @@ const StreamProf2 = (props) => {
             <div className="d-flex justify-content-end text-center py-1">
             <PagarMP />
             <Donations />
-              <div className="px-3">
+              {/* <div className="px-3">
                 <p className="mb-1 h5">{stream[0].rating}</p>
                 <p className="small text-muted mb-0">Ranting</p>
               </div>
               <div>
                 <p className="mb-1 h5">{stream[0].Subscriptions}</p>
                 <p className="small text-muted mb-0">Subscriptions</p>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="card-body p-4 text-black">
@@ -90,7 +91,7 @@ const StreamProf2 = (props) => {
               <p className="lead fw-normal mb-1">{stream[0].title}</p>
             </div>
             <div className="mb-5">
-            <p className="lead fw-normal mb-1">Categories</p>
+            <p className="lead fw-normal mb-1">Description</p>
             <div className="p-4" >
                 <p className="font-italic mb-1">{stream[0].description}</p>
               </div>
@@ -137,8 +138,8 @@ const StreamProf2 = (props) => {
           </div>
         </div>
       </div>
-    </div>
-</section>
+    </div>}
+</section> 
     );
 };
 

@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import "./App.css";
-import { useEffect } from 'react'
+import { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 /* import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
@@ -28,20 +28,21 @@ import  Admin  from "./components/Admin/Admin";
 import HomeStream from "./components/HomeStream/HomeStream";
 import StreamProf2 from './components/MyStreams/streamProf2.jsx';
 
+
 function App() {
   /*  const cookies = new Cookies()
   const token = cookies.get('TOKEN')
   const dispatch = useDispatch() */
-  const cookies = new Cookies()
-  const token = cookies.get('TOKEN')
-  const dispatch = useDispatch()
+  const cookies = new Cookies();
+  const token = cookies.get("TOKEN");
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (token) {
-      dispatch(loginUser(token.user))
+      dispatch(loginUser(token.user));
       // dispatch(getFavorites(token.user.id))
     }
-  }, [])
+  }, []);
   return (
     <div className="App">
       <Route exact path={['/', '/explorar', '/user','/user/edit','/user/stream' ,'/user/subscriptions', '/support', '/aboutus', '/register','/stream/:id','/categories/:id', '/stream' ]} component={Nav} />
@@ -56,11 +57,17 @@ function App() {
       <Route path="/categories" component={Categories} />
       <Route path="/user/stream" component={HomeStream} />
       <Route path="/categories/:id" component={Categories} />
+      {/* <Route path="/stream" component={StreamForm} /> */}
+      <Route exact path="/user/:id" component={UserProfile} />
+      {/* <Route exact path="/admin" component={AdminDashboard} /> */}
+      {/* <Route path="/admin/users" component={UserTable} /> */}
+      {/* <Route path="/admin/streams" component={StreamsTable} /> */}
+      {/* <Route path="/stream" component={HomeStream} /> */}
       <Route exact path="/user" component={UserProfile} />
       <Route exact path="/user/subscriptions" component={UserSubs} />
       <Route exact path="/logout" component={Logout} />
       <Route exact path="/user/edit" component={EditProfile} />
-      <Route exact path="/admin" component={Admin}/>
+      <Route exact path="/admin" component={Admin} />
       </Switch>
     </div>
   );
