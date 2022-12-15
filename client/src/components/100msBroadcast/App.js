@@ -1,6 +1,6 @@
 import './App.css';
-import JoinRoom from './JoinRoom'
-import Room from './Room';
+import JoinRoom from './JoinRoom.js'
+import Room from './Room.js';
 import './styles.css'
 import { useHMSStore, selectIsConnectedToRoom } from '@100mslive/react-sdk';
 

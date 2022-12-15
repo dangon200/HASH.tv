@@ -1,6 +1,6 @@
 import style from './searchBar.module.css'
 import { GrSearch } from 'react-icons/gr'
-import { getStreamName} from '../../store/actions/actions'
+import { getStreamName} from '../../store/actions/actions.js'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'

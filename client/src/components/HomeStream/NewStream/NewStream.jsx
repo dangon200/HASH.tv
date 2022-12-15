@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
-import { postStreamId } from "../../../store/actions/actions"
+import { postStreamId } from "../../../store/actions/actions.js"
 import './NewStream.css'
 import axios from 'axios'
 import { useRef } from 'react'

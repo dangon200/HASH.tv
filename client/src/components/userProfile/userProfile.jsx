@@ -6,9 +6,9 @@ import Table from 'react-bootstrap/Table'
 import s from './userProfile.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
-import { updateProfileImage, getUserId } from '../../store/actions/actions'
+import { updateProfileImage, getUserId } from '../../store/actions/actions.js'
 import { useEffect, useRef } from 'react'
-import ComprarHC from '../PagarMP/ComprarHC'
+import ComprarHC from '../PagarMP/ComprarHC.jsx'
 import App from '../100msBroadcast/App.js'
 
 export default function UserProfile () {

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import Stream from './Stream'
-import ChatNdParticipants from './ChatNdParticipants'
-import Controls from './Controls'
+import Stream from './Stream.js'
+import ChatNdParticipants from './ChatNdParticipants.js'
+import Controls from './Controls.js'
 
 function Room() {
 

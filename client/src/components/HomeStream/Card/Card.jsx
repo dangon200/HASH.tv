@@ -1,5 +1,5 @@
 import Modal from 'react-bootstrap/Modal'
-import UpdateStream from "../UpdateStream/UpdateStream";
+import UpdateStream from "../UpdateStream/UpdateStream.jsx";
 import styles from './Card.module.css'
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"

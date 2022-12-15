@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { filterCategories } from '../../store/actions/actions'
+import { filterCategories } from '../../store/actions/actions.js'
 import './CardChannel.css'
 
 const CardChannel = () => {

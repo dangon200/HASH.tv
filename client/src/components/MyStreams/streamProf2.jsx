@@ -2,9 +2,9 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getStreamId } from "../../store/actions/actions"
-import PagarMP from "../PagarMP/Subscriptions"
-import Donations from "../PagarMP/Donations"
+import { getStreamId } from "../../store/actions/actions.js"
+import PagarMP from "../PagarMP/Subscriptions.jsx"
+import Donations from "../PagarMP/Donations.jsx"
 import App from '../100msViewer/App.js'
 
 const StreamProf2 = (props) => {

@@ -1,9 +1,8 @@
 import { useState } from "react"
 import { useDispatch } from 'react-redux'
-import { postStream } from "../../store/actions/actions"
+import { postStream } from "../../store/actions/actions.js"
 import { useHistory } from "react-router-dom"
 import './StreamForm.css'
-import NavBarTop from "../NavBarTop/NavBarTop"
 
 export function StreamForm () {
 
@@ -53,7 +52,6 @@ export function StreamForm () {
 
     return(
         <div className="form_body">
-            <NavBarTop />
             <div className="form-cnt">
                 <div className="form-cnt_title">
                     <h2>Crear un stream</h2>

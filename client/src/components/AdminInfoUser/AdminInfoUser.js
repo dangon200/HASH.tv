@@ -3,7 +3,7 @@ import Chart from "react-apexcharts";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getUserId} from "../../store/actions/actions";
+import { getUserId} from "../../store/actions/actions.js";
 import "../AdminInfoUser/AdminInfoUser.css";
 
 function AdminInfoUser() {

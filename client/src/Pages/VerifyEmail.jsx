@@ -1,5 +1,5 @@
 import React from 'react';
-import Verify from '../components/VerifyEmail/verifyEmail';
+import Verify from '../components/VerifyEmail/verifyEmail.jsx';
 
 function VerifyEmail(props) {
     const uniqueKey = props.match.params.uniqueKey

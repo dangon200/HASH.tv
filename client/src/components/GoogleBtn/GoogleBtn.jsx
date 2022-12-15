@@ -2,7 +2,7 @@ import useEffect from 'react'
 import jwtdecode from 'jwt-decode'
 import Cookies from 'universal-cookie'
 import { useDispatch } from 'react-redux'
-import { loginUser, getFavorites } from '../../store/actions/actions'
+import { loginUser, getFavorites } from '../../store/actions/actions.js'
 // const urlApi = 'http://localhost:3001'
 const urlApi = 'https://deploy-hash-production.up.railway.app'
 

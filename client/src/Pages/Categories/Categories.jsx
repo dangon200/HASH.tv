@@ -2,8 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import NavBarTop from "../../components/NavBarTop/NavBarTop";
-import { getCategories, getStreams } from "../../store/actions/actions";
+import { getCategories, getStreams } from "../../store/actions/actions.js";
 import "./Categories.css"
 
 const Categories = (props) => {
@@ -21,8 +20,6 @@ const Categories = (props) => {
 
     return (
         <div className="categories-cnt">
-            <NavBarTop />
-
             <div className="title2">
                 <h2>Category {filterCategories[0].name}</h2>
             </div>

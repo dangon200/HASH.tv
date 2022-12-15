@@ -1,6 +1,5 @@
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-import NavBarTop from '../components/NavBarTop/NavBarTop';
 import s from 'styled-components'
 
 function Support() {

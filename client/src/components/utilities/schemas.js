@@ -1,6 +1,6 @@
 import axios from 'axios'
 import * as Yup from 'yup'
-import { provinces } from './data'
+import { provinces } from './data.js'
 
 const startWichLetter = /^[^0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?][a-zA-Z0-9$-?¿¡!%.,\s]*$/gi // eslint-disable-line
 const passwordValidate = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/gm

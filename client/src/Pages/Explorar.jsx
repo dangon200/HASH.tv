@@ -1,7 +1,7 @@
 import React from 'react';
 import Filters from '../components/Filters/Filters.jsx'
-import Card2 from '../components/Card/Card2'
-import Pagination from '../components/pagination/Pagination'
+import Card2 from '../components/Card/Card2.jsx'
+import Pagination from '../components/pagination/Pagination.js'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md'

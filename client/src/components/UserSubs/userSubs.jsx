@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useState, useEffect, useRef } from 'react'
-import { getSubscriptions } from "../../store/actions/actions"
+import { getSubscriptions } from "../../store/actions/actions.js"
 import Row from 'react-bootstrap/esm/Row'
 import Col from 'react-bootstrap/esm/Col'
 import Container from 'react-bootstrap/esm/Container'
 import s from './userSubs.module.css'
-import ItemSubs from './itemSubs';
+import ItemSubs from './itemSubs.jsx';
 
 function UserSubs(props) {
     const dispatch = useDispatch()
