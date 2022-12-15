@@ -1,8 +1,8 @@
-import style from './LoginInit.module.css' //eslint-disable-line
 import FormSignUp from '../FormSignUp/FormSignUp'
 import { useState } from 'react'
 import FormLogin from '../FormLogin/FormLogin'//eslint-disable-line
 import logo from '../../utils/logo.svg'
+import style from './LoginInit.module.css' //eslint-disable-line
 
 export default function LoginInit () {
   const [form, setForm] = useState(true)
