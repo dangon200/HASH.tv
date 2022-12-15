@@ -1,10 +1,21 @@
+.container1 {
+    /* background-color: azure; */
+    margin-top: 20px;
+    padding: 0;
+}
+
 .title{
     display: flex;
     padding: 10px;
-  }
+    /* background-color: red; */
+}
+
 .container2{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    width: 90%;
+    margin-left: 0;
+    /* background-color: aqua; */
 }
 .S {
     margin: 20px;

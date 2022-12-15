@@ -3,15 +3,16 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { allVideoGamesDataBase, popularVideo, getStreams, getCategories } from '../store/actions/actions';
-import './Home.css'
 import CardStream from '../components/Card/CardStream';
 import Card2 from '../components/Card/Card2'
 import CardCategori from '../components/CardCategori/CardCategori';
 import Slidershow from '../components/Slidershow/Slideshow';
 import Navbar from '../components/NavBar/NavBar';
 import NavBarTop from '../components/NavBarTop/NavBarTop';
-import styled from 'styled-components'
 import CardChannel from '../components/CardChannel/CardChannel';
+import styled from 'styled-components'
+import './Home.css'
+
 function Home() {
 
   const dispatch = useDispatch()
@@ -71,6 +72,7 @@ function Home() {
 const Slider = styled.div`
   position: absolute;
   margin-top: 30px;
+  z-index: 0;
  `
 
 export default Home;
