@@ -14,42 +14,44 @@ function AdminInfoUser() {
         dispatch(getUserId(id))
     },[])
     console.log(user)
-  const options = {
-    labels: ["3 Meses", "6 Meses", "12 Meses"],
-  };
+  // const options = {
+  //   labels: ["3 Meses", "6 Meses", "12 Meses"],
+  // };
 //   const meses3=user[0].filter((sub) => sub.subcriptions[0].totalAmount === 1500)
 //   const meses6=user[0].filter((sub) => sub.subcriptions[0].totalAmount === 2500)
 //   const meses12=user[0].filter((sub) => sub.subcriptions[0].totalAmount === 3500)
-  const series = [45, 17, 89];
+  // const series = [45, 17, 89];
 
 
-  const series2= [{
-    name: 'series1',
-    data: [31, 40,45, 51, 60]
-  }]
-  const options2= {
+  // const series2= [{
+  //   name: 'series1',
+  //   data: [31, 40,45, 51, 60]
+  // }]
+  // const options2= {
 
-    dataLabels: {
-      enabled: false
-    },
-    stroke: {
-      curve: 'smooth'
-    },
-    xaxis: {
-      type: 'datetime',
-      categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-    },
-    tooltip: {
-      x: {
-        format: 'dd/MM/yy HH:mm'
-      },
-    },
-  }
+  //   dataLabels: {
+  //     enabled: false
+  //   },
+  //   stroke: {
+  //     curve: 'smooth'
+  //   },
+  //   xaxis: {
+  //     type: 'datetime',
+  //     categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+  //   },
+  //   tooltip: {
+  //     x: {
+  //       format: 'dd/MM/yy HH:mm'
+  //     },
+  //   },
+  // }
         
   return (
     <body className="bg-ligth">
+      <div>
+        <button>Volver</button>
+      </div>
     <div className="">
- 
     <div className="row d-flex justify-content-center" >
         <div className="col-md-5  pt-2">
             <div className="row z-depth-2">
@@ -83,6 +85,10 @@ function AdminInfoUser() {
                                 <h6 className="text-muted">{user[0].myStreams.length}</h6>
                             </div>
                             <div className="d-flex justify-content-around ">
+                                <p className="font-weight-bold">Hash Cash</p>
+                                <h6 className="text-muted">{user[0].HashCash}</h6>
+                            </div>
+                            <div className="d-flex justify-content-around ">
                                 <p className="font-weight-bold">Baneado</p>
                                 <h6 className="text-muted">{user[0].banned === true?
                                 (<>SI</>)
@@ -103,7 +109,7 @@ function AdminInfoUser() {
         </div>
        
     </div>
-    <h1>Datos de su canal </h1>  
+    {/* <h1>Datos de su canal </h1>  
      <div className="grafic">                            
     <Chart
         type="donut"
@@ -119,7 +125,7 @@ function AdminInfoUser() {
         height={440}
         width={600}
     />
-      </div> 
+      </div>  */}
    </div>
    </body>
   );

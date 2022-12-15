@@ -22,6 +22,7 @@ import {
   PUT_USER,
   UPDATE_USER,
   BANNED_USER,
+  CLEAR_STREAM_NAME
 } from "./actions/actions";
 
 const initialState = {
@@ -144,6 +145,9 @@ const rootReducer = (state = initialState, action) => {
     }
     case BANNED_USER: {
       return { ...state, users: action.payload };
+    }
+    case CLEAR_STREAM_NAME: {
+      return { ...state, streamName: action.payload };
     }
     default:
       return { ...state };

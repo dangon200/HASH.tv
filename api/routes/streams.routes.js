@@ -11,7 +11,8 @@ router.get("/streams", async (req, res) => {
     const streamsDb = await Streams.find({});
     if (name) {
       const filterStreams = streamsDb.filter((stream) =>
-        stream.name.toLowerCase().includes(name.toLowerCase())
+
+        stream.user?.toLowerCase().includes(name.toLowerCase())
       );
       filterStreams.length
         ? res.send(filterStreams)

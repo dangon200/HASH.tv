@@ -20,7 +20,8 @@ function Explorar() {
   const firstStreamsPerPage = lastStreamsPerPage - StreamsPerPage
   const currentPageStreams = Streams.slice(firstStreamsPerPage, lastStreamsPerPage)
   const [stream, setStream] = useState([])
-
+  const streams = useSelector((state)=>state.streamName)
+  console.log(streams)
   useEffect(() => {
     setStream(stream.concat(currentPageStreams))
     setHasMore(page < currentPageStreams.length)
@@ -56,10 +57,10 @@ function Explorar() {
           />
           {page !== pages.length && Streams.length ? <div onClick={() => paginationAft()}><MdOutlineKeyboardArrowRight className={style.buttonRight} /></div> : null}
         </div>} */}
-            
-       
-        <div className={`${style.containerProducts}`}>
-          {stream.map((p, index) => {
+        {streams.length?
+        (<>
+         <div className={`${style.containerProducts}`}>
+          {streams.map((p, index) => {
             return (
               <section className={style.sectionCards} key={index}>
                 <div>
@@ -76,6 +77,28 @@ function Explorar() {
             )
           })}
         </div>
+        </>)
+        :
+        (<>
+        <div className={`${style.containerProducts}`}>
+          {stream?.map((p, index) => {
+            return (
+              <section className={style.sectionCards} key={index}>
+                <div>
+                  <Card
+                    id={p._id}
+                    name={p.name}
+                    image={p.image}
+                    description={p.description}
+                    language={p.language}
+                    key={index}
+                  />
+                </div>
+              </section>
+            )
+          })}
+        </div>
+        </>)}
            <InfiniteScroll
       dataLength={stream.length}
       next={() => setPage(prevPage => prevPage + 1)}

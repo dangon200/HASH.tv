@@ -23,6 +23,7 @@ export const PUT_USER = "PUT_USER";
 export const CLEAN_STATE = "CLEAN_STATE";
 export const UPDATE_USER = "UPDATE_USER";
 export const BANNED_USER = "BANNED_USER";
+export const CLEAR_STREAM_NAME= "CLEAR_STREAM_NAME"
 
 const urlApi = "http://localhost:3001";
 
@@ -93,13 +94,14 @@ export const getUserId = (id) => {
 };
 
 export const getUserName = (name) => {
-  console.log("llegue");
+  // console.log("llegue");
   return async function (dispatch) {
     try {
       const json = await axios.get(`${urlApi}/api/users?name=${name}`);
       dispatch({ type: GET_USER_NAME, payload: json.data });
     } catch (error) {
       alert("Ese usuario o stream no existe");
+    
     }
   };
 };
@@ -295,6 +297,10 @@ export const filterCanalesStream = ({
 };
 export const clearFilter = () => {
   return { type: "CLEAR_FILTER", payload: null };
+};
+
+export const clearStreamName = () => {
+  return { type: "CLEAR_STREAM_NAME", payload: [] };
 };
 
   export const getSubscriptions= (id) => {
