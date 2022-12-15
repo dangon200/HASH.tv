@@ -9,18 +9,21 @@ function Card2(id) {
     return (
         <>
             <Container>
-                <Card style={{ width: '18rem', background: 'rgba(0, 0, 0, 0.35)', margin: '20px' }}>
-                    <Card.Img variant="top" src="https://www.lavoz.com.ar/resizer/0fxZwzeUimfv1px5rWhlgI-Rvr4=/980x640/smart/cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/UJ675QSW4ZCS7GWFD3J4FSEUKE.jpg" />
-                    <Card.Body>
-                        <TitleCard>{id.name}</TitleCard>
-                        <Profile src={id.image} />
-                        <Card.Text>
-                            <p>{id.language}</p>
-                            <p>{id.description}</p>
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-            </Container>
+                    <Card style={{ width: '18rem', background: 'rgba(0, 0, 0, 0.35)', margin: '20px' }}>
+                <Link to={`/stream/${id._id}`}>
+                        <Card.Img variant="top" src="https://www.lavoz.com.ar/resizer/0fxZwzeUimfv1px5rWhlgI-Rvr4=/980x640/smart/cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/UJ675QSW4ZCS7GWFD3J4FSEUKE.jpg" />
+                </Link>
+                <Card.Body>
+                    <TitleCard>{id.name}</TitleCard>
+                    <Profile src={id.image} />
+                    <Card.Text>
+                        <p>{id.language}</p>
+                        <p>{id.description}</p>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+
+        </Container>
         </>
     )
 }
