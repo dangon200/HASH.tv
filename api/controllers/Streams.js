@@ -11,12 +11,17 @@ const getStreamsDb = async () => {
         user: r.user,
         title: r.title,
         image: r.image,
+        banner: r.banner,
         language: r.language,
         suscriptores: r.suscriptores,
         description: r.description,
         name: r.name,
         category: r.category,
-        continent: r.continent
+        continent: r.continent,
+        Facebook: r.Facebook,
+        Instagram: r.Instagram,
+        Twitter: r.Twitter,
+        rules: r.rules
       })
     })
     return results

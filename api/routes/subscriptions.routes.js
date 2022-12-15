@@ -5,6 +5,7 @@ const router = Express.Router();
 router.get("/subscriptions/:id", async(req,res)=>{
     try {
         const {id} = req.params
+        console.log
         const userSub = await Subscriptions.find({})
         if(id){
         const filterUser = userSub.filter((e)=>e.user === id)

@@ -7,7 +7,7 @@ function Card( id ) {
             <div key={id} className="container">
                 <div className={'card-container'} >
                     <div className="header">
-                            <Link to={"/stream/"+id.id}>
+                            <Link to={"/support/"+id.id}>
                             <img alt="" src={id.image}/>
                             </Link>
                         <h2>

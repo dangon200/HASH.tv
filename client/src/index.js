@@ -10,11 +10,14 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./store/index";
 import { BrowserRouter } from "react-router-dom";
+import { HMSRoomProvider } from "@100mslive/react-sdk";
 
 ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+      <HMSRoomProvider>
+      <App />
+      </HMSRoomProvider>
       </BrowserRouter>
     </Provider>
   ,

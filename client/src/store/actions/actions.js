@@ -23,20 +23,21 @@ export const PUT_USER = "PUT_USER";
 export const CLEAN_STATE = "CLEAN_STATE";
 export const UPDATE_USER = "UPDATE_USER";
 export const BANNED_USER = "BANNED_USER";
+export const UPDATE_PROFILE_PICTURE = "UPDATE_PROFILE_PICTURE";
 
 const urlApi = "http://localhost:3001";
 
 ///////// USER ACTIONS
 export const loginUser = (user) => {
   return {
-    type: "LOGIN_USER",
+    type: LOGIN_USER,
     payload: user,
   };
 };
 
 export const logoutUser = () => {
   return {
-    type: "LOGOUT_USER",
+    type: LOGOUT_USER,
   };
 };
 
@@ -62,7 +63,7 @@ export const searchByName = (name) => {
   return async function (dispatch) {
     return fetch(`${urlApi}/publications?name=${name}`).then((respuesta) =>
       respuesta.json().then((dataP) => {
-        dispatch({ type: "GET_PUBLICATIONS", payload: dataP });
+        dispatch({ type: GET_STREAM_NAME, payload: dataP });
       })
     );
   };
@@ -81,10 +82,12 @@ export const postUser = (data) => {
 };
 
 export const getUserId = (id) => {
-  console.log(id,'-----actionid')
   return async function (dispatch) {
     try {
-      const json = await axios.get(`${urlApi}/api/user/${id}`);
+      const data = {
+      id
+    }
+      const json = await axios.get(`${urlApi}/api/user/${id}`, data);
       dispatch({ type: GET_USER_ID, payload: json.data });
     } catch (error) {
       return { error: error.message };
@@ -108,13 +111,29 @@ export const putUser = (id, data) => {
   return async function (dispatch) {
     try {
       const json = await axios.put(`${urlApi}/api/userUpDate/${id}`, data);
-      dispatch({ type: PUT_USER, payload: json.data });
+      dispatch({ type: 'PUT_USER', payload: json.data });
     } catch (error) {
       return { error: error.message };
     }
   };
 };
 
+export const updateProfileImage = (id, url) => {
+  return async function (dispatch) {
+    const data = {
+      url
+    }
+    try {
+      const api = await axios.put(`${urlApi}/api/users/${id}/image-upload`, data)
+      return dispatch({
+        type: 'UPDATE_PROFILE_PICTURE',
+        payload: api.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
 ///////// FAVORITES
 
 /* export const getFavorites = (id) => {
@@ -136,7 +155,7 @@ export const getUsers = () => {
   return async function (dispatch) {
     try {
       const json = await axios.get(`http://localhost:3001/api/users`);
-      dispatch({ type: GET_USERS, payload: json.data });
+      dispatch({ type: 'GET_USERS', payload: json.data });
     } catch (error) {
       return { error: error.message };
     }
@@ -178,7 +197,7 @@ export const getStreamId = (id) => {
   return async function (dispatch) {
     try {
       const json = await axios.get(
-        `http://localhost:3001/api/streams/id/${id}`
+        `http://localhost:3001/api/streams/${id}`
       );
       console.log(json);
       dispatch({ type: GET_STREAM_ID, payload: json.data });
@@ -207,7 +226,7 @@ export const getStreams = () => {
   return async function (dispatch) {
     try {
       const json = await axios.get("http://localhost:3001/api/streams");
-      dispatch({ type: GET_STREAMS, payload: json.data });
+      dispatch({ type: 'GET_STREAMS', payload: json.data });
     } catch (error) {
       return { error: error.message };
     }
@@ -218,7 +237,7 @@ export const getCategories = () => {
   return async function (dispatch) {
     try {
       const json = await axios.get(`http://localhost:3001/api`);
-      dispatch({ type: GET_CATEGORIES, payload: json.data });
+      dispatch({ type: 'GET_CATEGORIES', payload: json.data });
     } catch (error) {
       return { error: error.message };
     }
@@ -347,7 +366,7 @@ export const updateUserAdmin = (id, data) => {
       const json = await axios.put(`${urlApi}/api/userAdminUser/${id}`,data);
       const updateUsers= await axios.get(`${urlApi}/api/users`)
       console.log(updateUsers)
-      dispatch({ type: UPDATE_USER, payload: updateUsers.data });
+      dispatch({ type: 'UPDATE_USER', payload: updateUsers.data });
 
     } catch (error) {
       return { error: error.message };

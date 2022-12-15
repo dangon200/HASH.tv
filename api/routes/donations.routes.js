@@ -17,12 +17,9 @@ router.post("/donations", async (req,res)=>{
                 comment: comment
             })
         userDonation.donations.push(donation._id)
-        console.log(userDonation)
         userDonation.HashCash = userDonation.HashCash - parseInt(cash)
         const saveDonation = userDonation.save()
-        console.log(userDonation)
         const streamDonation = await Users.findOne({myStreams: streamer})
-        console.log(streamDonation)
         streamDonation.HashCash = streamDonation.HashCash + cash
         const saveStrem = streamDonation.save()
         res.status(200).json(donation)

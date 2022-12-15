@@ -2,22 +2,22 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getUserId } from "../../store/actions/actions"
 import { getStreamId } from "../../store/actions/actions"
-import { useModal } from "./Modal/useModal"
-import Modal from "./Modal/Modal"
+import Modal from 'react-bootstrap/Modal'
 import NewStream from "./NewStream/NewStream"
 import Card from "./Card/Card"
 import './HomeStream.css'
 
 const HomeStream = () => {
     const dispatch = useDispatch()
-    const user = useSelector( state => state.usersDetail)
     const user1 = useSelector( state => state.user)
+    const user = useSelector( state => state.usersDetail)
     const streamDetail = useSelector( state => state.streamDetail)
-
+    const [show, setShow] = useState()
+    const [fullscreen, setFullscreen] = useState(true);
+    const handleChange = () => setShow(!show)
     console.log(user)
 
-
-    const [id, setId] = useState('L')
+    const [id, setId] = useState()
 
     const idUser = user1._id
 
@@ -26,11 +26,34 @@ const HomeStream = () => {
         dispatch(getStreamId(id))
     },[id])
 
-    const [isOpenModalCreate, openModalCreate, closeModalCreate] = useModal(false)
 
     return(
         <div className="HomeStream">
-            <div className="allStreams">
+            <div className="NewStream">
+            
+            <div className="navlink" type='button' onClick={handleChange}>
+            New Channel
+           </div>
+ 
+           <Modal  fullscreen={fullscreen}
+                   aria-labelledby="contained-modal-title-vcenter"
+                   centered
+                   show={show} 
+                   onHide={handleChange}>
+   
+           <Modal.Header closeButton>
+          <Modal.Title>Create a new channel</Modal.Title>
+           </Modal.Header>
+
+            <Modal.Body>
+           <NewStream id={user1._id} />
+   </Modal.Body>
+   <Modal.Footer className='d-flex justify-content-between align-items-center'>
+       Hash, players only...
+     </Modal.Footer>
+ </Modal>
+       </div>
+            <div className="col col-xl-12 ">
                 {
                     user.map(element => (
                         <div key={element._id}>
@@ -38,8 +61,9 @@ const HomeStream = () => {
                                 (element.myStreams.length > 0) ?
                                 <div>
                                     {console.log(element.myStreams)}
-                                    {element.myStreams.map(stream => (
-                                        <button className="mystreams" onClick={e => setId(stream._id)} key={stream}>Stream {(element.myStreams.indexOf(stream))+1}</button>
+                                    {element.myStreams.map((stream, index) => (
+
+                                        <button className="mystreams" onClick={e => setId(stream)} key={index}>Stream {(element.myStreams.indexOf(stream))+1}</button>
                                     ))}
                                 </div>
                                 :
@@ -48,29 +72,22 @@ const HomeStream = () => {
                         </div>
                     ))
                 }
+                
             </div>
-            <div className="NewStream">
-                <button className="new_stream" onClick={openModalCreate}>
-                    New Stream
-                </button>
-                <Modal isOpen={isOpenModalCreate} closeModal={closeModalCreate}>
-                    <NewStream id={idUser}></NewStream>
-                </Modal>
-            </div>
-            <div className="HomeStream-Card">
+            <div className="col col-xl-12">
                 {
                     (streamDetail.length === 1) ? 
                     <div >
                         {streamDetail.map(stream => (
-                            <Card key={stream._id} stream={stream}></Card>
+                            <Card key={stream._id} stream={stream} />
                         ))}
                     </div>
                     :
                     <div className="message">
-                        You don't have Streams 😳
                     </div>
                 }
             </div>
+            
         </div>
 
     )

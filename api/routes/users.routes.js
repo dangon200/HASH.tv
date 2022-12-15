@@ -5,6 +5,14 @@ const router = Express.Router();
 const userController = require('../controllers/users')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
+const {
+  getUsers,
+  getUserById,
+  deleteUser,
+  setBanned,
+
+} = require("../controllers/users.controller");
+const { verifyToken, isAdmin } = require("../middlewares/index");
 
 router.put("/user/email/verify/:uniqueKey", async(req, res)=>{
   const {uniqueKey} = req.params
@@ -105,6 +113,17 @@ router.put("/userUpDate/:id", async (req,res)=>{
     res.status(404).send("No de puso modificar")
 }
 })
+router.put('/users/:id/image-upload', async (req, res) => {
+  const { id } = req.params
+  const { url } = req.body
+  try {
+    const result = await userController.setImage(id, url)
+    return res.status(200).json(result)
+  } catch (error) {
+    res.status(400).json('Error tratando de subir la imagen de usuario!')
+  }
+})
+
 
 router.put("/userAdminUser/:id", async (req,res)=>{
   try {
@@ -127,14 +146,6 @@ router.put("/userAdminUser/:id", async (req,res)=>{
   }
 })
 
-const {
-  getUsers,
-  getUserById,
-  deleteUser,
-  setBanned,
-
-} = require("../controllers/users.controller");
-const { verifyToken, isAdmin } = require("../middlewares/index");
 
 
 router.get("/users", getUsers);

@@ -1,22 +1,84 @@
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
 import { postStreamId } from "../../../store/actions/actions"
 import './NewStream.css'
-
+import axios from 'axios'
+import { useRef } from 'react'
 
 const NewStream = ({id}) => {
     const dispatch = useDispatch()
-    const categories = ['RPG', '+18', 'Family', 'Shooter', 'Music']
+    const user = useSelector(state => state.user)
+    const hiddenFileInput = useRef(null);
+    const hiddenFileInput2 = useRef(null);
+    const categories = ['Gaming','Just Chating', 'Sports', 'Music', 'Creative']
     const [Data, setData] = useState({
         title: '',
-        name: '',
+        name: user.name,
         description: '',
         image:'',
+        banner: '',
         category: [],
+        Rules: '',
+        Facebook: '',
+        Instagram: '',
+        Twitter: '',
+
     })
-
-    console.log(id,'------------id')
-
+    const handleClick = event => {
+      hiddenFileInput.current.click();
+    };
+    console.log(Data)
+    const handleChange = async (e) => {
+      const reader = new FileReader()
+      reader.readAsDataURL(e.target.files[0])
+  
+      const cloudName = 'dfq27ytd2'
+      const preset = 'cpnushlf'
+      const url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`
+  
+      const formData = new FormData()
+      formData.append('upload_preset', preset)
+      formData.append('file', e.target.files[0])
+  
+      const send = await axios.post(url, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      console.log(send)
+      const urlImage = send.data.secure_url
+      setData({
+        ...Data,
+        image: urlImage,
+        })
+    }
+    const handleClick2 = event => {
+      hiddenFileInput2.current.click();
+    };
+    const handleChange2 = async (e) => {
+      const reader = new FileReader()
+      reader.readAsDataURL(e.target.files[0])
+  
+      const cloudName = 'dfq27ytd2'
+      const preset = 'cpnushlf'
+      const url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`
+  
+      const formData2 = new FormData()
+      formData2.append('upload_preset', preset)
+      formData2.append('file', e.target.files[0])
+  
+      const send = await axios.post(url, formData2, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      console.log(send)
+      const urlImage = send.data.secure_url
+      setData({
+        ...Data,
+        banner: urlImage,
+        })
+    }
     const filterArr = (arr) => {
         let arr2 = []
         arr.map( valor => {
@@ -37,7 +99,12 @@ const NewStream = ({id}) => {
               name: Data.name,
               description: Data.description,
               image: Data.image,
-              category: filterCategories
+              banner: Data.banner,
+              category: filterCategories,
+              Facebook: Data.Facebook,
+              Instagram: Data.Instagram,
+              Twitter: Data.Twitter,
+              Rules: Data.Rules,
           }
         dispatch(postStreamId(id,obj))
         setData({
@@ -45,7 +112,11 @@ const NewStream = ({id}) => {
             name: '',
             description: '',
             image:'',
+            banner: '',
             category: [],
+            Facebook: '',
+            Instagram: '',
+            Twitter: ''
         })
     }
 
@@ -69,27 +140,9 @@ const NewStream = ({id}) => {
             }}
           />
         </div>
-        <div className="form-input form-input-name">
-          <label>name: </label>
-          <input
-            type="text"
-            name="name"
-            autoComplete="off"
-            value={Data.name}
-            onChange={(e) => {
-              const expReg = /^[\s\S]{0,100}$/;
-              if (expReg.test(e.target.value)) {
-                setData({
-                  ...Data,
-                  name: e.target.value,
-                });
-              }
-            }}
-          />
-        </div>
         <div className="form-input form-input-description">
           <label>Description: </label>
-          <textarea
+          <input
             type="text"
             name="description"
             autoComplete="off"
@@ -106,19 +159,12 @@ const NewStream = ({id}) => {
           />
         </div>
         <div className="form-input form-input-image">
-          <label>img URL: </label>
-          <input
-            type="url"
-            name="img"
-            // autoComplete="off"
-            value={Data.image}
-            onChange={(e) => {
-              setData({
-                ...Data,
-                image: e.target.value,
-              });
-            }}
-          />
+          <input type='file' className="input" ref={hiddenFileInput} onChange={handleChange} />
+          <div className="btn" onClick={handleClick}>Profile Picture</div>
+        </div>
+        <div className="form-input form-input-banner">
+          <input type='file' className="input" ref={hiddenFileInput2} onChange={handleChange2} />
+          <div className="btn" onClick={handleClick2}>Banner Picture</div>
         </div>
         <div className="form-input form-input-categories">
           <label>Categories</label>
@@ -141,8 +187,71 @@ const NewStream = ({id}) => {
             ))}
           </div>
         </div>
-        <img className="image-create" src={Data.image} alt="img" />
-        <button className="form-input form-input-create">Create</button>
+        <div className="form-input form-input-ru">
+          <label>Rules </label>
+          <input
+            type="text"
+            name="Rules"
+            autoComplete="off"
+            value={Data.Rules}
+            onChange={(e) => {
+                setData({
+                  ...Data,
+                  Rules: e.target.value,
+                });
+            }}
+          />
+        </div>
+        <div className="form-input form-input-ne">
+          <label>Networks:</label>
+          <div className="row ">
+          <input 
+            type="text"
+            name="Facebook"
+            autoComplete="off"
+            placeholder="Facebook"
+            value={Data.Facebook}
+            onChange={(e) => {
+                setData({
+                  ...Data,
+                  Facebook: e.target.value,
+                });             
+            }}
+          />
+          </div>
+          <div className="row ">
+          <input
+            type="text"
+            name="Instagram"
+            autoComplete="off"
+            placeholder="Instagram"
+            value={Data.Instagram}
+            onChange={(e) => {
+                setData({
+                  ...Data,
+                  Instagram: e.target.value,
+                });
+              
+            }}
+          />
+          </div>
+          <div className="row ">
+          <input
+            type="text"
+            name="Twitter"
+            autoComplete="off"
+            placeholder="Twitter"
+            value={Data.Twitter}
+            onChange={(e) => {
+                setData({
+                  ...Data,
+                  Twitter: e.target.value,
+                }); 
+            }}
+          />
+          </div>
+        </div>
+        <button type="submit" className="form-input form-input-create">Create</button>
       </form>
     )
 }

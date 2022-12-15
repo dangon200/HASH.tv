@@ -1,6 +1,6 @@
 import React from 'react';
-import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import s from './PagarMp.module.css'
 import Modal from 'react-bootstrap/Modal'
 import { useFormik } from 'formik'
@@ -9,8 +9,6 @@ const urlApi = 'http://localhost:3001'
 
 export default function ComprarHC(props) {
     const user = useSelector(state => state.user)
-    const streamDetail = useSelector(state => state.streamDetail)
-    console.log(streamDetail)
     const [show, setShow] = useState()
     const handleChange2 = () => setShow(!show)
 
@@ -30,7 +28,6 @@ export default function ComprarHC(props) {
             description: "HASH , players only",
             unit_price: parseInt(values.cash),
             quantity: 1,
-            category_id: streamDetail[0]._id,
             id: user._id
           }),
           headers: new Headers({ 'Content-type': 'application/json'}),

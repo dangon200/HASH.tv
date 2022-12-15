@@ -3,10 +3,13 @@
     grid-template-columns: 1fr 1fr 1fr 160px 160px 160px;
     grid-template-rows: repeat(6, auto);
     grid-template-areas: 'a a a a a a'
-                         'b b b d d d'
-                         'c c c d d d'
-                         'e e e d d d'
-                         'f f f d d d'
+                         'b b b b b b'
+                         'c c c c c c'
+                         'e e e e e e'
+                         'w w w w w w'
+                         'f f f f f f'
+                         'h h h h h h'
+                         'n n n n n n'
                          'g g g g g g';
     gap: 1.5rem;
 
@@ -17,7 +20,20 @@
     border: 1px solid black;
     box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
 }
-
+.input{
+    display: none;
+  }
+.btn{
+    background-color: #ff0400;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 1.4rem;
+  }
+  .btn:hover{
+    background-color: white;
+    color:  #56070C;
+  }
 .form-input {
     font-size: 1.4rem;
     display: flex;
@@ -32,7 +48,12 @@
 .form-input-title {
     grid-area: a;
 }
-
+.form-input-ru {
+    grid-area: h;
+}
+.form-input-ne {
+    grid-area: n;
+}
 
 .form-input-name {
     grid-area: b;
@@ -58,6 +79,11 @@
     grid-area: e;
     
 }
+.form-input-banner {
+    grid-area: w;
+    
+}
+
 
 .form-input-categories {
     grid-area: f;

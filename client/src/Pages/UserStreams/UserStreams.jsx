@@ -20,8 +20,7 @@ const UserStreams = () => {
 
     return (
         <>
-        {/* <NavBar /> */}
-        {/* <div className={`${style.containerProducts}`}>
+        <div className={`${style.containerProducts}`}>
             {filterStream.map((c, index) => {
                 return (
                     <section className={style.sectionCards} key={index}>
@@ -38,7 +37,7 @@ const UserStreams = () => {
                     </section>
                 )
             })}
-            </div> */}
+            </div>
         </>
     )
 }

@@ -8,11 +8,11 @@ import Modal from 'react-bootstrap/Modal'
 const urlApi = 'http://localhost:3001'
 
 export default function PagarMP () {
-  const user = useSelector(state => state.user)
-  const streamDetail = useSelector(state => state.streamDetail)
-  console.log(streamDetail)
+  const user = useSelector((state) => state.user)
+  const streamDetail = useSelector((state) => state.streamDetail)
   const [show, setShow] = useState()
   const handleChange = () => setShow(!show)
+  console.log(streamDetail)
 
   const redirigirMP = (e) => {
     const article = document.querySelector(e);
@@ -49,7 +49,7 @@ export default function PagarMP () {
     <Modal show={show} onHide={handleChange}>
       
         <Modal.Header closeButton>
-        <Modal.Title className='text-dark font-weight-bold' >Suscribirse al canal {streamDetail[0].user}</Modal.Title>
+        <Modal.Title className='text-dark font-weight-bold' >Suscribirse al canal {streamDetail[0].name}</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
@@ -62,7 +62,7 @@ export default function PagarMP () {
                             <p><small className="text-muted">Apoya cada mes y suscríbete para que {streamDetail.title} siga haciendo eso que se le da tan bien.</small></p>
 
                             <p className="text-muted"><small>Con esta suscripción tendras los siguientes beneficios</small></p>
-                            <div className="text-muted hurry"><small>- Notificacion por correo cuando {streamDetail[0].user} empiece a transmitir</small></div>
+                            <div className="text-muted hurry"><small>- Notificacion por correo cuando {streamDetail[0].name} empiece a transmitir</small></div>
                             <div className="text-muted hurry"><small>- 1 SuperChat semanal</small></div>
                             <div className="text-muted hurry"><small>- Y mucho más</small></div>
                             <p><small className="text-muted">Planes para suscribirse</small></p>

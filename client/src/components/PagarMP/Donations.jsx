@@ -80,7 +80,7 @@ export default function Donations () {
     <Modal show={show} onHide={handleChange2}>
       
         <Modal.Header closeButton>
-        <Modal.Title className='text-dark font-weight-bold'>Donar HashCash a {streamDetail[0].user}</Modal.Title>
+        <Modal.Title className='text-dark font-weight-bold'>Donar HashCash a {streamDetail[0].name}</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
@@ -92,7 +92,7 @@ export default function Donations () {
                                 <div className={s.logo}></div>
                             
                             <h2 className='text-dark font-weight-bold fs-4 p-2'>Gracias {user.name} tu aporte es muy valioso</h2>
-                            <p><small className="text-muted fs-4">Apoya a {streamDetail[0].user} donando HashCash para siga haciendo eso que se le da tan bien.</small></p>
+                            <p><small className="text-muted fs-4">Apoya a {streamDetail[0].name} donando HashCash para siga haciendo eso que se le da tan bien.</small></p>
                             </div>
                             <div className='col-12'>
                             <label className='fs-5'>¿Cuanto HashCash desea donar?
@@ -110,7 +110,7 @@ export default function Donations () {
                             </label>
                             </div>
                             <div className='col-12'>
-                            <label className='fs-5'>Deje aqui un comentario para {streamDetail[0].user}
+                            <label className='fs-5'>Deje aqui un comentario para {streamDetail[0].name}
                             <input 
                                  className={'form-control p-2'}
                                  name='comment'

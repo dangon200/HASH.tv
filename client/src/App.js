@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 import "./App.css";
 import { useEffect } from 'react'
 import { Route, Switch } from "react-router-dom";
@@ -10,21 +11,22 @@ import LogInit from './components/LoginInit/LoginInit'
 import Nav from './components/NavBar/NavBar'
 import Home from './Pages/Home'
 import Explorar from './Pages/Explorar'
-import UserProfile from './Pages/UserProfile/UserProfile'
+import UserProfile from './components/userProfile/userProfile'
 import Support from './Pages/Support'
 import AboutUs from './Pages/AboutUs'
 // import Footer from './components/Footer/Footer'
 import Cookies from 'universal-cookie'
 import { loginUser } from '../src/store/actions/actions'
 import { useDispatch } from 'react-redux'
-import Detail from "./components/Details/Details";
+// import Detail from "./components/Details/Details";
 import Categories from "./Pages/Categories/Categories";
 import VerifyEmail from "./Pages/VerifyEmail";
 import Logout from "./components/logout/logout";
 import UserSubs from "./components/UserSubs/userSubs";
-import EditProfile from "./Pages/UserProfile/EditProfile";
+import EditProfile from "./components/FormEditUser/FormEditUser";
 import  Admin  from "./components/Admin/Admin";
-// import HomeStream from "./components/HomeStream/HomeStream";
+import HomeStream from "./components/HomeStream/HomeStream";
+import StreamProf2 from './components/MyStreams/streamProf2.jsx';
 
 function App() {
   /*  const cookies = new Cookies()
@@ -42,17 +44,17 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Route exact path={['/', '/explorar', '/user/:id', '/support', '/aboutus', '/register','/stream/:id','/categories/:id', '/stream' ]} component={Nav} />
+      <Route exact path={['/', '/explorar', '/user','/user/edit','/user/stream' ,'/user/subscriptions', '/support', '/aboutus', '/register','/stream/:id','/categories/:id', '/stream' ]} component={Nav} />
       <Switch>
       <Route exact path='/' component={Home} />
       <Route exact path='/explorar' component={Explorar} />
       <Route exact path='/register' component={LogInit} />
       <Route exact path='/support' component={Support} />
       <Route exact path='/aboutus' component={AboutUs} />
-      <Route path="/stream/:id" component={Detail} />
+      <Route path="/stream/:id" component={StreamProf2} />
       <Route path="/verify/:uniqueKey" component={VerifyEmail} />
       <Route path="/categories" component={Categories} />
-     {/*  <Route path="/user/stream" component={HomeStream} /> */}
+      <Route path="/user/stream" component={HomeStream} />
       <Route path="/categories/:id" component={Categories} />
       <Route exact path="/user" component={UserProfile} />
       <Route exact path="/user/subscriptions" component={UserSubs} />

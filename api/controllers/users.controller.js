@@ -152,11 +152,14 @@ const getUsers = async (req, res) => {
 
 const getUserById = async (req, res) => {
   try {
+    const { data } = req.body
     const { id } = req.params;
     console.log(id)
-    const usersDb = await Users.find({}).populate("roles").populate("donations").populate("myStreams");
+    console.log(data)
+    const usersDb = await Users.find({})
     if (id) {
       const filterUser = usersDb.filter((users) => users._id == id);
+      console.log(filterUser)
       filterUser.length
         ? res.send(filterUser)
         : res.send("Error al obtener Id de User");

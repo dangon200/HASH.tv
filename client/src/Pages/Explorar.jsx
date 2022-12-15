@@ -6,11 +6,11 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import style from './Explorar.module.css'
 // import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md'
-import InfiniteScroll from 'react-infinite-scroll-component';
+// import InfiniteScroll from 'react-infinite-scroll-component';
 // import App from '../components/StreamVideo/App.js'
 // import generateMuiTheme from "../components/StreamVideo/mui/theme";
 // import { ThemeProvider } from "@material-ui/styles";
-
+var InfiniteScroll = require('react-infinite-scroll-component');
 function Explorar() {
   const Streams = useSelector(state => state.streams)
   const [page, setPage] = useState(1)

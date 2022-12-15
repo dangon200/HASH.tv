@@ -9,7 +9,10 @@ const StreamSchema = new Schema(
     image: {
       type: String,
     },
-    user: {
+    banner: {
+      type: String,
+    },
+    name: {
       type: String,
     },
     category: [
@@ -22,14 +25,19 @@ const StreamSchema = new Schema(
     },
 
     ///  CRAR relacion con Subcriptores
+    Facebook: {
+      type: String,
+    },
+    Instagram: {
+      type: String,
+    },
+    Twitter: {
+      type: String,
+    },
     rules: {
       type: String,
     },
-    networks: [
-      {
-        type: String,
-      },
-    ],
+    
     contents: {
       type: String,
     },

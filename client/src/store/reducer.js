@@ -22,6 +22,7 @@ import {
   PUT_USER,
   UPDATE_USER,
   BANNED_USER,
+  UPDATE_PROFILE_PICTURE
 } from "./actions/actions";
 
 const initialState = {
@@ -40,7 +41,7 @@ const initialState = {
   subscriptions: []
 };
 
-const rootReducer = (state = initialState, action) => {
+export default function rootReducer (state = initialState, action){
   switch (action.type) {
     case GET_ALL_STREAMS:
       return {
@@ -88,29 +89,33 @@ const rootReducer = (state = initialState, action) => {
         ...state,
       };
     case GET_STREAM_ID:
+      debugger
       return {
         ...state,
-        streamDetail: action.payload,
+        streamDetail: action.payload
       };
     case GET_STREAM_NAME:
       return {
         ...state,
-        streamName: action.payload,
+        streamName: action.payload
       };
       case GET_USER_SUBSCRIPTIONS:
         return {
           ...state,
-          subscriptions: action.payload,
+          subscriptions: action.payload
         };
     case GET_CATEGORIES:
       return {
         ...state,
-        categories: action.payload,
-      };
+        categories: action.payload
+      }
     case POST_CATEGORIES:
       return {
         ...state,
       };
+      case UPDATE_PROFILE_PICTURE:
+        return { ...state, user: action.payload };
+        
     case FILTER_CATEGORIES:
       let allCategories = state.categories;
       let filterCategories;
@@ -128,7 +133,6 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         getVideoFromDatabase: action.payload,
       };
-
     case POPVIDEO:
       return {
         ...state,
@@ -138,16 +142,13 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, streams: action.payload };
     case CLEAR_FILTER:
       return { ...state, streams: state.allStreams };
-    // return { ...state, streams: action.payload }
     case UPDATE_USER: {
       return { ...state, users: action.payload };
-    }
+    };
     case BANNED_USER: {
       return { ...state, users: action.payload };
-    }
+    };
     default:
       return { ...state };
   }
 };
-
-export default rootReducer;

@@ -49,7 +49,6 @@ router.post('/hashcash', (req, res) => {
           description: req.body.description,
           unit_price: req.body.unit_price,
           quantity: 1,
-          category_id: req.body.category_id,
           id: req.body.id
       }],
       back_urls: {

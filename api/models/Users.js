@@ -36,6 +36,9 @@ const UsersSchema = new Schema(
         type: String,
       },
     ],
+    image: {
+      type: String, default: null
+    },
     HashCash: {
       type: Number, default: 0
     },

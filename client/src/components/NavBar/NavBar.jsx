@@ -18,7 +18,6 @@ export default function Navbar() {
   const showSidebar = () => setSidebar(!sidebar);
   const [sidebar2, setSidebar2] = useState(false);
   const showSidebar2 = () => setSidebar2(!sidebar2);
-  console.log(user)
 
   return (
     <>
@@ -29,7 +28,7 @@ export default function Navbar() {
           <Link to='#' className='menu-bars'>
             <FaIcons.FaListUl onClick={showSidebar} />
           </Link>
-          <img src={logo} alt="logo"/>
+          <img className='img2' src={logo} alt="logo"/>
           </div>
           <div className='search'><SeachBar/></div>
           <div className={`align-items-center justify-content-end h-100`}>

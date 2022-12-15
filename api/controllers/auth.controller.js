@@ -51,11 +51,11 @@ const signIn = async (req, res) => {
     const token = await jwt.sign({ 
       id: userFound._id,
       email: userFound.email,
-      username: userFound.name 
+      username: userFound.name,
     }, process.env.JWT_SEC, {
       expiresIn: 86400,
     });
-    const userData = {email: userFound.email, name: userFound.name, _id: userFound._id}
+    const userData = {email: userFound.email, name: userFound.name, _id: userFound._id, image: userFound.image, hashcash: userFound.HashCash}
     res.status(200).json({ user: userData, token });
   } catch (err) {
     res.status(400).json({ error: err.message });

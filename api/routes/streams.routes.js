@@ -24,7 +24,7 @@ router.get("/streams", async (req, res) => {
   }
 });
 
-router.get("/streams/id/:id", async (req, res) => {
+router.get("/streams/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const streamDb = await getStreamsDb();
@@ -32,10 +32,9 @@ router.get("/streams/id/:id", async (req, res) => {
       const filterStream = streamDb.filter(
         (stream) => stream._id.toString() === id
       );
+      console.log(filterStream)
       // console.log(filterStream);
-      filterStream.length
-        ? res.send(filterStream)
-        : res.send("Error al obtener Id de Stream");
+    res.status(200).send(filterStream)
     }
   } catch (error) {
     res.status(400).send(error);
@@ -46,11 +45,24 @@ router.post("/streams/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const data = req.body;
-    const stream = await Streams.create(data);
+    console.log(data)
+    const stream = await Streams.create({
+      title: data.title,
+      image: data.image,
+      description: data.description,
+      name: data.name,
+      banner: data.banner,
+      category: data.category,
+      Facebook: data.Facebook,
+      Instagram: data.Instagram,
+      Twitter: data.Twitter,
+      rules: data.Rules,
+    });
+    console.log(stream)
     const userStream = await Users.findOne({ _id: id });
     userStream.myStreams.push(stream._id);
     const savedStream = await userStream.save();
-    res.send(savedStream);
+    res.status(200).send(savedStream);
   } catch (error) {
     res.status(404).send("Problemas creando un Stream");
   }
@@ -136,15 +148,6 @@ router.get("/streams/filter", async (req, res) => {
   }
 });
 
-router.post("/streams", async(req,res)=>{
-  try {
-  const data= req.body
-      const stream = await Streams.create(data)
-      res.send(stream)
-  } catch (error) {
-      res.send("Error en Stream")
-  }
-})
 router.post("/streams/:id", async (req,res)=>{
 try {
     const {id} = req.params
