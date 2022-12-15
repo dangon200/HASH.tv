@@ -106,8 +106,6 @@
     height: 350px;
 }
 
-
-
 .footer{
     animation: footerAnimation 2s;
 }
@@ -146,4 +144,9 @@
     .sectionImage{
         height: 220px;
     }
+}
+.filter{
+    margin-top: 20px;
+    display: flex;
+    justify-content: end;
 }

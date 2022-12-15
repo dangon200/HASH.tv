@@ -6,7 +6,7 @@ import axios from 'axios'
 import style from './formSignUp.module.css'
 
 
-const urlApi = 'http://localhost:3001'
+const urlApi = 'https://deploy-hash-production.up.railway.app/'
 
 export default function FormLogin() {
   const dispatch = useDispatch() //eslint-disable-line

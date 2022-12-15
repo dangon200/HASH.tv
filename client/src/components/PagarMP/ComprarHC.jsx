@@ -5,7 +5,7 @@ import s from './PagarMp.module.css'
 import Modal from 'react-bootstrap/Modal'
 import { useFormik } from 'formik'
 
-const urlApi = 'http://localhost:3001'
+const urlApi = 'https://deploy-hash-production.up.railway.app'
 
 export default function ComprarHC(props) {
     const user = useSelector(state => state.user)

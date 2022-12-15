@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { categoria, lenguaje, continente } from '../utilities/data.js'
 import { useDispatch } from 'react-redux'
-import { filterCanalesStream, clearFilter, getStreams } from '../../store/actions/actions'
+import { filterCanalesStream, clearFilter, getStreams, clearStreamName } from '../../store/actions/actions'
 import s from './Filters.module.css'
 
 function Filters ({ setPage }) {
@@ -85,10 +85,12 @@ function Filters ({ setPage }) {
             continente: ''
           })
           dispatch(clearFilter())
+          dispatch(clearStreamName())
           document.getElementById('opt').selected = true
           document.getElementById('lenguaje').selected = true
           document.getElementById('categoria').selected = true
           document.getElementById('continente').selected = true
+          
         }}
       > 
         Limpiar Filtros

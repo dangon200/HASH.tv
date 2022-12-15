@@ -28,11 +28,11 @@ router.post('/', (req, res) => {
         id: req.body.id
     }],
     back_urls: {
-      success: 'http://localhost:3000/user/subscriptions/',
-      failure: 'http://localhost:3000/',
-      pending: 'http://localhost:3000/'
+      success: 'hash-tv.vercel.app/user/subscriptions/',
+      failure: 'hash-tv.vercel.app/',
+      pending: 'hash-tv.vercel.app/'
     },
-    notification_url: 'https://476e-2803-9800-9447-8622-4842-5b6e-a962-58f.sa.ngrok.io/api/subscriptions'
+    notification_url: 'hash-tv.vercel.app/api/subscriptions'
   }
   mercadopago.preferences.create(preference)
     .then(function (response) {
@@ -52,11 +52,11 @@ router.post('/hashcash', (req, res) => {
           id: req.body.id
       }],
       back_urls: {
-        success: 'http://localhost:3000/user/',
-        failure: 'http://localhost:3000/',
-        pending: 'http://localhost:3000/'
+        success: 'hash-tv.vercel.app/user/',
+        failure: 'hash-tv.vercel.app/',
+        pending: 'hash-tv.vercel.app/'
       },
-      notification_url: 'https://476e-2803-9800-9447-8622-4842-5b6e-a962-58f.sa.ngrok.io/api/hashcash'
+      notification_url: 'hash-tv.vercel.app/api/hashcash'
     }
     mercadopago.preferences.create(preference)
       .then(function (response) {

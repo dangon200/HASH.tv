@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 // import Button from 'react-bootstrap/esm/Button'
 
-const urlApi = 'http://localhost:3001'
+const urlApi = 'https://deploy-hash-production.up.railway.app'
 
 export default function PagarMP () {
   const user = useSelector((state) => state.user)
@@ -62,7 +62,7 @@ export default function PagarMP () {
                             <p><small className="text-muted">Apoya cada mes y suscríbete para que {streamDetail.title} siga haciendo eso que se le da tan bien.</small></p>
 
                             <p className="text-muted"><small>Con esta suscripción tendras los siguientes beneficios</small></p>
-                            <div className="text-muted hurry"><small>- Notificacion por correo cuando {streamDetail[0].name} empiece a transmitir</small></div>
+                            <div className="text-muted hurry"><small>- Notificacion por correo cuando {streamDetail[0].user} empiece a transmitir</small></div>
                             <div className="text-muted hurry"><small>- 1 SuperChat semanal</small></div>
                             <div className="text-muted hurry"><small>- Y mucho más</small></div>
                             <p><small className="text-muted">Planes para suscribirse</small></p>

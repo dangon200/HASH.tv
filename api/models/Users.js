@@ -71,7 +71,9 @@ const UsersSchema = new Schema(
         ref: "Rating",
       },
     ],
-    voted: {
+   
+    banned: { 
+
       type: Boolean,
       default: false,
     },

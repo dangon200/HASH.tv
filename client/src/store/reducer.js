@@ -22,7 +22,8 @@ import {
   PUT_USER,
   UPDATE_USER,
   BANNED_USER,
-  UPDATE_PROFILE_PICTURE
+  UPDATE_PROFILE_PICTURE,
+  CLEAR_STREAM_NAME
 } from "./actions/actions";
 
 const initialState = {
@@ -137,18 +138,21 @@ export default function rootReducer (state = initialState, action){
         ...state,
         popVideo: action.payload,
       };
-    case FILTER_STREAMS:
+    case FILTER_STREAMS: {
       return { ...state, streams: action.payload };
-      
-    case CLEAR_FILTER:
+    }
+    case CLEAR_FILTER:{
       return { ...state, streams: state.allStreams };
-
+    }
     case UPDATE_USER: {
       return { ...state, users: action.payload };
-    };
+    }
     case BANNED_USER: {
       return { ...state, users: action.payload };
-    };
+    }
+    case CLEAR_STREAM_NAME: {
+      return { ...state, streamName: action.payload };
+    }
     default:
       return { ...state };
   }

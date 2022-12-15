@@ -4,11 +4,18 @@ import { getStreamId } from "../../store/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import s from "./Details.module.css";
+<<<<<<< HEAD
 import styled from "styled-components";
 import PagarMP from "../PagarMP/Subscriptions";
 import Donations from "../PagarMP/Donations";
 import ComprarHC from "../PagarMP/ComprarHC";
 import Rating from "../Rating/Rating";
+=======
+import styled from 'styled-components';
+import PagarMP from "../PagarMP/Subscriptions"
+import Donations from "../PagarMP/Donations"
+import ComprarHC from "../PagarMP/ComprarHC"
+>>>>>>> 41c498fa7dbb19fcc8a2e418c9893d65aec7f6e8
 
 const Detail = (props) => {
   const streamId = props.match.params.id;

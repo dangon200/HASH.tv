@@ -66,7 +66,7 @@ const sendMail = ( username, email, uniqueKey) => {
                   <td style="padding:0 0 36px 0;color:#153643;">
                     <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Muchas Gracias por registrarse en HASH, bienvenid@ a nuestra comunidad ${username}.</h1>
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Para poder verificar tu cuenta y disfrutar de todo nuestro contenido por favor has click en el siguiente enlace:</p>
-                    <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://localhost:3000/verify/${uniqueKey}" style="color:#11F930;text-decoration:underline;">Link de Verificación</a></p>
+                    <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="hash-tv.vercel.app/verify/${uniqueKey}" style="color:#11F930;text-decoration:underline;">Link de Verificación</a></p>
                   </td>
                 </tr>
                 <tr>
@@ -136,8 +136,7 @@ const getUsers = async (req, res) => {
     const { name } = req.query;
     const usersDb = await Users.find({}).populate("roles").populate("donations").populate("myStreams");
     if (name) {
-      const filterUser = usersDb.filter((users) =>
-        users.name.toLowerCase().includes(name.toLowerCase())
+      const filterUser = usersDb.filter((users) =>users.name.toLowerCase().includes(name.toLowerCase())
       );
       filterUser.length?
       res.send(filterUser)

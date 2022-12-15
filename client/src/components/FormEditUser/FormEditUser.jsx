@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux'
 // import Cookies from 'universal-cookie'
 
 export default function FormEditUser () {
-  const urlApi = 'http://localhost:3001'
+  const urlApi = 'https://deploy-hash-production.up.railway.app/'
   const user = useSelector(state => state.user)
 
   const { handleChange, handleSubmit, handleBlur, touched, errors, values } = useFormik({

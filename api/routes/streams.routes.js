@@ -5,10 +5,22 @@ const router = Express.Router();
 const { getStreamsDb } = require("../controllers/Streams");
 const { votedRating } = require("../controllers/rating.controller");
 
-router.get("/stream1/a", async (req, res) => {
+router.get("/stream1", async (req, res) => {
   try {
-    const streamsDb = await getStreamsDb()
-    res.send(streamsDb)
+    const { name } = req.query;
+    console.log(name)
+    const streamsDb = await Streams.find({});
+    if (name) {
+      const filterStreams = streamsDb.filter((stream) =>
+
+        stream.name?.toLowerCase().includes(name.toLowerCase())
+      );
+      filterStreams.length
+        ? res.send(filterStreams)
+        : res.status(404).send("No se escontro ese Streamer");
+    } else {
+      res.send(streamsDb);
+    }
   } catch (error) {
     res.status(404).send(error);
   }

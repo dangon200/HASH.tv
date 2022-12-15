@@ -4,7 +4,7 @@ import Cookies from 'universal-cookie'
 import { useDispatch } from 'react-redux'
 import { loginUser, getFavorites } from '../../store/actions/actions'
 // const urlApi = 'http://localhost:3001'
-const urlApi = 'http://localhost:3001'
+const urlApi = 'https://deploy-hash-production.up.railway.app'
 
 export default function GoogleBtn () {
   const cookies = new Cookies()

@@ -25,8 +25,9 @@ export const CLEAN_STATE = "CLEAN_STATE";
 export const UPDATE_USER = "UPDATE_USER";
 export const BANNED_USER = "BANNED_USER";
 export const UPDATE_PROFILE_PICTURE = "UPDATE_PROFILE_PICTURE";
+export const CLEAR_STREAM_NAME= "CLEAR_STREAM_NAME"
 
-const urlApi = "http://localhost:3001";
+const urlApi = "https://deploy-hash-production.up.railway.app/";
 
 ///////// USER ACTIONS
 export const loginUser = (user) => {
@@ -75,7 +76,7 @@ export const searchByName = (name) => {
 export const postUser = (data) => {
   return async function () {
     try {
-      await axios.post("http://localhost:3001/api/auth/signup", data);
+      await axios.post("https://deploy-hash-production.up.railway.app/api/auth/signup", data);
     } catch (error) {
       return { error: error.message };
     }
@@ -97,13 +98,14 @@ export const getUserId = (id) => {
 };
 
 export const getUserName = (name) => {
-  console.log("llegue");
+  // console.log("llegue");
   return async function (dispatch) {
     try {
       const json = await axios.get(`${urlApi}/api/users?name=${name}`);
       dispatch({ type: GET_USER_NAME, payload: json.data });
     } catch (error) {
       alert("Ese usuario o stream no existe");
+    
     }
   };
 };
@@ -155,7 +157,7 @@ export const updateProfileImage = (id, url) => {
 export const getUsers = () => {
   return async function (dispatch) {
     try {
-      const json = await axios.get(`http://localhost:3001/api/users`);
+      const json = await axios.get(`https://deploy-hash-production.up.railway.app/api/users`);
       dispatch({ type: 'GET_USERS', payload: json.data });
     } catch (error) {
       return { error: error.message };
@@ -166,7 +168,7 @@ export const getUsers = () => {
 export const postStream = (data) => {
   return async function () {
     try {
-      await axios.post("http://localhost:3001/api/streams", data);
+      await axios.post("https://deploy-hash-production.up.railway.app/api/streams", data);
     } catch (error) {
       return { error: error.message };
     }
@@ -177,7 +179,7 @@ export const postStreamId = (id, data) => {
   console.log(id, data, "----------poststreamid");
   return async function () {
     try {
-      await axios.post(`http://localhost:3001/api/streams/${id}`, data);
+      await axios.post(`https://deploy-hash-production.up.railway.app/api/streams/${id}`, data);
     } catch (error) {
       return { error: error.message };
     }
@@ -187,7 +189,7 @@ export const postStreamId = (id, data) => {
 export const updateStream = (id, stream) => {
   return async () => {
     try {
-      await axios.put(`http://localhost:3001/api/streams/${id}`, stream);
+      await axios.put(`https://deploy-hash-production.up.railway.app/api/streams/${id}`, stream);
     } catch (error) {
       return { error: error.mesage };
     }
@@ -198,7 +200,7 @@ export const getStreamId = (id) => {
   return async function (dispatch) {
     try {
       const json = await axios.get(
-        `http://localhost:3001/api/streams/id/${id}`
+        `https://deploy-hash-production.up.railway.app/api/streams/id/${id}`
       );
       console.log("🚀 ~ file: actions.js:183 ~ json", json);
       dispatch({ type: GET_STREAM_ID, payload: json.data });
@@ -212,7 +214,7 @@ export const getStreamName = (name) => {
   return async function (dispatch) {
     try {
       const json = await axios.get(
-        `http://localhost:3001/api/streams?name=${name}`
+        `https://deploy-hash-production.up.railway.app/api/stream1?name=${name}`
       );
       dispatch({ type: GET_STREAM_NAME, payload: json.data });
     } catch (error) {
@@ -227,7 +229,7 @@ export const getStreams = () => {
   return async function (dispatch) {
   
     try {
-      const json = await axios.get("http://localhost:3001/api/stream1/a");
+      const json = await axios.get("https://deploy-hash-production.up.railway.app/api/stream1");
       dispatch({ type: 'GET_STREAMS', payload: json.data });
     } catch (error) {
       return { error: error.message };
@@ -238,7 +240,7 @@ export const getStreams = () => {
 export const getCategories = () => {
   return async function (dispatch) {
     try {
-      const json = await axios.get(`http://localhost:3001/api`);
+      const json = await axios.get(`https://deploy-hash-production.up.railway.app/api`);
       dispatch({ type: 'GET_CATEGORIES', payload: json.data });
     } catch (error) {
       return { error: error.message };
@@ -249,7 +251,7 @@ export const getCategories = () => {
 export const postCategories = (data) => {
   return async function () {
     try {
-      await axios.post("http://localhost:3001/categories/create", data);
+      await axios.post("https://deploy-hash-production.up.railway.app/categories/create", data);
     } catch (error) {
       return { error: error.message };
     }
@@ -318,21 +320,24 @@ export const filterCanalesStream = ({
 export const clearFilter = () => {
   return { type: "CLEAR_FILTER" };
 };
+ export const clearStreamName = () => {
+  return { type: "CLEAR_STREAM_NAME", payload: [] };
+};
 
-export const getSubscriptions = (id) => {
-  console.log(id);
-  return async function (dispatch) {
-    try {
-      const { data } = await axios.get(`${urlApi}/api/subscriptions/${id}`);
-      return dispatch({
-        type: "GET_USER_SUBSCRIPTIONS",
-        payload: data,
-      });
-    } catch (error) {
-      console.log(error);
+  export const getSubscriptions= (id) => {
+    console.log(id)
+    return async function (dispatch) {
+      try {
+        const { data } = await axios.get(`${urlApi}/api/subscriptions/${id}`)
+        return dispatch({
+          type: 'GET_USER_SUBSCRIPTIONS',
+          payload: data
+        })
+      } catch (error) {
+        console.log(error)
+      }
     }
   };
-};
 
 // BestGame
 
@@ -398,4 +403,4 @@ export const makeRating = (data) => {
       console.error(err);
     }
   };
-};
+}

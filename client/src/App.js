@@ -27,7 +27,7 @@ import EditProfile from "./components/FormEditUser/FormEditUser";
 import  Admin  from "./components/Admin/Admin";
 import HomeStream from "./components/HomeStream/HomeStream";
 import StreamProf2 from './components/MyStreams/streamProf2.jsx';
-
+import AdminInfoUser from "./components/AdminInfoUser/AdminInfoUser"
 
 function App() {
   /*  const cookies = new Cookies()
@@ -67,7 +67,8 @@ function App() {
       <Route exact path="/user/subscriptions" component={UserSubs} />
       <Route exact path="/logout" component={Logout} />
       <Route exact path="/user/edit" component={EditProfile} />
-      <Route exact path="/admin" component={Admin} />
+      <Route exact path="/admin" component={Admin}/>
+      <Route exact path="/info/:id" component={AdminInfoUser}/>
       </Switch>
     </div>
   );

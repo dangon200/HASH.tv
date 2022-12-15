@@ -13,7 +13,7 @@ function Logout() {
         dispatch(logoutUser)
         cookies.remove('TOKEN')
     }, [dispatch ,user._id])
-    document.location ="http://localhost:3000/"
+    document.location ="hash-tv.vercel.app"
     return (
         <div>
             

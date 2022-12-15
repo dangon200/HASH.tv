@@ -1,6 +1,6 @@
 import axios from 'axios'
 import swal from 'sweetalert';
-const urlApi = 'http://localhost:3001'
+const urlApi = 'https://deploy-hash-production.up.railway.app'
 
 function Verify(uniqueKey) {
     const key = uniqueKey.uniqueKey

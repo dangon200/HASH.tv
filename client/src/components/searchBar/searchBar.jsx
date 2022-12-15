@@ -3,13 +3,14 @@ import { GrSearch } from 'react-icons/gr'
 import { getStreamName} from '../../store/actions/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 export default function SeachBar ({ setPage }) {
   const dispatch = useDispatch()
+  const history = useHistory()
   const [name, setName] = useState('')
   const [alert, setAlert] = useState(false)
-  const stream = useSelector((state)=>state.streamName)
-  // console.log(stream)
+  
 ////////////////////////
 
   function handleSubmit (e) {
@@ -24,6 +25,8 @@ export default function SeachBar ({ setPage }) {
       dispatch(getStreamName(name))
       setName('')
       // setPage(1)
+      
+      history.push("/explorar")
     }
   }
 

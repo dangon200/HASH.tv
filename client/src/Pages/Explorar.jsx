@@ -14,6 +14,7 @@ import style from './Explorar.module.css'
 function Explorar() {
   const dispatch = useDispatch()
   const Streams = useSelector((state) => state.streams)
+  const streams = useSelector((state)=>state.streamName)
   console.log(Streams)
   const [page, setPage] = useState(1)
   const StreamsPerPage = 3
@@ -79,7 +80,29 @@ function Explorar() {
 
       {/* render de cards */}
       <div className={`${style.containerProducts}`}>
-        {
+        { streams.length?
+        (<>
+         <div className={`${style.containerProducts}`}>
+          {streams.map((p, index) => {
+            return (
+              <section className={style.sectionCards} key={index}>
+                <div>
+                  <Card2
+                  banner={p.banner}
+                    id={p._id}
+                    name={p.name}
+                    image={p.image}
+                    description={p.description}
+                    language={p.language}
+                    key={index}
+                  />
+                </div>
+              </section>
+            )
+          })}
+        </div>
+        </>)
+        :
           typeof Streams !== 'string' &&
           currentPageStreams.map((p, index) => {
             return (
