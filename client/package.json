@@ -51,10 +51,12 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --openssl-legacy-provider",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider && next dev",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider && next build && next export"
   },
   "eslintConfig": {
     "extends": [
