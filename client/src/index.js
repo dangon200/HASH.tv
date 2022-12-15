@@ -4,7 +4,7 @@ import 'bootstrap/dist/js/bootstrap.js';
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import App from "./App.js";
 import reportWebVitals from "./reportWebVitals";
 // import { SocketContext, socket } from './context/socket'
 import { Provider } from "react-redux";
