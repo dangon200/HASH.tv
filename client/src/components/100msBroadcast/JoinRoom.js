@@ -27,7 +27,7 @@ function JoinRoom() {
     // Joining the room
     hmsActions.join({
       userName: user.name,
-      authToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2Nlc3Nfa2V5IjoiNjM4MDQ5MzUxOTVhZDE0YmRjZDZlZDZmIiwicm9vbV9pZCI6IjYzODA0YjViYWVlNTQ2MjVkYTYzZTg3MSIsInVzZXJfaWQiOiJub3d3dHFtcSIsInJvbGUiOiJicm9hZGNhc3RlciIsImp0aSI6Ijk5M2VhYjI4LTM4OWUtNGE3ZC1iYmU0LTU1NjU4YTNlYjhkYSIsInR5cGUiOiJhcHAiLCJ2ZXJzaW9uIjoyLCJleHAiOjE2NzExMjAzOTB9.umQU05Il4tNTFsUVoTrc6ldlLFMMi4miDlOEbr31yS4",
+      authToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2Nlc3Nfa2V5IjoiNjM4MDQ5MzUxOTVhZDE0YmRjZDZlZDZmIiwicm9vbV9pZCI6IjYzODA0YjViYWVlNTQ2MjVkYTYzZTg3MSIsInVzZXJfaWQiOiJqamhydGpxYSIsInJvbGUiOiJicm9hZGNhc3RlciIsImp0aSI6IjNlODkyNDhkLTFjMDQtNGY0OS1iNmZkLWU0Mzc4ZGYzNjdlMCIsInR5cGUiOiJhcHAiLCJ2ZXJzaW9uIjoyLCJleHAiOjE2NzEyMDU0MzR9.DOu0Ux0UcIxPpGc2LVoea18ctWp_eu2eZz392_nSric",
     })
   }
   return (

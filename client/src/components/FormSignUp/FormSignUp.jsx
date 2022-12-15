@@ -1,6 +1,6 @@
 import { useFormik } from 'formik'
 import { useDispatch } from 'react-redux'
-import { schemaValidateUser } from '../utilities/schemas'
+import { schemaValidateUser } from '../utilities/schemas.js'
 import { useState } from 'react'
 import axios from 'axios'
 import style from './formSignUp.module.css'

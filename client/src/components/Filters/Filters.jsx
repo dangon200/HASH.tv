@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { categoria, lenguaje, continente } from '../utilities/data.js'
 import { useDispatch } from 'react-redux'
-import { filterCanalesStream, clearFilter, getStreams, clearStreamName } from '../../store/actions/actions'
+import { filterCanalesStream, clearFilter, getStreams, clearStreamName } from '../../store/actions/actions.js'
 import s from './Filters.module.css'
 
 function Filters ({ setPage }) {

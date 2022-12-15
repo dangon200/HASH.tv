@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Message from "./Message"
+import Message from "./Message.js"
 import { selectHMSMessages, useHMSActions, useHMSStore } from "@100mslive/react-sdk"
 import { selectPeers } from "@100mslive/react-sdk"
 

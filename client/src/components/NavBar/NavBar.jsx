@@ -6,11 +6,11 @@ import * as AiIcons from 'react-icons/ai';
 import './NavBar.css';
 import s from 'styled-components'
 import { Link } from 'react-router-dom';
-import { SidebarData, SidebarData2 } from './NavBarData';
+import { SidebarData, SidebarData2 } from './NavBarData.js';
 import { IconContext } from 'react-icons';
-import SeachBar from '../searchBar/searchBar'
-import FormLogin from '../FormLogin/FormLogin'
-import Modale from '../Modale/Modale'
+import SeachBar from '../searchBar/searchBar.jsx'
+import FormLogin from '../FormLogin/FormLogin.jsx'
+import Modale from '../Modale/Modale.jsx'
 // import Navegador from '../Navegador/Navegador.jsx'
 
 export default function Navbar() {

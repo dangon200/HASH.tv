@@ -2,10 +2,10 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { allVideoGamesDataBase, popularVideo, getStreams, getCategories } from '../store/actions/actions';
-import CardStream from '../components/Card/CardStream';
-import Card2 from '../components/Card/Card2'
-import CardCategori from '../components/CardCategori/CardCategori';
-import Slidershow from '../components/Slidershow/Slideshow';
+import CardStream from '../components/Card/CardStream.jsx';
+import Card2 from '../components/Card/Card2.jsx'
+import CardCategori from '../components/CardCategori/CardCategori.jsx';
+import Slidershow from '../components/Slidershow/Slideshow.jsx';
 import styled from 'styled-components'
 import './Home.css'
 

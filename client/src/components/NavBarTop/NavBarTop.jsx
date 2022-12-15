@@ -1,6 +1,6 @@
 import React from 'react'
-import Modale from '../Modale/Modale'
-import FormLogin from '../FormLogin/FormLogin'
+import Modale from '../Modale/Modale.jsx'
+import FormLogin from '../FormLogin/FormLogin.jsx'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './NavBarTop.css'

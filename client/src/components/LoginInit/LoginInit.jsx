@@ -1,6 +1,6 @@
-import FormSignUp from '../FormSignUp/FormSignUp'
+import FormSignUp from '../FormSignUp/FormSignUp.jsx'
 import { useState } from 'react'
-import FormLogin from '../FormLogin/FormLogin'//eslint-disable-line
+import FormLogin from '../FormLogin/FormLogin.jsx'//eslint-disable-line
 import logo from '../../utils/logo.svg'
 import style from './LoginInit.module.css' //eslint-disable-line
 

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getUserId } from "../../store/actions/actions"
-import { getStreamId } from "../../store/actions/actions"
+import { getUserId } from "../../store/actions/actions.js"
+import { getStreamId } from "../../store/actions/actions.js"
 import Modal from 'react-bootstrap/Modal'
-import NewStream from "./NewStream/NewStream"
-import Card from "./Card/Card"
+import NewStream from "./NewStream/NewStream.jsx"
+import Card from "./Card/Card.jsx"
 import './HomeStream.css'
 
 const HomeStream = () => {

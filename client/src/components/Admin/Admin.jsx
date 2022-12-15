@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getStreams, getUserId, getUsers, updateUserAdmin,updateBanned } from "../../store/actions/actions";
+import { getStreams, getUserId, getUsers, updateUserAdmin,updateBanned } from "../../store/actions/actions.js";
 import "../Admin/Admin.css"
 
 

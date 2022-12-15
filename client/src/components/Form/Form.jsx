@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import Navbar from "../NavBar/NavBar";
-import { postUser } from "../../store/actions/actions";
+import Navbar from "../NavBar/NavBar.jsx";
+import { postUser } from "../../store/actions/actions.js";
 
 const Form = () => {
     const dispatch = useDispatch()

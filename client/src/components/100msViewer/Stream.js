@@ -1,5 +1,5 @@
-import VideoTile from "./VideoTile";
-import HlsView from "./HlsView";
+import VideoTile from "./VideoTile.js";
+import HlsView from "./HlsView.js";
 import { selectLocalPeer, selectPeers, useHMSStore } from "@100mslive/react-sdk";
 
 function Stream() {

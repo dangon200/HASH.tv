@@ -13,7 +13,6 @@ import Jonathan from '../utils/developers/JonathanCardenas.jpeg';
 import github from '../utils/icons/github.png'
 import linkedin from '../utils/icons/linkedin.png'
 import styled from 'styled-components';
-import NavBarTop from '../components/NavBarTop/NavBarTop';
 
 function AboutUs() {
   return (

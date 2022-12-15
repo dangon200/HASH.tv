@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { filterCategories } from "../../store/actions/actions";
+import { filterCategories } from "../../store/actions/actions.js";
 import { Link } from "react-router-dom";
 import '../CardCategori/CardCategori.css'
 

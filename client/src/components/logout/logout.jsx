@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { logoutUser } from "../../store/actions/actions"
+import { logoutUser } from "../../store/actions/actions.js"
 import { useEffect } from "react"
 import Cookies from 'universal-cookie'
 

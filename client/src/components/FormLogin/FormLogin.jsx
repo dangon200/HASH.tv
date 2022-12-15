@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 // import { Link } from 'react-router-dom'
 import Cookies from "universal-cookie";
 import jwtdecode from "jwt-decode";
-import { schemaLogin } from "../utilities/schemas";
+import { schemaLogin } from "../utilities/schemas.js";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser, logoutUser } from "../../store/actions/actions";
+import { loginUser, logoutUser } from "../../store/actions/actions.js";
 
 export default function FormLogin() {
   const cookies = new Cookies();

@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import style from './Navegador.module.css'
 import Cookies from 'universal-cookie'
-import FormLogin from '../FormLogin/FormLogin'
+import FormLogin from '../FormLogin/FormLogin.jsx'
 
 function Navegador (props) {
   const cookies = new Cookies()
