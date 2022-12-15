@@ -52,10 +52,9 @@
   },
   "scripts": {
     "start": "react-scripts start --openssl-legacy-provider",
+    "build": "react-scripts build --openssl-legacy-provider",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "NODE_OPTIONS=--openssl-legacy-provider && next dev",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider && next build && next export"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
