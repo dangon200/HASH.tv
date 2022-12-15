@@ -7,27 +7,27 @@ import { Route, Switch } from "react-router-dom";
 /* import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import Cookies from 'universal-cookie' */
-import LogInit from './components/LoginInit/LoginInit'
-import Nav from './components/NavBar/NavBar'
-import Home from './Pages/Home'
-import Explorar from './Pages/Explorar'
-import UserProfile from './components/userProfile/userProfile'
-import Support from './Pages/Support'
-import AboutUs from './Pages/AboutUs'
+import LogInit from './components/LoginInit/LoginInit.jsx'
+import Nav from './components/NavBar/NavBar.jsx'
+import Home from './Pages/Home.js'
+import Explorar from './Pages/Explorar.jsx'
+import UserProfile from './components/userProfile/userProfile.jsx'
+import Support from './Pages/Support.jsx'
+import AboutUs from './Pages/AboutUs.jsx'
 // import Footer from './components/Footer/Footer'
 import Cookies from 'universal-cookie'
-import { loginUser } from '../src/store/actions/actions'
+import { loginUser } from '../src/store/actions/actions.js'
 import { useDispatch } from 'react-redux'
 // import Detail from "./components/Details/Details";
-import Categories from "./Pages/Categories/Categories";
-import VerifyEmail from "./Pages/VerifyEmail";
-import Logout from "./components/logout/logout";
-import UserSubs from "./components/UserSubs/userSubs";
-import EditProfile from "./components/FormEditUser/FormEditUser";
-import  Admin  from "./components/Admin/Admin";
-import HomeStream from "./components/HomeStream/HomeStream";
+import Categories from "./Pages/Categories/Categories.jsx";
+import VerifyEmail from "./Pages/VerifyEmail.jsx";
+import Logout from "./components/logout/logout.jsx";
+import UserSubs from "./components/UserSubs/userSubs.jsx";
+import EditProfile from "./components/FormEditUser/FormEditUser.jsx";
+import  Admin  from "./components/Admin/Admin.jsx";
+import HomeStream from "./components/HomeStream/HomeStream.jsx";
 import StreamProf2 from './components/MyStreams/streamProf2.jsx';
-import AdminInfoUser from "./components/AdminInfoUser/AdminInfoUser"
+import AdminInfoUser from "./components/AdminInfoUser/AdminInfoUser.js"
 
 function App() {
   /*  const cookies = new Cookies()
