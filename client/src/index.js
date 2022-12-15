@@ -8,7 +8,7 @@ import App from "./App.js";
 import reportWebVitals from "./reportWebVitals.js";
 // import { SocketContext, socket } from './context/socket'
 import { Provider } from "react-redux";
-import store from "./store/index";
+import store from "./store/index.js";
 import { BrowserRouter } from "react-router-dom";
 import { HMSRoomProvider } from "@100mslive/react-sdk";
 
