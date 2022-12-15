@@ -1,17 +1,22 @@
 .navbar {
-    background-color: #040404;
+    width: 100%;
     height: 60px;
+    background-color: #232323;
     display: flex;
     align-items: center;
-    margin: 2px;
-    border-radius: 16px;
-    position: sticky;
+    position: fixed;
     z-index: 1000;
+    margin: 0 auto;
   }
   
   .menu-bars {
-    
     margin-left: 1rem;
+    font-size: 2rem;
+    background: none;
+  }
+  .menu-bars2 {
+    margin-bottom: 1rem;
+    margin-right: 1rem;
     font-size: 2rem;
     background: none;
   }
@@ -21,14 +26,15 @@
   }
   
   .nav-menu {
-    margin: 2px;
     background-color: #000000;
     width: 230px;
-    height: 100vh;
+    height: 50%;
     display: flex;
     justify-content: center;
     align-items: start;
     position: fixed;
+    margin: 0;
+    padding: 0;
     top: 0;
     left: -100%;
     transition: 1000ms;
@@ -40,7 +46,26 @@
     left: -0;
     transition: 600ms;
   }
+  .nav-menu2 {
+    margin: 2px;
+    background-color: #000000;
+    width: 230px;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    transition: 1000ms;
+    border-radius: 16px;
+    z-index: 1001;
+  }
   
+  .nav-menu2.active {
+    right: -0;
+    transition: 600ms;
+  }
   .nav-text {
     display: flex;
     justify-content: start;
@@ -49,11 +74,33 @@
     list-style: none;
     height: 60px;
   }
+  .nav-text2 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 4px 4px 4px 4px;
+    list-style: none;
+    height: 60px;
+  }
+  .nav-text2 a {
+    text-decoration: none;
+    color: #fafafa;
+    font-size: 22px;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 6 0 0 0px;
+    border-radius: 4px;
+  }
   
+  .nav-text2 a:hover {
+    background-color: #03EFFE;
+  }
   .nav-text a {
     text-decoration: none;
     color: #fafafa;
-    font-size: 20px;
+    font-size: 22px;
     width: 95%;
     height: 100%;
     display: flex;
@@ -67,15 +114,30 @@
   }
   
   .nav-menu-items {
+    padding: 0 0 0 0;
+    padding-left: 1rem;
     width: 100%;
   }
-  
-  .navbar-toggle {
-    background-color: #000000;
+  .nav-menu-items2 {
+    padding: 0 0 0 0;
+    padding-right: 1rem;
+    width: 100%;
+    height: 70vh;
+}
+
+.navbar-ul .ul-link {
     width: 100%;
     height: 80px;
     display: flex;
     justify-content: start;
+    align-items: center;
+  }
+  .navbar-toggle2 {
+    background-color: #000000;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: end;
     align-items: center;
   }
   
@@ -83,9 +145,11 @@
     margin-left: 16px;
   }
 
-  img {
+  .img2 {
+    align-items: center;
     justify-content: start;
     margin-left: 16px;
+    padding-bottom: 1rem;
     width: 40px;
     height: 40px;
   }
@@ -102,24 +166,7 @@
   }
   .botton_stream {
     display: flex;
+    flex-direction: column;
+    height: 2.5em;
     justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    background-color: var(--btn-background-color);
-    background-color: #ff0400;
-    font-family: var(--font-family-2);
-    font-size: 1.4rem;
-    transition: all 0.3s ease;
-    margin: 0 1rem;
-    padding: 12px;
-    width: 120px; 
-    height: 20px;
-    border: none; 
-    border-radius: 10px;
-    color: rgb(255, 255, 255);
-  }
-  .submitSearch:hover{
-    background-color: #03EFFE;
-    color: var(--btn-background-color);
 }
-  

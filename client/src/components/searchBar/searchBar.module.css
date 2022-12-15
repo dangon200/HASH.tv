@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    height: 60px;
+    height: 50px;
     position: center; 
     justify-content: center
 }
@@ -12,25 +12,28 @@
     cursor: pointer;
     gap: 4px
 }
-
+.icon{
+    color: #000000;
+}
 .submitSearch {
+    width: 50px;
+    height: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     background-color: var(--btn-background-color);
-    background-color: #ff0400;
+    background-color: #e7e6de;
     font-size: 16px;
-    padding: 12px; 
     border: none; 
     border-radius: 10px;
     border: 1px solid var(--btn-background-color);
-    color: white;
+    color: #000000;
 } 
 
 .submitSearch:hover{
-    background-color: #03EFFE;
-    color: var(--btn-background-color);
+    background-color: #aeaea9;
+    color: #1c1c1c;
 }
 
 .inputSearch {

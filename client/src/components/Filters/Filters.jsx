@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { categoria, lenguaje, continente } from '../utilities/data.js'
 import { useDispatch } from 'react-redux'
-import { filterCanalesStream, clearFilter, getStreams } from '../../store/actions/actions'
+import { filterCanalesStream, clearFilter, getStreams, clearStreamName } from '../../store/actions/actions'
 import s from './Filters.module.css'
 
 function Filters ({ setPage }) {
@@ -9,13 +9,14 @@ function Filters ({ setPage }) {
     opt: '',
     categoria: '',
     lenguaje: '',
-    continente: ''
+    continente: '',
   })
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(filterCanalesStream(filter))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter])
+
   function handleSort (e) {
     setFilter({
       ...filter,
@@ -26,8 +27,8 @@ function Filters ({ setPage }) {
 
   return (
     <div className={`dropdown ${s.general}`}>
-    <div className={`dropdown-toggle px-5 py-2 ${s.filtros}`} href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-        Filtros
+      <div className={`dropdown-toggle px-5 py-2 ${s.filtros}`} href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+          Filtros
       </div>
       <ul className='dropdown-menu fs-4'>
         <li>
@@ -39,8 +40,12 @@ function Filters ({ setPage }) {
             <option value='less'> Menos suscriptores </option>
           </select>
         </li>
-         <li>
-          <select className={s.optSelect} name='categoria' onChange={e => handleSort(e)}>
+        <li>
+          <select 
+            className={s.optSelect} 
+            name='categoria' 
+            onChange={e => handleSort(e)}
+          >
             <option value='' id='categoria'> Categoria </option>
             {categoria && categoria.map((e, index) => {
               return (
@@ -77,21 +82,23 @@ function Filters ({ setPage }) {
             opt: '',
             categoria: '',
             lenguaje: '',
-            origin: ''
+            continente: ''
           })
           dispatch(clearFilter())
-          dispatch(getStreams())
+          dispatch(clearStreamName())
           document.getElementById('opt').selected = true
           document.getElementById('lenguaje').selected = true
           document.getElementById('categoria').selected = true
           document.getElementById('continente').selected = true
+          
         }}
-      > Limpiar Filtros
+      > 
+        Limpiar Filtros
       </button>
     </div>
-      )
-    }
-    export default Filters
+  )}
+    
+  export default Filters
 
     {/* <div className={`dropdown-toggle px-5 py-2 ${s.filtros}`} href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
         Filtros

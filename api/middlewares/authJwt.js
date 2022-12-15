@@ -4,7 +4,8 @@ const { Roles } = require("../models/Roles");
 
 const verifyToken = async (req, res, next) => {
   try {
-    const token = req.headers["x-access-token"];
+    const { token } = req.body;
+    console.log("🚀 ~ file: authJwt.js:8 ~ verifyToken ~ req.body", req.body);
     if (!token) return res.status(400).json({ message: "No token provided" });
     const decoded = jwt.verify(token, process.env.JWT_SEC);
     req.userId = decoded.id;

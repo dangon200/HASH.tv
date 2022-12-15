@@ -3,8 +3,82 @@
   font-size: 1.5rem;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
+  
 }
-card_sign  {
+
+
+.card_sign  {
   display: flex;
   align-items: center;
+  /* background-color: rgb(113, 113, 85); */
+  /* padding: 0; */
+}
+
+.form_label {
+  display: flex;
+  justify-content: end;  
+  box-sizing: border-box;
+  color: #f1f1f1;
+}
+
+.input_cnt {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin-top: .8em;
+  padding-bottom: .4em;
+  width: 100%;
+  /* background-color: #a99595; */
+
+}
+
+.form_label label {
+  font-weight: bold;
+  font-size: 1.3rem; 
+
+}
+
+.form_label input {
+  /* background-color: #a99595; */
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: .4em 0;
+  
+}
+
+.form_cnt {
+  background-color: #313131;
+}
+
+  
+
+
+
+
+
+
+.button_sub {
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: #000000;
+  gap: 10px;
+  font-weight: 600;
+  width: 10em;
+  height: 1.5em;
+  background-color: #03EFFE;
+  border: none;
+  margin: 1.8em 0;
+  padding: .5em;
+  transition: .3s;  
+}
+
+.button_sub:hover {
+  color: #fefefe;
+  background-color: #05cedd;
+  transition: .3s;    
 }

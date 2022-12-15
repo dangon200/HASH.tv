@@ -1,43 +1,50 @@
-const Streams = require("../models/Stream")
+const Streams = require("../models/Stream");
 
 const getStreamsDb = async () => {
-  const results = []
-
+  const results = [];
   try {
     const dbResults = await Streams.find({})
-    dbResults.forEach(r => {
+
+    dbResults.forEach((r) => {
       results.push({
         _id: r._id,
-        user: r.user,
         title: r.title,
         image: r.image,
+        banner: r.banner,
         language: r.language,
-        suscriptores: r.suscriptores,
+        susbscriptions: r.susbscriptions,
         description: r.description,
         name: r.name,
         category: r.category,
-        continent: r.continent
+        continent: r.continent,
+        Facebook: r.Facebook,
+        Instagram: r.Instagram,
+        Twitter: r.Twitter,
+        rules: r.rules
       })
     })
     return results
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
 const getAllStreamsDb = async () => {
-  const results = []
+  const results = [];
 
   try {
     const dbResults = await Publication.findAll({
-      include: [{
-        model: Product
-      }, {
-        model: User
-      }]
-    })
+      include: [
+        {
+          model: Product,
+        },
+        {
+          model: User,
+        },
+      ],
+    });
 
-    dbResults.forEach(async r => {
+    dbResults.forEach(async (r) => {
       results.push({
         id: r.id,
         title: r.title,
@@ -54,35 +61,38 @@ const getAllStreamsDb = async () => {
         origin: r.product.origin,
         userId: r.userId,
         email: r.user.email,
-        username: r.user.username
-      })
-    })
+        username: r.user.username,
+      });
+    });
 
-    return results
+    return results;
   } catch (error) {
-    throw new Error('Error tratando de obtener todas las publicaciones!')
+    throw new Error("Error tratando de obtener todas las publicaciones!");
   }
-}
+};
 
 const getStreamsUser = async (id) => {
-  const results = []
+  const results = [];
 
   try {
     const dbResults = await Publication.findAll({
-      include: [{
-        model: Product
-      }, {
-        model: User,
-        where: {
-          id
-        }
-      }],
+      include: [
+        {
+          model: Product,
+        },
+        {
+          model: User,
+          where: {
+            id,
+          },
+        },
+      ],
       where: {
-        isBanned: false
-      }
-    })
+        isBanned: false,
+      },
+    });
 
-    dbResults.forEach(async r => {
+    dbResults.forEach(async (r) => {
       results.push({
         id: r.id,
         title: r.title,
@@ -98,16 +108,18 @@ const getStreamsUser = async (id) => {
         origin: r.product.origin,
         userId: r.userId,
         email: r.user.email,
-        username: r.user.username
-      })
-    })
+        username: r.user.username,
+      });
+    });
 
-    return results
+    return results;
   } catch (error) {
-    throw new Error(`Error tratando de obtener todas las publicaciones del usuario con el id: ${id}!`)
+    throw new Error(
+      `Error tratando de obtener todas las publicaciones del usuario con el id: ${id}!`
+    );
   }
-}
+};
 
 module.exports = {
   getStreamsDb,
-}
+};

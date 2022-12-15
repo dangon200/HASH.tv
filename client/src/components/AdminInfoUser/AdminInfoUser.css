@@ -1,0 +1,12 @@
+.imge{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.col-sm-10{
+    background-color: rgb(22, 22, 22);
+}
+.grafic{
+    display: flex;
+    justify-content: center;
+}

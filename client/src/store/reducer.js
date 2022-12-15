@@ -18,13 +18,19 @@ import {
   GET_STREAMS,
   GET_CATEGORIES,
   FILTER_CATEGORIES,
+  GET_USER_SUBSCRIPTIONS,
+  PUT_USER,
+  UPDATE_USER,
+  BANNED_USER,
+  UPDATE_PROFILE_PICTURE,
+  CLEAR_STREAM_NAME
 } from "./actions/actions";
 
 const initialState = {
-  user: '',
+  user: "",
   login: true,
   users: [],
-  usersDetail: {},
+  usersDetail: [],
   streams: [],
   allStreams: [],
   streamName: [],
@@ -32,10 +38,11 @@ const initialState = {
   categories: [],
   getVideoFromDatabase: [],
   popVideo: [],
-  favorites: []
+  favorites: [],
+  subscriptions: [],
 };
 
-const rootReducer = (state = initialState, action) => {
+export default function rootReducer (state = initialState, action){
   switch (action.type) {
     case GET_ALL_STREAMS:
       return {
@@ -43,15 +50,19 @@ const rootReducer = (state = initialState, action) => {
         allStreams: action.payload,
       };
     case LOGIN_USER:
-      return { ...state, user: action.payload }
+      return { ...state, user: action.payload };
     case LOGOUT_USER:
-      return { ...state, user: '' }
+      return { ...state, user: "" };
     case GET_USERS:
       return {
         ...state,
         users: action.payload,
       };
     case POST_USER:
+      return {
+        ...state,
+      };
+    case PUT_USER:
       return {
         ...state,
       };
@@ -66,7 +77,7 @@ const rootReducer = (state = initialState, action) => {
         users: action.payload,
       };
     case GET_FAVORITES_ID:
-      return { ...state, favorites: action.payload }
+      return { ...state, favorites: action.payload };
     case GET_STREAMS:
       return {
         ...state,
@@ -81,22 +92,30 @@ const rootReducer = (state = initialState, action) => {
     case GET_STREAM_ID:
       return {
         ...state,
-        streamDetail: action.payload,
+        streamDetail: action.payload
       };
     case GET_STREAM_NAME:
       return {
         ...state,
-        streamName: action.payload,
+        streamName: action.payload
       };
+      case GET_USER_SUBSCRIPTIONS:
+        return {
+          ...state,
+          subscriptions: action.payload
+        };
     case GET_CATEGORIES:
       return {
         ...state,
-        categories: action.payload,
-      };
+        categories: action.payload
+      }
     case POST_CATEGORIES:
       return {
         ...state,
       };
+      case UPDATE_PROFILE_PICTURE:
+        return { ...state, user: action.payload };
+        
     case FILTER_CATEGORIES:
       let allCategories = state.categories;
       let filterCategories;
@@ -105,8 +124,6 @@ const rootReducer = (state = initialState, action) => {
           e.name?.includes(action.payload)
         );
       }
-      console.log(filterCategories);
-
       return {
         ...state,
       };
@@ -116,19 +133,27 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         getVideoFromDatabase: action.payload,
       };
-
     case POPVIDEO:
       return {
         ...state,
         popVideo: action.payload,
       };
-    case FILTER_STREAMS:
-      return { ...state, streams: action.payload }
-      case CLEAR_FILTER:
-        return { ...state, streams: state.allStreams }
+    case FILTER_STREAMS: {
+      return { ...state, streams: action.payload };
+    }
+    case CLEAR_FILTER:{
+      return { ...state, streams: state.allStreams };
+    }
+    case UPDATE_USER: {
+      return { ...state, users: action.payload };
+    }
+    case BANNED_USER: {
+      return { ...state, users: action.payload };
+    }
+    case CLEAR_STREAM_NAME: {
+      return { ...state, streamName: action.payload };
+    }
     default:
       return { ...state };
   }
 };
-
-export default rootReducer;

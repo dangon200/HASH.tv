@@ -131,60 +131,17 @@ const setBanned = async (id, banned) => {
 
 const setImage = async (id, url) => {
   try {
-    const userUpdated = await User.update(
-      {
-        image: url
-      },
-      {
-        where: {
-          id
-        }
-      }
-    )
-
-    if (userUpdated) {
-      const userById = await getUserById(id)
-      return userById
-    }
+    const userUpdated = await Users.findOne({_id: id})
+    userUpdated.image = url
+    const saved = await userUpdated.save();
+    console.log(userUpdated)
+    return {userUpdated}
   } catch (error) {
-    throw new Error('Error actualizando usuario!')
+    console.log(error.message)
+    res.status(400).send('ERROR')
   }
 }
 
-const setVerified = async (id, verified) => {
-  try {
-    const userUpdated = await User.update(
-      {
-        isVerified: verified
-      },
-      {
-        where: {
-          id
-        }
-      }
-    )
-
-    if (userUpdated) {
-      const userById = await getUserById(id)
-      return userById
-    }
-  } catch (error) {
-    throw new Error('Error actualizando usuario!')
-  }
-}
-
-const deleteUserById = async (id) => {
-  try {
-    const userDeleted = await User.destroy({
-      where: {
-        id
-      }
-    })
-    return userDeleted
-  } catch (error) {
-    throw new Error('Error al eliminar el usuario!')
-  }
-}
 
 module.exports = {
   createUser,
@@ -194,6 +151,4 @@ module.exports = {
   getUserById,
   setBanned,
   setImage,
-  setVerified,
-  deleteUserById
 }

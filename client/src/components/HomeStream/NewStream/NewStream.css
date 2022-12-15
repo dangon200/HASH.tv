@@ -1,0 +1,100 @@
+.form-create {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 160px 160px 160px;
+    grid-template-rows: repeat(6, auto);
+    grid-template-areas: 'a a a a a a'
+                         'b b b b b b'
+                         'c c c c c c'
+                         'e e e e e e'
+                         'w w w w w w'
+                         'f f f f f f'
+                         'h h h h h h'
+                         'n n n n n n'
+                         'g g g g g g';
+    gap: 1.5rem;
+
+    border-radius: 20px;
+    padding: 1rem;
+    background-color: #ecf0f3;
+    color: #555;
+    border: 1px solid black;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+}
+.input{
+    display: none;
+  }
+.btn{
+    background-color: #ff0400;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 1.4rem;
+  }
+  .btn:hover{
+    background-color: white;
+    color:  #56070C;
+  }
+.form-input {
+    font-size: 1.4rem;
+    display: flex;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: #ecf0f3;
+    color: #555;
+    border: 1px solid black;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+}
+
+.form-input-title {
+    grid-area: a;
+}
+.form-input-ru {
+    grid-area: h;
+}
+.form-input-ne {
+    grid-area: n;
+}
+
+.form-input-name {
+    grid-area: b;
+}
+
+.form-input-description {
+    grid-area: c;
+}
+
+.image-create {
+    grid-area: d;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 30px ;
+    background-color: aquamarine;
+    padding: 0;
+    overflow: hidden;
+}
+.form-input-image {
+    grid-area: e;
+    
+}
+.form-input-banner {
+    grid-area: w;
+    
+}
+
+
+.form-input-categories {
+    grid-area: f;
+}
+
+.form-input-create {
+    grid-area: g;
+    cursor: pointer;
+    color: #fff;
+    background-image: linear-gradient(270deg, rgb(255, 255, 255), #02c8db);
+    box-shadow: inset 3px 3px 8px #b1b1b1, inset -3px -3px 8px #ffffff;
+    border: none;
+    justify-content: center;
+}

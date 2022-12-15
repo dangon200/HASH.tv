@@ -1,27 +1,38 @@
-.title{
+/* .title{
   display: flex;
   padding: 10px;
 }
+
+.title h2 {
+  color: #f1f1f1;
+  font-weight: bold;
+}
+
 .container{
   display: flex;
   align-items:center;
   height: 30vh;
 }
 .card-container{
-  background: rgb(255,0,0);
-  background: linear-gradient(0deg, rgba(255,0,0,1) 14%, rgba(96,234,242,1) 100%);
+  border: 1px solid #000;
   opacity: 0.8;
   display: flex;
-  width: 600px;
+  width: 500px;
   height: 300px;
   border-radius: 16px;
-
+  background-color: white;
+  transition-duration: 0.4s;
 }
 .card-container:hover {
   opacity: 1.0;
 }
 .header{
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
   border-radius: 1px solid #ddd;
+  background: rgb(255,0,0);
+  background: linear-gradient(0deg, rgba(255,0,0,1) 14%, rgba(96,234,242,1) 100%);
+
 }
 .description{
   background-color: #fbfbfb;
@@ -40,10 +51,9 @@
   margin: 20px 30px;
   height: 100px;
   width: 100px;
-
 }
 
-.header a:hover img {
+.header a:hover  {
   box-shadow: 0 0 0 12px rgba(0, 0, 0,-1);
 }
 .header h2{
@@ -51,5 +61,21 @@
 }
 .header h4{
   margin-bottom: 20px;
-}
+<<<<<<< HEAD
+} */
 
+.description{
+
+  width: 280px;
+  height: 200px;
+  margin-top: 50px;
+  
+}
+.button{
+  width: 80px;
+  height: 30px;
+  border-radius: 100px;
+  cursor: pointer;
+
+  background: linear-gradient(0deg, rgba(215,0,0,1) 14%, rgba(96,234,242,1) 100%);
+}

@@ -1,5 +1,7 @@
 const Users = require("../models/Users");
-const nodemailer = require ("nodemailer")
+const nodemailer = require ("nodemailer");
+const bcrypt = require('bcryptjs')
+
 require('dotenv').config()
 
 const randomString = () => {
@@ -24,7 +26,7 @@ const sendMail = ( username, email, uniqueKey) => {
     })
 
   var mailOptions;
-  let sender = '"HASH Only Players" <soportehash@gmail.com>'
+  let sender = '"HASH Players Only" <soportehash@gmail.com>'
   mailOptions = {
     from: sender,
     to: email,
@@ -64,7 +66,7 @@ const sendMail = ( username, email, uniqueKey) => {
                   <td style="padding:0 0 36px 0;color:#153643;">
                     <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Muchas Gracias por registrarse en HASH, bienvenid@ a nuestra comunidad ${username}.</h1>
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Para poder verificar tu cuenta y disfrutar de todo nuestro contenido por favor has click en el siguiente enlace:</p>
-                    <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://localhost:3000/verify/${uniqueKey}" style="color:#11F930;text-decoration:underline;">Link de Verificación</a></p>
+                    <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="hash-tv.vercel.app/verify/${uniqueKey}" style="color:#11F930;text-decoration:underline;">Link de Verificación</a></p>
                   </td>
                 </tr>
                 <tr>
@@ -134,8 +136,7 @@ const getUsers = async (req, res) => {
     const { name } = req.query;
     const usersDb = await Users.find({}).populate("roles").populate("donations").populate("myStreams");
     if (name) {
-      const filterUser = usersDb.filter((users) =>
-        users.name.toLowerCase().includes(name.toLowerCase())
+      const filterUser = usersDb.filter((users) =>users.name.toLowerCase().includes(name.toLowerCase())
       );
       filterUser.length?
       res.send(filterUser)
@@ -150,10 +151,14 @@ const getUsers = async (req, res) => {
 
 const getUserById = async (req, res) => {
   try {
+    const { data } = req.body
     const { id } = req.params;
-    const usersDb = await Users.find({}).populate("roles");
+    console.log(id)
+    console.log(data)
+    const usersDb = await Users.find({})
     if (id) {
       const filterUser = usersDb.filter((users) => users._id == id);
+      console.log(filterUser)
       filterUser.length
         ? res.send(filterUser)
         : res.send("Error al obtener Id de User");
@@ -177,4 +182,33 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { getUsers, getUserById, deleteUser, randomString, sendMail };
+const setBanned = async (req, res) => {
+  const { id } = req.params;
+  const userId =await Users.findOne({_id:id})
+  if( userId.banned === true){
+    const user = await Users.findOneAndUpdate(
+      { _id: id },
+      {
+        banned: false,
+      }
+    );
+    const userBanned= await user.save()
+    res.status(200).send(userBanned)
+  }else{
+    const user = await Users.findOneAndUpdate(
+      { _id: id },
+      {
+        banned: true,
+      }
+    );
+    const userNoBanned= await user.save()
+    res.status(200).send(userNoBanned)
+  }
+}
+
+
+
+
+
+
+module.exports = { getUsers, getUserById, deleteUser, randomString, sendMail,setBanned};
